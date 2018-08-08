@@ -8,5 +8,5 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 public class IsDiscoveryLookingFor
 {
     public static SpireField<String> Spells = new SpireField<>("False");
-    public static SpireField<String> Techniques = new SpireField<>("False");
+    public static SpireField<String> Techniques = new SpireField<>("False"); //currently unused
 }
