@@ -1,0 +1,9 @@
+Read through the pom.xml comments to see which parts of it you should change.
+
+Before being able to use any of the libraries inside of the libs folder your IDE may ask to import
+changes for maven. This will create the External Libraries for your project based on what dependencies
+are inside of the pom.xml.
+
+To build your mod type "mvn package" into the command line where the pom.xml is located. This will create a jar file
+that will be your completed mod.
+

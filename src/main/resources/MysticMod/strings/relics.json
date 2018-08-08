@@ -1,0 +1,7 @@
+{
+  "MysticMod:SpellBook": {
+    "NAME": "Spell Book",
+    "FLAVOR": "A special tome unique to every caster. Contains records of spells that only the writer understands.",
+    "DESCRIPTIONS": ["At the start of each combat, add a random Cantrip to your hand"]
+  }
+}
