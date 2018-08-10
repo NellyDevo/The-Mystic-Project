@@ -21,6 +21,13 @@ import MysticMod.Cards.PowerSlash;
 import MysticMod.Cards.SuddenClarity;
 import MysticMod.Cards.Spellstrike;
 import MysticMod.Cards.KnowledgePool;
+import MysticMod.Cards.MirrorEntity;
+import MysticMod.Cards.GeminiForm;
+import MysticMod.Cards.Momentum;
+import MysticMod.Cards.SpontaneousCaster;
+import MysticMod.Cards.ObscuringMist;
+import MysticMod.Cards.GreaterInvisibility;
+import MysticMod.Cards.MysticalShield;
 import MysticMod.Character.MysticCharacter;
 import MysticMod.Patches.MysticEnum;
 import MysticMod.Relics.MysticSpellBook;
@@ -81,7 +88,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new ShockingGrasp());
         BaseMod.addCard(new ArcaneDodge());
 
-        //Cantrips. 2 attacks, 3 skills
+        //"Cantrips". 2 attacks, 3 skills
         BaseMod.addCard(new AcidSplash());
         BaseMod.addCard(new Prestidigitation());
         BaseMod.addCard(new RayOfFrost());
@@ -98,12 +105,19 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new FloatingDisk());
         BaseMod.addCard(new ComboCaster());
 
-        //Rares. 2 attacks, 2 skills, 1 power
+        //Rares. 2 attacks, 4 skills, 6 powers
         BaseMod.addCard(new Disintegrate());
         BaseMod.addCard(new Haste());
         BaseMod.addCard(new Discipline());
         BaseMod.addCard(new Spellstrike());
         BaseMod.addCard(new KnowledgePool());
+        BaseMod.addCard(new MirrorEntity());
+        BaseMod.addCard(new GeminiForm());
+        BaseMod.addCard(new Momentum());
+        BaseMod.addCard(new SpontaneousCaster());
+        BaseMod.addCard(new ObscuringMist());
+        BaseMod.addCard(new GreaterInvisibility());
+        BaseMod.addCard(new MysticalShield());
     }
 
     @Override

@@ -13,6 +13,7 @@ public class TechniquesPlayed extends AbstractPower {
     public static final String POWER_ID = "MysticMod:TechniquesPlayedPower";
     public static final String NAME = "Techniques Played";
     public static final String[] DESCRIPTIONS = new String[]{ "You have played ", "Technique this turn.", "Techniques this turn." };
+
     public TechniquesPlayed(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;

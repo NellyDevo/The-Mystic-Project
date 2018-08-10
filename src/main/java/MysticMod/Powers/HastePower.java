@@ -13,6 +13,7 @@ public class HastePower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:HastePower";
     public static final String NAME = "Haste";
     public static final String DESCRIPTIONS = "Draw 1 card and gain [E] each turn.";
+
     public HastePower(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -35,6 +36,4 @@ public class HastePower extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(AbstractDungeon.player, 1));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainEnergyAction(1));
     }
-
-
 }

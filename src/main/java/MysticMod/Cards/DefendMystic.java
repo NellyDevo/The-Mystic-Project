@@ -34,6 +34,9 @@ public class DefendMystic
     }
 
     @Override
+    public boolean isDefend() { return true; }
+
+    @Override
     public AbstractCard makeCopy() {
         return new DefendMystic();
     }

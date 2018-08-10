@@ -7,52 +7,54 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
 
 import basemod.abstracts.CustomCard;
 
-public class FloatingDisk
+public class ObscuringMist
         extends CustomCard {
-    public static final String ID = "MysticMod:FloatingDisk";
-    public static final String NAME = "Floating Disk";
-    public static final String DESCRIPTION = "Spell. NL Apply !B! block. NL Technical: gain !M! Dexterity. Exhaust.";
-    public static final String IMG_PATH = "MysticMod/images/cards/floatingdisk.png";
-    private static final int COST = 1;
-    private static final int BLOCK_AMT = 6;
-    private static final int DEXTERITY_GAIN = 1;
-    private static final int DEXTERITY_PLUS_UPG = 1;
+    public static final String ID = "MysticMod:ObscuringMist";
+    public static final String NAME = "Obscuring Mist";
+    public static final String DESCRIPTION = "Spell. Apply !B! Block. NL Technical: gain 1 Artifact. NL Exhaust.";
+    public static final String IMG_PATH = "MysticMod/images/cards/obscuringmist.png";
+    private static final int COST = 2;
+    private static final int BLOCK_AMT = 15;
+    private static final int UPGRADE_BLOCK_PLUS = 5;
 
-    public FloatingDisk() {
+    public ObscuringMist() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
-                AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.magicNumber = this.baseMagicNumber = DEXTERITY_GAIN;
+                AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
+        this.block = this.baseBlock = BLOCK_AMT;
+
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //block
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
+        //Technical: artifact
         if ((p.hasPower(TechniquesPlayed.POWER_ID)) && (p.getPower(TechniquesPlayed.POWER_ID).amount >= 1)) {
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new ArtifactPower(p, 1), 1));
         }
+        //spell functionality
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new FloatingDisk();
+        return new ObscuringMist();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(DEXTERITY_PLUS_UPG);
+            this.upgradeBlock(UPGRADE_BLOCK_PLUS);
         }
     }
 }

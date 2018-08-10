@@ -37,6 +37,9 @@ public class StrikeMystic
     }
 
     @Override
+    public boolean isStrike() {return true;}
+
+    @Override
     public AbstractCard makeCopy() {
         return new StrikeMystic();
     }
