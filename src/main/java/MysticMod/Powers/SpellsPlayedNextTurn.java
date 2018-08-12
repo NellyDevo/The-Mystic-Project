@@ -8,11 +8,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 public class SpellsPlayedNextTurn extends AbstractPower {
     public static final String POWER_ID = "MysticMod:SpellsPlayedNextTurnPower";
-    public static final String NAME = "Spells Next Turn";
-    public static final String[] DESCRIPTIONS = new String[]{ "Start next turn as if you already played ", "Spell.", "Spells." };
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public SpellsPlayedNextTurn(AbstractCreature owner, int amount) {
         this.name = NAME;

@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.TechniquesPlayed;
 import MysticMod.Actions.PlaySpellAttackFromDrawPile;
@@ -18,8 +20,10 @@ import basemod.abstracts.CustomCard;
 public class Spellstrike
         extends CustomCard {
     public static final String ID = "MysticMod:Spellstrike";
-    public static final String NAME = "Spellstrike";
-    public static final String DESCRIPTION = "Technique. NL Deal !D! damage. NL search your draw pile for an Attack Spell and play it. NL Exhaust.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/spellstrike.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 11;
@@ -31,14 +35,6 @@ public class Spellstrike
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.exhaust = true;
-        //if (AbstractDungeon.Player.drawPile.group.size > 0) {
-        //    for (final AbstractCard AttackSpell : AbstractDungeon.Player.drawPile.group){
-        //        if ((AttackSpell.CardType == AbstractCard.CardType.ATTACK) && (AttackSpell.rawDescription.startsWith("Spell."))){
-        //            modal.addOption(AttackSpell);
-        //        }
-        //        modal.Create();
-        //    }
-        //}
     }
 
     @Override

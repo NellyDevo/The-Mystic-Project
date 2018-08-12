@@ -8,13 +8,16 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
 
 public class DisciplinePower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:DisciplinePower";
-    public static final String NAME = "Discipline";
-    public static final String[] DESCRIPTIONS = new String[]{ "Begin each turn as if you had already played", "Spell and Technique this turn.", "Spells and Techniques this turn." };
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public DisciplinePower(AbstractCreature owner, int amount) {
         this.name = NAME;

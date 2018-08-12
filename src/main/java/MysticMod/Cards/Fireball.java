@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
@@ -17,8 +19,10 @@ import basemod.abstracts.CustomCard;
 public class Fireball
         extends CustomCard {
     public static final String ID = "MysticMod:Fireball";
-    public static final String NAME = "Fireball";
-    public static final String DESCRIPTION = "Spell. NL Deal !D! damage. Technical: deal it to all enemies.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/fireball.png";
     private static final int COST = 2;
     public static final int ATTACK_DMG = 16;

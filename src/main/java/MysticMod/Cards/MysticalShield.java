@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.MysticalShieldPower;
 import MysticMod.Powers.MysticalShieldUpgradedPower;
@@ -16,9 +18,10 @@ import basemod.abstracts.CustomCard;
 public class MysticalShield
         extends CustomCard {
     public static final String ID = "MysticMod:MysticalShield";
-    public static final String NAME = "Mystical Shield";
-    public static final String DESCRIPTION = "Block is reduced to 10 instead of 0 at the start of your turn.";
-    public static final String UPGRADE_DESCRIPTION = "Block is set to 10 instead of 0 at the start of your turn.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/mysticalshield.png";
     private static final int COST = 2;
 

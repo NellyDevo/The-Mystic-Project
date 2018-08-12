@@ -12,6 +12,7 @@ import MysticMod.Powers.GeminiFormPower;
 import MysticMod.Powers.MomentumPower;
 import MysticMod.Powers.TechniquesPlayed;
 import MysticMod.Powers.SpellsPlayed;
+import MysticMod.MysticMod;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.math.*;
 import java.io.*;
@@ -22,70 +23,79 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="calculateCardDamage")
 public class CalculateCardDamageMomentumPatch {
 
-    public static void Postfix(AbstractCard card, AbstractMonster mo) {
+    public static void Postfix(AbstractCard __card_instance, AbstractMonster mo) {
         //only run code if momentum power exists
         if (AbstractDungeon.player.hasPower(MomentumPower.POWER_ID)) {
             //copy entire calculateCardDamage method and re-do calculations
-            //card.applyPowersToBlock(); removed; method is already called in original method
-            final AbstractPlayer player = AbstractDungeon.player;
-            card.isDamageModified = false;
-            //BEGIN Momentum isSpell and isTechnique calcultations
+            //BEGIN re-do ApplyPowersToBlock to fix minor calculation error
+            __card_instance.isBlockModified = false;
+            float tmpBlock = __card_instance.baseBlock;
+            for (final AbstractPower p : AbstractDungeon.player.powers) {
+                tmpBlock = p.modifyBlock(tmpBlock);
+                if (__card_instance.baseBlock == MathUtils.floor(tmpBlock)) {
+                    continue;
+                }
+                __card_instance.isBlockModified = true;
+            }
+            //BEGIN patch logic
             boolean isSpell = false;
             boolean isTechnique = false;
             //Determine if card is a spell
-            if (card.rawDescription.startsWith("Spell.")) {
+            if (MysticMod.isThisASpell(__card_instance, true)) {
                 isSpell = true;
             }
             //Determine if card is a technique
-            if (card.rawDescription.startsWith("Technique.")) {
+            if (MysticMod.isThisATechnique(__card_instance, true)) {
                 isTechnique = true;
             }
-            //Determine if card is affected by Gemini Form
-            int attacksAndSkillsPlayedThisTurn = 0;
-            for (AbstractCard playedCard : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-                if (playedCard.type == AbstractCard.CardType.ATTACK || playedCard.type == AbstractCard.CardType.SKILL) {
-                    attacksAndSkillsPlayedThisTurn++;
-                }
+            //Add techniques played to tmp if card is a spell
+            if (isSpell && AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+                tmpBlock = tmpBlock + AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
             }
-            if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID) && attacksAndSkillsPlayedThisTurn < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
-                isSpell = true;
-                isTechnique = true;
+            //Add spells played to tmp if card is a technique
+            if (isTechnique && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+                tmpBlock = tmpBlock + AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
             }
-            attacksAndSkillsPlayedThisTurn = 0;
-            //Squeeze in additional logic for spells and techniques here in the future
-            //END Momentum isSpell and isTechnique calculations
+            //END patch logic
+            if (tmpBlock < 0.0f) {
+                tmpBlock = 0.0f;
+            }
+            __card_instance.block = MathUtils.floor(tmpBlock);
+            //END re-do ApplyPowersToBlock
+            final AbstractPlayer player = AbstractDungeon.player;
+            __card_instance.isDamageModified = false;
             //if (!this.isMultiDamage && mo != null) boolean isMultiDamage is protected, need reflection to access
-            boolean multiDamageBoolean = (boolean) ReflectionHacks.getPrivate(card, AbstractCard.class, "isMultiDamage");
+            boolean multiDamageBoolean = (boolean) ReflectionHacks.getPrivate(__card_instance, AbstractCard.class, "isMultiDamage");
             if (!multiDamageBoolean && mo != null) {
-                float tmp = card.baseDamage;
-                if (card instanceof PerfectedStrike) {
-                    if (card.upgraded) {
+                float tmp = __card_instance.baseDamage;
+                if (__card_instance instanceof PerfectedStrike) {
+                    if (__card_instance.upgraded) {
                         tmp += 3 * PerfectedStrike.countCards();
                     } else {
                         tmp += 2 * PerfectedStrike.countCards();
                     }
-                    if (card.baseDamage != (int) tmp) {
-                        card.isDamageModified = true;
+                    if (__card_instance.baseDamage != (int) tmp) {
+                        __card_instance.isDamageModified = true;
                     }
                 }
-                if (AbstractDungeon.player.hasRelic("WristBlade") && card.costForTurn == 0) {
+                if (AbstractDungeon.player.hasRelic("WristBlade") && __card_instance.costForTurn == 0) {
                     tmp += 3.0f;
-                    if (card.baseDamage != (int) tmp) {
-                        card.isDamageModified = true;
+                    if (__card_instance.baseDamage != (int) tmp) {
+                        __card_instance.isDamageModified = true;
                     }
                 }
                 for (final AbstractPower p : player.powers) {
-                    if (card instanceof HeavyBlade && p instanceof StrengthPower) {
-                        if (card.upgraded) {
-                            tmp = p.atDamageGive(tmp, card.damageTypeForTurn);
-                            tmp = p.atDamageGive(tmp, card.damageTypeForTurn);
+                    if (__card_instance instanceof HeavyBlade && p instanceof StrengthPower) {
+                        if (__card_instance.upgraded) {
+                            tmp = p.atDamageGive(tmp, __card_instance.damageTypeForTurn);
+                            tmp = p.atDamageGive(tmp, __card_instance.damageTypeForTurn);
                         }
-                        tmp = p.atDamageGive(tmp, card.damageTypeForTurn);
-                        tmp = p.atDamageGive(tmp, card.damageTypeForTurn);
+                        tmp = p.atDamageGive(tmp, __card_instance.damageTypeForTurn);
+                        tmp = p.atDamageGive(tmp, __card_instance.damageTypeForTurn);
                     }
-                    tmp = p.atDamageGive(tmp, card.damageTypeForTurn);
-                    if (card.baseDamage != (int) tmp) {
-                        card.isDamageModified = true;
+                    tmp = p.atDamageGive(tmp, __card_instance.damageTypeForTurn);
+                    if (__card_instance.baseDamage != (int) tmp) {
+                        __card_instance.isDamageModified = true;
                     }
                 }
                 //BEGIN Momentum calculations for isMultiDamage = false
@@ -100,46 +110,46 @@ public class CalculateCardDamageMomentumPatch {
                 //END Momentum calculations for isMultiDamage = false
                 if (mo != null) {
                     for (final AbstractPower p : mo.powers) {
-                        tmp = p.atDamageReceive(tmp, card.damageTypeForTurn);
+                        tmp = p.atDamageReceive(tmp, __card_instance.damageTypeForTurn);
                     }
                 }
                 for (final AbstractPower p : player.powers) {
-                    tmp = p.atDamageFinalGive(tmp, card.damageTypeForTurn);
-                    if (card.baseDamage != (int) tmp) {
-                        card.isDamageModified = true;
+                    tmp = p.atDamageFinalGive(tmp, __card_instance.damageTypeForTurn);
+                    if (__card_instance.baseDamage != (int) tmp) {
+                        __card_instance.isDamageModified = true;
                     }
                 }
                 if (mo != null) {
                     for (final AbstractPower p : mo.powers) {
-                        tmp = p.atDamageFinalReceive(tmp, card.damageTypeForTurn);
-                        if (card.baseDamage != (int) tmp) {
-                            card.isDamageModified = true;
+                        tmp = p.atDamageFinalReceive(tmp, __card_instance.damageTypeForTurn);
+                        if (__card_instance.baseDamage != (int) tmp) {
+                            __card_instance.isDamageModified = true;
                         }
                     }
                 }
                 if (tmp < 0.0f) {
                     tmp = 0.0f;
                 }
-                card.damage = MathUtils.floor(tmp);
+                __card_instance.damage = MathUtils.floor(tmp);
             } else {
                 final ArrayList<AbstractMonster> m = AbstractDungeon.getCurrRoom().monsters.monsters;
                 final float[] tmp2 = new float[m.size()];
                 for (int i = 0; i < tmp2.length; ++i) {
-                    tmp2[i] = card.baseDamage;
+                    tmp2[i] = __card_instance.baseDamage;
                 }
                 for (int i = 0; i < tmp2.length; ++i) {
-                    if (AbstractDungeon.player.hasRelic("WristBlade") && card.cost == 0) {
+                    if (AbstractDungeon.player.hasRelic("WristBlade") && __card_instance.cost == 0) {
                         final float[] array = tmp2;
                         final int n = i;
                         array[n] += 3.0f;
-                        if (card.baseDamage != (int) tmp2[i]) {
-                            card.isDamageModified = true;
+                        if (__card_instance.baseDamage != (int) tmp2[i]) {
+                            __card_instance.isDamageModified = true;
                         }
                     }
                     for (final AbstractPower p2 : player.powers) {
-                        tmp2[i] = p2.atDamageGive(tmp2[i], card.damageTypeForTurn);
-                        if (card.baseDamage != (int) tmp2[i]) {
-                            card.isDamageModified = true;
+                        tmp2[i] = p2.atDamageGive(tmp2[i], __card_instance.damageTypeForTurn);
+                        if (__card_instance.baseDamage != (int) tmp2[i]) {
+                            __card_instance.isDamageModified = true;
                         }
                     }
                 }
@@ -160,22 +170,22 @@ public class CalculateCardDamageMomentumPatch {
                 for (int i = 0; i < tmp2.length; ++i) {
                     for (final AbstractPower p2 : m.get(i).powers) {
                         if (!m.get(i).isDying && !m.get(i).isEscaping) {
-                            tmp2[i] = p2.atDamageReceive(tmp2[i], card.damageTypeForTurn);
+                            tmp2[i] = p2.atDamageReceive(tmp2[i], __card_instance.damageTypeForTurn);
                         }
                     }
                 }
                 for (int i = 0; i < tmp2.length; ++i) {
                     for (final AbstractPower p2 : player.powers) {
-                        tmp2[i] = p2.atDamageFinalGive(tmp2[i], card.damageTypeForTurn);
-                        if (card.baseDamage != (int) tmp2[i]) {
-                            card.isDamageModified = true;
+                        tmp2[i] = p2.atDamageFinalGive(tmp2[i], __card_instance.damageTypeForTurn);
+                        if (__card_instance.baseDamage != (int) tmp2[i]) {
+                            __card_instance.isDamageModified = true;
                         }
                     }
                 }
                 for (int i = 0; i < tmp2.length; ++i) {
                     for (final AbstractPower p2 : m.get(i).powers) {
                         if (!m.get(i).isDying && !m.get(i).isEscaping) {
-                            tmp2[i] = p2.atDamageFinalReceive(tmp2[i], card.damageTypeForTurn);
+                            tmp2[i] = p2.atDamageFinalReceive(tmp2[i], __card_instance.damageTypeForTurn);
                         }
                     }
                 }
@@ -184,11 +194,11 @@ public class CalculateCardDamageMomentumPatch {
                         tmp2[i] = 0.0f;
                     }
                 }
-                card.multiDamage = new int[tmp2.length];
+                __card_instance.multiDamage = new int[tmp2.length];
                 for (int i = 0; i < tmp2.length; ++i) {
-                    card.multiDamage[i] = MathUtils.floor(tmp2[i]);
+                    __card_instance.multiDamage[i] = MathUtils.floor(tmp2[i]);
                 }
-                card.damage = card.multiDamage[0];
+                __card_instance.damage = __card_instance.multiDamage[0];
             }
         }
     }

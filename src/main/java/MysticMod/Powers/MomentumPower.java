@@ -10,12 +10,15 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Powers.GeminiFormPower;
 
 public class MomentumPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:MomentumPower";
-    public static final String NAME = "Momentum";
-    public static final String DESCRIPTIONS = "Spells and Techniques deal extra damage and apply extra block for each card of the other type played this turn";
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public MomentumPower(AbstractCreature owner) {
         this.name = NAME;
@@ -31,7 +34,7 @@ public class MomentumPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS;
+        description = DESCRIPTIONS[0];
     }
 
     @Override

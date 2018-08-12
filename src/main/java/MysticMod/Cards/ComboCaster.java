@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.ComboCasterPower;
 
@@ -15,8 +17,10 @@ import basemod.abstracts.CustomCard;
 public class ComboCaster
         extends CustomCard {
     public static final String ID = "MysticMod:ComboCaster";
-    public static final String NAME = "Combo Caster";
-    public static final String DESCRIPTION = "At the start of each turn, add a random Cantrip to your hand.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/combocaster.png";
     private static final int COST = 2;
     public static final int UPGRADE_COST = 1;

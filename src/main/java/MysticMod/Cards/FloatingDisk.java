@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
@@ -17,8 +19,10 @@ import basemod.abstracts.CustomCard;
 public class FloatingDisk
         extends CustomCard {
     public static final String ID = "MysticMod:FloatingDisk";
-    public static final String NAME = "Floating Disk";
-    public static final String DESCRIPTION = "Spell. NL Apply !B! block. NL Technical: gain !M! Dexterity. Exhaust.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/floatingdisk.png";
     private static final int COST = 1;
     private static final int BLOCK_AMT = 6;

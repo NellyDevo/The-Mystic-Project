@@ -28,21 +28,38 @@ import MysticMod.Cards.SpontaneousCaster;
 import MysticMod.Cards.ObscuringMist;
 import MysticMod.Cards.GreaterInvisibility;
 import MysticMod.Cards.MysticalShield;
+import MysticMod.Cards.Doublecast;
+import MysticMod.Cards.Natural20;
+import MysticMod.Cards.PreparedCaster;
+import MysticMod.Cards.Lunge;
+import MysticMod.Cards.SpellRecall;
+import MysticMod.Cards.ClosingBarrage;
+import MysticMod.Cards.Flourish;
+import MysticMod.Cards.Dedication;
 import MysticMod.Character.MysticCharacter;
 import MysticMod.Patches.MysticEnum;
 import MysticMod.Relics.MysticSpellBook;
+import MysticMod.Powers.GeminiFormPower;
+import MysticMod.Powers.SpellsPlayed;
+import MysticMod.Powers.TechniquesPlayed;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.Gdx;
+import java.util.*;
 
 @SpireInitializer
 public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber {
@@ -64,7 +81,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public static final String badgeImg = "MysticMod/images/badge.png";
 
     public MysticMod(){
-       BaseMod.subscribe(this);
+        BaseMod.subscribe(this);
 
         BaseMod.addColor(AbstractCardEnum.MYSTIC_PURPLE.toString(),
                 mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple,   //Background color, back color, frame color, frame outline color, description box color, glow color
@@ -76,9 +93,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
         //This creates an instance of our classes and gets our code going after BaseMod and ModTheSpire initialize.
         MysticMod mysticMod = new MysticMod();
-
-        //Look at the BaseMod wiki for getting started. (Skip the decompiling part. It's not needed right now)
-
     }
     @Override
     public void receiveEditCards() {
@@ -100,12 +114,14 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new SuddenClarity());
         BaseMod.addCard(new PowerSlash());
 
-        //Uncommons. 1 attack, 1 skill, 1 power
+        //Uncommons. 2 attacks, 1 skill, 2 powers
         BaseMod.addCard(new Fireball());
         BaseMod.addCard(new FloatingDisk());
         BaseMod.addCard(new ComboCaster());
+        BaseMod.addCard(new Flourish());
+        BaseMod.addCard(new Dedication());
 
-        //Rares. 2 attacks, 4 skills, 6 powers
+        //Rares. 3 attacks, 9 skills, 6 powers
         BaseMod.addCard(new Disintegrate());
         BaseMod.addCard(new Haste());
         BaseMod.addCard(new Discipline());
@@ -118,6 +134,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new ObscuringMist());
         BaseMod.addCard(new GreaterInvisibility());
         BaseMod.addCard(new MysticalShield());
+        BaseMod.addCard(new Doublecast());
+        BaseMod.addCard(new Natural20());
+        BaseMod.addCard(new PreparedCaster());
+        BaseMod.addCard(new Lunge());
+        BaseMod.addCard(new SpellRecall());
+        BaseMod.addCard(new ClosingBarrage());
     }
 
     @Override
@@ -145,10 +167,63 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public void receiveEditStrings() {
         String relicStrings = Gdx.files.internal("MysticMod/strings/relics.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
+        String cardStrings = Gdx.files.internal("MysticMod/strings/cards.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
+        String powerStrings = Gdx.files.internal("MysticMod/strings/powers.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
     }
 
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new MysticSpellBook(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+    }
+
+    public static boolean isThisASpell(final AbstractCard card, final boolean onUseCard) { //Is this a pigeon?
+        if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
+            if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
+                int attackOrSkillNumber = GeminiFormPower.attacksAndSkillsPlayedThisTurn;
+                if (onUseCard) {
+                    attackOrSkillNumber--;
+                }
+                if (attackOrSkillNumber < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
+                    return true;
+                }
+            } else if (card.rawDescription.startsWith("Spell.")) {
+                return true;
+            } else if (card.rawDescription.startsWith("Cantrip.")) {
+                if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || (AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount < 2)) {
+                    return true;
+                }
+            } else { return false; }
+        } else { return false; }
+        return false; //how did you get here
+    }
+
+    public static boolean isThisATechnique(final AbstractCard card, final boolean onUseCard) {
+        if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
+            if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
+                int attackOrSkillNumber = GeminiFormPower.attacksAndSkillsPlayedThisTurn;
+                if (onUseCard) {
+                    attackOrSkillNumber--;
+                }
+                if (attackOrSkillNumber < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
+                    return true;
+                }
+            } else if (card.rawDescription.startsWith("Technique.")) {
+                return true;
+            } else { return false; }
+        } else { return false; }
+        return false; //how did you get here
+    }
+
+    public static AbstractCard returnTrulyRandomSpell() {
+        final ArrayList<AbstractCard> list = new ArrayList<AbstractCard>();
+        for (final Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
+            final AbstractCard card = potentialSpell.getValue();
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rawDescription.startsWith("Spell.")) {
+                list.add(card);
+            }
+        }
+        return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
     }
 }

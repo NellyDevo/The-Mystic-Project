@@ -10,12 +10,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import java.util.*;
+import MysticMod.MysticMod;
 
 public class MirrorEntityPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:MirrorEntityPower";
-    public static final String NAME = "Mirror Entity";
-    public static final String DESCRIPTIONS = "Spells and Techniques played carry over to the next turn";
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public MirrorEntityPower(AbstractCreature owner) {
         this.name = NAME;
@@ -31,25 +35,16 @@ public class MirrorEntityPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS;
+        description = DESCRIPTIONS[0];
     }
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (card.rawDescription.startsWith("Spell.")) {
+        if (MysticMod.isThisASpell(card, true)) {
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayedNextTurn(AbstractDungeon.player, 1), 1));
         }
-        if (card.rawDescription.startsWith("Technique.")) {
+        if (MysticMod.isThisATechnique(card, true)) {
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechniquesPlayedNextTurn(AbstractDungeon.player, 1), 1));
-        }
-        if (card.rawDescription.startsWith("Cantrip.")) {
-            if (
-                    !(AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID))
-                            ||
-                            (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && (AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1))
-            ) {
-                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayedNextTurn(AbstractDungeon.player, 1), 1));
-            }
         }
     }
 }

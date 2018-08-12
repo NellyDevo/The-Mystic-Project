@@ -7,12 +7,15 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 
 public class HastePower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:HastePower";
-    public static final String NAME = "Haste";
-    public static final String DESCRIPTIONS = "Draw 1 card and gain [E] each turn.";
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public HastePower(AbstractCreature owner) {
         this.name = NAME;
@@ -28,7 +31,7 @@ public class HastePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-            description = DESCRIPTIONS;
+            description = DESCRIPTIONS[0];
     }
 
     @Override

@@ -8,11 +8,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 public class TechniquesPlayed extends AbstractPower {
     public static final String POWER_ID = "MysticMod:TechniquesPlayedPower";
-    public static final String NAME = "Techniques Played";
-    public static final String[] DESCRIPTIONS = new String[]{ "You have played ", "Technique this turn.", "Techniques this turn." };
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public TechniquesPlayed(AbstractCreature owner, int amount) {
         this.name = NAME;

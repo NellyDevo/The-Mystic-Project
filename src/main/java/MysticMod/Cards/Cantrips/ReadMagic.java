@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.SpellsPlayed;
 
@@ -15,8 +17,10 @@ import basemod.abstracts.CustomCard;
 public class ReadMagic
         extends CustomCard {
     public static final String ID = "MysticMod:ReadMagic";
-    public static final String NAME = "Read Magic";
-    public static final String DESCRIPTION = "Cantrip. NL Draw !M! cards. Exhaust.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/readmagic.png";
     private static final int COST = 0;
     private static final int DRAW = 2;

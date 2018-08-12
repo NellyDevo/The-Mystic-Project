@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
 import MysticMod.Cards.Cantrips.*;
@@ -16,8 +18,11 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 
 public class ComboCasterPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:ComboCasterPower";
-    public static final String NAME = "Combo Caster";
-    public static final String[] DESCRIPTIONS = new String[]{ "At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand" };
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
+    //public static final String NAME = "Combo Caster";
+    //public static final String[] DESCRIPTIONS = new String[]{ "At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand" };
 
     public ComboCasterPower(AbstractCreature owner, int amount) {
         this.name = NAME;

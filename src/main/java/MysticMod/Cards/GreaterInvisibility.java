@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.TechniquesPlayed;
 import MysticMod.Powers.SpellsPlayed;
@@ -17,9 +19,10 @@ import basemod.abstracts.CustomCard;
 public class GreaterInvisibility
         extends CustomCard {
     public static final String ID = "MysticMod:GreaterInvisibility";
-    public static final String NAME = "Greater Invisibility";
-    public static final String DESCRIPTION = "Spell. Gain 1 Intangible. NL If you did not play !M! techniques this turn, Exhaust. NL Ethereal.";
-    public static final String UPGRADE_DESCRIPTION = "Spell. Gain 1 Intangible. NL If you did not play a technique this turn, Exhaust. NL Ethereal.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/greaterinvisibility.png";
     private static final int COST = 2;
     private static final int REQUIRED_TECHNIQUES = 2;

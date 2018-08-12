@@ -10,13 +10,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import java.util.*;
 
 public class GeminiFormPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:GeminiFormPower";
-    public static final String NAME = "Gemini Form";
-    public static final String[] DESCRIPTIONS = new String[]{ "The first ", "Attack or Skill you play each turn counts as both a Spell and a Technique.", "Attacks or Skills you play each turn counts as both a Spell and a Technique." };
-    private int attacksAndSkillsPlayedThisTurn;
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
+    public static int attacksAndSkillsPlayedThisTurn;
 
     public GeminiFormPower(AbstractCreature owner, int amount) {
         this.name = NAME;

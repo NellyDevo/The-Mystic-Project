@@ -1,0 +1,182 @@
+{
+  "MysticMod:AcidSplash": {
+    "NAME": "Acid Splash",
+    "DESCRIPTION": "Cantrip. NL Deal !D! damage. Draw a card.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:RayOfFrost": {
+    "NAME": "Ray Of Frost",
+    "DESCRIPTION": "Cantrip. NL Deal !D! damage. Apply !B! block. Draw a card.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:ReadMagic": {
+    "NAME": "Read Magic",
+    "DESCRIPTION": "Cantrip. NL Draw !M! cards. Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Spark": {
+    "NAME": "Spark",
+    "DESCRIPTION": "Cantrip. NL Gain [E]. Draw a card. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Cantrip. NL Gain [E]. Draw a card."
+  },
+  "MysticMod:Prestidigitation": {
+    "NAME": "Prestidigitation",
+    "DESCRIPTION": "Cantrip. NL Apply !B! block. Draw a card.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:ArcaneDodge": {
+    "NAME": "Arcane Dodge",
+    "DESCRIPTION": "Technique. NL Apply !B! block. NL Energized: apply an additional !M! block.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:ClosingBarrage": {
+    "NAME": "Closing Barrage",
+    "DESCRIPTION": "Deals damage equal to the number of Spells played times the number of Techniques played X times.",
+    "UPGRADE_DESCRIPTION": "Deals damage equal to the number of Spells played times the number of Techniques played X+1 times."
+  },
+  "MysticMod:ComboCaster": {
+    "NAME": "Combo Caster",
+    "DESCRIPTION": "At the start of each turn, add a random Cantrip to your hand.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Dedication": {
+    "NAME": "Dedication",
+    "DESCRIPTION": "Gain 1 Strength. NL Gain 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Defend_Mystic": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Apply !B! block.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Discipline": {
+    "NAME": "Discipline",
+    "DESCRIPTION": "Begin each turn as if you had already played one Spell and one Technique.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Disintegrate": {
+    "NAME": "Disintegrate",
+    "DESCRIPTION": "Spell. NL Deal !D! damage. NL Ignores armor.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Doublecast": {
+    "NAME": "Doublecast",
+    "DESCRIPTION": "This turn, your next Spell is played twice.",
+    "UPGRADE_DESCRIPTION": "This turn, your next two Spells are played twice."
+  },
+  "MysticMod:Fireball": {
+    "NAME": "Fireball",
+    "DESCRIPTION": "Spell. NL Deal !D! damage. Technical: deal it to all enemies.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:FloatingDisk": {
+    "NAME": "Floating Disk",
+    "DESCRIPTION": "Spell. NL Apply !B! block. NL Technical: gain !M! Dexterity. Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Flourish": {
+    "NAME": "Flourish",
+    "DESCRIPTION": "Costs [E] less per Spell or Technique played. NL Deal !D! damage twice, then double the Spell and Technique count.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:GeminiForm": {
+    "NAME": "Gemini Form",
+    "DESCRIPTION": "The first skill or attack you play each turn counts as both a Spell and a Technique.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Grapple": {
+    "NAME": "Grapple",
+    "DESCRIPTION": "Target enemy loses 20 Strength this turn. Cannot be played on the same turn as an Attack. NL Ethereal. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Technique. NL Target enemy loses 20 Strength this turn. Cannot be plaed on the same turn as an Attack. NL Ethereal. Exhaust."
+  },
+  "MysticMod:GreaterInvisibility": {
+    "NAME": "Greater Invisibility",
+    "DESCRIPTION": "Spell. Gain 1 Intangible. NL If you did not play !M! techniques this turn, Exhaust. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Spell. Gain 1 Intangible. NL If you did not play a technique this turn, Exhaust. NL Ethereal."
+  },
+  "MysticMod:Haste": {
+    "NAME": "Haste",
+    "DESCRIPTION": "Spell. Gain [E] and Draw 1 card each turn. NL Gain 1 Dexterity. NL Gain 1 Strength. NL Ethereal. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Spell. Gain [E] and Draw 1 card each turn. NL Gain 1 Dexterity. NL Gain 1 Strength. NL Exhaust."
+  },
+  "MysticMod:HeavyStrike": {
+    "NAME": "Heavy Strike",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. Energized: apply !M! vulnerable.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:KnowledgePool": {
+    "NAME": "Knowledge Pool",
+    "DESCRIPTION": "Choose one of 3 random Spell cards and add it to your hand. it costs 0 this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Lunge": {
+    "NAME": "Lunge",
+    "DESCRIPTION": "Technique. NL Gain [E] [E]. NL Draw 2 cards. NL Lose 2 Dexterity this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Technique. NL Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 2 Dexterity this turn. NL Exhaust."
+  },
+  "MysticMod:MirrorEntity": {
+    "NAME": "Mirror Entity",
+    "DESCRIPTION": "Spells and Techniques also advance next turn's Spells and Techniques counter.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Momentum": {
+    "NAME": "Momentum",
+    "DESCRIPTION": "Spells and techniques deal 1 more damage and apply 1 more block for each card of the other type played this turn",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:MysticalShield": {
+    "NAME": "Mystical Shield",
+    "DESCRIPTION": "Block is reduced to 10 instead of 0 at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Block is set to 10 instead of 0 at the start of your turn."
+  },
+  "MysticMod:Natural20": {
+    "NAME": "Natural 20",
+    "DESCRIPTION": "Technique. Your next Attack this turn does double damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Technique. Your next Attack this turn does double damage."
+  },
+  "MysticMod:ObscuringMist": {
+    "NAME": "Obscuring Mist",
+    "DESCRIPTION": "Spell. Apply !B! Block. NL Technical: gain 1 Artifact. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:PowerSlash": {
+    "NAME": "Power Slash",
+    "DESCRIPTION": "Technique. NL Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:SpellRecall": {
+    "NAME": "Spell Recall",
+    "DESCRIPTION": "Return a Spell from your discard pile to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Return a Spell from your discard pile to your hand."
+  },
+  "MysticMod:PreparedCaster": {
+    "NAME": "Prepared Caster",
+    "DESCRIPTION": "Innate. NL Choose one Spell from your draw pile and add it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:ShockingGrasp": {
+    "NAME": "Shocking Grasp",
+    "DESCRIPTION": "Spell. NL Deal !D! damage. Technical: deal !M! damage instead.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:Spellstrike": {
+    "NAME": "Spellstrike",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. NL search your draw pile for an Attack Spell and play it. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:SpontaneousCaster": {
+    "NAME": "Spontaneous Caster",
+    "DESCRIPTION": "Spells cost [E] less to play, Exhaust when played, and then add a random Spell to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Spells cost [E] less to play, Exhaust when played, and then add a random Spell to your discard pile. NL Innate."
+  },
+  "MysticMod:Strike_Mystic": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "MysticMod:SuddenClarity": {
+    "NAME": "Sudden Clarity",
+    "DESCRIPTION": "Technique. NL Apply !B! block. NL Draw a card",
+    "UPGRADE_DESCRIPTION": "Technique. NL Apply !B! block. NL Draw !M! cards"
+  }
+}

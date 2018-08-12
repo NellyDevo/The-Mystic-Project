@@ -3,7 +3,6 @@
 package MysticMod.Patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import java.util.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -14,13 +13,54 @@ import MysticMod.Powers.GeminiFormPower;
 import MysticMod.Powers.MomentumPower;
 import MysticMod.Powers.TechniquesPlayed;
 import MysticMod.Powers.SpellsPlayed;
+import com.badlogic.gdx.math.*;
+import java.io.*;
+import MysticMod.MysticMod;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="applyPowersToBlock")
 public class ApplyPowersToBlockMomentumPatch {
 
-    @SpireInsertPatch(rloc=12)
-    public static void Insert(AbstractCard card) {
+    public static void Postfix(AbstractCard __card_instance) {
         //only run code if momentum power exists
+        if (AbstractDungeon.player.hasPower(MomentumPower.POWER_ID)) {
+            __card_instance.isBlockModified = false;
+            float tmp = __card_instance.baseBlock;
+            for (final AbstractPower p : AbstractDungeon.player.powers) {
+                tmp = p.modifyBlock(tmp);
+                if (__card_instance.baseBlock == MathUtils.floor(tmp)) {
+                    continue;
+                }
+                __card_instance.isBlockModified = true;
+            }
+            //BEGIN patch logic
+            boolean isSpell = false;
+            boolean isTechnique = false;
+            //Determine if card is a spell
+            if (MysticMod.isThisASpell(__card_instance, false)) {
+                isSpell = true;
+            }
+            //Determine if card is a technique
+            if (MysticMod.isThisATechnique(__card_instance, false)) {
+                isTechnique = true;
+            }
+            //Add techniques played to tmp if card is a spell
+            if (isSpell && AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+                tmp = tmp + AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+            }
+            //Add spells played to tmp if card is a technique
+            if (isTechnique && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+                tmp = tmp + AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            }
+            //END patch logic
+            if (tmp < 0.0f) {
+                tmp = 0.0f;
+            }
+            __card_instance.block = MathUtils.floor(tmp);
+        }
+    }
+}
+
+/* ===saved previous code===
         if (AbstractDungeon.player.hasPower(MomentumPower.POWER_ID)) {
             boolean isSpell = false;
             boolean isTechnique = false;
@@ -60,5 +100,5 @@ public class ApplyPowersToBlockMomentumPatch {
             //set card.block to tmp
             card.block = tmp;
         }
-    }
-}
+
+ */

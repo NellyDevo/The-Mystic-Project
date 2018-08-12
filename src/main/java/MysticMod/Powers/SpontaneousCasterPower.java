@@ -10,7 +10,10 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Powers.GeminiFormPower;
+import MysticMod.MysticMod;
 import java.util.*;
 import java.io.*;
 
@@ -19,8 +22,9 @@ import java.io.*;
 
 public class SpontaneousCasterPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:SpontaneousCasterPower";
-    public static final String NAME = "Spontaneous Caster";
-    public static final String DESCRIPTIONS = "Spells cost [E] less to play, Exhaust when played, and then generate a random spell in your discard pile.";
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
     private static ArrayList<AbstractCard> affectedCards = new ArrayList<AbstractCard>();
     private static ArrayList<AbstractCard> toRestoreCost = new ArrayList<AbstractCard>();
 
@@ -40,7 +44,7 @@ public class SpontaneousCasterPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS;
+        description = DESCRIPTIONS[0];
     }
 
     @Override
@@ -64,8 +68,9 @@ public class SpontaneousCasterPower extends AbstractPower {
                 this.flash();
                 //logger.info("onUseCard; " + card.name + " found to be a spell, and exhausted");
                 action.exhaustCard = true;
-                AbstractCard newCard;
-                boolean newCardIsSpell = false;
+                AbstractCard newCard = MysticMod.returnTrulyRandomSpell();
+                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction(newCard.makeStatEquivalentCopy(), 1));
+                /*boolean newCardIsSpell = false;
                 while (!newCardIsSpell) {
                     newCard = AbstractDungeon.returnTrulyRandomCard(AbstractDungeon.cardRandomRng);
                     //logger.info("onUseCard; " + newCard.name + " generated");
@@ -75,7 +80,7 @@ public class SpontaneousCasterPower extends AbstractPower {
                         //logger.info("onUseCard; " + newCard.name + " found to be a spell and generated in discard pile");
                     }
                 }
-                newCardIsSpell = false;
+                newCardIsSpell = false; */
             }
         }
     }

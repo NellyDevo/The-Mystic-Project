@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Actions.SpellDiscovery;
 
@@ -17,8 +19,10 @@ import basemod.abstracts.CustomCard;
 public class KnowledgePool
         extends CustomCard {
     public static final String ID = "MysticMod:KnowledgePool";
-    public static final String NAME = "Knowledge Pool";
-    public static final String DESCRIPTION = "Choose one of 3 random Spell cards and add it to your hand. it costs 0 this turn. NL Exhaust.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/knowledgepool.png";
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;

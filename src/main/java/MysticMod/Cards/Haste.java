@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.HastePower;
 import MysticMod.Powers.SpellsPlayed;
@@ -18,9 +20,10 @@ import basemod.abstracts.CustomCard;
 public class Haste
         extends CustomCard {
     public static final String ID = "MysticMod:Haste";
-    public static final String NAME = "Haste";
-    public static final String DESCRIPTION = "Spell. Gain [E] and Draw 1 card each turn. NL Gain 1 Dexterity. NL Gain 1 Strength. NL Ethereal. Exhaust.";
-    public static final String UPGRADE_DESCRIPTION = "Spell. Gain [E] and Draw 1 card each turn. NL Gain 1 Dexterity. NL Gain 1 Strength. NL Exhaust.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/haste.png";
     private static final int COST = 3;
 

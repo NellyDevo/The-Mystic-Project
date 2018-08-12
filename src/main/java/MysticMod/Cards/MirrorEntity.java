@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.MirrorEntityPower;
 
@@ -15,8 +17,10 @@ import basemod.abstracts.CustomCard;
 public class MirrorEntity
         extends CustomCard {
     public static final String ID = "MysticMod:MirrorEntity";
-    public static final String NAME = "Mirror Entity";
-    public static final String DESCRIPTION = "Spells and Techniques also advance next turn's Spells and Techniques counter.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/mirrorentity.png";
     private static final int COST = 3;
     public static final int UPGRADE_COST = 2;

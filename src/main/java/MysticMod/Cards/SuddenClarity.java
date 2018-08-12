@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.TechniquesPlayed;
 
@@ -16,9 +18,10 @@ import basemod.abstracts.CustomCard;
 public class SuddenClarity
         extends CustomCard {
     public static final String ID = "MysticMod:SuddenClarity";
-    public static final String NAME = "Sudden Clarity";
-    public static final String DESCRIPTION = "Technique. NL Apply !B! block. NL Draw a card";
-    public static final String UPGRADE_DESCRIPTION = "Technique. NL Apply !B! block. NL Draw !M! cards";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/suddenclarity.png";
     private static final int COST = 1;
     private static final int BLOCK_AMT = 4;

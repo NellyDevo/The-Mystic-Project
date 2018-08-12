@@ -10,14 +10,17 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.powers.BlurPower;
 import com.megacrit.cardcrawl.powers.BarricadePower;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 
 public class MysticalShieldPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:MysticalShieldPower";
-    public static final String NAME = "Mystical Shield";
-    public static final String DESCRIPTIONS = "Block is reduced to 10 instead of 0 at the start of the turn.";
+    public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
     private static int startOfTurnBlock;
     private boolean hasBarricade;
     private boolean hasBlur;
@@ -39,7 +42,7 @@ public class MysticalShieldPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS;
+        description = DESCRIPTIONS[0];
     }
 
     @Override

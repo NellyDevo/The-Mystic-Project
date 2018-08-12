@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
@@ -18,8 +20,10 @@ import basemod.abstracts.CustomCard;
 public class HeavyStrike
         extends CustomCard {
     public static final String ID = "MysticMod:HeavyStrike";
-    public static final String NAME = "Heavy Strike";
-    public static final String DESCRIPTION = "Technique. NL Deal !D! damage. Energized: apply !M! vulnerable.";
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String NAME = cardStrings.NAME;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "MysticMod/images/cards/heavystrike.png";
     private static final int COST = 2;
     public static final int ATTACK_DMG = 12;
