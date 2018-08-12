@@ -1,4 +1,4 @@
-/*package MysticMod.Cards;
+package MysticMod.Cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.EntanglePower;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import MysticMod.Patches.AbstractCardEnum;
@@ -38,14 +40,27 @@ public class Grapple
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
-        if ((p.hasPower(TechniquesPlayed.POWER_ID)) && (p.getPower(TechniquesPlayed.POWER_ID).amount >= 1)) {
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+        if (!m.hasPower("Artifact")) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EntanglePower(p)));
         //conditional technique functionality
         if(this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         }
+    }
+
+    @Override
+    public boolean hasEnoughEnergy() {
+        boolean returnValue = super.hasEnoughEnergy();
+        for (AbstractCard playedCard : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+            if (playedCard.type == AbstractCard.CardType.ATTACK) {
+                returnValue = false;
+                return returnValue;
+            }
+        }
+        return returnValue;
     }
 
     @Override
@@ -58,7 +73,7 @@ public class Grapple
         if (!this.upgraded) {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription;
+            this.initializeDescription();
         }
     }
-}*/
+}

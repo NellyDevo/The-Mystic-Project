@@ -86,8 +86,8 @@
   },
   "MysticMod:Grapple": {
     "NAME": "Grapple",
-    "DESCRIPTION": "Target enemy loses 20 Strength this turn. Cannot be played on the same turn as an Attack. NL Ethereal. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Technique. NL Target enemy loses 20 Strength this turn. Cannot be plaed on the same turn as an Attack. NL Ethereal. Exhaust."
+    "DESCRIPTION": "Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Ethereal. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Technique. NL Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Ethereal. Exhaust."
   },
   "MysticMod:GreaterInvisibility": {
     "NAME": "Greater Invisibility",

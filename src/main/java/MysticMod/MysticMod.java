@@ -36,6 +36,7 @@ import MysticMod.Cards.SpellRecall;
 import MysticMod.Cards.ClosingBarrage;
 import MysticMod.Cards.Flourish;
 import MysticMod.Cards.Dedication;
+import MysticMod.Cards.Grapple;
 import MysticMod.Character.MysticCharacter;
 import MysticMod.Patches.MysticEnum;
 import MysticMod.Relics.MysticSpellBook;
@@ -114,12 +115,13 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new SuddenClarity());
         BaseMod.addCard(new PowerSlash());
 
-        //Uncommons. 2 attacks, 1 skill, 2 powers
+        //Uncommons. 2 attacks, 2 skill, 2 powers
         BaseMod.addCard(new Fireball());
         BaseMod.addCard(new FloatingDisk());
         BaseMod.addCard(new ComboCaster());
         BaseMod.addCard(new Flourish());
         BaseMod.addCard(new Dedication());
+        BaseMod.addCard(new Grapple());
 
         //Rares. 3 attacks, 9 skills, 6 powers
         BaseMod.addCard(new Disintegrate());
