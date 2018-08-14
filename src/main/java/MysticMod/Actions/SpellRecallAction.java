@@ -31,6 +31,10 @@ public class SpellRecallAction extends AbstractGameAction
                 }
             }
             //END make card group from discard pile
+            if (tmp.group.size() == 0) {
+                this.isDone = true;
+                return;
+            }
             if (tmp.group.size() == 1) {
                 final AbstractCard card = tmp.group.get(0);
                 this.p.hand.addToHand(card);

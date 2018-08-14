@@ -76,7 +76,7 @@ import MysticMod.Cards.Shield;
 import MysticMod.Cards.Disengage;
 import MysticMod.Cards.ComponentsPouch;
 import MysticMod.Cards.PureInstinct;
-import MysticMod.Cards.PageOfSpellKnowledge;
+import MysticMod.Cards.TomeOfSpells;
 import MysticMod.Cards.Sideswipe;
 import MysticMod.Cards.Probe;
 import MysticMod.Cards.Daze;
@@ -173,7 +173,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new Disengage());
         BaseMod.addCard(new ComponentsPouch());
         BaseMod.addCard(new PureInstinct());
-        BaseMod.addCard(new PageOfSpellKnowledge());
+        BaseMod.addCard(new TomeOfSpells());
         BaseMod.addCard(new Sideswipe());
         BaseMod.addCard(new Probe());
         BaseMod.addCard(new Daze());
@@ -249,12 +249,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         String[] keywordCantrips = {"cantrip", "cantrips"};
         String[] keywordSpells = {"spell", "spells"};
         String[] keywordTechniques = {"technique", "techniques"};
-        String[] keywordEnergized = {"energized"};
+        String[] keywordArcane = {"arcane"};
         String[] keywordTechnical = {"technical"};
         BaseMod.addKeyword(keywordCantrips, "Considered a spell so long as you've played fewer than 2 spells this turn");
         BaseMod.addKeyword(keywordSpells, "Advance the \"spells played\" counter for the turn");
         BaseMod.addKeyword(keywordTechniques, "Advance the \"Techniques played\" counter for the turn");
-        BaseMod.addKeyword(keywordEnergized, "Has a special effect if you played a spell this turn");
+        BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a spell this turn");
         BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played a Technique this turn");
     }
 
@@ -276,6 +276,16 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receivePostBattle(final AbstractRoom p0) { //for Magic Missile
         numberOfTimesDeckShuffledThisCombat = 0;
+        for (final AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if (card instanceof MagicMissile) {
+                card.rawDescription = MagicMissile.DESCRIPTION;
+                card.initializeDescription();
+            }
+            if (card instanceof ClosingBarrage) {
+                card.rawDescription = ClosingBarrage.DESCRIPTION;
+                card.initializeDescription();
+            }
+        }
     }
 
     public static boolean isThisASpell(final AbstractCard card, final boolean onUseCard) { //Is this a pigeon?

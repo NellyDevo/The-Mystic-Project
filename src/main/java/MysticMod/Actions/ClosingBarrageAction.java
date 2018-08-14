@@ -1,4 +1,3 @@
-//ClosingBarrageAction(p, m, this.upgraded, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse));
 package MysticMod.Actions;
 
 import com.megacrit.cardcrawl.actions.*;
@@ -24,10 +23,10 @@ public class ClosingBarrageAction extends AbstractGameAction
     private AbstractPlayer p;
     private int energyOnUse;
     private AbstractMonster m;
-    private int damageMultiplier;
+    private int InheritedDamage;
 
 
-    public ClosingBarrageAction(final AbstractPlayer p, final AbstractMonster m, final int damageMultiplier, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
+    public ClosingBarrageAction(final AbstractPlayer p, final AbstractMonster m, final int damage, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
         this.freeToPlayOnce = false;
         this.energyOnUse = -1;
         this.multiDamage = multiDamage;
@@ -38,20 +37,11 @@ public class ClosingBarrageAction extends AbstractGameAction
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.damageMultiplier = damageMultiplier;
+        this.InheritedDamage = damage;
     }
 
     @Override
     public void update() {
-        int damageX = 0;
-        int damageY = 0;
-        if (p.hasPower(TechniquesPlayed.POWER_ID)) {
-            damageX = p.getPower(TechniquesPlayed.POWER_ID).amount;
-        }
-        if (p.hasPower(SpellsPlayed.POWER_ID)) {
-            damageY = p.getPower(SpellsPlayed.POWER_ID).amount;
-        }
-        int damage = this.damageMultiplier * (damageX + damageY);
         int effect = EnergyPanel.totalCount;
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
@@ -62,7 +52,7 @@ public class ClosingBarrageAction extends AbstractGameAction
         }
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, damage, damageType), AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.InheritedDamage, this.damageType), AttackEffect.BLUNT_LIGHT));
             }
             if (!this.freeToPlayOnce) {
                 this.p.energy.use(EnergyPanel.totalCount);

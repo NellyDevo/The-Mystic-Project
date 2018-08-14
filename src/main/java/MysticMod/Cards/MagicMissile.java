@@ -34,6 +34,7 @@ public class MagicMissile
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override

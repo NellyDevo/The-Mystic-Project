@@ -18,23 +18,24 @@ import MysticMod.Cards.Cantrips.*;
 
 import basemod.abstracts.CustomCard;
 
-public class PageOfSpellKnowledge
+public class TomeOfSpells
         extends CustomCard {
-    public static final String ID = "MysticMod:PageOfSpellKnowledge";
+    public static final String ID = "MysticMod:TomeOfSpells";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "MysticMod/images/cards/pageofspellknowledge.png";
+    public static final String IMG_PATH = "MysticMod/images/cards/tomeofspells.png";
     private static final int COST = 1;
     public static final int CANTRIP_AMT = 2;
     private static final int UPGRADE_PLUS_CANTRIP = 1;
 
-    public PageOfSpellKnowledge() {
+    public TomeOfSpells() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
+                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = CANTRIP_AMT;
+        this.exhaust = true;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -62,7 +63,7 @@ public class PageOfSpellKnowledge
 
     @Override
     public AbstractCard makeCopy() {
-        return new PageOfSpellKnowledge();
+        return new TomeOfSpells();
     }
 
     @Override

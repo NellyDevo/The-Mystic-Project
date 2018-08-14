@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>mysticmod</groupId>
   <artifactId>MysticMod</artifactId>
-  <name>The Mystic</name>
-  <version>0.3</version>
+  <name>TheMystic</name>
+  <version>0.3.1</version>
   <description>Slay the Spire mod introducing custom character: The Mystic.</description>
   <build>
-    <finalName>The Mystic</finalName>
+    <finalName>TheMystic</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>

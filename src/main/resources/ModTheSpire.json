@@ -3,7 +3,7 @@
   "name": "The Mystic",
   "author_list": ["Johnny Devo"],
   "description": "Adds a new character: The Mystic.",
-  "version": "0.3",
+  "version": "0.3.1",
   "sts_version": "08-02-2018",
   "mts_version": "2.9.1"
 }

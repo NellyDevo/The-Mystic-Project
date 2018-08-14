@@ -36,7 +36,7 @@ public class SpellCombat
     public SpellCombat() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
-                AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
+                AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
             this.damage = this.baseDamage = DAMAGE_AMT;
             this.block = this.baseBlock = BLOCK_AMT;
     }

@@ -21,13 +21,13 @@
   },
   "MysticMod:ArcaneDodge": {
     "NAME": "Arcane Dodge",
-    "DESCRIPTION": "Technique. NL Gain !B! block. NL Energized: gain an additional !M! block.",
+    "DESCRIPTION": "Technique. NL Gain !B! Block. NL Arcane: gain an additional !M! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:BladeBurst": {
     "NAME": "Blade Burst",
-    "DESCRIPTION": "Technique. NL Lose 1 strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Technique. NL Lose 1 strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
+    "DESCRIPTION": "Technique. NL Lose 1 Strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Technique. NL Lose 1 Strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
   },
   "MysticMod:BladeMaster": {
     "NAME": "Blade Master",
@@ -36,18 +36,19 @@
   },
   "MysticMod:BladedDash": {
     "NAME": "Bladed Dash",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. Energized: Gain !B! block.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. Arcane: Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:ChargedParry": {
     "NAME": "Charged Parry",
-    "DESCRIPTION": "Technique. NL Gain !B! block. NL Energized: Gain !M! strength this turn.",
+    "DESCRIPTION": "Technique. NL Gain !B! Block. NL Arcane: Gain !M! Strength this turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:ClosingBarrage": {
     "NAME": "Closing Barrage",
-    "DESCRIPTION": "Deals damage equal to !M! times the number of Spells played plus the number of Techniques played X times.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Deals damage equal to !M! times the total number of Spells and Techniques played this turn X times.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [" NL ( !D! damage)"]
   },
   "MysticMod:ComboCaster": {
     "NAME": "Combo Caster",
@@ -66,7 +67,7 @@
   },
   "MysticMod:CureLightWounds": {
     "NAME": "Cure Light Wounds",
-    "DESCRIPTION": "Spell. NL Gain !M! regeneration. NL Exhaust.",
+    "DESCRIPTION": "Spell. NL Gain !M! Regen. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Daze": {
@@ -81,7 +82,7 @@
   },
   "MysticMod:Defend_Mystic": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! block.",
+    "DESCRIPTION": "Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Discipline": {
@@ -91,7 +92,7 @@
   },
   "MysticMod:Disengage": {
     "NAME": "Disengage",
-    "DESCRIPTION": "Technique. NL Gain !B! block.",
+    "DESCRIPTION": "Technique. NL Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Disintegrate": {
@@ -101,7 +102,7 @@
   },
   "MysticMod:DiviningBlow": {
     "NAME": "Divining Blow",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. NL Energized: draw !M! cards.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. NL Arcane: draw !M! cards.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Doublecast": {
@@ -111,7 +112,7 @@
   },
   "MysticMod:EarthenWall": {
     "NAME": "Earthen Wall",
-    "DESCRIPTION": "Spell. NL Gain !B! block. Gain !M! dexterity this turn.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. Gain !M! Dexterity this turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:EbbAndFlow": {
@@ -136,12 +137,12 @@
   },
   "MysticMod:FiveFootStep": {
     "NAME": "5 Foot Step",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. NL Energized: Shuffle this card into your draw pile.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. NL Arcane: Shuffle this card into your draw pile.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:FloatingDisk": {
     "NAME": "Floating Disk",
-    "DESCRIPTION": "Spell. NL Gain !B! block. NL Technical: gain !M! Dexterity. Exhaust.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. NL Technical: gain !M! Dexterity. Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Flourish": {
@@ -151,12 +152,12 @@
   },
   "MysticMod:Flurry": {
     "NAME": "Flurry",
-    "DESCRIPTION": "Technique. NL Deal !D! damage !M! times. NL Energized: !B! times instead",
+    "DESCRIPTION": "Technique. NL Deal !D! damage !M! times. NL Arcane: !B! times instead",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Fly": {
     "NAME": "Fly",
-    "DESCRIPTION": "Spell. NL Gain !B! block.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:GeminiForm": {
@@ -176,12 +177,12 @@
   },
   "MysticMod:GreaterInvisibility": {
     "NAME": "Greater Invisibility",
-    "DESCRIPTION": "Spell. Gain 1 Intangible. NL If you did not play !M! techniques this turn, Exhaust. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Spell. Gain 1 Intangible. NL If you did not play a technique this turn, Exhaust. NL Ethereal."
+    "DESCRIPTION": "Spell. Gain 1 Intangible. NL If you did not play !M! Techniques this turn, Exhaust. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Spell. Gain 1 Intangible. NL If you did not play a Technique this turn, Exhaust. NL Ethereal."
   },
   "MysticMod:IllusionOfCalm": {
     "NAME": "Illusion Of Calm",
-    "DESCRIPTION": "Spell. NL Gain !B! block. NL Become Frail for !M! turns.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. NL Become Frail for !M! turns.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Haste": {
@@ -191,7 +192,7 @@
   },
   "MysticMod:HeavyStrike": {
     "NAME": "Heavy Strike",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. Energized: apply !M! vulnerable.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. Arcane: apply !M! vulnerable.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:HunkerDown": {
@@ -221,14 +222,14 @@
   },
   "MysticMod:MagicMissile": {
     "NAME": "Magic Missile",
-    "DESCRIPTION": "Spell. NL Deal 2 damage for each time the deck was shuffled this combat.",
+    "DESCRIPTION": "Spell. NL Deal !D! damage for each time the deck was shuffled this combat.",
     "UPGRADE_DESCRIPTION": "",
-    "EXTENDED_DESCRIPTION": [" NL (!M! times.)"]
+    "EXTENDED_DESCRIPTION": [" NL ( !M! times.)"]
   },
   "MysticMod:MagicWeapon": {
     "NAME": "Magic Weapon",
-    "DESCRIPTION": "Spell. NL Gain 1 strength. Add a Blade Burst to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Spell. NL Gain 1 strength. Add a Blade Burst+ to your discard pile. NL Exhaust."
+    "DESCRIPTION": "Spell. NL Gain 1 Strength. Add a Blade Burst to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Spell. NL Gain 1 Strength. Add a Blade Burst+ to your discard pile. NL Exhaust."
   },
   "MysticMod:MightyMagic": {
     "NAME": "Mighty Magic",
@@ -247,7 +248,7 @@
   },
   "MysticMod:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Spells and techniques deal 1 more damage and gain 1 more block for each card of the other type played this turn",
+    "DESCRIPTION": "Spells and techniques deal 1 more damage and gain 1 more Block for each card of the other type played this turn",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Moulinet": {
@@ -267,17 +268,12 @@
   },
   "MysticMod:ObscuringMist": {
     "NAME": "Obscuring Mist",
-    "DESCRIPTION": "Spell. Gain !B! Block. NL Technical: gain 1 Artifact. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": ""
-  },
-  "MysticMod:PageOfSpellKnowledge": {
-    "NAME": "Page Of Spell Knowledge",
-    "DESCRIPTION": "Add !M! random Cantrips to your hand. NL Exhaust.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. NL Technical: Gain 1 Artifact. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:PowerAttack": {
     "NAME": "Power Attack",
-    "DESCRIPTION": "Technique. NL Gain 6 strength and lose !M! dexterity this turn. Can only be played as the first card in the turn.",
+    "DESCRIPTION": "Technique. NL Gain 6 Strength and lose !M! Dexterity this turn. Can only be played as the first card in the turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:PowerSlash": {
@@ -292,7 +288,7 @@
   },
   "MysticMod:Prestidigitation": {
     "NAME": "Prestidigitation",
-    "DESCRIPTION": "Cantrip. NL Gain !B! block. Draw a card.",
+    "DESCRIPTION": "Cantrip. NL Gain !B! Block. Draw a card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Probe": {
@@ -302,12 +298,12 @@
   },
   "MysticMod:PunishingArmor": {
     "NAME": "Punishing Armor",
-    "DESCRIPTION": "Spell. NL Gain !B! block. NL Technical: Gain !M! thorns. NL Exhaust.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. NL Technical: Gain !M! Thorns. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:PureInstinct": {
     "NAME": "Pure Instinct",
-    "DESCRIPTION": "Gain !B! block for every Technique in your hand.",
+    "DESCRIPTION": "Gain !B! Block for every Technique in your hand.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:RapidCaster": {
@@ -317,7 +313,7 @@
   },
   "MysticMod:RayOfFrost": {
     "NAME": "Ray Of Frost",
-    "DESCRIPTION": "Cantrip. NL Deal !D! damage. Gain !B! block. Draw a card.",
+    "DESCRIPTION": "Cantrip. NL Deal !D! damage. Gain !B! Block. Draw a card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:ReadMagic": {
@@ -327,7 +323,7 @@
   },
   "MysticMod:Riposte": {
     "NAME": "Riposte",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. Energized: Apply !M! Weak.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. Arcane: Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Snowball": {
@@ -337,7 +333,7 @@
   },
   "MysticMod:SpellCombat": {
     "NAME": "Spell Combat",
-    "DESCRIPTION": "Energized: deal !D! damage X times. NL Technical: gain !B! block X times.",
+    "DESCRIPTION": "Arcane: deal !D! damage X times. NL Technical: Gain !B! Block X times.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:SpellRecall": {
@@ -347,7 +343,7 @@
   },
   "MysticMod:Shield": {
     "NAME": "Shield",
-    "DESCRIPTION": "Spell. NL Gain !B! block. NL Gain !B! block next turn.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. NL Gain !B! Block next turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:ShockingGrasp": {
@@ -357,7 +353,7 @@
   },
   "MysticMod:Sideswipe": {
     "NAME": "Sideswipe",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. NL Energized: Apply !M! weak.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. NL Arcane: Apply !M! weak.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Spark": {
@@ -377,7 +373,7 @@
   },
   "MysticMod:Stoneskin": {
     "NAME": "Stoneskin",
-    "DESCRIPTION": "Spell. NL Gain !B! block. NL Gain 2 block at the start of the next !M! turns.",
+    "DESCRIPTION": "Spell. NL Gain !B! Block. NL Gain 2 Block at the start of the next !M! turns.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Strike_Mystic": {
@@ -392,8 +388,13 @@
   },
   "MysticMod:SuddenClarity": {
     "NAME": "Sudden Clarity",
-    "DESCRIPTION": "Technique. NL Gain !B! block. NL Draw a card",
-    "UPGRADE_DESCRIPTION": "Technique. NL Gain !B! block. NL Draw !M! cards"
+    "DESCRIPTION": "Technique. NL Gain !B! Block. NL Draw a card",
+    "UPGRADE_DESCRIPTION": "Technique. NL Gain !B! Block. NL Draw !M! cards"
+  },
+  "MysticMod:TomeOfSpells": {
+    "NAME": "Tome Of Spells",
+    "DESCRIPTION": "Add !M! random Cantrips to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:VorpalThrust": {
     "NAME": "Vorpal Thrust",
