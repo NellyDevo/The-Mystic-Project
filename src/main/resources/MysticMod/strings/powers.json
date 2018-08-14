@@ -1,4 +1,8 @@
 {
+  "MysticMod:ArcaneAccuracyPower": {
+    "NAME": "Arcane Accuracy",
+    "DESCRIPTIONS": ["Whenever you play a Spell, gain", "Strength until end of turn"]
+  },
   "MysticMod:ComboCasterPower": {
     "NAME": "Combo Caster",
     "DESCRIPTIONS": ["At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand"]
@@ -11,6 +15,14 @@
     "NAME": "Doublecast",
     "DESCRIPTIONS": ["Your next Spell card is played twice.", "Your next ", " Spell cards are played twice."]
   },
+  "MysticMod:EbbPower": {
+    "NAME": "Ebb",
+    "DESCRIPTIONS": ["At the start of your turn, discard 2 cards if your hand does not contain a Spell and a Technique."]
+  },
+  "MysticMod:FlowPower": {
+    "NAME": "Flow",
+    "DESCRIPTIONS": ["At the start of your turn, draw ", "a card.", " cards."]
+  },
   "MysticMod:GainDexterityPower": {
     "NAME": "Overextended",
     "DESCRIPTIONS": ["Gain ", " Dexterity at the end of your turn."]
@@ -22,6 +34,10 @@
   "MysticMod:HastePower": {
     "NAME": "Haste",
     "DESCRIPTIONS": ["Draw 1 card and gain [E] each turn."]
+  },
+  "MysticMod:MightyMagicPower": {
+    "NAME": "Mighty Magic",
+    "DESCRIPTIONS": ["Whenever you play a Technique, gain", "Dexterity until end of turn"]
   },
   "MysticMod:MirrorEntityPower": {
     "NAME": "Mirror Entity",
@@ -43,6 +59,10 @@
     "NAME": "Natural 20",
     "DESCRIPTIONS": ["Critical hit!"]
   },
+  "MysticMod:RapidCasterPower": {
+    "NAME": "Rapid Caster",
+    "DESCRIPTIONS": ["The first Cantrip you play each turn is played twice.", "The first ", " Cantrips you play each turn are played twice."]
+  },
   "MysticMod:SpellsPlayedPower": {
     "NAME": "Spells Played",
     "DESCRIPTIONS": ["You have played ", "Spell this turn.", "Spells this turn."]
@@ -54,6 +74,10 @@
   "MysticMod:SpontaneousCasterPower": {
     "NAME": "Spontaneous Caster",
     "DESCRIPTIONS": ["Spells cost [E] less to play, Exhaust when played, and then generate a random spell in your discard pile."]
+  },
+  "MysticMod:StoneskinPower": {
+    "NAME": "Stoneskin",
+    "DESCRIPTIONS": ["Start your next turn with 2 extra block.", "Start your next ", " turns with 2 extra block."]
   },
   "MysticMod:TechniquesPlayedPower": {
     "NAME": "Techniques Played",

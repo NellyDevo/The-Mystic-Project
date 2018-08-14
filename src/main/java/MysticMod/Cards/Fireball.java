@@ -51,6 +51,18 @@ public class Fireball
     }
 
     @Override
+    public void applyPowers() {
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            this.target = AbstractCard.CardTarget.ALL_ENEMY;
+            this.isMultiDamage = true;
+        } else {
+            this.target = AbstractCard.CardTarget.ENEMY;
+            this.isMultiDamage = false;
+        }
+        super.applyPowers();
+    }
+
+    @Override
     public AbstractCard makeCopy() {
         return new Fireball();
     }

@@ -24,10 +24,10 @@ public class ClosingBarrageAction extends AbstractGameAction
     private AbstractPlayer p;
     private int energyOnUse;
     private AbstractMonster m;
-    private boolean upgraded;
+    private int damageMultiplier;
 
 
-    public ClosingBarrageAction(final AbstractPlayer p, final AbstractMonster m, final boolean isThisUpgraded, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
+    public ClosingBarrageAction(final AbstractPlayer p, final AbstractMonster m, final int damageMultiplier, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
         this.freeToPlayOnce = false;
         this.energyOnUse = -1;
         this.multiDamage = multiDamage;
@@ -38,7 +38,7 @@ public class ClosingBarrageAction extends AbstractGameAction
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.upgraded = isThisUpgraded;
+        this.damageMultiplier = damageMultiplier;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ClosingBarrageAction extends AbstractGameAction
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             damageY = p.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        int damage = damageX * damageY;
+        int damage = this.damageMultiplier * (damageX + damageY);
         int effect = EnergyPanel.totalCount;
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
@@ -59,9 +59,6 @@ public class ClosingBarrageAction extends AbstractGameAction
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
-        }
-        if (this.upgraded) {
-            effect += 1;
         }
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {

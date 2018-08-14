@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.vfx.cardManip.*;
-import MysticMod.Patches.IsDiscoveryLookingFor;
+import MysticMod.MysticMod;
 
 public class SpellDiscovery extends AbstractGameAction
 {
@@ -30,14 +30,14 @@ public class SpellDiscovery extends AbstractGameAction
     @Override
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            IsDiscoveryLookingFor.Spells.set(AbstractDungeon.cardRewardScreen, "True");
+            MysticMod.isDiscoveryLookingForSpells = true;
             if (this.cardType == null) {
                 AbstractDungeon.cardRewardScreen.discoveryOpen();
             }
             else {
                 AbstractDungeon.cardRewardScreen.discoveryOpen(this.cardType);
             }
-            IsDiscoveryLookingFor.Spells.set(AbstractDungeon.cardRewardScreen, "False");
+            MysticMod.isDiscoveryLookingForSpells = false;
             this.tickDuration();
             return;
         }

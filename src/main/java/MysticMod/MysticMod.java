@@ -37,6 +37,50 @@ import MysticMod.Cards.ClosingBarrage;
 import MysticMod.Cards.Flourish;
 import MysticMod.Cards.Dedication;
 import MysticMod.Cards.Grapple;
+import MysticMod.Cards.VorpalThrust;
+import MysticMod.Cards.EarthenWall;
+import MysticMod.Cards.Grease;
+import MysticMod.Cards.ArcaneAccuracy;
+import MysticMod.Cards.MightyMagic;
+import MysticMod.Cards.RapidCaster;
+import MysticMod.Cards.ChargedParry;
+import MysticMod.Cards.Feint;
+import MysticMod.Cards.StyleChange;
+import MysticMod.Cards.Flurry;
+import MysticMod.Cards.BladeMaster;
+import MysticMod.Cards.EnergizedRift;
+import MysticMod.Cards.IllusionOfCalm;
+import MysticMod.Cards.PunishingArmor;
+import MysticMod.Cards.BladedDash;
+import MysticMod.Cards.MirrorStrike;
+import MysticMod.Cards.Fly;
+import MysticMod.Cards.BladeBurst;
+import MysticMod.Cards.MagicWeapon;
+import MysticMod.Cards.KeenEdge;
+import MysticMod.Cards.EbbAndFlow;
+import MysticMod.Cards.MagicMissile;
+import MysticMod.Cards.PowerAttack;
+import MysticMod.Cards.Stoneskin;
+import MysticMod.Cards.CureLightWounds;
+import MysticMod.Cards.HunkerDown;
+import MysticMod.Cards.AllIn;
+import MysticMod.Cards.FiveFootStep;
+import MysticMod.Cards.SpellCombat;
+import MysticMod.Cards.Alacrity;
+import MysticMod.Cards.DiviningBlow;
+import MysticMod.Cards.Riposte;
+import MysticMod.Cards.Moulinet;
+import MysticMod.Cards.LightningBolt;
+import MysticMod.Cards.Snowball;
+import MysticMod.Cards.Shield;
+import MysticMod.Cards.Disengage;
+import MysticMod.Cards.ComponentsPouch;
+import MysticMod.Cards.PureInstinct;
+import MysticMod.Cards.PageOfSpellKnowledge;
+import MysticMod.Cards.Sideswipe;
+import MysticMod.Cards.Probe;
+import MysticMod.Cards.Daze;
+import MysticMod.Cards.CorrosiveTouch;
 import MysticMod.Character.MysticCharacter;
 import MysticMod.Patches.MysticEnum;
 import MysticMod.Relics.MysticSpellBook;
@@ -51,11 +95,13 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
+import basemod.interfaces.PostBattleSubscriber;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.badlogic.gdx.graphics.Color;
@@ -63,7 +109,7 @@ import com.badlogic.gdx.Gdx;
 import java.util.*;
 
 @SpireInitializer
-public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber {
+public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber {
 
     private static final String modName = "TheMysticMod";
     private static final String author = "Johnny Devo";
@@ -80,6 +126,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     private static final String charButton = "MysticMod/images/charSelect/button.png";
     private static final String charPortrait = "MysticMod/images/charSelect/portrait.png";
     public static final String badgeImg = "MysticMod/images/badge.png";
+    public static boolean isDiscoveryLookingForSpells = false;
+    public static boolean isDiscoveryLookingForTechniques = false;
+    public static int numberOfTimesDeckShuffledThisCombat = 0;
 
     public MysticMod(){
         BaseMod.subscribe(this);
@@ -110,18 +159,62 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new Spark());
         BaseMod.addCard(new ReadMagic());
 
-        //Commons. 2 attacks, 1 skill
+        //Commons. 10 attacks, 7 skills
         BaseMod.addCard(new HeavyStrike());
         BaseMod.addCard(new SuddenClarity());
         BaseMod.addCard(new PowerSlash());
+        BaseMod.addCard(new Alacrity());
+        BaseMod.addCard(new DiviningBlow());
+        BaseMod.addCard(new Riposte());
+        BaseMod.addCard(new Moulinet());
+        BaseMod.addCard(new LightningBolt());
+        BaseMod.addCard(new Snowball());
+        BaseMod.addCard(new Shield());
+        BaseMod.addCard(new Disengage());
+        BaseMod.addCard(new ComponentsPouch());
+        BaseMod.addCard(new PureInstinct());
+        BaseMod.addCard(new PageOfSpellKnowledge());
+        BaseMod.addCard(new Sideswipe());
+        BaseMod.addCard(new Probe());
+        BaseMod.addCard(new Daze());
+        BaseMod.addCard(new CorrosiveTouch());
 
-        //Uncommons. 2 attacks, 2 skill, 2 powers
+        //Uncommons. 12 attacks, 17 skills, 6 powers
         BaseMod.addCard(new Fireball());
         BaseMod.addCard(new FloatingDisk());
         BaseMod.addCard(new ComboCaster());
         BaseMod.addCard(new Flourish());
         BaseMod.addCard(new Dedication());
         BaseMod.addCard(new Grapple());
+        BaseMod.addCard(new VorpalThrust());
+        BaseMod.addCard(new EarthenWall());
+        BaseMod.addCard(new Grease());
+        BaseMod.addCard(new ArcaneAccuracy());
+        BaseMod.addCard(new MightyMagic());
+        BaseMod.addCard(new RapidCaster());
+        BaseMod.addCard(new ChargedParry());
+        BaseMod.addCard(new Feint());
+        BaseMod.addCard(new StyleChange());
+        BaseMod.addCard(new Flurry());
+        BaseMod.addCard(new BladeMaster());
+        BaseMod.addCard(new EnergizedRift());
+        BaseMod.addCard(new IllusionOfCalm());
+        BaseMod.addCard(new PunishingArmor());
+        BaseMod.addCard(new BladedDash());
+        BaseMod.addCard(new MirrorStrike());
+        BaseMod.addCard(new Fly());
+        BaseMod.addCard(new MagicWeapon());
+        BaseMod.addCard(new BladeBurst());
+        BaseMod.addCard(new KeenEdge());
+        BaseMod.addCard(new EbbAndFlow());
+        BaseMod.addCard(new MagicMissile());
+        BaseMod.addCard(new PowerAttack());
+        BaseMod.addCard(new Stoneskin());
+        BaseMod.addCard(new CureLightWounds());
+        BaseMod.addCard(new HunkerDown());
+        BaseMod.addCard(new AllIn());
+        BaseMod.addCard(new FiveFootStep());
+        BaseMod.addCard(new SpellCombat());
 
         //Rares. 3 attacks, 9 skills, 6 powers
         BaseMod.addCard(new Disintegrate());
@@ -180,6 +273,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addRelicToCustomPool(new MysticSpellBook(), AbstractCardEnum.MYSTIC_PURPLE.toString());
     }
 
+    @Override
+    public void receivePostBattle(final AbstractRoom p0) { //for Magic Missile
+        numberOfTimesDeckShuffledThisCombat = 0;
+    }
+
     public static boolean isThisASpell(final AbstractCard card, final boolean onUseCard) { //Is this a pigeon?
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
             if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
@@ -223,6 +321,17 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         for (final Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
             final AbstractCard card = potentialSpell.getValue();
             if (card.rarity != AbstractCard.CardRarity.BASIC && card.rawDescription.startsWith("Spell.")) {
+                list.add(card);
+            }
+        }
+        return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
+    }
+
+    public static AbstractCard returnTrulyRandomTechnique() {
+        final ArrayList<AbstractCard> list = new ArrayList<AbstractCard>();
+        for (final Map.Entry<String, AbstractCard> potentialTechnique : CardLibrary.cards.entrySet()) {
+            final AbstractCard card = potentialTechnique.getValue();
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rawDescription.startsWith("Technique.")) {
                 list.add(card);
             }
         }

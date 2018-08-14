@@ -65,7 +65,7 @@ public class DoublecastPower extends AbstractPower {
             AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse));
             --this.amount;
             if (this.amount == 0) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, "Doublecast"));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, DoublecastPower.POWER_ID));
             }
         }
     }

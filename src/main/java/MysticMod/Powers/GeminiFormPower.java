@@ -30,6 +30,7 @@ public class GeminiFormPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
+        this.priority = 0;
 
     }
 

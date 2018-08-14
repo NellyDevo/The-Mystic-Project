@@ -54,6 +54,7 @@ public class ShockingGrasp
     }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }
+
     @Override
     public void applyPowers() {
         CURRENT_MAGIC_NUMBER = this.baseMagicNumber;
