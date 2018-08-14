@@ -23,6 +23,7 @@ Spell: a core concept of the mystic class. Many effects care if other cards are 
 Technique: same as spell  
 Energized: card has a special effect if you played a spell that turn  
 Technical: same as energized, but with Techniques.  
+Cantrip: a special colorless card that some effects can generate. Count as a spell if you haven't played 2 spells yet.
 
 NEW RELIC  
 Spellbook. Starter relic. Adds a random "Cantrip" to your hand at the start of each combat.  
