@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import MysticMod.Actions.EbbPowerAction;
 
 public class EbbPower extends AbstractPower {
     public static final String POWER_ID = "MysticMod:EbbPower";
@@ -38,21 +38,6 @@ public class EbbPower extends AbstractPower {
 
     @Override
     public void atStartOfTurnPostDraw() {
-        boolean hasSpell = false;
-        boolean hasTechnique = false;
-        for (final AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card.rawDescription.startsWith("Spell") || card.rawDescription.startsWith("Cantrip")) {
-                hasSpell = true;
-            }
-            if (card.rawDescription.startsWith("Technique")) {
-                hasTechnique = true;
-            }
-            if (hasSpell && hasTechnique) {
-                return;
-            }
-        }
-        if (!hasSpell || !hasTechnique) {
-            AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 2, false));
-        }
+        AbstractDungeon.actionManager.addToBottom(new EbbPowerAction());
     }
 }

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import MysticMod.Patches.AbstractCardEnum;
 import MysticMod.Powers.SpellsPlayed;
 import MysticMod.Powers.TechniquesPlayed;
@@ -28,15 +29,15 @@ public class Riposte
     public static final String IMG_PATH = "MysticMod/images/cards/riposte.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 9;
-    public static final int WEAK_AMT = 1;
-    public static final int UPGRADE_PLUS_WEAK = 1;
+    public static final int UPGRADE_PLUS_DMG = 3;
+    public static final int WEAK_VULN_AMT = 1;
 
     public Riposte() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber = this.baseMagicNumber = WEAK_AMT;
+        this.magicNumber = this.baseMagicNumber = WEAK_VULN_AMT;
     }
 
     @Override
@@ -46,9 +47,11 @@ public class Riposte
                     new com.megacrit.cardcrawl.actions.common.DamageAction(
                             m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
                             , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 1)) {
+        if ((m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND)) {
             AbstractDungeon.actionManager.addToBottom(
                     new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(
+                    new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
     }
@@ -62,7 +65,7 @@ public class Riposte
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_WEAK);
+            this.upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

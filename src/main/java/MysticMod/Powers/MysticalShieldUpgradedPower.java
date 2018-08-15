@@ -19,8 +19,6 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
     private static int startOfTurnBlock;
-    private boolean hasBarricade;
-    private boolean hasBlur;
 
     public MysticalShieldUpgradedPower(AbstractCreature owner) {
         this.name = NAME;
@@ -42,24 +40,23 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         //logger.info("atEnergyGain publish. Stored Block amount:" + this.startOfTurnBlock + ".");
-        if (AbstractDungeon.player.hasPower("Barricade")) {
-            hasBarricade = true;
-        }
-        if (AbstractDungeon.player.hasPower("Blur")) {
-            hasBlur = true;
-        }
         //logger.info("start of turn block: " + startOfTurnBlock + ". hasbarricade equals " + hasBarricade + ". hasBlur equals " + hasBlur + ".");
-        if (!hasBarricade && !hasBlur) {
+        if (!AbstractDungeon.player.hasPower("Barricade") && !AbstractDungeon.player.hasPower("Blur")) {
+            flash();
+            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 10));
+        } else {
+            if (AbstractDungeon.player.currentBlock < 10) {
                 flash();
-                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 10));
-            } else {
-                if (AbstractDungeon.player.currentBlock < 10) {
-                    flash();
-                    AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 10 - AbstractDungeon.player.currentBlock));
-                }
+                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 10 - AbstractDungeon.player.currentBlock));
             }
-        hasBarricade = false;
-        hasBlur = false;
+        }
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            startOfTurnBlock = AbstractDungeon.player.currentBlock;
+        }
     }
 
     @Override

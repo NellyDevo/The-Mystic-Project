@@ -323,7 +323,7 @@
   },
   "MysticMod:Riposte": {
     "NAME": "Riposte",
-    "DESCRIPTION": "Technique. NL Deal !D! damage. Arcane: Apply !M! Weak.",
+    "DESCRIPTION": "Technique. NL Deal !D! damage. NL if the enemy intends to attack, apply !M! Weak and !M! Vulnerable.",
     "UPGRADE_DESCRIPTION": ""
   },
   "MysticMod:Snowball": {
