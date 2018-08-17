@@ -1,0 +1,90 @@
+{
+  "mysticmod:ArcaneAccuracyPower": {
+    "NAME": "Arcane Accuracy",
+    "DESCRIPTIONS": ["Whenever you play a Spell, gain", "Strength until end of turn"]
+  },
+  "mysticmod:ComboCasterPower": {
+    "NAME": "Combo Caster",
+    "DESCRIPTIONS": ["At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand"]
+  },
+  "mysticmod:DisciplinePower": {
+    "NAME": "Discipline",
+    "DESCRIPTIONS": ["Begin each turn as if you had already played", "Spell and Technique", "Spells and Techniques."]
+  },
+  "mysticmod:DoublecastPower": {
+    "NAME": "Doublecast",
+    "DESCRIPTIONS": ["Your next Spell card is played twice.", "Your next ", " Spell cards are played twice."]
+  },
+  "mysticmod:EbbPower": {
+    "NAME": "Ebb",
+    "DESCRIPTIONS": ["At the start of your turn, discard 2 cards if your hand does not contain a Spell and a Technique."]
+  },
+  "mysticmod:FlowPower": {
+    "NAME": "Flow",
+    "DESCRIPTIONS": ["At the start of your turn, draw ", "a card.", " cards."]
+  },
+  "mysticmod:GainDexterityPower": {
+    "NAME": "Overextended",
+    "DESCRIPTIONS": ["Gain ", " Dexterity at the end of your turn."]
+  },
+  "mysticmod:GeminiFormPower": {
+    "NAME": "Gemini Form",
+    "DESCRIPTIONS": ["The first ", "Attack or Skill you play each turn counts as both a Spell and a Technique.", "Attacks or Skills you play each turn counts as both a Spell and a Technique."]
+  },
+  "mysticmod:HastePower": {
+    "NAME": "Haste",
+    "DESCRIPTIONS": ["Draw 1 card and gain [E] each turn."]
+  },
+  "mysticmod:MightyMagicPower": {
+    "NAME": "Mighty Magic",
+    "DESCRIPTIONS": ["Whenever you play a Technique, gain", "Dexterity until end of turn"]
+  },
+  "mysticmod:MirrorEntityPower": {
+    "NAME": "Mirror Entity",
+    "DESCRIPTIONS": ["Spells and Techniques played carry over to the next turn"]
+  },
+  "mysticmod:MomentumPower": {
+    "NAME": "Momentum",
+    "DESCRIPTIONS": ["Spells and Techniques deal extra damage and apply extra block for each card of the other type played this turn"]
+  },
+  "mysticmod:MysticalShieldPower": {
+    "NAME": "Mystical Shield",
+    "DESCRIPTIONS": ["Block is reduced to 10 instead of 0 at the start of the turn."]
+  },
+  "mysticmod:MysticalShieldUpgradedPower": {
+    "NAME": "Mystical Shield",
+    "DESCRIPTIONS": ["Block is set to 10 instead of 0 at the start of the turn."]
+  },
+  "mysticmod:Natural20Power": {
+    "NAME": "Natural 20",
+    "DESCRIPTIONS": ["Critical hit!"]
+  },
+  "mysticmod:RapidCasterPower": {
+    "NAME": "Rapid Caster",
+    "DESCRIPTIONS": ["The first Cantrip you play each turn is played twice.", "The first ", " Cantrips you play each turn are played twice."]
+  },
+  "mysticmod:SpellsPlayedPower": {
+    "NAME": "Spells Played",
+    "DESCRIPTIONS": ["You have played ", "Spell this turn.", "Spells this turn."]
+  },
+  "mysticmod:SpellsPlayedNextTurnPower": {
+    "NAME": "Spells Next Turn",
+    "DESCRIPTIONS": ["Start next turn as if you already played ", "Spell.", "Spells."]
+  },
+  "mysticmod:SpontaneousCasterPower": {
+    "NAME": "Spontaneous Caster",
+    "DESCRIPTIONS": ["Spells cost [E] less to play, Exhaust when played, and then generate a random spell in your discard pile."]
+  },
+  "mysticmod:StoneskinPower": {
+    "NAME": "Stoneskin",
+    "DESCRIPTIONS": ["Start your next turn with 2 extra block.", "Start your next ", " turns with 2 extra block."]
+  },
+  "mysticmod:TechniquesPlayedPower": {
+    "NAME": "Techniques Played",
+    "DESCRIPTIONS": ["You have played ", "Technique this turn.", "Techniques this turn."]
+  },
+  "mysticmod:TechniquesPlayedNextTurnPower": {
+    "NAME": "Techniques Next Turn",
+    "DESCRIPTIONS": ["Start next turn as if you already played ", "Technique.", "Techniques."]
+  }
+}

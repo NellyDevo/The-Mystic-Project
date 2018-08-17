@@ -1,0 +1,47 @@
+{
+  "mysticmod:BentSpoon": {
+    "NAME": "Bent Spoon",
+    "FLAVOR": "What Lee doesn't want you to know is that there is no spoon.",
+    "DESCRIPTIONS": ["#yCantrips deal 1 additional damage and Gain 1 additional #yBlock."]
+  },
+  "mysticmod:BlessedBook": {
+    "NAME": "Blessed Book",
+    "FLAVOR": "A powerful Spell Book enchanted with mysterious magics.",
+    "DESCRIPTIONS": ["Replaces #ySpellBook. Every ", " turns, add a random #yCantrip to your hand."]
+  },
+  "mysticmod:CrystalBall": {
+    "NAME": "Crystal Ball",
+    "FLAVOR": "Cannot interface with Palantír, Pensieves, Scryballs, Gramerhain, Shiral crystals, or Urim and Thummim",
+    "DESCRIPTIONS": ["All non #yTechnique skills are #ySpells, and all non #ySpell attacks are #yTechniques."]
+  },
+  "mysticmod:DeckOfManyThings": {
+    "NAME": "Deck Of Many Things",
+    "FLAVOR": "It's a mystery why anyone would represent magical effects as a deck of cards.",
+    "DESCRIPTIONS": ["Gain [E] at the start of each turn. Whenever you play a non #yPower, non #yTechnique, and non #ySpell card, lose 1 #yHP."]
+  },
+  "mysticmod:Kama": {
+    "NAME": "Kama",
+    "FLAVOR": "Commonly used to reap wheat and souls.",
+    "DESCRIPTIONS": ["Every fifth card you play, gain 1 #yStrength if that card was a #yTechnique, and gain 1 #yDexterity if that card was a #ySpell"]
+  },
+  "mysticmod:RunicPrism": {
+    "NAME": "Runic Prism",
+    "FLAVOR": "The dark side of the moon god.",
+    "DESCRIPTIONS": ["Whenever you play a #ySpell, deal 3 damage to a random enemy."]
+  },
+  "mysticmod:RabbitsFoot": {
+    "NAME": "Rabbit's Foot",
+    "FLAVOR": "Said to bring good luck to its holder.",
+    "DESCRIPTIONS": ["Whenever you play a #yTechnique, Gain 1 block."]
+  },
+  "mysticmod:SpellBook": {
+    "NAME": "Spell Book",
+    "FLAVOR": "A special tome unique to every caster. Contains records of spells that only the writer understands.",
+    "DESCRIPTIONS": ["At the start of each combat, add a random #yCantrip to your hand"]
+  },
+  "mysticmod:TrainingManual": {
+    "NAME": "Training Manual",
+    "FLAVOR": "An instructional booklet containing illustrated diagrams for various fighting styles. The handwriting is oddly familiar.",
+    "DESCRIPTIONS": ["At the start of each combat, add a random #yTechnique to your hand"]
+  }
+}
