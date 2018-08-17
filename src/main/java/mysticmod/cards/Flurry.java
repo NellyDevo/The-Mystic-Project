@@ -66,6 +66,13 @@ public class Flurry
     }
 
     @Override
+    public void calculateCardDamage(final AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        this.block = this.baseBlock;
+        this.isBlockModified = false;
+    }
+
+    @Override
     public AbstractCard makeCopy() {
         return new Flurry();
     }

@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.TechniquesPlayed;
 
@@ -50,6 +51,7 @@ public class BladeBurst
         if (this.upgraded) {
             newMagicWeapon.upgrade();
         }
+        UnlockTracker.markCardAsSeen(newMagicWeapon.cardID);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(newMagicWeapon.makeStatEquivalentCopy(), 1));
     }
 

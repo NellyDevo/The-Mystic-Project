@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import mysticmod.MysticMod;
 
 public class TrainingManual extends CustomRelic {
@@ -22,7 +24,9 @@ public class TrainingManual extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(MysticMod.returnTrulyRandomTechnique(), 1, false));
+        AbstractCard c = MysticMod.returnTrulyRandomTechnique();
+        UnlockTracker.markCardAsSeen(c.cardID);
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, 1, false));
         flash();
     }
 

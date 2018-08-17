@@ -50,7 +50,7 @@ public class PowerAttack
     }
 
     @Override
-    public boolean hasEnoughEnergy() {
+    public boolean hasEnoughEnergy() { //feat keyword functionality
         boolean returnValue = super.hasEnoughEnergy();
         if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
             returnValue = false;

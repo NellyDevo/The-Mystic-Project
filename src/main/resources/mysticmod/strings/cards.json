@@ -217,8 +217,8 @@
   },
   "mysticmod:Lunge": {
     "NAME": "Lunge",
-    "DESCRIPTION": "Technique. NL Gain [E] [E]. NL Draw 2 cards. NL Lose 2 Dexterity this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Technique. NL Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 2 Dexterity this turn. NL Exhaust."
+    "DESCRIPTION": "Technique. NL Gain [E] [E]. NL Draw 2 cards. NL Lose 2 Dexterity this turn. NL Exhaust. Feat.",
+    "UPGRADE_DESCRIPTION": "Technique. NL Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 2 Dexterity this turn. NL Exhaust. Feat."
   },
   "mysticmod:MagicMissile": {
     "NAME": "Magic Missile",
@@ -273,7 +273,7 @@
   },
   "mysticmod:PowerAttack": {
     "NAME": "Power Attack",
-    "DESCRIPTION": "Technique. NL Gain 6 Strength and lose !M! Dexterity this turn. Can only be played as the first card in the turn.",
+    "DESCRIPTION": "Technique. NL Gain 6 Strength and lose !M! Dexterity this turn. NL Feat.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PowerSlash": {
@@ -368,8 +368,8 @@
   },
   "mysticmod:SpontaneousCaster": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTION": "Spells cost [E] less to play, Exhaust when played, and then add a random Spell to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Spells cost [E] less to play, Exhaust when played, and then add a random Spell to your discard pile. NL Innate."
+    "DESCRIPTION": "Whenever you play a Spell, exhaust it and add a random Spell to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Spell, exhaust it and add a random Spell to your discard pile."
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",

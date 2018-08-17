@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.MysticMod;
 import java.util.*;
 
@@ -43,10 +44,12 @@ public class SpontaneousCasterPower extends AbstractPower {
             this.flash();
             action.exhaustCard = true;
             AbstractCard newCard = MysticMod.returnTrulyRandomSpell();
+            UnlockTracker.markCardAsSeen(newCard.cardID);
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction(newCard.makeStatEquivalentCopy(), 1));
         }
     }
 
+    /* ===Card seems too broken. Removing cost reduction functionality for now.===
     @Override
     public void onInitialApplication() {
         //Iterate through hand. For each card in hand, if cost is not already reduced and card is a Spell, reduce card's cost for combat by 1.
@@ -144,4 +147,5 @@ public class SpontaneousCasterPower extends AbstractPower {
         affectedCards.clear();
         toRestoreCost.clear();
     }
+    */
 }

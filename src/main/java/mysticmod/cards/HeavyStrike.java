@@ -45,10 +45,8 @@ public class HeavyStrike
                     new com.megacrit.cardcrawl.actions.common.DamageAction(
                             m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
                             , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 1)) {
             AbstractDungeon.actionManager.addToBottom(
                     new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
-        }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
     }
 

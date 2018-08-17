@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.MysticMod;
 
@@ -34,6 +35,7 @@ public class StyleChange
     public void use(AbstractPlayer p, AbstractMonster m) {
         final AbstractCard c = MysticMod.returnTrulyRandomTechnique();
         c.setCostForTurn(0);
+        UnlockTracker.markCardAsSeen(c.cardID);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, true));
     }
 

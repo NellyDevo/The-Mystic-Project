@@ -48,6 +48,16 @@ public class Lunge
     }
 
     @Override
+    public boolean hasEnoughEnergy() { //feat keyword functionality
+        boolean returnValue = super.hasEnoughEnergy();
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
+            returnValue = false;
+            return returnValue;
+        }
+        return returnValue;
+    }
+
+    @Override
     public AbstractCard makeCopy() {
         return new Lunge();
     }
