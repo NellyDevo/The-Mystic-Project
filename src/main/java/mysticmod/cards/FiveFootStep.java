@@ -24,14 +24,16 @@ public class FiveFootStep
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/fivefootstep.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/fivefootstep.png";
     private static final int COST = 0;
     private static final int DAMAGE_AMT = 4;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public FiveFootStep() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage = this.baseDamage = DAMAGE_AMT;
     }
 
@@ -44,6 +46,17 @@ public class FiveFootStep
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new AddMyActionToBottomOfQueueLaterAction(this, true));
+        }
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
         }
     }
 

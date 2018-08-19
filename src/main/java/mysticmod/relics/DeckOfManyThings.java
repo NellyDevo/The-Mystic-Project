@@ -13,6 +13,8 @@ import mysticmod.MysticMod;
 public class DeckOfManyThings extends CustomRelic {
     public static final String ID = "mysticmod:DeckOfManyThings";
     public static final Texture IMG = new Texture("mysticmod/images/relics/deckofmanythings.png");
+    private boolean spellPlayed;
+    private boolean techniquePlayed;
 
     public DeckOfManyThings() {
         super(ID, IMG, RelicTier.BOSS, LandingSound.MAGICAL);
@@ -25,9 +27,15 @@ public class DeckOfManyThings extends CustomRelic {
 
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        if (!MysticMod.isThisASpell(c, true) && !MysticMod.isThisATechnique(c, true) && c.type != AbstractCard.CardType.POWER) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+        if (MysticMod.isThisASpell(c, true)) {
+            this.spellPlayed = true;
+
+        }
+        if (MysticMod.isThisATechnique(c, true)) {
+            this.techniquePlayed = true;
+        }
+        if (this.spellPlayed && this.techniquePlayed) {
+            this.pulse = false;
         }
     }
 
@@ -41,6 +49,21 @@ public class DeckOfManyThings extends CustomRelic {
     public void onUnequip() {
         final EnergyManager energy = AbstractDungeon.player.energy;
         --energy.energyMaster;
+    }
+
+    @Override
+    public void atTurnStart() {
+        this.beginPulse();
+        this.pulse = true;
+    }
+
+    @Override
+    public void onPlayerEndTurn() {
+        if (!this.spellPlayed || !this.techniquePlayed) {
+            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 2));
+            this.flash();
+            this.pulse = false;
+        }
     }
 
     @Override

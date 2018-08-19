@@ -17,7 +17,7 @@ public class RapidCasterPower extends AbstractPower {
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
-    private static int cantripsPlayedThisTurn;
+    private int cantripsPlayedThisTurn;
 
     public RapidCasterPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -44,8 +44,8 @@ public class RapidCasterPower extends AbstractPower {
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
         if (card.rawDescription.startsWith("Cantrip.") && !card.purgeOnUse) {
-            cantripsPlayedThisTurn++;
-            if (cantripsPlayedThisTurn <= this.amount) {
+            this.cantripsPlayedThisTurn++;
+            if (this.cantripsPlayedThisTurn <= this.amount) {
                 this.flash();
                 AbstractMonster m = null;
                 if (action.target != null) {
@@ -71,7 +71,7 @@ public class RapidCasterPower extends AbstractPower {
     public void onInitialApplication() {
         for (final AbstractCard potentialCantrip : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             if (potentialCantrip.rawDescription.startsWith("Cantrip.") && !potentialCantrip.purgeOnUse) {
-                cantripsPlayedThisTurn++;
+                this.cantripsPlayedThisTurn++;
             }
         }
     }
@@ -79,7 +79,7 @@ public class RapidCasterPower extends AbstractPower {
     @Override
     public void atEndOfTurn(final boolean isPlayer) {
         if (isPlayer) {
-            cantripsPlayedThisTurn = 0;
+            this.cantripsPlayedThisTurn = 0;
         }
     }
 }

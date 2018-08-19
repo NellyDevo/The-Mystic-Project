@@ -21,15 +21,17 @@ public class Alacrity
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/alacrity.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/alacrity.png";
     private static final int COST = 1;
     private static final int BLOCK_AMT = 6;
     private static final int UPGRADE_EXTRA_BLK = 3;
     private static final int ENERGY_GAIN = 1;
 
     public Alacrity() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+        loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = ENERGY_GAIN;
     }
@@ -41,6 +43,17 @@ public class Alacrity
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new EnergizedBluePower(p, this.magicNumber), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

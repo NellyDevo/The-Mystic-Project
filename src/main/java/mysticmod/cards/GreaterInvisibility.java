@@ -21,14 +21,16 @@ public class GreaterInvisibility
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/greaterinvisibility.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/greaterinvisibility.png";
     private static final int COST = 2;
     private static final int REQUIRED_TECHNIQUES = 2;
     private static final int UPGRADE_TECHNIQUE_REDUCE = -1;
 
     public GreaterInvisibility() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        loadCardImage(IMG_PATH);
         this.exhaust = true;
         this.isEthereal = true;
         this.magicNumber = this.baseMagicNumber = REQUIRED_TECHNIQUES;
@@ -46,6 +48,17 @@ public class GreaterInvisibility
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
         //spell functionality
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID) && AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount >= this.magicNumber) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

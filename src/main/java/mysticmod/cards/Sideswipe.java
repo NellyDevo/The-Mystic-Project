@@ -24,15 +24,17 @@ public class Sideswipe
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/sideswipe.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/sideswipe.png";
     private static final int COST = 0;
     public static final int ATTACK_DMG = 5;
     private static final int WEAK_AMT = 1;
     private static final int UPGRADE_WEAK_AMT = 1;
 
     public Sideswipe() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = WEAK_AMT;
     }
@@ -48,6 +50,17 @@ public class Sideswipe
                     new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

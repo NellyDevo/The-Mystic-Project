@@ -23,14 +23,16 @@ public class Daze
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/daze.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/daze.png";
     private static final int COST = 0;
     public static final int POWER_AMT = 1;
     private static final int UPGRADE_PLUS_PWR = 1;
 
     public Daze() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.magicNumber=this.baseMagicNumber = POWER_AMT;
     }
 
@@ -43,6 +45,17 @@ public class Daze
                     new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

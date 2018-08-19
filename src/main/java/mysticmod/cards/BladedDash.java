@@ -23,6 +23,7 @@ public class BladedDash
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/bladeddash.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/bladeddash.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_DMG = 3;
@@ -30,9 +31,10 @@ public class BladedDash
     private static final int UPGRADE_PLUS_BLK = 3;
 
     public BladedDash() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.block = this.baseBlock = BLOCK_AMT;
     }
@@ -47,6 +49,17 @@ public class BladedDash
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

@@ -1,11 +1,11 @@
 package mysticmod.relics;
 
-import com.megacrit.cardcrawl.actions.unique.SwordBoomerangAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import mysticmod.MysticMod;
+import mysticmod.actions.RunicPrismAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -27,7 +27,8 @@ public class RunicPrism extends CustomRelic {
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
         if (MysticMod.isThisASpell(c, true)) {
-            AbstractDungeon.actionManager.addToBottom(new SwordBoomerangAction(AbstractDungeon.getMonsters().getRandomMonster(true), new DamageInfo(AbstractDungeon.player, DAMAGE_AMT, DamageInfo.DamageType.THORNS), 1));
+            AbstractDungeon.actionManager.addToBottom(
+                    new RunicPrismAction(AbstractDungeon.getMonsters().getRandomMonster(true), new DamageInfo(AbstractDungeon.player, DAMAGE_AMT, DamageInfo.DamageType.THORNS)));
             flash();
         }
     }

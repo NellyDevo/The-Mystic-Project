@@ -23,6 +23,7 @@ public class Flurry
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/flurry.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/flurry.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 2;
     private static final int ATTACK_COUNT = 3;
@@ -30,9 +31,10 @@ public class Flurry
     private static final int UPGRADE_ATTACK_COUNT = 1;
 
     public Flurry() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.block = this.baseBlock = ALTERNATIVE_ATTACK_COUNT;
         this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
@@ -56,6 +58,7 @@ public class Flurry
             }
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
     }
 
     @Override
@@ -63,6 +66,11 @@ public class Flurry
         super.applyPowers();
         this.block = this.baseBlock;
         this.isBlockModified = false;
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

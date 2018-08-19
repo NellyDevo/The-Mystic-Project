@@ -23,14 +23,16 @@ public class MirrorStrike
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/mirrorstrike.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/mirrorstrike.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_ATK = 2;
 
     public MirrorStrike() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
     }
 
@@ -50,6 +52,17 @@ public class MirrorStrike
             }
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount >= 2) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

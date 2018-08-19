@@ -22,6 +22,7 @@ public class LightningBolt
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/lightningbolt.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/lightningbolt.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_DMG = 3;
@@ -30,9 +31,10 @@ public class LightningBolt
     private int[] alternateMultiDamage;
 
     public LightningBolt() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ALL_ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = ALTERNATE_DMG;
         this.isMultiDamage = true;
@@ -49,6 +51,7 @@ public class LightningBolt
                             p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
     }
 
     @Override
@@ -65,6 +68,11 @@ public class LightningBolt
         // repeat so this.damage holds the second condition's damage
         this.baseDamage = CURRENT_DMG;
         super.applyPowers();
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

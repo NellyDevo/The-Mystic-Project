@@ -21,14 +21,16 @@ public class ObscuringMist
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/obscuringmist.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/obscuringmist.png";
     private static final int COST = 2;
     private static final int BLOCK_AMT = 15;
     private static final int UPGRADE_BLOCK_PLUS = 5;
 
     public ObscuringMist() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        loadCardImage(IMG_PATH);
         this.exhaust = true;
         this.block = this.baseBlock = BLOCK_AMT;
 
@@ -44,6 +46,17 @@ public class ObscuringMist
         }
         //spell functionality
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

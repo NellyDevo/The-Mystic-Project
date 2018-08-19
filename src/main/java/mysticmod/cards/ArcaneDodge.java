@@ -21,15 +21,17 @@ public class ArcaneDodge
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/arcanedodge.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/arcanedodge.png";
     private static final int COST = 1;
     public static final int BLOCK_AMT = 5;
     private static final int EXTRA_BLK = 4;
     private static final int UPGRADE_EXTRA_BLOCK = 3;
 
     public ArcaneDodge() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
+        loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = EXTRA_BLK;
     }
@@ -41,6 +43,7 @@ public class ArcaneDodge
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.magicNumber));
          }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
     }
 
     @Override
@@ -57,6 +60,11 @@ public class ArcaneDodge
         this.baseBlock = blockPlaceholder;
         this.baseMagicNumber = magicNumberPlaceholder;
         super.applyPowers();
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override

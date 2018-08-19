@@ -24,14 +24,16 @@ public class Grease
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/grease.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/grease.png";
     private static final int COST = 1;
     private static final int STRENGTH_REDUCTION = 3;
     private static final int UPGRADE_STRENGTH_REDUCTION = 2;
 
     public Grease() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
     }
 
@@ -52,14 +54,17 @@ public class Grease
         }
         //spell functionality
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
     }
 
     @Override
     public void applyPowers() {
         if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
             this.target = AbstractCard.CardTarget.ALL_ENEMY;
+            loadCardImage(ALTERNATE_IMG_PATH);
         } else {
             this.target = AbstractCard.CardTarget.ENEMY;
+            loadCardImage(IMG_PATH);
         }
         super.applyPowers();
     }

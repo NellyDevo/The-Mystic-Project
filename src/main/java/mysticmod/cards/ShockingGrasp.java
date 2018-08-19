@@ -23,6 +23,7 @@ public class ShockingGrasp
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/shockinggrasp.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/shockinggrasp.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 8;
     private static final int UPGRADE_PLUS_DMG = 2;
@@ -30,9 +31,10 @@ public class ShockingGrasp
     private static final int UPGRADE_PLUS_BOOST_DMG = 4;
 
     public ShockingGrasp() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
+        loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
     }
@@ -51,6 +53,7 @@ public class ShockingGrasp
                         , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        loadCardImage(IMG_PATH);
     }
 
     @Override
@@ -66,6 +69,11 @@ public class ShockingGrasp
         // repeat so this.damage holds the second condition's damage
         this.baseDamage = CURRENT_DMG;
         super.applyPowers();
+        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            loadCardImage(ALTERNATE_IMG_PATH);
+        } else {
+            loadCardImage(IMG_PATH);
+        }
     }
 
     @Override
