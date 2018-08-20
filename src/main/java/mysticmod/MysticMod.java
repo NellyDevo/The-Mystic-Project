@@ -95,6 +95,7 @@ import mysticmod.relics.TrainingManual;
 import mysticmod.powers.GeminiFormPower;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.potions.EssenceOfMagic;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -109,7 +110,9 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.PostBattleSubscriber;
+import basemod.interfaces.PostInitializeSubscriber;
 import basemod.BaseMod;
+import basemod.ModPanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.badlogic.gdx.graphics.Color;
@@ -118,7 +121,7 @@ import java.util.*;
 import java.nio.charset.StandardCharsets;
 
 @SpireInitializer
-public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber {
+public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber {
 
     private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
     private static final String attackCard = "mysticmod/images/512/bg_attack_mystic.png";
@@ -131,7 +134,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     private static final String energyOrbPortrait = "mysticmod/images/1024/card_mystic_orb.png";
     private static final String charButton = "mysticmod/images/charSelect/button.png";
     private static final String charPortrait = "mysticmod/images/charSelect/portrait.png";
-    public static final String badgeImg = "mysticmod/images/badge.png";
+    private static final String miniManaSymbol = "mysticmod/images/manaSymbol.png";
     public static boolean isDiscoveryLookingForSpells = false;
     public static int numberOfTimesDeckShuffledThisCombat = 0;
 
@@ -141,9 +144,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addColor(AbstractCardEnum.MYSTIC_PURPLE.toString(),
                 mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple,   //Background color, back color, frame color, frame outline color, description box color, glow color
                 attackCard, skillCard, powerCard, energyOrb,                                                        //attack background image, skill background image, power background image, energy orb image
-                attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait);                       //as above, but for card inspect view
+                attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait,                        //as above, but for card inspect view
+                miniManaSymbol);                                                                                    //appears in cards where you type [E]
+
         Color essenceOfMagicColor = CardHelper.getColor(255.0f, 255.0f, 255.0f);
         BaseMod.addPotion(EssenceOfMagic.class, essenceOfMagicColor, essenceOfMagicColor, essenceOfMagicColor, EssenceOfMagic.POTION_ID, MysticEnum.MYSTIC_CLASS);
+
     }
     //Used by @SpireInitializer
     public static void initialize(){
@@ -151,6 +157,14 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         //This creates an instance of our classes and gets our code going after BaseMod and ModTheSpire initialize.
         MysticMod mysticMod = new MysticMod();
     }
+
+    @Override
+    public void receivePostInitialize() {
+        Texture badgeImg = new Texture("mysticmod/images/badge.png");
+        ModPanel settingsPanel = new ModPanel();
+        BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new playable character, The Mystic, to the game.", settingsPanel);
+    }
+
     @Override
     public void receiveEditCards() {
         //Basic. 2 attacks, 2 skills

@@ -70,6 +70,8 @@ public class RayOfFrost
             if (this.block != this.baseBlock) {
                 this.isBlockModified = true;
             }
+        } else {
+            super.applyPowers();
         }
     }
 

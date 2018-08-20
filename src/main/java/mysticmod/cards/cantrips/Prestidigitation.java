@@ -61,6 +61,8 @@ public class Prestidigitation
             if (this.block != this.baseBlock) {
                 this.isBlockModified = true;
             }
+        } else {
+            super.applyPowers();
         }
     }
 
