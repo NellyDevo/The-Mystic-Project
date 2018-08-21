@@ -17,7 +17,7 @@
   "mysticmod:DeckOfManyThings": {
     "NAME": "Deck Of Many Things",
     "FLAVOR": "It's a mystery why anyone would represent magical effects as a deck of cards.",
-    "DESCRIPTIONS": ["Gain [E] at the start of each turn. At the end of each turn, if you did not play a #ySpell and a #Technique, lose 2 HP."]
+    "DESCRIPTIONS": ["Gain [E] at the start of each turn. At the end of each turn, if you did not play a #ySpell and a #yTechnique, lose 2 HP."]
   },
   "mysticmod:Kama": {
     "NAME": "Kama",

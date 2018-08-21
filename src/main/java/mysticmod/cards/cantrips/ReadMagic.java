@@ -1,18 +1,18 @@
 package mysticmod.cards.cantrips;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.SpellsPlayed;
 
-import basemod.abstracts.CustomCard;
-
 public class ReadMagic
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:ReadMagic";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -34,6 +34,7 @@ public class ReadMagic
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber - 1, false));
         //cantrip functionality
         if (
                 !(p.hasPower(SpellsPlayed.POWER_ID))
@@ -42,6 +43,14 @@ public class ReadMagic
         ) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         }
+    }
+
+    @Override
+    public boolean isSpell() {
+        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -54,6 +63,8 @@ public class ReadMagic
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_EXTRA_DRAW);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 }

@@ -29,7 +29,13 @@
   },
   "mysticmod:GeminiFormPower": {
     "NAME": "Gemini Form",
-    "DESCRIPTIONS": ["The first ", "Attack or Skill you play each turn counts as both a Spell and a Technique.", "Attacks or Skills you play each turn counts as both a Spell and a Technique."]
+    "DESCRIPTIONS": [
+      "At the end of combat, gain Gold equal to ",
+      "your current spell and technique counts",
+      " times your current spell and technique counts",
+      " and HP equal to ",
+      "that amount.",
+      " times that amount."]
   },
   "mysticmod:HastePower": {
     "NAME": "Haste",

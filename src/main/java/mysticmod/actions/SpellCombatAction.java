@@ -1,19 +1,18 @@
 package mysticmod.actions;
 
-import com.megacrit.cardcrawl.actions.*;
-import com.megacrit.cardcrawl.cards.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.ui.panels.*;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.core.*;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.TechniquesPlayed;
 
 public class SpellCombatAction extends AbstractGameAction
 {
-    public int[] multiDamage;
     private boolean freeToPlayOnce;
     private DamageInfo.DamageType damageType;
     private AbstractPlayer p;
@@ -25,7 +24,6 @@ public class SpellCombatAction extends AbstractGameAction
     public SpellCombatAction(final AbstractPlayer p, final AbstractMonster m, final int damage, final int block, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
         this.freeToPlayOnce = false;
         this.energyOnUse = -1;
-        this.multiDamage = multiDamage;
         this.damageType = damageType;
         this.p = p;
         this.m = m;
@@ -58,7 +56,13 @@ public class SpellCombatAction extends AbstractGameAction
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
                 if (energized) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.damage, damageType), AttackEffect.BLUNT_LIGHT));
+                    AttackEffect alternatingEffect;
+                    if (i % 2 == 0) {
+                        alternatingEffect = AttackEffect.SLASH_HORIZONTAL;
+                    } else {
+                        alternatingEffect = AttackEffect.SLASH_VERTICAL;
+                    }
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.damage, damageType), alternatingEffect));
                 }
                 if (technical) {
                     AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));

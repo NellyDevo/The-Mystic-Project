@@ -2,19 +2,17 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
 import mysticmod.powers.GainDexterityPower;
-
-import basemod.abstracts.CustomCard;
+import mysticmod.powers.TechniquesPlayed;
 
 public class Lunge
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:Lunge";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -31,6 +29,7 @@ public class Lunge
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = ENERGY_GAIN;
+        this.isTechnique = true;
     }
 
     @Override
@@ -39,9 +38,9 @@ public class Lunge
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainEnergyAction(this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, 2));
         //lose dexterity for turn
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new DexterityPower(p, -2), -2));
+        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new DexterityPower(p, -4), -4));
         if (!p.hasPower("Artifact")) {
-            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new GainDexterityPower(p, 2), 2));
+            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new GainDexterityPower(p, 4), 4));
         }
         //Technique functionality
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));

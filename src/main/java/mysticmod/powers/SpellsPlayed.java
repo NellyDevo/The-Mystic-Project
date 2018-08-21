@@ -1,11 +1,12 @@
 package mysticmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class SpellsPlayed extends AbstractPower {
     public static final String POWER_ID = "mysticmod:SpellsPlayedPower";
@@ -36,9 +37,11 @@ public class SpellsPlayed extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, SpellsPlayed.POWER_ID, AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount)
-        );
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, SpellsPlayed.POWER_ID, AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount)
+            );
+        }
     }
 }

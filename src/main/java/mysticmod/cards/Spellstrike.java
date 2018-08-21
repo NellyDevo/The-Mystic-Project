@@ -5,18 +5,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.actions.PlaySpellAttackFromDrawPile;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.TechniquesPlayed;
-import mysticmod.actions.PlaySpellAttackFromDrawPile;
-
-import basemod.abstracts.CustomCard;
 
 public class Spellstrike
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:Spellstrike";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -24,7 +22,7 @@ public class Spellstrike
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/spellstrike.png";
     private static final int COST = 1;
-    public static final int ATTACK_DMG = 11;
+    public static final int ATTACK_DMG = 8;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public Spellstrike() {
@@ -33,6 +31,7 @@ public class Spellstrike
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.exhaust = true;
+        this.isTechnique = true;
     }
 
     @Override
@@ -40,7 +39,7 @@ public class Spellstrike
         AbstractDungeon.actionManager.addToBottom(
                 new com.megacrit.cardcrawl.actions.common.DamageAction(
                         m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                        , AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         AbstractDungeon.actionManager.addToBottom(new PlaySpellAttackFromDrawPile(1, m, false));
     }

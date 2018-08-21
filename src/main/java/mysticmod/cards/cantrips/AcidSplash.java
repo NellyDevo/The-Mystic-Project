@@ -5,17 +5,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.BentSpoon;
 
-import basemod.abstracts.CustomCard;
-
 public class AcidSplash
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:AcidSplash";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -38,7 +37,7 @@ public class AcidSplash
         AbstractDungeon.actionManager.addToBottom(
                 new com.megacrit.cardcrawl.actions.common.DamageAction(
                         m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                        , AbstractGameAction.AttackEffect.POISON));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, 1));
         //cantrip functionality
         if (
@@ -48,6 +47,14 @@ public class AcidSplash
         ) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         }
+    }
+
+    @Override
+    public boolean isSpell() {
+        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1) {
+            return true;
+        }
+        return false;
     }
 
     @Override

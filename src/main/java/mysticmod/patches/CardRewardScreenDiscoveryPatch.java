@@ -1,11 +1,12 @@
 package mysticmod.patches;
 
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import mysticmod.MysticMod;
-import java.util.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
+import mysticmod.MysticMod;
+
+import java.util.ArrayList;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.screens.CardRewardScreen",method="discoveryOpen",paramtypes={})
 public class CardRewardScreenDiscoveryPatch {

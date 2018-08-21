@@ -1,24 +1,29 @@
 package mysticmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import mysticmod.MysticMod;
-import java.util.*;
+import mysticmod.actions.ReplaceCardAction;
+
+//import java.util.ArrayList;
 
 public class SpontaneousCasterPower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:SpontaneousCasterPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
-    private static ArrayList<AbstractCard> affectedCards = new ArrayList<AbstractCard>();
-    private static ArrayList<AbstractCard> toRestoreCost = new ArrayList<AbstractCard>();
+    //private static ArrayList<AbstractCard> affectedCards = new ArrayList<AbstractCard>();
+    //private static ArrayList<AbstractCard> toRestoreCost = new ArrayList<AbstractCard>();
 
     public SpontaneousCasterPower(AbstractCreature owner) {
         this.name = NAME;
@@ -45,7 +50,7 @@ public class SpontaneousCasterPower extends AbstractPower {
             action.exhaustCard = true;
             AbstractCard newCard = MysticMod.returnTrulyRandomSpell();
             UnlockTracker.markCardAsSeen(newCard.cardID);
-            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction(newCard.makeStatEquivalentCopy(), 1));
+            AbstractDungeon.actionManager.addToBottom(new ReplaceCardAction(card, newCard));
         }
     }
 

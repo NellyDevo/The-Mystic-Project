@@ -2,17 +2,15 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import mysticmod.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.TechniqueHologram;
-
-import basemod.abstracts.CustomCard;
+import mysticmod.patches.AbstractCardEnum;
 
 public class BladeMaster
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:BladeMaster";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -20,7 +18,7 @@ public class BladeMaster
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/blademaster.png";
     private static final int COST = 1;
-    private static final int TECHNIQUES_TO_RETURN = 1;
+    private static final int TECHNIQUES_TO_RETURN = 2;
     private static final int UPGRADE_PLUS_TECH = 1;
 
     public BladeMaster() {

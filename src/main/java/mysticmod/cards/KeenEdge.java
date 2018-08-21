@@ -3,18 +3,16 @@ package mysticmod.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.TechniquesPlayed;
 
-import basemod.abstracts.CustomCard;
-
 public class KeenEdge
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:KeenEdge";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -23,13 +21,14 @@ public class KeenEdge
     public static final String IMG_PATH = "mysticmod/images/cards/keenedge.png";
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
-    private static final int VULNERABLE_AMT = 10;
+    private static final int VULNERABLE_AMT = 8;
 
     public KeenEdge() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL_ENEMY);
         this.magicNumber = this.baseMagicNumber = VULNERABLE_AMT;
+        this.isTechnique = true;
     }
 
     @Override

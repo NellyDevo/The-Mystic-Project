@@ -3,20 +3,19 @@ package mysticmod.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.TechniquesPlayed;
 
-import basemod.abstracts.CustomCard;
-
 public class ChargedParry
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:ChargedParry";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -26,8 +25,9 @@ public class ChargedParry
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/chargedparry.png";
     private static final int COST = 1;
     public static final int BLOCK_AMT = 6;
-    public static final int STRENGTH_GAIN = 4;
+    public static final int STRENGTH_GAIN = 3;
     private static final int UPGRADE_STRENGTH_GAIN = 2;
+    private boolean isArtAlternate = false;
 
     public ChargedParry() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
@@ -36,6 +36,7 @@ public class ChargedParry
         loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = STRENGTH_GAIN;
+        this.isTechnique = true;
     }
 
     @Override
@@ -46,16 +47,33 @@ public class ChargedParry
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, AbstractDungeon.player, new LoseStrengthPower(p, this.magicNumber), this.magicNumber));
          }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
-        loadCardImage(IMG_PATH);
+        if (this.isArtAlternate) {
+            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
+            this.isArtAlternate = false;
+        }
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            loadCardImage(ALTERNATE_IMG_PATH);
+            if (!this.isArtAlternate) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
+                this.isArtAlternate = true;
+            }
         } else {
+            if (this.isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                this.isArtAlternate = false;
+            }
+        }
+    }
+
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (this.isArtAlternate) {
             loadCardImage(IMG_PATH);
+            this.isArtAlternate = false;
         }
     }
 

@@ -4,10 +4,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.powers.MomentumPower;
-import mysticmod.powers.TechniquesPlayed;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.MysticMod;
+import mysticmod.powers.MomentumPower;
+import mysticmod.powers.SpellsPlayed;
+import mysticmod.powers.TechniquesPlayed;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="calculateCardDamage")
 public class CalculateCardDamageMomentumPatch {

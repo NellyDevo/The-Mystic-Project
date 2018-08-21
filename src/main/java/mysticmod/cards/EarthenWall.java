@@ -3,19 +3,17 @@ package mysticmod.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
-import basemod.abstracts.CustomCard;
-
 public class EarthenWall
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:EarthenWall";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -33,6 +31,7 @@ public class EarthenWall
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_GAIN;
         this.block = this.baseBlock = BLOCK_AMT;
+        this.isSpell = true;
     }
 
     @Override

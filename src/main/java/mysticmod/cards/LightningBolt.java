@@ -1,21 +1,20 @@
 package mysticmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.actions.LightningBoltAction;
+import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
 import mysticmod.powers.SpellsPlayed;
-
-import basemod.abstracts.CustomCard;
+import mysticmod.powers.TechniquesPlayed;
 
 public class LightningBolt
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:LightningBolt";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -29,6 +28,7 @@ public class LightningBolt
     private static final int ALTERNATE_DMG = 10;
     private static final int UPGRADE_PLUS_ALT_DMG = 4;
     private int[] alternateMultiDamage;
+    private boolean isArtAlternate = false;
 
     public LightningBolt() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
@@ -38,20 +38,22 @@ public class LightningBolt
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = ALTERNATE_DMG;
         this.isMultiDamage = true;
+        this.isSpell = true;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(TechniquesPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(
-                    new com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction(
-                            p, this.alternateMultiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    new LightningBoltAction(this.alternateMultiDamage, this.damageTypeForTurn, p, this));
         } else {
             AbstractDungeon.actionManager.addToBottom(
-                    new com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction(
-                            p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    new LightningBoltAction(this.multiDamage, this.damageTypeForTurn, p, this));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
-        loadCardImage(IMG_PATH);
+        if (this.isArtAlternate) {
+            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
+            this.isArtAlternate = false;
+        }
     }
 
     @Override
@@ -69,9 +71,23 @@ public class LightningBolt
         this.baseDamage = CURRENT_DMG;
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-            loadCardImage(ALTERNATE_IMG_PATH);
+            if (!this.isArtAlternate) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
+                this.isArtAlternate = true;
+            }
         } else {
+            if (this.isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                this.isArtAlternate = false;
+            }
+        }
+    }
+
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (this.isArtAlternate) {
             loadCardImage(IMG_PATH);
+            this.isArtAlternate = false;
         }
     }
 

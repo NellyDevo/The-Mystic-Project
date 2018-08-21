@@ -1,16 +1,18 @@
 package mysticmod.actions;
 
-import com.megacrit.cardcrawl.actions.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.cards.*;
-import com.megacrit.cardcrawl.core.*;
-import com.megacrit.cardcrawl.monsters.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.cards.AbstractMysticCard;
 
 public class PlaySpellAttackFromDrawPile extends AbstractGameAction {
     private AbstractPlayer p;
@@ -72,7 +74,7 @@ public class PlaySpellAttackFromDrawPile extends AbstractGameAction {
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (final AbstractCard c2 : this.p.drawPile.group) {
-            if ((c2.type == AbstractCard.CardType.ATTACK) && (c2.rawDescription.startsWith("Spell."))) {
+            if ((c2.type == AbstractCard.CardType.ATTACK) && (c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell())) {
                 tmp.addToRandomSpot(c2);
             }
         }

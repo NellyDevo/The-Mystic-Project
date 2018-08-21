@@ -4,20 +4,19 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
 import mysticmod.powers.SpellsPlayed;
-
-import basemod.abstracts.CustomCard;
+import mysticmod.powers.TechniquesPlayed;
 
 public class Grease
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:Grease";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -28,6 +27,7 @@ public class Grease
     private static final int COST = 1;
     private static final int STRENGTH_REDUCTION = 3;
     private static final int UPGRADE_STRENGTH_REDUCTION = 2;
+    private boolean isArtAlternate = false;
 
     public Grease() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
@@ -35,6 +35,7 @@ public class Grease
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         loadCardImage(IMG_PATH);
         this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
+        this.isSpell = true;
     }
 
     @Override
@@ -54,19 +55,36 @@ public class Grease
         }
         //spell functionality
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
-        loadCardImage(IMG_PATH);
+        if (this.isArtAlternate) {
+            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
+            this.isArtAlternate = false;
+        }
     }
 
     @Override
     public void applyPowers() {
         if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
             this.target = AbstractCard.CardTarget.ALL_ENEMY;
-            loadCardImage(ALTERNATE_IMG_PATH);
+            if (!this.isArtAlternate) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
+                this.isArtAlternate = true;
+            }
         } else {
             this.target = AbstractCard.CardTarget.ENEMY;
-            loadCardImage(IMG_PATH);
+            if (this.isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                this.isArtAlternate = false;
+            }
         }
         super.applyPowers();
+    }
+
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (this.isArtAlternate) {
+            loadCardImage(IMG_PATH);
+            this.isArtAlternate = false;
+        }
     }
 
     @Override

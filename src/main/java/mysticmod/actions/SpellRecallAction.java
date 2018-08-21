@@ -1,9 +1,11 @@
 package mysticmod.actions;
 
-import com.megacrit.cardcrawl.actions.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.cards.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import mysticmod.cards.AbstractMysticCard;
 import mysticmod.relics.CrystalBall;
 
 public class SpellRecallAction extends AbstractGameAction
@@ -25,7 +27,7 @@ public class SpellRecallAction extends AbstractGameAction
             //BEGIN make card group from discard pile
             final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (final AbstractCard discardedCard : this.p.discardPile.group) {
-                if (discardedCard.rawDescription.startsWith("Spell.") || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && discardedCard.type == AbstractCard.CardType.SKILL && !discardedCard.rawDescription.startsWith("Technique."))) {
+                if ((discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && discardedCard.type == AbstractCard.CardType.SKILL && !(discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isTechnique()))) {
                     tmp.addToRandomSpot(discardedCard);
                 }
             }

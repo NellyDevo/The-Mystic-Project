@@ -6,19 +6,20 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
+import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.TechniquesPlayed;
 
-import basemod.abstracts.CustomCard;
-
 public class BladeBurst
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:BladeBurst";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -26,8 +27,8 @@ public class BladeBurst
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/bladeburst.png";
     private static final int COST = 1;
-    public static final int ATTACK_DMG = 12;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    public static final int ATTACK_DMG = 11;
+    private static final int UPGRADE_PLUS_DMG = 3;
     private static final int STRENGTH_LOSS = 1;
 
     public BladeBurst() {
@@ -37,6 +38,7 @@ public class BladeBurst
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = STRENGTH_LOSS;
         this.exhaust = true;
+        this.isTechnique = true;
     }
 
     @Override
@@ -44,7 +46,7 @@ public class BladeBurst
         AbstractDungeon.actionManager.addToBottom(
                 new com.megacrit.cardcrawl.actions.common.DamageAction(
                         m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                        , AbstractGameAction.AttackEffect.SMASH));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -this.magicNumber), -this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         AbstractCard newMagicWeapon = new MagicWeapon();
@@ -52,7 +54,7 @@ public class BladeBurst
             newMagicWeapon.upgrade();
         }
         UnlockTracker.markCardAsSeen(newMagicWeapon.cardID);
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(newMagicWeapon.makeStatEquivalentCopy(), 1));
+        AbstractDungeon.actionManager.addToBottom(new ReplaceCardAction(this, newMagicWeapon));
     }
 
     @Override

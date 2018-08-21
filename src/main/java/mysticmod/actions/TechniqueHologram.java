@@ -1,12 +1,14 @@
 package mysticmod.actions;
 
-import com.megacrit.cardcrawl.actions.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.cards.*;
-import com.megacrit.cardcrawl.core.*;
-import mysticmod.relics.CrystalBall;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.SpellsPlayed;
+import mysticmod.relics.CrystalBall;
 
 public class TechniqueHologram extends AbstractGameAction
 {
@@ -33,8 +35,8 @@ public class TechniqueHologram extends AbstractGameAction
         boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1);
         boolean hasCrystalBall = (AbstractDungeon.player.hasRelic(CrystalBall.ID));
         for (final AbstractCard c2 : this.p.discardPile.group) {
-            if (c2.rawDescription.startsWith("Technique.")
-                || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !c2.rawDescription.startsWith("Spell."))
+            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isTechnique())
+                || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell()))
                 && !(c2.rawDescription.startsWith("Cantrip") && cantripsAreSpells)) {
                 tmp.addToRandomSpot(c2);
             }

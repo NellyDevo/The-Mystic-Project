@@ -1,19 +1,19 @@
 package mysticmod.character;
 
-import java.util.ArrayList;
-
+import basemod.abstracts.CustomPlayer;
+import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import mysticmod.patches.MysticEnum;
-import mysticmod.cards.DefendMystic;
-import mysticmod.cards.StrikeMystic;
-import mysticmod.cards.ShockingGrasp;
 import mysticmod.cards.ArcaneDodge;
+import mysticmod.cards.DefendMystic;
+import mysticmod.cards.ShockingGrasp;
+import mysticmod.cards.StrikeMystic;
+import mysticmod.patches.MysticEnum;
 import mysticmod.relics.SpellBook;
-import basemod.animations.SpriterAnimation;
-import basemod.abstracts.CustomPlayer;
+
+import java.util.ArrayList;
 
 public class MysticCharacter extends CustomPlayer {
     public static final int ENERGY_PER_TURN = 3; // how much energy you get every turn

@@ -1,124 +1,33 @@
 package mysticmod;
 
-import mysticmod.cards.cantrips.AcidSplash;
-import mysticmod.cards.cantrips.Prestidigitation;
-import mysticmod.cards.cantrips.RayOfFrost;
-import mysticmod.cards.cantrips.ReadMagic;
-import mysticmod.cards.cantrips.Spark;
-import mysticmod.cards.Alacrity;
-import mysticmod.cards.AllIn;
-import mysticmod.cards.ArcaneAccuracy;
-import mysticmod.cards.ArcaneDodge;
-import mysticmod.cards.BladeBurst;
-import mysticmod.cards.BladedDash;
-import mysticmod.cards.BladeMaster;
-import mysticmod.cards.ChargedParry;
-import mysticmod.cards.ClosingBarrage;
-import mysticmod.cards.ComboCaster;
-import mysticmod.cards.ComponentsPouch;
-import mysticmod.cards.CorrosiveTouch;
-import mysticmod.cards.CureLightWounds;
-import mysticmod.cards.Daze;
-import mysticmod.cards.Dedication;
-import mysticmod.cards.DefendMystic;
-import mysticmod.cards.Discipline;
-import mysticmod.cards.Disengage;
-import mysticmod.cards.Disintegrate;
-import mysticmod.cards.DiviningBlow;
-import mysticmod.cards.Doublecast;
-import mysticmod.cards.EarthenWall;
-import mysticmod.cards.EbbAndFlow;
-import mysticmod.cards.EnergizedRift;
-import mysticmod.cards.Feint;
-import mysticmod.cards.Fireball;
-import mysticmod.cards.FiveFootStep;
-import mysticmod.cards.FloatingDisk;
-import mysticmod.cards.Flourish;
-import mysticmod.cards.Flurry;
-import mysticmod.cards.Fly;
-import mysticmod.cards.GeminiForm;
-import mysticmod.cards.Grapple;
-import mysticmod.cards.Grease;
-import mysticmod.cards.GreaterInvisibility;
-import mysticmod.cards.Haste;
-import mysticmod.cards.HeavyStrike;
-import mysticmod.cards.HunkerDown;
-import mysticmod.cards.IllusionOfCalm;
-import mysticmod.cards.KeenEdge;
-import mysticmod.cards.KnowledgePool;
-import mysticmod.cards.LightningBolt;
-import mysticmod.cards.Lunge;
-import mysticmod.cards.MagicMissile;
-import mysticmod.cards.MagicWeapon;
-import mysticmod.cards.MightyMagic;
-import mysticmod.cards.MirrorEntity;
-import mysticmod.cards.MirrorStrike;
-import mysticmod.cards.Momentum;
-import mysticmod.cards.Moulinet;
-import mysticmod.cards.MysticalShield;
-import mysticmod.cards.Natural20;
-import mysticmod.cards.ObscuringMist;
-import mysticmod.cards.PowerAttack;
-import mysticmod.cards.PowerSlash;
-import mysticmod.cards.PreparedCaster;
-import mysticmod.cards.Probe;
-import mysticmod.cards.PunishingArmor;
-import mysticmod.cards.PureInstinct;
-import mysticmod.cards.RapidCaster;
-import mysticmod.cards.Riposte;
-import mysticmod.cards.Shield;
-import mysticmod.cards.ShockingGrasp;
-import mysticmod.cards.Sideswipe;
-import mysticmod.cards.Snowball;
-import mysticmod.cards.SpellCombat;
-import mysticmod.cards.SpellRecall;
-import mysticmod.cards.Spellstrike;
-import mysticmod.cards.SpontaneousCaster;
-import mysticmod.cards.Stoneskin;
-import mysticmod.cards.StrikeMystic;
-import mysticmod.cards.StyleChange;
-import mysticmod.cards.SuddenClarity;
-import mysticmod.cards.TomeOfSpells;
-import mysticmod.cards.VorpalThrust;
-import mysticmod.character.MysticCharacter;
-import mysticmod.patches.MysticEnum;
-import mysticmod.patches.AbstractCardEnum;
-import mysticmod.relics.BentSpoon;
-import mysticmod.relics.BlessedBook;
-import mysticmod.relics.CrystalBall;
-import mysticmod.relics.DeckOfManyThings;
-import mysticmod.relics.Kama;
-import mysticmod.relics.RabbitsFoot;
-import mysticmod.relics.RunicPrism;
-import mysticmod.relics.SpellBook;
-import mysticmod.relics.TrainingManual;
-import mysticmod.powers.GeminiFormPower;
-import mysticmod.powers.SpellsPlayed;
-import mysticmod.potions.EssenceOfMagic;
-import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.PostBattleSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
 import basemod.BaseMod;
 import basemod.ModPanel;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.badlogic.gdx.graphics.Color;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
-import java.util.*;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.PotionStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import mysticmod.cards.*;
+import mysticmod.cards.cantrips.*;
+import mysticmod.character.MysticCharacter;
+import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticEnum;
+import mysticmod.potions.EssenceOfMagic;
+import mysticmod.powers.SpellsPlayed;
+import mysticmod.relics.*;
+
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Map;
 
 @SpireInitializer
 public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber {
@@ -276,16 +185,16 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receiveEditKeywords() {
         String[] keywordCantrips = {"cantrip", "cantrips"};
-        String[] keywordSpells = {"spell", "spells"};
-        String[] keywordTechniques = {"technique", "techniques"};
+        //String[] keywordSpells = {"spell", "spells"};
+        //String[] keywordTechniques = {"technique", "techniques"};
         String[] keywordArcane = {"arcane"};
         String[] keywordTechnical = {"technical"};
         String[] keywordFeat = {"feat"};
         BaseMod.addKeyword(keywordCantrips, "Considered a spell so long as you've played fewer than 2 spells this turn.");
-        BaseMod.addKeyword(keywordSpells, "Advance the \"spells played\" counter for the turn.");
-        BaseMod.addKeyword(keywordTechniques, "Advance the \"Techniques played\" counter for the turn.");
+        //BaseMod.addKeyword(keywordSpells, "Advance the \"spells played\" counter for the turn.");
+        //BaseMod.addKeyword(keywordTechniques, "Advance the \"Techniques played\" counter for the turn.");
         BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a spell this turn.");
-        BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played a Technique this turn.");
+        BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played an Arte this turn.");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
     }
 
@@ -342,7 +251,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     public static boolean isThisASpell(final AbstractCard card, final boolean onUseCard) { //Is this a pigeon?
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
+            /*if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
                 int attackOrSkillNumber = GeminiFormPower.attacksAndSkillsPlayedThisTurn;
                 if (onUseCard) {
                     attackOrSkillNumber--;
@@ -350,13 +259,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 if (attackOrSkillNumber < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
                     return true;
                 }
-            } else if (card.rawDescription.startsWith("Spell.")) {
+            } else*/ if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
                 return true;
-            } else if (card.rawDescription.startsWith("Cantrip.")) {
-                if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || (AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount < 2)) {
-                    return true;
-                }
-            } else if (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !card.rawDescription.startsWith("Technique.")) {
+            } else if (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique())) {
                 return true;
             }
         }
@@ -365,7 +270,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     public static boolean isThisATechnique(final AbstractCard card, final boolean onUseCard) {
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
+            /*if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
                 int attackOrSkillNumber = GeminiFormPower.attacksAndSkillsPlayedThisTurn;
                 if (onUseCard) {
                     attackOrSkillNumber--;
@@ -373,12 +278,10 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 if (attackOrSkillNumber < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
                     return true;
                 }
-            } else if (card.rawDescription.startsWith("Technique.")) {
+            } else*/ if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
                 return true;
-            } else if (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !card.rawDescription.startsWith("Spell.")) {
-                if (!(card.rawDescription.startsWith("Cantrip") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1))) {
+            } else if (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell())) {
                     return true;
-                }
             }
         }
         return false;
@@ -388,7 +291,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         final ArrayList<AbstractCard> list = new ArrayList<>();
         for (final Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
             final AbstractCard card = potentialSpell.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rawDescription.startsWith("Spell.")) {
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
                 list.add(card);
             }
         }
@@ -399,7 +302,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         final ArrayList<AbstractCard> list = new ArrayList<>();
         for (final Map.Entry<String, AbstractCard> potentialTechnique : CardLibrary.cards.entrySet()) {
             final AbstractCard card = potentialTechnique.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rawDescription.startsWith("Technique.")) {
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
                 list.add(card);
             }
         }

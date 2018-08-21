@@ -1,17 +1,13 @@
 package mysticmod.relics;
 
-import mysticmod.cards.cantrips.AcidSplash;
-import mysticmod.cards.cantrips.Prestidigitation;
-import mysticmod.cards.cantrips.RayOfFrost;
-import mysticmod.cards.cantrips.Spark;
-import mysticmod.cards.cantrips.ReadMagic;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mysticmod.cards.cantrips.*;
 
 public class SpellBook extends CustomRelic {
     public static final String ID = "mysticmod:SpellBook";

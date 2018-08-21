@@ -1,14 +1,14 @@
 package mysticmod.relics;
 
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import mysticmod.MysticMod;
-import mysticmod.actions.RunicPrismAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mysticmod.MysticMod;
+import mysticmod.actions.RunicPrismAction;
 
 public class RunicPrism extends CustomRelic {
     public static final String ID = "mysticmod:RunicPrism";

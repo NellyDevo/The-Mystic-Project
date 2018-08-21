@@ -2,17 +2,15 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.TechniquesPlayed;
 
-import basemod.abstracts.CustomCard;
-
 public class SuddenClarity
-        extends CustomCard {
+        extends AbstractMysticCard {
     public static final String ID = "mysticmod:SuddenClarity";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -20,7 +18,7 @@ public class SuddenClarity
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/suddenclarity.png";
     private static final int COST = 1;
-    private static final int BLOCK_AMT = 4;
+    private static final int BLOCK_AMT = 5;
     private static final int CARD_DRAW = 1;
     private static final int UPGRADE_EXTRA_DRAW = 1;
 
@@ -30,6 +28,7 @@ public class SuddenClarity
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = CARD_DRAW;
+        this.isTechnique = true;
     }
 
     @Override
