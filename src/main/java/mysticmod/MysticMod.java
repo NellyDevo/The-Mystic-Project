@@ -22,9 +22,7 @@ import mysticmod.character.MysticCharacter;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
 import mysticmod.potions.EssenceOfMagic;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.*;
-
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
