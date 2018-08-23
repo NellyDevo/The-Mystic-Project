@@ -25,8 +25,32 @@ Arcane: card has a special effect if you played a spell that turn
 Technical: same as energized, but with Techniques.  
 Cantrip: a special colorless card that some effects can generate. Count as a spell if you haven't played 2 spells yet.
 
-NEW RELIC  
-Spellbook. Starter relic. Adds a random "Cantrip" to your hand at the start of each combat.  
+NEW RELICS   
+Starter   
+Spellbook. Starter relic. Adds a random "Cantrip" to your hand at the start of each combat.   
+
+RELICS  
+Common  
+Training Manual. At the start of each combat, add a random Arte to your hand.  
+
+Uncommon  
+Runic Prism. Whenever you play a Spell, deal 3 damage to a random enemy.  
+Rabbit's Foot. Whenever you play a Technique, gain 1 block.  
+
+Rare  
+Kama. Every 5th card you play, gain 1 Strength if that card was an Arte, and gain 1 Dexterity if that card was a Spell.  
+
+Shop  
+Bent Spoon. Cantrips deal 1 additional damage and gain 1 additional block.  
+
+Boss  
+Blessed Book. Replaces Spellbook. Every 2 turns, add a random Cantrip to your hand.  
+Crystal Ball. All non-Technique skills are Spells. All non-Spell attacks are Techniques.  
+Deck of Many Things. Gain 1 energy at the start of each turn. At the end of each turn, lose 2 HP if you did not play an Arte and Spell this turn.
+
+NEW POTION   
+Uncommon  
+Essence of Magic. Consume to add 2 random Cantrips to your hand. Mystic only. 
 
 NEW CARDS  
 80 total new cards  
