@@ -39,6 +39,11 @@
     "DESCRIPTION": "Deal !D! damage. Arcane: Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
+  "mysticmod:BulkUp": {
+    "NAME": "Bulk Up",
+    "DESCRIPTION": "Gain !B! Block, then Exhaust a random card in your hand. NL Arcane: Choose what to Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
   "mysticmod:ChargedParry": {
     "NAME": "Charged Parry",
     "DESCRIPTION": "Gain !B! Block. NL Arcane: Gain !M! Strength this turn.",
@@ -120,6 +125,11 @@
     "DESCRIPTION": "At the start of each turn, Draw 1 card, then discard 2 cards unless you have both a Spell and Arte in your hand.",
     "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, Draw 1 card, then discard 2 cards unless you have both a Spell and Arte in your hand."
   },
+  "mysticmod:EnchantedMoulinet": {
+  "NAME": "Enchanted Moulinet",
+  "DESCRIPTION": "Deal !D! damage to all enemies. If any of those enemies die, gain [E] .",
+  "UPGRADE_DESCRIPTION": ""
+},
   "mysticmod:EnergizedRift": {
     "NAME": "Energized Rift",
     "DESCRIPTION": "Add a random Cantrip to your hand, then duplicate all Cantrips in your hand. NL Exhaust.",
@@ -192,7 +202,7 @@
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! vulnerable.",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HunkerDown": {
@@ -202,7 +212,7 @@
   },
   "mysticmod:KeenEdge": {
     "NAME": "Keen Edge",
-    "DESCRIPTION": "Apply 10 Vulnerable to all enemies.",
+    "DESCRIPTION": "Apply !M! Vulnerable to all enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:KnowledgePool": {
@@ -249,11 +259,6 @@
   "mysticmod:Momentum": {
     "NAME": "Momentum",
     "DESCRIPTION": "Spells and Artes deal 1 more damage and gain 1 more Block for each card of the other type played this turn",
-    "UPGRADE_DESCRIPTION": ""
-  },
-  "mysticmod:Moulinet": {
-    "NAME": "Moulinet",
-    "DESCRIPTION": "Deal !D! damage to all enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:MysticalShield": {
@@ -323,7 +328,7 @@
   },
   "mysticmod:Riposte": {
     "NAME": "Riposte",
-    "DESCRIPTION": "Deal !D! damage. NL if the enemy intends to attack, apply !M! Weak and !M! Vulnerable.",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, apply !M! Weak and !M! Vulnerable.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Snowball": {
@@ -358,12 +363,12 @@
   },
   "mysticmod:Spark": {
     "NAME": "Spark",
-    "DESCRIPTION": "Cantrip. NL Gain [E] and add a Void to your draw pile. Draw a card. Exhaust. Ethereal.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Gain [E] and add a Void to your draw pile. Draw a card. Exhaust."
+    "DESCRIPTION": "Cantrip. NL Gain [E] and add a Void to your draw pile. NL Draw a card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Cantrip. NL Gain [E] . NL Draw a card. NL Exhaust."
   },
   "mysticmod:Spellstrike": {
     "NAME": "Spellstrike",
-    "DESCRIPTION": "Deal !D! damage. NL search your draw pile for an Attack Spell and play it. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack Spell and play it. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:SpontaneousCaster": {

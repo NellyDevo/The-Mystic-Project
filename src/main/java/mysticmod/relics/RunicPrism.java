@@ -13,10 +13,11 @@ import mysticmod.actions.RunicPrismAction;
 public class RunicPrism extends CustomRelic {
     public static final String ID = "mysticmod:RunicPrism";
     public static final Texture IMG = new Texture("mysticmod/images/relics/runicprism.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/runicprism_p.png");
     private static final int DAMAGE_AMT = 3;
 
     public RunicPrism() {
-        super(ID, IMG, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.MAGICAL);
     }
 
     @Override

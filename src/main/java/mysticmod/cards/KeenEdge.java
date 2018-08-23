@@ -29,6 +29,7 @@ public class KeenEdge
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL_ENEMY);
         this.magicNumber = this.baseMagicNumber = VULNERABLE_AMT;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override

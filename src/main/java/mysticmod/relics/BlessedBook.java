@@ -11,10 +11,11 @@ import mysticmod.cards.cantrips.*;
 public class BlessedBook extends CustomRelic {
     public static final String ID = "mysticmod:BlessedBook";
     private static final Texture IMG = new Texture("mysticmod/images/relics/blessedbook.png");
+    private static final Texture OUTLINE = new Texture("mysticmod/images/relics/book_p.png");
     private static final int TURN_COUNT = 2;
 
     public BlessedBook() {
-        super(ID, IMG, RelicTier.BOSS, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.MAGICAL);
         this.counter = 0;
     }
 

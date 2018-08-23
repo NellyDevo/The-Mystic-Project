@@ -39,6 +39,7 @@ public class Flurry
         this.block = this.baseBlock = ALTERNATIVE_ATTACK_COUNT;
         this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override

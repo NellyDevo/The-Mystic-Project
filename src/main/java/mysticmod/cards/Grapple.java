@@ -72,6 +72,7 @@ public class Grapple
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
             this.upgradeToTechnique();
+            this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         }
     }
 }

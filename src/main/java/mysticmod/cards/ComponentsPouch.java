@@ -1,6 +1,7 @@
 package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -37,18 +38,11 @@ public class ComponentsPouch
             if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
                 spellsCount++;
             }
-            if (card.rawDescription.startsWith("Cantrip.")) {
-                if (!p.hasPower(SpellsPlayed.POWER_ID) || p.getPower(SpellsPlayed.POWER_ID).amount == 1) {
-                    spellsCount++;
-                }
-            }
         }
         if (spellsCount > 0) {
             for (int i = 0; i < spellsCount; i++){
                 AbstractDungeon.actionManager.addToBottom(
-                        new com.megacrit.cardcrawl.actions.common.DamageAction(
-                                m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                                , AbstractGameAction.AttackEffect.SMASH));
+                        new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
             }
         }
     }

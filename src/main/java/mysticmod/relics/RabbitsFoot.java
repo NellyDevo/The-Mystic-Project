@@ -11,10 +11,11 @@ import mysticmod.MysticMod;
 public class RabbitsFoot extends CustomRelic {
     public static final String ID = "mysticmod:RabbitsFoot";
     public static final Texture IMG = new Texture("mysticmod/images/relics/rabbitsfoot.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/rabbitsfoot_p.png");
     private static final int BLOCK_AMT = 1;
 
     public RabbitsFoot() {
-        super(ID, IMG, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.SOLID);
     }
 
     @Override

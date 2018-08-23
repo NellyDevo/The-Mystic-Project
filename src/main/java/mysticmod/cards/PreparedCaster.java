@@ -23,7 +23,7 @@ public class PreparedCaster
     public PreparedCaster() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
-                AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+                AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.isInnate = true;
         this.exhaust = true;
     }

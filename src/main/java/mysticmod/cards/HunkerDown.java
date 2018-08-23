@@ -29,6 +29,7 @@ public class HunkerDown
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_GAIN;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override

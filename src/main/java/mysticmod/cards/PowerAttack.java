@@ -34,6 +34,7 @@ public class PowerAttack
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override

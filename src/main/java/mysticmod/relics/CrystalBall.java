@@ -14,9 +14,10 @@ import mysticmod.powers.TechniquesPlayed;
 public class CrystalBall extends CustomRelic {
     public static final String ID = "mysticmod:CrystalBall";
     public static final Texture IMG = new Texture("mysticmod/images/relics/crystalball.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/crystalball_p.png");
 
     public CrystalBall() {
-        super(ID, IMG, RelicTier.BOSS, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.MAGICAL);
     }
 
     @Override

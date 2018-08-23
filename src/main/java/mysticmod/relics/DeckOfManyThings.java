@@ -13,11 +13,12 @@ import mysticmod.MysticMod;
 public class DeckOfManyThings extends CustomRelic {
     public static final String ID = "mysticmod:DeckOfManyThings";
     public static final Texture IMG = new Texture("mysticmod/images/relics/deckofmanythings.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/deckofmanythings_p.png");
     private boolean spellPlayed;
     private boolean techniquePlayed;
 
     public DeckOfManyThings() {
-        super(ID, IMG, RelicTier.BOSS, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.FLAT);
     }
 
     @Override

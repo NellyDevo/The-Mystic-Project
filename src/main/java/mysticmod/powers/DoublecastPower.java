@@ -72,7 +72,7 @@ public class DoublecastPower extends AbstractPower {
     @Override
     public void atEndOfTurn(final boolean isPlayer) {
         if (isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, "Doublecast"));
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 }

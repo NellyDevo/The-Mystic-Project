@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.BentSpoon;
 
@@ -22,12 +23,14 @@ public class Prestidigitation
     private static final int COST = 0;
     private static final int BLOCK_AMT = 2;
     private static final int UPGRADE_PLUS_BLK = 2;
+    private boolean bgChanged = false;
 
     public Prestidigitation() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
+                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
+        this.changeColor(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS, true);
     }
 
     @Override
@@ -46,7 +49,11 @@ public class Prestidigitation
 
     @Override
     public boolean isSpell() {
-        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1) {
+        if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1)) {
+            if (bgChanged) {
+                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
+                bgChanged = false;
+            }
             return true;
         }
         return false;
@@ -71,6 +78,12 @@ public class Prestidigitation
         } else {
             super.applyPowers();
         }
+        if (!this.isSpell()) {
+            if (!bgChanged) {
+                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
+                bgChanged = true;
+            }
+        }
     }
 
     @Override
@@ -89,6 +102,8 @@ public class Prestidigitation
             if (this.block != this.baseBlock) {
                 this.isBlockModified = true;
             }
+        } else {
+            super.calculateCardDamage(mo);
         }
     }
 

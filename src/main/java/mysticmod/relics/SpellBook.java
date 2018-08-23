@@ -12,9 +12,10 @@ import mysticmod.cards.cantrips.*;
 public class SpellBook extends CustomRelic {
     public static final String ID = "mysticmod:SpellBook";
     public static final Texture IMG = new Texture("mysticmod/images/relics/spellbook.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/book_p.png");
 
     public SpellBook() {
-        super(ID, IMG, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
     @Override

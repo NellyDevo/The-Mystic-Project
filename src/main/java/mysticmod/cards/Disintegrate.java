@@ -32,6 +32,7 @@ public class Disintegrate
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
 
     @Override

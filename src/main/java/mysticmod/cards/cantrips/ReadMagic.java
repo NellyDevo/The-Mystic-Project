@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
 public class ReadMagic
@@ -22,13 +23,15 @@ public class ReadMagic
     private static final int COST = 0;
     private static final int DRAW = 2;
     private static final int UPGRADE_EXTRA_DRAW = 1;
+    private boolean bgChanged;
 
     public ReadMagic() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
+                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DRAW;
         this.exhaust = true;
+        this.changeColor(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS, true);
     }
 
     @Override
@@ -47,10 +50,25 @@ public class ReadMagic
 
     @Override
     public boolean isSpell() {
-        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1) {
+        if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1)) {
+            if (bgChanged) {
+                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
+                bgChanged = false;
+            }
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (!this.isSpell) {
+            if (!bgChanged) {
+                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
+                bgChanged = true;
+            }
+        }
     }
 
     @Override

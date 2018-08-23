@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,24 +27,22 @@ public class BladeBurst
     private static final int COST = 1;
     public static final int ATTACK_DMG = 11;
     private static final int UPGRADE_PLUS_DMG = 3;
-    private static final int STRENGTH_LOSS = 1;
+    private static final int STRENGTH_LOSS = 2;
 
     public BladeBurst() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
-                AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+                AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = STRENGTH_LOSS;
         this.exhaust = true;
         this.isTechnique = true;
+        this.changeColor(BG_SMALL_ARTE_ATTACK_COLORLESS, BG_LARGE_ARTE_ATTACK_COLORLESS, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.DamageAction(
-                        m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.SMASH));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -this.magicNumber), -this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         AbstractCard newMagicWeapon = new MagicWeapon();

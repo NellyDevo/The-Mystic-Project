@@ -36,6 +36,7 @@ public class PunishingArmor
         this.magicNumber = this.baseMagicNumber = THORNS_AMT;
         this.exhaust = true;
         this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
     @Override

@@ -36,6 +36,7 @@ public class Alacrity
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = ENERGY_GAIN;
         this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
     @Override

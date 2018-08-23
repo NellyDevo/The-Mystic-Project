@@ -38,6 +38,7 @@ public class VorpalThrust
         this.damage=this.baseDamage = BASE_DMG;
         this.magicNumber = this.baseMagicNumber = ATTACK_DMG;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override

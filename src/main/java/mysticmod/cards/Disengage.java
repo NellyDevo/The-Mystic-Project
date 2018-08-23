@@ -27,6 +27,7 @@ public class Disengage
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override

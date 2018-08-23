@@ -9,7 +9,7 @@
   },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
-    "DESCRIPTIONS": ["Begin each turn as if you had already played", "Spell and Technique", "Spells and Techniques."]
+    "DESCRIPTIONS": ["Begin each turn as if you had already played", "Spell and Arte", "Spells and Artes."]
   },
   "mysticmod:DoublecastPower": {
     "NAME": "Doublecast",
@@ -17,7 +17,7 @@
   },
   "mysticmod:EbbPower": {
     "NAME": "Ebb",
-    "DESCRIPTIONS": ["At the start of your turn, discard 2 cards if your hand does not contain a Spell and a Technique."]
+    "DESCRIPTIONS": ["At the start of your turn, discard 2 cards if your hand does not contain a Spell and an Arte."]
   },
   "mysticmod:FlowPower": {
     "NAME": "Flow",
@@ -31,8 +31,8 @@
     "NAME": "Gemini Form",
     "DESCRIPTIONS": [
       "At the end of combat, gain Gold equal to ",
-      "your current spell and technique counts",
-      " times your current spell and technique counts",
+      "your current spell and Arte counts",
+      " times your current spell and Arte counts",
       " and HP equal to ",
       "that amount.",
       " times that amount."]
@@ -43,15 +43,15 @@
   },
   "mysticmod:MightyMagicPower": {
     "NAME": "Mighty Magic",
-    "DESCRIPTIONS": ["Whenever you play a Technique, gain", "Dexterity until end of turn"]
+    "DESCRIPTIONS": ["Whenever you play an Arte, gain", "Dexterity until end of turn"]
   },
   "mysticmod:MirrorEntityPower": {
     "NAME": "Mirror Entity",
-    "DESCRIPTIONS": ["Spells and Techniques played carry over to the next turn"]
+    "DESCRIPTIONS": ["Spells and Artes played carry over to the next turn"]
   },
   "mysticmod:MomentumPower": {
     "NAME": "Momentum",
-    "DESCRIPTIONS": ["Spells and Techniques deal extra damage and apply extra block for each card of the other type played this turn"]
+    "DESCRIPTIONS": ["Spells and Artes deal extra damage and apply extra block for each card of the other type played this turn"]
   },
   "mysticmod:MysticalShieldPower": {
     "NAME": "Mystical Shield",
@@ -86,11 +86,11 @@
     "DESCRIPTIONS": ["Start your next turn with 2 extra block.", "Start your next ", " turns with 2 extra block."]
   },
   "mysticmod:TechniquesPlayedPower": {
-    "NAME": "Techniques Played",
-    "DESCRIPTIONS": ["You have played ", "Technique this turn.", "Techniques this turn."]
+    "NAME": "Artes Played",
+    "DESCRIPTIONS": ["You have played ", "Arte this turn.", "Artes this turn."]
   },
   "mysticmod:TechniquesPlayedNextTurnPower": {
-    "NAME": "Techniques Next Turn",
-    "DESCRIPTIONS": ["Start next turn as if you already played ", "Technique.", "Techniques."]
+    "NAME": "Artes Next Turn",
+    "DESCRIPTIONS": ["Start next turn as if you already played ", "Arte.", "Artes."]
   }
 }

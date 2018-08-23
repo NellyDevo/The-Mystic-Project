@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class BentSpoon extends CustomRelic {
     public static final String ID = "mysticmod:BentSpoon";
     private static final Texture IMG = new Texture("mysticmod/images/relics/bentspoon.png");
+    private static final Texture OUTLINE = new Texture("mysticmod/images/relics/bentspoon_p.png");
 
     public BentSpoon() {
-        super(ID, IMG, RelicTier.SHOP, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE ,RelicTier.SHOP, LandingSound.CLINK);
     }
 
     @Override

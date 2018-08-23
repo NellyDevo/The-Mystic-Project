@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
 public class Spark
@@ -21,20 +22,23 @@ public class Spark
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/spark.png";
     private static final int COST = 0;
+    private boolean bgChanged = false;
 
     public Spark() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
+                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
-        this.isEthereal = true;
+        this.changeColor(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainEnergyAction(1));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, 1));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Void(), 1, true, true));
+        if (!this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Void(), 1, true, true));
+        }
         //cantrip functionality
         if (
                 !(p.hasPower(SpellsPlayed.POWER_ID))
@@ -47,10 +51,25 @@ public class Spark
 
     @Override
     public boolean isSpell() {
-        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1) {
+        if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1)) {
+            if (bgChanged) {
+                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
+                bgChanged = false;
+            }
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (!this.isSpell) {
+            if (!bgChanged) {
+                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
+                bgChanged = true;
+            }
+        }
     }
 
     @Override
@@ -62,7 +81,6 @@ public class Spark
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.isEthereal = false;
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

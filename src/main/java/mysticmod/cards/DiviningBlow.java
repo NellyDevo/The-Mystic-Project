@@ -37,6 +37,7 @@ public class DiviningBlow
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = CARD_DRAW;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override

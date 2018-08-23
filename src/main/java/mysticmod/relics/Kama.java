@@ -15,9 +15,10 @@ import mysticmod.MysticMod;
 public class Kama extends CustomRelic {
     public static final String ID = "mysticmod:Kama";
     public static final Texture IMG = new Texture("mysticmod/images/relics/kama.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/kama_p.png");
 
     public Kama() {
-        super(ID, IMG, RelicTier.RARE, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.CLINK);
         this.counter = 0;
     }
 

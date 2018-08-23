@@ -38,6 +38,7 @@ public class ShockingGrasp
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
         this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
 
     @Override

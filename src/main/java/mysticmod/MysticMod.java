@@ -87,21 +87,24 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new ReadMagic());
         BaseMod.addCard(new Spark());
 
+        //Special
+        BaseMod.addCard(new BladeBurst());
+
         //Commons
-        //11 attacks
+        //10 attacks
         BaseMod.addCard(new ComponentsPouch());
         BaseMod.addCard(new CorrosiveTouch());
         BaseMod.addCard(new DiviningBlow());
         BaseMod.addCard(new HeavyStrike());
         BaseMod.addCard(new LightningBolt());
-        BaseMod.addCard(new Moulinet());
         BaseMod.addCard(new PowerSlash());
         BaseMod.addCard(new Probe());
         BaseMod.addCard(new Riposte());
         BaseMod.addCard(new Sideswipe());
         BaseMod.addCard(new Snowball());
-        //7 skills
+        //8 skills
         BaseMod.addCard(new Alacrity());
+        BaseMod.addCard(new BulkUp());
         BaseMod.addCard(new Daze());
         BaseMod.addCard(new Disengage());
         BaseMod.addCard(new PureInstinct());
@@ -110,9 +113,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new TomeOfSpells());
 
         //Uncommons
-        //12 attacks
+        //11 attacks
         BaseMod.addCard(new AllIn());
-        BaseMod.addCard(new BladeBurst());
         BaseMod.addCard(new BladedDash());
         BaseMod.addCard(new Feint());
         BaseMod.addCard(new Fireball());
@@ -123,7 +125,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new MirrorStrike());
         BaseMod.addCard(new SpellCombat());
         BaseMod.addCard(new VorpalThrust());
-        //17 skills
+        //18 skills
         BaseMod.addCard(new BladeMaster());
         BaseMod.addCard(new ChargedParry());
         BaseMod.addCard(new CureLightWounds());
@@ -139,6 +141,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new MagicWeapon());
         BaseMod.addCard(new PowerAttack());
         BaseMod.addCard(new PunishingArmor());
+        BaseMod.addCard(new PreparedCaster());
         BaseMod.addCard(new Stoneskin());
         BaseMod.addCard(new StyleChange());
         //6 powers
@@ -150,11 +153,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new RapidCaster());
 
         //Rares.
-        //3 attacks
+        //4 attacks
         BaseMod.addCard(new ClosingBarrage());
         BaseMod.addCard(new Disintegrate());
+        BaseMod.addCard(new EnchantedMoulinet());
         BaseMod.addCard(new Spellstrike());
-        //9 skills
+        //8 skills
         BaseMod.addCard(new Doublecast());
         BaseMod.addCard(new GreaterInvisibility());
         BaseMod.addCard(new Haste());
@@ -162,7 +166,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new Lunge());
         BaseMod.addCard(new Natural20());
         BaseMod.addCard(new ObscuringMist());
-        BaseMod.addCard(new PreparedCaster());
         BaseMod.addCard(new SpellRecall());
         //6 powers
         BaseMod.addCard(new Discipline());

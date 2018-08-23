@@ -53,6 +53,7 @@ public class CorrosiveTouch
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
             this.upgradeToSpell();
+            this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
         }
     }
 }

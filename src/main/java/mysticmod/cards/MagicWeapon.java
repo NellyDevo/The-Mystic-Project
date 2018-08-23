@@ -23,7 +23,7 @@ public class MagicWeapon
     public static final String IMG_PATH = "mysticmod/images/cards/magicweapon.png";
     private static final int COST = 1;
     private static final int UPGRADED_STR_GAIN = 1;
-    private static final int STRENGTH_GAIN = 1;
+    private static final int STRENGTH_GAIN = 2;
 
     public MagicWeapon() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -32,6 +32,7 @@ public class MagicWeapon
         this.magicNumber = this.baseMagicNumber = STRENGTH_GAIN;
         this.exhaust = true;
         this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
     @Override

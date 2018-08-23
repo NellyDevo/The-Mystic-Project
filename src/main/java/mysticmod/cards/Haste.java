@@ -29,6 +29,7 @@ public class Haste
                 this.exhaust = true;
                 this.isEthereal = true;
                 this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
     @Override

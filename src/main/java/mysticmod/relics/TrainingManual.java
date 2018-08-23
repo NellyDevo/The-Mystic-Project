@@ -12,9 +12,10 @@ import mysticmod.MysticMod;
 public class TrainingManual extends CustomRelic {
     public static final String ID = "mysticmod:TrainingManual";
     public static final Texture IMG = new Texture("mysticmod/images/relics/trainingmanual.png");
+    public static final Texture OUTLINE = new Texture("mysticmod/images/relics/book_p.png");
 
     public TrainingManual() {
-        super(ID, IMG, RelicTier.COMMON, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
     }
 
     @Override

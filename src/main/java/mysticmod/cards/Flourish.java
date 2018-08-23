@@ -30,7 +30,6 @@ public class Flourish
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        this.isTechnique = true;
     }
 
     @Override

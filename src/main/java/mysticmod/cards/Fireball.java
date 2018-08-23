@@ -36,6 +36,7 @@ public class Fireball
         this.damage=this.baseDamage = ATTACK_DMG;
         this.isMultiDamage = true;
         this.isSpell = true;
+        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

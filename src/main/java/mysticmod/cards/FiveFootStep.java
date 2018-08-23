@@ -36,6 +36,7 @@ public class FiveFootStep
         loadCardImage(IMG_PATH);
         this.damage = this.baseDamage = DAMAGE_AMT;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override

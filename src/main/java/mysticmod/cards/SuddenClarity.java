@@ -29,6 +29,7 @@ public class SuddenClarity
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = CARD_DRAW;
         this.isTechnique = true;
+        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
