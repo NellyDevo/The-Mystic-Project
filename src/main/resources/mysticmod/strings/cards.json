@@ -142,7 +142,7 @@
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage. Technical: deal it to all enemies.",
+    "DESCRIPTION": "Deal !D! damage. Technical: deal it to ALL enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FiveFootStep": {
