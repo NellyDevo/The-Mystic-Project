@@ -9,13 +9,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class ClosingBarrageAction extends AbstractGameAction {
     private boolean freeToPlayOnce;
     private DamageInfo.DamageType damageType;
     private AbstractPlayer p;
     private int energyOnUse;
     private AbstractMonster m;
-    private int InheritedDamage;
+    private int inheritedDamage;
 
 
     public ClosingBarrageAction(final AbstractPlayer p, final AbstractMonster m, final int damage, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
@@ -28,7 +31,7 @@ public class ClosingBarrageAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.InheritedDamage = damage;
+        this.inheritedDamage = damage;
     }
 
     @Override
@@ -41,9 +44,15 @@ public class ClosingBarrageAction extends AbstractGameAction {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
         }
+        Random generator = new Random();
+        ArrayList<AttackEffect> randomEffect = new ArrayList<>();
+        randomEffect.add(AttackEffect.FIRE);
+        randomEffect.add(AttackEffect.POISON);
+        randomEffect.add(AttackEffect.BLUNT_LIGHT);
+        randomEffect.add(AttackEffect.SLASH_DIAGONAL);
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.InheritedDamage, this.damageType), AttackEffect.FIRE));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.inheritedDamage, this.damageType), randomEffect.get(generator.nextInt(randomEffect.size()))));
             }
             if (!this.freeToPlayOnce) {
                 this.p.energy.use(EnergyPanel.totalCount);

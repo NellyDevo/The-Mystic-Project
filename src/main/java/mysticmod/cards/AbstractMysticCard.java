@@ -41,6 +41,10 @@ public abstract class AbstractMysticCard extends CustomCard {
         return this.isSpell;
     }
 
+    public boolean isTechnique() {
+        return this.isTechnique;
+    }
+
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = new ArrayList<>();
@@ -65,10 +69,6 @@ public abstract class AbstractMysticCard extends CustomCard {
         if (colorlessOrb) {
             this.setOrbTexture(SMALL_ORB_COLORLESS, LARGE_ORB_COLORLESS);
         }
-    }
-
-    public boolean isTechnique() {
-        return this.isTechnique;
     }
 
     public void upgradeToSpell() {

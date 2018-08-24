@@ -363,8 +363,8 @@
   },
   "mysticmod:Spark": {
     "NAME": "Spark",
-    "DESCRIPTION": "Cantrip. NL Gain [E] and add a Void to your draw pile. NL Draw a card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Gain [E] . NL Draw a card. NL Exhaust."
+    "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a Spell or an Arte. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a Spell or an Arte."
   },
   "mysticmod:Spellstrike": {
     "NAME": "Spellstrike",
