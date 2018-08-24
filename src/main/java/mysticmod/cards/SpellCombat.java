@@ -19,7 +19,7 @@ public class SpellCombat
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/closingbarrage.png";
+    public static final String IMG_PATH = "mysticmod/images/cards/spellcombat.png";
     private static final int COST = -1;
     private static final int DAMAGE_AMT = 6;
     private static final int UPGRADE_DAMAGE_AMT = 3;

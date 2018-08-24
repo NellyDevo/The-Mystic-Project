@@ -21,7 +21,8 @@ import java.util.ArrayList;
 public class SingleCardViewPopupRenderCardTypeTextPatch
 {
     @SpireInsertPatch(
-            localvars={"label"}
+            localvars={"label"},
+            locator=Locator.class
     )
     public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label)
     {

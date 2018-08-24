@@ -48,7 +48,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public MysticMod(){
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(AbstractCardEnum.MYSTIC_PURPLE.toString(),
+        BaseMod.addColor(AbstractCardEnum.MYSTIC_PURPLE,
                 mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple,   //Background color, back color, frame color, frame outline color, description box color, glow color
                 attackCard, skillCard, powerCard, energyOrb,                                                        //attack background image, skill background image, power background image, energy orb image
                 attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait,                        //as above, but for card inspect view
@@ -179,8 +179,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(MysticCharacter.class, "The Mystic", "MysticCharacter",
-                AbstractCardEnum.MYSTIC_PURPLE.toString(), "The Mystic", charButton, charPortrait,
-                MysticEnum.MYSTIC_CLASS.toString());
+                AbstractCardEnum.MYSTIC_PURPLE, "The Mystic", charButton, charPortrait,
+                MysticEnum.MYSTIC_CLASS);
     }
 
     @Override
@@ -214,25 +214,25 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receiveEditRelics() {
         //starter
-        BaseMod.addRelicToCustomPool(new SpellBook(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+        BaseMod.addRelicToCustomPool(new SpellBook(), AbstractCardEnum.MYSTIC_PURPLE);
 
         //Common
-        BaseMod.addRelicToCustomPool(new TrainingManual(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+        BaseMod.addRelicToCustomPool(new TrainingManual(), AbstractCardEnum.MYSTIC_PURPLE);
 
         //Uncommon
-        BaseMod.addRelicToCustomPool(new RabbitsFoot(), AbstractCardEnum.MYSTIC_PURPLE.toString());
-        BaseMod.addRelicToCustomPool(new RunicPrism(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+        BaseMod.addRelicToCustomPool(new RabbitsFoot(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new RunicPrism(), AbstractCardEnum.MYSTIC_PURPLE);
 
         //Rare
-        BaseMod.addRelicToCustomPool(new Kama(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+        BaseMod.addRelicToCustomPool(new Kama(), AbstractCardEnum.MYSTIC_PURPLE);
 
         //Shop
-        BaseMod.addRelicToCustomPool(new BentSpoon(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+        BaseMod.addRelicToCustomPool(new BentSpoon(), AbstractCardEnum.MYSTIC_PURPLE);
 
         //Boss
-        BaseMod.addRelicToCustomPool(new BlessedBook(), AbstractCardEnum.MYSTIC_PURPLE.toString()); //replaces starting relic
-        BaseMod.addRelicToCustomPool(new CrystalBall(), AbstractCardEnum.MYSTIC_PURPLE.toString());
-        BaseMod.addRelicToCustomPool(new DeckOfManyThings(), AbstractCardEnum.MYSTIC_PURPLE.toString());
+        BaseMod.addRelicToCustomPool(new BlessedBook(), AbstractCardEnum.MYSTIC_PURPLE); //replaces starting relic
+        BaseMod.addRelicToCustomPool(new CrystalBall(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new DeckOfManyThings(), AbstractCardEnum.MYSTIC_PURPLE);
     }
 
     @Override

@@ -16,8 +16,8 @@
   },
   "mysticmod:ArcaneAccuracy": {
     "NAME": "Arcane Accuracy",
-    "DESCRIPTION": "Whenever you play a Spell during your turn, gain one Strength until end of turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Spell during your turn, gain one Strength until end of turn."
+    "DESCRIPTION": "Whenever you play a Spell during your turn, gain 1 Strength until end of turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Spell during your turn, gain 1 Strength until end of turn."
   },
   "mysticmod:ArcaneDodge": {
     "NAME": "Arcane Dodge",
@@ -26,8 +26,8 @@
   },
   "mysticmod:BladeBurst": {
     "NAME": "Blade Burst",
-    "DESCRIPTION": "Lose 1 Strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Lose 1 Strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
+    "DESCRIPTION": "Lose 2 Strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose 2 Strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
   },
   "mysticmod:BladeMaster": {
     "NAME": "Blade Master",
@@ -122,23 +122,23 @@
   },
   "mysticmod:EbbAndFlow": {
     "NAME": "Ebb and Flow",
-    "DESCRIPTION": "At the start of each turn, Draw 1 card, then discard 2 cards unless you have both a Spell and Arte in your hand.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, Draw 1 card, then discard 2 cards unless you have both a Spell and Arte in your hand."
+    "DESCRIPTION": "Each turn, draw 1 card, then discard 2 cards unless you have a Spell and an Arte.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, draw 1 card, then discard 2 cards unless you have a Spell and an Arte."
   },
   "mysticmod:EnchantedMoulinet": {
-  "NAME": "Enchanted Moulinet",
-  "DESCRIPTION": "Deal !D! damage to all enemies. If any of those enemies die, gain [E] .",
-  "UPGRADE_DESCRIPTION": ""
+    "NAME": "Enchanted Moulinet",
+    "DESCRIPTION": "Deal !D! damage to all enemies. If any of those enemies die, gain [E] .",
+    "UPGRADE_DESCRIPTION": ""
 },
   "mysticmod:EnergizedRift": {
     "NAME": "Energized Rift",
     "DESCRIPTION": "Add a random Cantrip to your hand, then duplicate all Cantrips in your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a random upgraded Cantrip to your hand, then duplicate all Cantrips in your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Add a random Upgraded Cantrip to your hand, then duplicate all Cantrips in your hand. NL Exhaust."
   },
   "mysticmod:Feint": {
     "NAME": "Feint",
     "DESCRIPTION": "Deal !D! damage. Add a random Cantrip to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random upgraded Cantrip to your hand."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded Cantrip to your hand."
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
@@ -157,7 +157,7 @@
   },
   "mysticmod:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Costs [E] less per Spell or Arte played. NL Deal !D! damage twice, then double the Spell and Arte count.",
+    "DESCRIPTION": "Costs [E] less per Spell or Arte played this turn. NL Deal !D! damage twice, then double the Spell and Arte count.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Flurry": {
@@ -172,8 +172,8 @@
   },
   "mysticmod:GeminiForm": {
     "NAME": "Gemini Form",
-    "DESCRIPTION": "At the end of combat, gain Gold equal to the current total of Spells and Artes played.",
-    "UPGRADE_DESCRIPTION": "At the end of combat, gain Gold and HP equal to the current total of Spells and Artes played."
+    "DESCRIPTION": "At the end of combat, gain Gold equal to the current total of Spells and Artes played this turn.",
+    "UPGRADE_DESCRIPTION": "At the end of combat, gain Gold and HP equal to the current total of Spells and Artes played this turn."
   },
   "mysticmod:Grapple": {
     "NAME": "Grapple",
@@ -182,7 +182,7 @@
   },
   "mysticmod:Grease": {
     "NAME": "Grease",
-    "DESCRIPTION": "Target enemy loses !M! Strength this turn. NL Technical: ALL enemies lose !M! Strength this turn instead.",
+    "DESCRIPTION": "Target enemy loses !M! Strength this turn. NL Technical: ALL enemies instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:GreaterInvisibility": {
@@ -243,8 +243,8 @@
   },
   "mysticmod:MightyMagic": {
     "NAME": "Mighty Magic",
-    "DESCRIPTION": "Whenever you play an Arte during your turn, gain one Dexterity until end of turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play an Arte during your turn, gain one Dexterity until end of turn."
+    "DESCRIPTION": "Whenever you play an Arte during your turn, gain 1 Dexterity until end of turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play an Arte during your turn, gain 1 Dexterity until end of turn."
   },
   "mysticmod:MirrorEntity": {
     "NAME": "Mirror Entity",
@@ -253,7 +253,7 @@
   },
   "mysticmod:MirrorStrike": {
     "NAME": "Mirror Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Arcane: For every two spells played this turn, deal an additional !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL Arcane: For every two spells played this turn, deal another !D! damage.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Momentum": {
@@ -314,7 +314,7 @@
   "mysticmod:RapidCaster": {
     "NAME": "Rapid Caster",
     "DESCRIPTION": "The first Cantrip you play each turn is played twice.",
-    "UPGRADE_DESCRIPTION": "Innate. The first Cantrip you play each turn is played twice."
+    "UPGRADE_DESCRIPTION": "Innate. NL The first Cantrip you play each turn is played twice."
   },
   "mysticmod:RayOfFrost": {
     "NAME": "Ray Of Frost",

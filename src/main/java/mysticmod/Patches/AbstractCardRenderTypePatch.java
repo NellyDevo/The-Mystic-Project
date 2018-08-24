@@ -19,7 +19,8 @@ import java.util.ArrayList;
 public class AbstractCardRenderTypePatch
 {
     @SpireInsertPatch(
-            localvars={"text"}
+            localvars={"text"},
+            locator = Locator.class
     )
     public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text)
     {

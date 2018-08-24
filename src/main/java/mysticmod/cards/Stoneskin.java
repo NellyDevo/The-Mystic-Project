@@ -20,7 +20,7 @@ public class Stoneskin
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/stoneskin.png";
     private static final int COST = 0;
-    private static final int BLOCK_AMT = 2;
+    private static final int BLOCK_AMT = 3;
     private static final int BUFF_DURATION = 2;
     private static final int UPGRADE_BUFF_DURATION = 1;
 
@@ -39,7 +39,9 @@ public class Stoneskin
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new StoneskinPower(p, this.magicNumber), this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new NextTurnBlockPower(p, 2), 2));
+        if (!p.hasPower(StoneskinPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new NextTurnBlockPower(p, 2), 2));
+        }
     }
 
     @Override

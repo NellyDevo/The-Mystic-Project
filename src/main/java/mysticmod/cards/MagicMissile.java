@@ -24,7 +24,7 @@ public class MagicMissile
     public static final String IMG_PATH = "mysticmod/images/cards/magicmissile.png";
     private static final int COST = 0;
     public static final int ATTACK_DMG = 3;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int UPGRADE_PLUS_DMG = 2;
 
     public MagicMissile() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
