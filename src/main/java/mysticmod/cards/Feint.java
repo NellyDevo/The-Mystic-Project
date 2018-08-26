@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -37,10 +38,7 @@ public class Feint
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.DamageAction(
-                        m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
         AbstractCard randomCantrip;
         switch (randomlyGeneratedNumber) {

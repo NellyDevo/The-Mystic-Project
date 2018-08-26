@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -33,7 +34,7 @@ public class FiveFootStep
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.damage = this.baseDamage = DAMAGE_AMT;
         this.isTechnique = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
@@ -41,10 +42,7 @@ public class FiveFootStep
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.DamageAction(
-                        m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new AddMyActionToBottomOfQueueLaterAction(this, true));
@@ -65,7 +63,7 @@ public class FiveFootStep
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -74,7 +72,7 @@ public class FiveFootStep
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

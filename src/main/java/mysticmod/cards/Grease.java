@@ -33,7 +33,7 @@ public class Grease
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
         this.isSpell = true;
         this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
@@ -55,7 +55,7 @@ public class Grease
             }
         }
         //spell functionality
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;
@@ -73,7 +73,7 @@ public class Grease
         } else {
             this.target = AbstractCard.CardTarget.ENEMY;
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -83,7 +83,7 @@ public class Grease
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

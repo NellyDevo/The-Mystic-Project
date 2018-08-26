@@ -1,5 +1,8 @@
 package mysticmod.cards;
 
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,13 +26,14 @@ public class GeminiForm
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        CardTags.addTags(this, BaseModTags.FORM);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         if (!AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new GeminiFormPower(p, 1, this.upgraded), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GeminiFormPower(p, 1, this.upgraded), 1));
         } else {
             AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount++;
             if (this.upgraded) {

@@ -33,7 +33,7 @@ public class ObscuringMist
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.exhaust = true;
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = ARTIFACT_AMT;
@@ -67,7 +67,7 @@ public class ObscuringMist
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -76,7 +76,7 @@ public class ObscuringMist
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

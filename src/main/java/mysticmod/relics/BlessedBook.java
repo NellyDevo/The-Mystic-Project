@@ -32,7 +32,6 @@ public class BlessedBook extends CustomRelic {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
-            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             switch (randomlyGeneratedNumber) {
                 case 0:
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new AcidSplash(), 1, false));

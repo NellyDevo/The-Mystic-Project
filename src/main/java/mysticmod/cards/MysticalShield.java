@@ -1,5 +1,7 @@
 package mysticmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,16 +34,16 @@ public class MysticalShield
         if (!this.upgraded) {
             //check if MysticalShieldUpgradedPower is not applied, then apply MysticalShieldPower
             if (!p.hasPower(MysticalShieldUpgradedPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new MysticalShieldPower(p)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MysticalShieldPower(p)));
             }
         //to-do if card is upgraded
         } else {
             //check if MysticalShieldPower is applied, and if so, remove it.
             if (p.hasPower(MysticalShieldPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction(p, p, MysticalShieldPower.POWER_ID));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, MysticalShieldPower.POWER_ID));
             }
             //apply MysticalShieldUpgradedPower
-            AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new MysticalShieldUpgradedPower(p)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MysticalShieldUpgradedPower(p)));
         }
     }
 

@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -30,7 +31,7 @@ public class GreaterInvisibility
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.exhaust = true;
         this.isEthereal = true;
         this.magicNumber = this.baseMagicNumber = REQUIRED_TECHNIQUES;
@@ -47,9 +48,9 @@ public class GreaterInvisibility
             this.exhaust = true;
         }
         //Intangible
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
         //spell functionality
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;
@@ -66,7 +67,7 @@ public class GreaterInvisibility
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -75,7 +76,7 @@ public class GreaterInvisibility
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

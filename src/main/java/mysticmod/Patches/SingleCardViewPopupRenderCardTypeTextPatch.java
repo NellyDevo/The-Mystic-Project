@@ -38,6 +38,13 @@ public class SingleCardViewPopupRenderCardTypeTextPatch
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && reflectedCard.type == AbstractCard.CardType.SKILL)) {
                 label[0] = "Spell";
             }
+        }  else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
+            switch (reflectedCard.type) {
+                case ATTACK : label[0] = "Arte";
+                break;
+                case SKILL : label[0] = "Spell";
+                break;
+            }
         }
     }
 

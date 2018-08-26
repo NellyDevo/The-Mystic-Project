@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,7 +22,7 @@ public class Probe
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/probe.png";
     private static final int COST = 0;
-    public static final int ATTACK_DMG = 5;
+    public static final int ATTACK_DMG = 6;
 
     public Probe() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -32,10 +33,7 @@ public class Probe
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.DamageAction(
-                        m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         }
@@ -52,6 +50,7 @@ public class Probe
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.crystalBallToggle = false;
             this.upgradeToTechnique();
             this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         }

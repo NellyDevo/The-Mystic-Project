@@ -1,6 +1,9 @@
 package mysticmod.cards;
 
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,18 +30,14 @@ public class StrikeMystic
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
+        CardTags.addTags(this, BaseModTags.STRIKE);
+        CardTags.addTags(this, BaseModTags.BASIC_STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.DamageAction(
-                        m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
-
-    @Override
-    public boolean isStrike() {return true;}
 
     @Override
     public AbstractCard makeCopy() {

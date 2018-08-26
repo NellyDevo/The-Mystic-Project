@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,7 +35,7 @@ public class VorpalThrust
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = BASE_DMG;
         this.magicNumber = this.baseMagicNumber = ATTACK_DMG;
         this.isTechnique = true;
@@ -44,15 +45,9 @@ public class VorpalThrust
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 2)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new com.megacrit.cardcrawl.actions.common.DamageAction(
-                            m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn)
-                            , AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         } else {
-            AbstractDungeon.actionManager.addToBottom(
-                    new com.megacrit.cardcrawl.actions.common.DamageAction(
-                            m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                            , AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
@@ -81,7 +76,7 @@ public class VorpalThrust
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -105,7 +100,7 @@ public class VorpalThrust
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

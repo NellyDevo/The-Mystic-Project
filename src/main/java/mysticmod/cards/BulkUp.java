@@ -1,6 +1,7 @@
 package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +13,6 @@ import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.TechniquesPlayed;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 
 
 public class BulkUp
@@ -33,7 +33,7 @@ public class BulkUp
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 CardRarity.COMMON, CardTarget.SELF);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.isTechnique = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
@@ -64,7 +64,7 @@ public class BulkUp
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -73,7 +73,7 @@ public class BulkUp
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

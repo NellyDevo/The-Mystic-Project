@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,7 +35,7 @@ public class Flurry
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.block = this.baseBlock = ALTERNATIVE_ATTACK_COUNT;
         this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
@@ -46,17 +47,11 @@ public class Flurry
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(SpellsPlayed.POWER_ID) && p.getPower(SpellsPlayed.POWER_ID).amount >= 1) {
             for (int i = 0; i < this.block; i++) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new com.megacrit.cardcrawl.actions.common.DamageAction(
-                                m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                                , AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         } else {
             for (int i = 0; i < this.magicNumber; i++) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new com.megacrit.cardcrawl.actions.common.DamageAction(
-                                m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                                , AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
@@ -78,7 +73,7 @@ public class Flurry
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -87,7 +82,7 @@ public class Flurry
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

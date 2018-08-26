@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.CrystalBall;
 
 public class ComponentsPouch
@@ -35,7 +34,9 @@ public class ComponentsPouch
     public void use(AbstractPlayer p, AbstractMonster m) {
         int spellsCount = 0;
         for (final AbstractCard card : p.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()
+                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
                 spellsCount++;
             }
         }

@@ -83,7 +83,7 @@
   },
   "mysticmod:StoneskinPower": {
     "NAME": "Stoneskin",
-    "DESCRIPTIONS": ["Start your next turn with 2 extra block.", "Start your next ", " turns with 2 extra block."]
+    "DESCRIPTIONS": ["Start your next turn with 3 extra block.", "Start your next ", " turns with 3 extra block."]
   },
   "mysticmod:TechniquesPlayedPower": {
     "NAME": "Artes Played",

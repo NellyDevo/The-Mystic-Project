@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +13,9 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MagicWeapon
         extends AbstractMysticCard {
@@ -50,6 +54,13 @@ public class MagicWeapon
     @Override
     public AbstractCard makeCopy() {
         return new MagicWeapon();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        List<TooltipInfo> retVal = super.getCustomTooltips();
+        retVal.add(new TooltipInfo("Blade Burst", "an Arte that exhausts and deals High damage for 1 energy, loses 2 Strength, and adds this card back to your discard pile."));
+        return retVal;
     }
 
     @Override

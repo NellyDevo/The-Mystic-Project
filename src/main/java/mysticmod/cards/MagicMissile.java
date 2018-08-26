@@ -2,6 +2,7 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +21,7 @@ public class MagicMissile
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
+    public static final String[] EXTENDED_DESCRIPTIONS = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/magicmissile.png";
     private static final int COST = 0;
     public static final int ATTACK_DMG = 3;
@@ -39,10 +40,7 @@ public class MagicMissile
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < this.magicNumber; i++){
-            AbstractDungeon.actionManager.addToBottom(
-                    new com.megacrit.cardcrawl.actions.common.DamageAction(
-                            m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                            , AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }
@@ -51,9 +49,10 @@ public class MagicMissile
     public void applyPowers() {
         this.magicNumber = this.baseMagicNumber = MysticMod.numberOfTimesDeckShuffledThisCombat + 1;
         if (this.magicNumber > 1) {
-            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION;
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTIONS[0];
+            this.isMagicNumberModified = true;
         } else {
-            this.rawDescription = DESCRIPTION;
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTIONS[1];
         }
         this.initializeDescription();
         super.applyPowers();

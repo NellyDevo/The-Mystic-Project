@@ -71,7 +71,7 @@ public class EnergizedRift
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = this.UPGRADE_DESCRIPTION;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

@@ -2,9 +2,7 @@ package mysticmod.cards.cantrips;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.status.Void;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -32,6 +30,7 @@ public class Spark
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
         this.changeColor(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS, true);
+        crystalBallToggle = false;
     }
 
     @Override
@@ -54,10 +53,11 @@ public class Spark
             if (bgChanged) {
                 this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
                 bgChanged = false;
+                crystalBallToggle = false;
             }
             return true;
         }
-        return false;
+        return super.isSpell;
     }
 
     @Override
@@ -67,6 +67,7 @@ public class Spark
             if (!bgChanged) {
                 this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
                 bgChanged = true;
+                crystalBallToggle = false;
             }
         }
     }

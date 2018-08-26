@@ -35,6 +35,13 @@ public class AbstractCardRenderTypePatch
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && __instance.type == AbstractCard.CardType.SKILL)) {
                 text[0] = "Spell";
             }
+        } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
+            switch (__instance.type) {
+                case ATTACK : text[0] = "Arte";
+                    break;
+                case SKILL : text[0] = "Spell";
+                    break;
+            }
         }
     }
 

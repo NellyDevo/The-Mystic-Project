@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,7 +30,7 @@ public class MirrorEntity
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new MirrorEntityPower(p)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MirrorEntityPower(p)));
 
     }
 

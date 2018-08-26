@@ -2,6 +2,7 @@ package mysticmod.cards.cantrips;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -33,14 +34,12 @@ public class AcidSplash
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.changeColor(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS, true);
+        crystalBallToggle = false;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new com.megacrit.cardcrawl.actions.common.DamageAction(
-                        m, new DamageInfo(p, this.damage, this.damageTypeForTurn)
-                        , AbstractGameAction.AttackEffect.POISON));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, 1));
         //cantrip functionality
         if (
@@ -58,10 +57,11 @@ public class AcidSplash
             if (bgChanged) {
                 this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS);
                 bgChanged = false;
+                crystalBallToggle = false;
             }
             return true;
         }
-        return false;
+        return super.isSpell();
     }
 
     @Override
@@ -86,6 +86,7 @@ public class AcidSplash
         if (!this.isSpell()) {
             if (!bgChanged) {
                 this.setBackgroundTexture(BG_SMALL_DEFAULT_ATTACK_COLORLESS, BG_LARGE_DEFAULT_ATTACK_COLORLESS);
+                crystalBallToggle = false;
                 bgChanged = true;
             }
         }

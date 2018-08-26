@@ -2,6 +2,7 @@ package mysticmod.cards.cantrips;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,11 +33,12 @@ public class ReadMagic
         this.magicNumber = this.baseMagicNumber = DRAW;
         this.exhaust = true;
         this.changeColor(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS, true);
+        crystalBallToggle = false;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber - 1, false));
         //cantrip functionality
         if (
@@ -54,10 +56,11 @@ public class ReadMagic
             if (bgChanged) {
                 this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
                 bgChanged = false;
+                crystalBallToggle = false;
             }
             return true;
         }
-        return false;
+        return super.isSpell();
     }
 
     @Override
@@ -66,6 +69,7 @@ public class ReadMagic
         if (!this.isSpell) {
             if (!bgChanged) {
                 this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
+                crystalBallToggle = false;
                 bgChanged = true;
             }
         }

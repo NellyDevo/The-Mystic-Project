@@ -1,20 +1,25 @@
 package mysticmod;
 
-import basemod.BaseMod;
-import basemod.ModPanel;
+import basemod.*;
+import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.monsters.city.Healer;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
@@ -23,9 +28,12 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
 import mysticmod.potions.EssenceOfMagic;
 import mysticmod.relics.*;
+
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Properties;
 
 @SpireInitializer
 public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber {
@@ -44,6 +52,15 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     private static final String miniManaSymbol = "mysticmod/images/manaSymbol.png";
     public static boolean isDiscoveryLookingForSpells = false;
     public static int numberOfTimesDeckShuffledThisCombat = 0;
+    public static boolean healerAccused = false;
+    public static Healer storedHealer;
+    public static float storedHealerDialogY;
+    public static CardBackgroundConfig cardBackgroundSetting;
+    public static ModPanel settingsPanel;
+    public static ModLabeledToggleButton shapes;
+    public static ModLabeledToggleButton colors;
+    public static ModLabeledToggleButton combined;
+    public static SpireConfig mysticConfig;
 
     public MysticMod(){
         BaseMod.subscribe(this);
@@ -52,11 +69,30 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple,   //Background color, back color, frame color, frame outline color, description box color, glow color
                 attackCard, skillCard, powerCard, energyOrb,                                                        //attack background image, skill background image, power background image, energy orb image
                 attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait,                        //as above, but for card inspect view
-                miniManaSymbol);                                                                                    //appears in cards where you type [E]
+                miniManaSymbol);                                                                                    //appears in Mystic Purple cards where you type [E]
 
         Color essenceOfMagicColor = CardHelper.getColor(255.0f, 255.0f, 255.0f);
         BaseMod.addPotion(EssenceOfMagic.class, essenceOfMagicColor, essenceOfMagicColor, essenceOfMagicColor, EssenceOfMagic.POTION_ID, MysticEnum.MYSTIC_CLASS);
-
+        Properties mysticDefaults = new Properties();
+        mysticDefaults.setProperty("spellArteDisplay", "BOTH");
+        try {
+            mysticConfig = new SpireConfig("The Mystic Mod", "MysticConfig", mysticDefaults);
+        } catch (IOException e) {
+            System.out.println("MysticMod SpireConfig initialization failed:");
+            e.printStackTrace();
+        }
+        System.out.println("mysticConfig loaded. spellArteDisplay set to " + mysticConfig.getString("spellArteDisplay"));
+        switch (mysticConfig.getString("spellArteDisplay")) {
+            case "SHAPE": MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
+            break;
+            case "COLOR": MysticMod.cardBackgroundSetting = CardBackgroundConfig.COLOR;
+            break;
+            case "BOTH": MysticMod.cardBackgroundSetting = CardBackgroundConfig.BOTH;
+            break;
+            default: MysticMod.cardBackgroundSetting = CardBackgroundConfig.BOTH;
+            System.out.println("spellArteDisplay incorrectly set; defaulting to BOTH");
+            break;
+        }
     }
     //Used by @SpireInitializer
     public static void initialize(){
@@ -68,8 +104,49 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receivePostInitialize() {
         Texture badgeImg = new Texture("mysticmod/images/badge.png");
-        ModPanel settingsPanel = new ModPanel();
-        BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new playable character, The Mystic, to the game.", settingsPanel);
+        settingsPanel = new ModPanel();
+        settingsPanel.addUIElement(new ModLabel("Spells and Artes should be differentiated by...", 350.0f, 750.0f, settingsPanel, me -> {}));
+        shapes = new ModLabeledToggleButton("Shapes.", 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.SHAPE, settingsPanel, label -> {}, button -> {
+            MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
+            resetMysticConfigButtons();
+            button.enabled = true;
+            MysticMod.mysticConfig.setString("spellArteDisplay", "SHAPE");
+            try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
+            AbstractMysticCard.resetImageStrings();
+            return;
+        });
+        settingsPanel.addUIElement(shapes);
+        colors = new ModLabeledToggleButton("Colors.", 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.COLOR, settingsPanel, label -> {}, button -> {
+            MysticMod.cardBackgroundSetting = CardBackgroundConfig.COLOR;
+            resetMysticConfigButtons();
+            button.enabled = true;
+            MysticMod.mysticConfig.setString("spellArteDisplay", "COLOR");
+            try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
+            AbstractMysticCard.resetImageStrings();
+            return;
+        });
+        settingsPanel.addUIElement(colors);
+        combined = new ModLabeledToggleButton("Both Shapes and Colors.", 350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.BOTH, settingsPanel, label -> {}, button -> {
+            MysticMod.cardBackgroundSetting = CardBackgroundConfig.BOTH;
+            resetMysticConfigButtons();
+            button.enabled = true;
+            MysticMod.mysticConfig.setString("spellArteDisplay", "BOTH");
+            try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
+            AbstractMysticCard.resetImageStrings();
+            return;
+        });
+        settingsPanel.addUIElement(combined);
+        settingsPanel.addUIElement(new ModLabel("Restart required for changes to reflect in compendium.", 350.0f, 550.0f, settingsPanel, me -> {}));
+        BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new character to the game: The Mystic.", settingsPanel);
+    }
+
+    public void resetMysticConfigButtons() {
+        ModToggleButton reflectShapes = (ModToggleButton)ReflectionHacks.getPrivate(shapes, ModLabeledToggleButton.class, "toggle");
+        ModToggleButton reflectColors = (ModToggleButton)ReflectionHacks.getPrivate(colors, ModLabeledToggleButton.class, "toggle");
+        ModToggleButton reflectBoth = (ModToggleButton)ReflectionHacks.getPrivate(combined, ModLabeledToggleButton.class, "toggle");
+        reflectShapes.enabled = false;
+        reflectColors.enabled = false;
+        reflectBoth.enabled = false;
     }
 
     @Override
@@ -238,6 +315,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receivePostBattle(final AbstractRoom p0) { //for Magic Missile
         numberOfTimesDeckShuffledThisCombat = 0;
+        healerAccused = false;
+        if (storedHealer != null) {
+            storedHealer.dialogY = storedHealerDialogY;
+            storedHealer = null;
+        }
         for (final AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (card instanceof MagicMissile) {
                 card.rawDescription = MagicMissile.DESCRIPTION;
@@ -308,5 +390,23 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             }
         }
         return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
+    }
+
+    public static Texture loadBgAddonTexture(String imgPath) {
+        Texture extraTexture;
+        if (CustomCard.imgMap.containsKey(imgPath)) {
+            extraTexture = CustomCard.imgMap.get(imgPath);
+        } else {
+            extraTexture = ImageMaster.loadImage(imgPath);
+            CustomCard.imgMap.put(imgPath, extraTexture);
+        }
+        extraTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        return extraTexture;
+    }
+
+    public enum CardBackgroundConfig {
+        SHAPE,
+        COLOR,
+        BOTH
     }
 }

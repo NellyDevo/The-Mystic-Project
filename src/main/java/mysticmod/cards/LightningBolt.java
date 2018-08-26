@@ -34,7 +34,7 @@ public class LightningBolt
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ALL_ENEMY);
-        loadCardImage(IMG_PATH);
+        this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = ALTERNATE_DMG;
         this.isMultiDamage = true;
@@ -44,11 +44,9 @@ public class LightningBolt
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(TechniquesPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new LightningBoltAction(this.alternateMultiDamage, this.damageTypeForTurn, p, this));
+            AbstractDungeon.actionManager.addToBottom(new LightningBoltAction(this.alternateMultiDamage, this.damageTypeForTurn, p, this));
         } else {
-            AbstractDungeon.actionManager.addToBottom(
-                    new LightningBoltAction(this.multiDamage, this.damageTypeForTurn, p, this));
+            AbstractDungeon.actionManager.addToBottom(new LightningBoltAction(this.multiDamage, this.damageTypeForTurn, p, this));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         if (this.isArtAlternate) {
@@ -78,7 +76,7 @@ public class LightningBolt
             }
         } else {
             if (this.isArtAlternate) {
-                loadCardImage(IMG_PATH);
+                this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
         }
@@ -87,7 +85,7 @@ public class LightningBolt
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
-            loadCardImage(IMG_PATH);
+            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

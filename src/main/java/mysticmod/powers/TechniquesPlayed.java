@@ -39,9 +39,7 @@ public class TechniquesPlayed extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, TechniquesPlayed.POWER_ID, AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount)
-            );
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, TechniquesPlayed.POWER_ID, AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount));
         }
     }
 

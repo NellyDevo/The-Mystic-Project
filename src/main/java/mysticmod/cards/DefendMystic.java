@@ -1,5 +1,8 @@
 package mysticmod.cards;
 
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,15 +28,13 @@ public class DefendMystic
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
+        CardTags.addTags(this, BaseModTags.BASIC_DEFEND);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
-
-    @Override
-    public boolean isDefend() { return true; }
 
     @Override
     public AbstractCard makeCopy() {

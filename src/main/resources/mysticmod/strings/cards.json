@@ -73,7 +73,8 @@
   "mysticmod:CureLightWounds": {
     "NAME": "Cure Light Wounds",
     "DESCRIPTION": "Gain !M! Regen. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": ["Cure Moderate Wounds"]
   },
   "mysticmod:Daze": {
     "NAME": "Diversion",
@@ -234,7 +235,7 @@
     "NAME": "Magic Missile",
     "DESCRIPTION": "Deal !D! damage for each time the deck was shuffled this combat.",
     "UPGRADE_DESCRIPTION": "",
-    "EXTENDED_DESCRIPTION": [" NL ( !M! times.)"]
+    "EXTENDED_DESCRIPTION": [" NL ( !M! times.)", " NL ( !M! time.)"]
   },
   "mysticmod:MagicWeapon": {
     "NAME": "Magic Weapon",
@@ -378,7 +379,7 @@
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 2 Block at the start of the next !M! turns.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain 3 Block at the start of the next !M! turns.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Strike_Mystic": {

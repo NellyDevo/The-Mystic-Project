@@ -44,7 +44,12 @@ public class SpellBook extends CustomRelic {
 
     @Override
     public void onUnequip() {
-        RelicLibrary.bossList.remove(BlessedBook.ID);
+        for (AbstractRelic relicInBossPool : RelicLibrary.bossList) {
+            if (relicInBossPool instanceof BlessedBook) {
+                RelicLibrary.bossList.remove(relicInBossPool);
+                break;
+            }
+        }
     }
 
     @Override
