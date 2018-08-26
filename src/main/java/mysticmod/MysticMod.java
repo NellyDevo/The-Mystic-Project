@@ -6,6 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -251,6 +252,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new Momentum());
         BaseMod.addCard(new MysticalShield());
         BaseMod.addCard(new SpontaneousCaster());
+
+        //friendlyminions only
+        if (Loader.isModLoaded("Friendly_Minions_0987678")) {
+            BaseMod.addCard(new SummonFamiliar());
+            System.out.println("Friendly_Minions_0987678 detected, Summon Familiar added");
+        }
     }
 
     @Override

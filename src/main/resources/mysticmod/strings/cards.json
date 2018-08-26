@@ -397,6 +397,11 @@
     "DESCRIPTION": "Gain !B! Block. NL Draw a card",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards"
   },
+  "mysticmod:SummonFamiliar": {
+    "NAME": "Summon Familiar",
+    "DESCRIPTION": "Summon your faithful Fox Familiar. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
   "mysticmod:TomeOfSpells": {
     "NAME": "Tome Of Spells",
     "DESCRIPTION": "Add !M! random Cantrips to your hand. NL Exhaust.",

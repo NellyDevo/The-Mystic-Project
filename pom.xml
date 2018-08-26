@@ -35,6 +35,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>friendlyminions</groupId>
+            <artifactId>FriendlyMinions</artifactId>
+            <version>0.0.4</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/FriendlyMinions.jar</systemPath>
+        </dependency>
 
     </dependencies>
 
