@@ -1,6 +1,8 @@
 package mysticmod.cards;
 
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -8,9 +10,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
+import mysticmod.minions.foxfamiliar.FoxEvolutionPower;
 import mysticmod.minions.foxfamiliar.FoxFamiliar;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
+
+import java.util.List;
 
 public class SummonFamiliar
         extends AbstractMysticCard {
@@ -34,8 +39,22 @@ public class SummonFamiliar
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        BasePlayerMinionHelper.addMinion(p, new FoxFamiliar());
+        if (!BasePlayerMinionHelper.hasMinions(p)) {
+            BasePlayerMinionHelper.addMinion(p, new FoxFamiliar());
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new
+                    ApplyPowerAction(BasePlayerMinionHelper.getMinions(p).getMonster(FoxFamiliar.ID), p,
+                    new FoxEvolutionPower((BasePlayerMinionHelper.getMinions(p).getMonster(FoxFamiliar.ID)), 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new HealAction(BasePlayerMinionHelper.getMinions(p).getMonster(FoxFamiliar.ID), p, 5));
+        }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        List<TooltipInfo> retVal = super.getCustomTooltips();
+        retVal.add(new TooltipInfo("Fox Familiar", "Can attack or help set up your combos. Playing more copies of this card will upgrade your familiar, up to 3 times."));
+        return retVal;
     }
 
     @Override

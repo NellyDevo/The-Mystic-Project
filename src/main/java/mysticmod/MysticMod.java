@@ -61,7 +61,10 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public static ModLabeledToggleButton shapes;
     public static ModLabeledToggleButton colors;
     public static ModLabeledToggleButton combined;
+    public static ModLabeledToggleButton foxToggle;
     public static SpireConfig mysticConfig;
+    public static boolean mysticFriendlyMinionsToggle;
+
 
     public MysticMod(){
         BaseMod.subscribe(this);
@@ -76,13 +79,14 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addPotion(EssenceOfMagic.class, essenceOfMagicColor, essenceOfMagicColor, essenceOfMagicColor, EssenceOfMagic.POTION_ID, MysticEnum.MYSTIC_CLASS);
         Properties mysticDefaults = new Properties();
         mysticDefaults.setProperty("spellArteDisplay", "BOTH");
+        mysticDefaults.setProperty("Fox Minion Enabled", "TRUE");
         try {
             mysticConfig = new SpireConfig("The Mystic Mod", "MysticConfig", mysticDefaults);
         } catch (IOException e) {
             System.out.println("MysticMod SpireConfig initialization failed:");
             e.printStackTrace();
         }
-        System.out.println("mysticConfig loaded. spellArteDisplay set to " + mysticConfig.getString("spellArteDisplay"));
+        System.out.println("mysticConfig loaded. spellArteDisplay set to " + mysticConfig.getString("spellArteDisplay") + ". Fox Minion Enabled = " + mysticConfig.getString("Fox Minion Enabled"));
         switch (mysticConfig.getString("spellArteDisplay")) {
             case "SHAPE": MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
             break;
@@ -94,7 +98,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             System.out.println("spellArteDisplay incorrectly set; defaulting to BOTH");
             break;
         }
+        mysticFriendlyMinionsToggle = (mysticConfig.getString("Fox Minion Enabled").equals("TRUE"));
     }
+
     //Used by @SpireInitializer
     public static void initialize(){
 
@@ -137,7 +143,18 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             return;
         });
         settingsPanel.addUIElement(combined);
-        settingsPanel.addUIElement(new ModLabel("Restart required for changes to reflect in compendium.", 350.0f, 550.0f, settingsPanel, me -> {}));
+        settingsPanel.addUIElement(new ModLabel("Restart required for changes to reflect in compendium.", 350.0f, 450.0f, settingsPanel, me -> {}));
+        foxToggle = new ModLabeledToggleButton("Enable Fox Minion Card (requires FriendlyMinions)", 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, mysticFriendlyMinionsToggle, settingsPanel, label -> {}, button -> {
+            mysticFriendlyMinionsToggle = button.enabled;
+            if (mysticFriendlyMinionsToggle) {
+                MysticMod.mysticConfig.setString("Fox Minion Enabled", "TRUE");
+            } else {
+                MysticMod.mysticConfig.setString("Fox Minion Enabled", "FALSE");
+            }
+            try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
+            return;
+        });
+        settingsPanel.addUIElement(foxToggle);
         BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new character to the game: The Mystic.", settingsPanel);
     }
 
@@ -254,9 +271,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new SpontaneousCaster());
 
         //friendlyminions only
-        if (Loader.isModLoaded("Friendly_Minions_0987678")) {
+        if (Loader.isModLoaded("Friendly_Minions_0987678") && mysticFriendlyMinionsToggle) {
             BaseMod.addCard(new SummonFamiliar());
             System.out.println("Friendly_Minions_0987678 detected, Summon Familiar added");
+        } else {
+            BaseMod.addCard(new SummonFamiliarPlaceholder());
         }
     }
 

@@ -23,6 +23,10 @@
     "NAME": "Flow",
     "DESCRIPTIONS": ["At the start of your turn, draw ", "a card.", " cards."]
   },
+  "mysticmod:FoxEvolutionPower": {
+    "NAME": "Evolution",
+    "DESCRIPTIONS": ["Your familiar now has an additional move", " damages all enemies", " has increased effectiveness", ", and", ".", ","]
+  },
   "mysticmod:GainDexterityPower": {
     "NAME": "Overextended",
     "DESCRIPTIONS": ["Gain ", " Dexterity at the end of your turn."]

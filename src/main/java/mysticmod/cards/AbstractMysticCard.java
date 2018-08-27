@@ -22,6 +22,8 @@ public abstract class AbstractMysticCard extends CustomCard {
     public static String BG_LARGE_SPELL_SKILL_MYSTIC = "mysticmod/images/1024/bg_spell_skill_mystic" + arteSpellSettings();
     public static String BG_SMALL_ARTE_SKILL_MYSTIC = "mysticmod/images/512/bg_arte_skill_mystic" + arteSpellSettings();
     public static String BG_LARGE_ARTE_SKILL_MYSTIC = "mysticmod/images/1024/bg_arte_skill_mystic" + arteSpellSettings();
+    public static String BG_SMALL_DEFAULT_SKILL_MYSTIC = "mysticmod/images/512/bg_skill_mystic.png";
+    public static String BG_LARGE_DEFAULT_SKILL_MYSTIC = "mysticmod/images/1024/bg_skill_mystic.png";
     public static String BG_SMALL_SPELL_ATTACK_COLORLESS = "mysticmod/images/512/bg_spell_attack_colorless" + arteSpellSettings();
     public static String BG_LARGE_SPELL_ATTACK_COLORLESS = "mysticmod/images/1024/bg_spell_attack_colorless" + arteSpellSettings();
     public static String BG_SMALL_ARTE_ATTACK_COLORLESS = "mysticmod/images/512/bg_arte_attack_colorless" + arteSpellSettings();
