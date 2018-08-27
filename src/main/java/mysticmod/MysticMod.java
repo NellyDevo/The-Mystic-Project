@@ -289,14 +289,10 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receiveEditKeywords() {
         String[] keywordCantrips = {"cantrip", "cantrips"};
-        //String[] keywordSpells = {"spell", "spells"};
-        //String[] keywordTechniques = {"technique", "techniques"};
         String[] keywordArcane = {"arcane"};
         String[] keywordTechnical = {"technical"};
         String[] keywordFeat = {"feat"};
         BaseMod.addKeyword(keywordCantrips, "Considered a spell so long as you've played fewer than 2 spells this turn.");
-        //BaseMod.addKeyword(keywordSpells, "Advance the \"spells played\" counter for the turn.");
-        //BaseMod.addKeyword(keywordTechniques, "Advance the \"Techniques played\" counter for the turn.");
         BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a spell this turn.");
         BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played an Arte this turn.");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
@@ -358,39 +354,23 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
     }
 
-    public static boolean isThisASpell(final AbstractCard card, final boolean onUseCard) { //Is this a pigeon?
+    public static boolean isThisASpell(final AbstractCard card) { //Is this a pigeon?
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            /*if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
-                int attackOrSkillNumber = GeminiFormPower.attacksAndSkillsPlayedThisTurn;
-                if (onUseCard) {
-                    attackOrSkillNumber--;
-                }
-                if (attackOrSkillNumber < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
-                    return true;
-                }
-            } else*/ if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
                 return true;
-            } else if (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique())) {
-                return true;
+            } else {
+                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()));
             }
         }
         return false;
     }
 
-    public static boolean isThisATechnique(final AbstractCard card, final boolean onUseCard) {
+    public static boolean isThisATechnique(final AbstractCard card) {
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            /*if (AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
-                int attackOrSkillNumber = GeminiFormPower.attacksAndSkillsPlayedThisTurn;
-                if (onUseCard) {
-                    attackOrSkillNumber--;
-                }
-                if (attackOrSkillNumber < AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount) {
-                    return true;
-                }
-            } else*/ if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
                 return true;
-            } else if (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell())) {
-                    return true;
+            } else {
+                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()));
             }
         }
         return false;
@@ -400,7 +380,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         final ArrayList<AbstractCard> list = new ArrayList<>();
         for (final Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
             final AbstractCard card = potentialSpell.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
                 list.add(card);
             }
         }
@@ -411,7 +391,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         final ArrayList<AbstractCard> list = new ArrayList<>();
         for (final Map.Entry<String, AbstractCard> potentialTechnique : CardLibrary.cards.entrySet()) {
             final AbstractCard card = potentialTechnique.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
                 list.add(card);
             }
         }

@@ -21,10 +21,10 @@ public class ApplyPowersToBlockMomentumPatch {
             baseBlockPlaceholder = __card_instance.baseBlock;
 
             //Modify base block if instance is a spell or a technique respectively.
-            if (MysticMod.isThisASpell(__card_instance, false) && AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+            if (MysticMod.isThisASpell(__card_instance) && AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
                 __card_instance.baseBlock += AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
             }
-            if (MysticMod.isThisATechnique(__card_instance, false) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            if (MysticMod.isThisATechnique(__card_instance) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
                 __card_instance.baseBlock += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
             }
 

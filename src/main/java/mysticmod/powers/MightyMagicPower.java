@@ -38,7 +38,7 @@ public class MightyMagicPower extends AbstractPower {
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (MysticMod.isThisATechnique(card, true)) {
+        if (MysticMod.isThisATechnique(card)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, this.amount), this.amount));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LoseDexterityPower(AbstractDungeon.player, this.amount), this.amount));
         }

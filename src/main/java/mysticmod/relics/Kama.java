@@ -34,10 +34,10 @@ public class Kama extends CustomRelic {
             this.counter = 0;
             this.flash();
             this.pulse = false;
-            if (MysticMod.isThisASpell(c,true)) {
+            if (MysticMod.isThisASpell(c)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 1), 1));
             }
-            if (MysticMod.isThisATechnique(c,true)) {
+            if (MysticMod.isThisATechnique(c)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
             }
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));

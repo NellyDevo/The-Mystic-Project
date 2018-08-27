@@ -8,24 +8,22 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.patches.AbstractCardEnum;
 
 public class SummonFamiliarPlaceholder
         extends AbstractMysticCard {
     public static final String ID = "mysticmod:SummonFamiliar";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
-    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION + " NL Currently disabled!";
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/summonfamiliar.png";
     private static final int COST = 0;
 
     public SummonFamiliarPlaceholder() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
+                CardType.SKILL, CardColor.COLORLESS,
                 CardRarity.SPECIAL, CardTarget.SELF);
         this.purgeOnUse = true;
-        this.isSpell = true;
         this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 

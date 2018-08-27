@@ -28,11 +28,11 @@ public class DeckOfManyThings extends CustomRelic {
 
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        if (MysticMod.isThisASpell(c, true)) {
+        if (MysticMod.isThisASpell(c)) {
             this.spellPlayed = true;
 
         }
-        if (MysticMod.isThisATechnique(c, true)) {
+        if (MysticMod.isThisATechnique(c)) {
             this.techniquePlayed = true;
         }
         if (this.spellPlayed && this.techniquePlayed) {

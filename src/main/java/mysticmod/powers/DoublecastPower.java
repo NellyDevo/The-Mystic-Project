@@ -44,7 +44,7 @@ public class DoublecastPower extends AbstractPower {
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (!card.purgeOnUse && MysticMod.isThisASpell(card, true) && this.amount > 0) {
+        if (!card.purgeOnUse && MysticMod.isThisASpell(card) && this.amount > 0) {
             this.flash();
             AbstractMonster m = null;
             if (action.target != null) {

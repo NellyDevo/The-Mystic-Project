@@ -27,7 +27,7 @@ public class RunicPrism extends CustomRelic {
 
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        if (MysticMod.isThisASpell(c, true)) {
+        if (MysticMod.isThisASpell(c)) {
             AbstractDungeon.actionManager.addToBottom(new RunicPrismAction(AbstractDungeon.getMonsters().getRandomMonster(true), new DamageInfo(AbstractDungeon.player, DAMAGE_AMT, DamageInfo.DamageType.THORNS)));
             flash();
         }
