@@ -14,6 +14,11 @@ Create a "mods" subfolder inside your SlayTheSpire main directory, then place Ba
 
 To play the mod, launch ModTheSpire, enable BaseMod and The Mystic, then hit Play!
 
+Additionally, the mod includes support for the mod named "Friendly Minions". If you have Friendly Minions installed, then you can use an additonal card called "Summon Familiar". Mystic Mod does *not* require Friendly Minions to run, but Summon Familiar will not be offered as a card reward if you wish to use it.
+
+If you wish to install FriendlyMinions and summon your own Fox Familiar, it can be found here:
+https://github.com/Kobting/STSFriendlyMinions/releases
+
 
 NEW CHARACTER  
 The Mystic. A mysterious master of two opposed disciplines. With a blade in one hand and a spellbook in the other, she outmatches her opponents with Sword and Sorcery.
