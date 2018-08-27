@@ -16,7 +16,7 @@ To play the mod, launch ModTheSpire, enable BaseMod and The Mystic, then hit Pla
 
 Additionally, the mod includes support for the mod named "Friendly Minions". If you have Friendly Minions installed, then you can use an additonal card called "Summon Familiar". Mystic Mod does *not* require Friendly Minions to run, but Summon Familiar will not be offered as a card reward if you wish to use it.
 
-If you wish to install FriendlyMinions and summon your own Fox Familiar, it can be found here:
+If you wish to install FriendlyMinions and summon your own Fox Familiar, it can be found here:  
 https://github.com/Kobting/STSFriendlyMinions/releases
 
 
