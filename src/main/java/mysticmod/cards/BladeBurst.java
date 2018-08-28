@@ -27,7 +27,7 @@ public class BladeBurst
     private static final int COST = 1;
     public static final int ATTACK_DMG = 11;
     private static final int UPGRADE_PLUS_DMG = 3;
-    private static final int STRENGTH_LOSS = 2;
+    private static final int STRENGTH_LOSS = 1;
 
     public BladeBurst() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

@@ -20,8 +20,8 @@ public class Fly
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/fly.png";
     private static final int COST = 1;
-    private static final int BLOCK_AMT = 9;
-    private static final int UPGRADE_PLUS_BLK = 2;
+    private static final int BLOCK_AMT = 7;
+    private static final int UPGRADE_PLUS_BLK = 3;
 
     public Fly() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

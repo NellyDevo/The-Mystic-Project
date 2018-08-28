@@ -59,7 +59,7 @@ public class MagicWeapon
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = super.getCustomTooltips();
-        retVal.add(new TooltipInfo("Blade Burst", "an Arte that exhausts and deals High damage for 1 energy, loses 2 Strength, and adds this card back to your discard pile."));
+        retVal.add(new TooltipInfo("Blade Burst", "an Arte that exhausts and deals High damage for 1 energy, loses 1 Strength, and adds this card back to your discard pile."));
         return retVal;
     }
 

@@ -18,6 +18,7 @@ public class SpecificCardFromDiscardToDrawPileAction extends AbstractGameAction 
 
     @Override
     public void update() {
+        AbstractDungeon.getCurrRoom().souls.remove(card);
         AbstractDungeon.player.discardPile.moveToDeck(this.card, this.isRandom);
         AbstractDungeon.player.discardPile.removeCard(this.card);
         this.isDone = true;

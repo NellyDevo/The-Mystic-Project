@@ -32,12 +32,12 @@ public class TechniqueHologram extends AbstractGameAction
             this.amount = 1;
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1);
+        boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2);
         boolean hasCrystalBall = (AbstractDungeon.player.hasRelic(CrystalBall.ID));
         for (final AbstractCard c2 : this.p.discardPile.group) {
             if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isTechnique())
                 || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell()))
-                && !(c2.rawDescription.startsWith("Cantrip") && cantripsAreSpells)) {
+                && !(c2.rawDescription.startsWith("Cantrip.") && cantripsAreSpells)) {
                 tmp.addToRandomSpot(c2);
             }
         }

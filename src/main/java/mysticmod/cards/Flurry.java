@@ -26,8 +26,8 @@ public class Flurry
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/flurry.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 2;
-    private static final int ATTACK_COUNT = 3;
-    private static final int ALTERNATIVE_ATTACK_COUNT = 5;
+    private static final int ATTACK_COUNT = 2;
+    private static final int ALTERNATIVE_ATTACK_COUNT = 4;
     private static final int UPGRADE_ATTACK_COUNT = 1;
     private boolean isArtAlternate = false;
 

@@ -27,12 +27,14 @@ public class PowerAttack
     private static final int DEXTERITY_LOSS = 2;
     private static final int UPGRADE_MINUS_DEX_LOSS = 1;
     private static final int STRENGTH_GAIN = 3;
+    private static final int UPGRADE_PLUS_STR_GAIN = 1;
 
     public PowerAttack() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
+        this.damage = this.baseDamage = STRENGTH_GAIN;
         this.isTechnique = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
@@ -43,20 +45,25 @@ public class PowerAttack
         if (!p.hasPower("Artifact")) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH_GAIN), STRENGTH_GAIN));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, STRENGTH_GAIN), STRENGTH_GAIN));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.damage), this.damage));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.damage), this.damage));
         //technique functionality
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
     }
 
     @Override
+    public void applyPowers() {
+        super.applyPowers();
+        this.damage = this.baseDamage;
+        this.isDamageModified = false;
+    }
+
+    @Override
     public boolean hasEnoughEnergy() { //feat keyword functionality
-        boolean returnValue = super.hasEnoughEnergy();
         if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
-            returnValue = false;
-            return returnValue;
+            return false;
         }
-        return returnValue;
+        return super.hasEnoughEnergy();
     }
 
     @Override
@@ -69,6 +76,7 @@ public class PowerAttack
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(-UPGRADE_MINUS_DEX_LOSS);
+            this.upgradeDamage(UPGRADE_PLUS_STR_GAIN);
         }
     }
 }

@@ -21,7 +21,7 @@ public class ComponentsPouch
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/componentspouch.png";
     private static final int COST = 1;
-    public static final int ATTACK_DMG = 8;
+    public static final int ATTACK_DMG = 7;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public ComponentsPouch() {

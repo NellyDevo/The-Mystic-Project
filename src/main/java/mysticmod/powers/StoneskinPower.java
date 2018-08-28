@@ -39,7 +39,7 @@ public class StoneskinPower extends AbstractPower {
 
     @Override
     public void atStartOfTurnPostDraw() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new NextTurnBlockPower(AbstractDungeon.player, 3), 3));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new NextTurnBlockPower(AbstractDungeon.player, 2), 2));
     }
 
     @Override

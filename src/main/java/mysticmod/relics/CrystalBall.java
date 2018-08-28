@@ -29,7 +29,7 @@ public class CrystalBall extends CustomRelic {
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
         if (c.type == AbstractCard.CardType.ATTACK && !(c instanceof AbstractMysticCard && ((AbstractMysticCard)c).isSpell())) {
-            if (c.rawDescription.startsWith("Cantrip") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1)) {
+            if (c.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
                 return;
             }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechniquesPlayed(AbstractDungeon.player, 1), 1));

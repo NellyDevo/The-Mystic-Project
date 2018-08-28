@@ -292,7 +292,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         String[] keywordArcane = {"arcane"};
         String[] keywordTechnical = {"technical"};
         String[] keywordFeat = {"feat"};
-        BaseMod.addKeyword(keywordCantrips, "Considered a spell so long as you've played fewer than 2 spells this turn.");
+        BaseMod.addKeyword(keywordCantrips, "Considered a spell so long as you've played fewer than 3 spells this turn.");
         BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a spell this turn.");
         BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played an Arte this turn.");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");

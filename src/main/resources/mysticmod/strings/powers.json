@@ -33,13 +33,7 @@
   },
   "mysticmod:GeminiFormPower": {
     "NAME": "Gemini Form",
-    "DESCRIPTIONS": [
-      "At the end of combat, gain Gold equal to ",
-      "your current spell and Arte counts",
-      " times your current spell and Arte counts",
-      " and HP equal to ",
-      "that amount.",
-      " times that amount."]
+    "DESCRIPTIONS": ["The first ", "Spell and Arte", "Spells and Artes", " you play each turn, also play a random card of the other type from your draw pile."]
   },
   "mysticmod:HastePower": {
     "NAME": "Haste",

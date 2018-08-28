@@ -22,7 +22,7 @@ public class Probe
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/probe.png";
     private static final int COST = 0;
-    public static final int ATTACK_DMG = 6;
+    public static final int ATTACK_DMG = 5;
 
     public Probe() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

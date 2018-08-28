@@ -20,7 +20,7 @@ public class PureInstinct
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/pureinstinct.png";
     private static final int COST = 1;
-    public static final int BLOCK_AMT = 8;
+    public static final int BLOCK_AMT = 6;
     private static final int UPGRADE_PLUS_BLK = 2;
 
     public PureInstinct() {
@@ -34,7 +34,7 @@ public class PureInstinct
         int techniquesCount = 0;
         for (final AbstractCard card : p.hand.group) {
             if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
-                if (!(card.rawDescription.startsWith("Cantrip") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount == 1)))
+                if (!(card.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
                 techniquesCount++;
             }
         }

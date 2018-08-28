@@ -32,9 +32,7 @@ public class EbbPowerAction extends AbstractGameAction {
                 return;
             }
         }
-        if (!hasSpell || !hasTechnique) {
-            AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 2, false));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 2, false));
         this.isDone = true;
     }
 }

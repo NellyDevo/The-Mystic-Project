@@ -26,8 +26,8 @@
   },
   "mysticmod:BladeBurst": {
     "NAME": "Blade Burst",
-    "DESCRIPTION": "Lose 2 Strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Lose 2 Strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
+    "DESCRIPTION": "Lose !M! Strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
   },
   "mysticmod:BladeMaster": {
     "NAME": "Blade Master",
@@ -173,8 +173,8 @@
   },
   "mysticmod:GeminiForm": {
     "NAME": "Gemini Form",
-    "DESCRIPTION": "At the end of combat, gain Gold equal to the current total of Spells and Artes played this turn.",
-    "UPGRADE_DESCRIPTION": "At the end of combat, gain Gold and HP equal to the current total of Spells and Artes played this turn."
+    "DESCRIPTION": "For the first Spell and Arte you play each turn, play a random card of the other type from your draw pile. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "For the first Spell and Arte you play each turn, play a random card of the other type from your draw pile."
   },
   "mysticmod:Grapple": {
     "NAME": "Grapple",
@@ -279,7 +279,7 @@
   },
   "mysticmod:PowerAttack": {
     "NAME": "Power Attack",
-    "DESCRIPTION": "Gain 3 Strength and lose !M! Dexterity this turn. NL Feat.",
+    "DESCRIPTION": "Gain !D! Strength and lose !M! Dexterity this turn. NL Feat.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PowerSlash": {
@@ -379,7 +379,7 @@
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 3 Block at the start of the next !M! turns.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain 2 Block at the start of the next !M! turns.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Strike_Mystic": {

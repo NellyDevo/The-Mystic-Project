@@ -24,7 +24,7 @@ public class EnchantedMoulinet
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/enchantedmoulinet.png";
     private static final int COST = 2;
-    public static final int ATTACK_DMG = 18;
+    public static final int ATTACK_DMG = 15;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public EnchantedMoulinet() {

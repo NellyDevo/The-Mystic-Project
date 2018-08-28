@@ -25,10 +25,10 @@ public class HeavyStrike
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/heavystrike.png";
     private static final int COST = 2;
-    public static final int ATTACK_DMG = 12;
+    public static final int ATTACK_DMG = 10;
     private static final int UPGRADE_PLUS_DMG = 4;
     public static final int VULNERABLE_AMT = 2;
-    private static final int UPGRADE_PLUS_VULN = 1;
+    //private static final int UPGRADE_PLUS_VULN = 1;
 
     public HeavyStrike() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -58,7 +58,7 @@ public class HeavyStrike
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(UPGRADE_PLUS_VULN);
+            //this.upgradeMagicNumber(UPGRADE_PLUS_VULN);
         }
     }
 }

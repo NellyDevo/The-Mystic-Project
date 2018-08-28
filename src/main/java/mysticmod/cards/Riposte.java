@@ -24,7 +24,7 @@ public class Riposte
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/riposte.png";
     private static final int COST = 1;
-    public static final int ATTACK_DMG = 8;
+    public static final int ATTACK_DMG = 6;
     public static final int UPGRADE_WEAK_VULN = 1;
     public static final int WEAK_VULN_AMT = 1;
 

@@ -26,21 +26,13 @@ public class GeminiForm
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        this.isEthereal = true;
         CardTags.addTags(this, BaseModTags.FORM);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        if (!AbstractDungeon.player.hasPower(GeminiFormPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GeminiFormPower(p, 1, this.upgraded), 1));
-        } else {
-            AbstractDungeon.player.getPower(GeminiFormPower.POWER_ID).amount++;
-            if (this.upgraded) {
-                GeminiFormPower.HPMultiplier++;
-            }
-        }
-
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GeminiFormPower(p, 1), 1));
     }
 
     @Override
@@ -54,6 +46,7 @@ public class GeminiForm
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.isEthereal = false;
         }
     }
 }
