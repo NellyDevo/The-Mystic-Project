@@ -60,8 +60,12 @@ public class GeminiFormPower extends AbstractPower {
                 this.artesPlayedThisTurn++;
             }
         } else {
-            isActive = true;
+            System.out.println("cardQueue.size() = " + AbstractDungeon.actionManager.cardQueue.size());
+            if (AbstractDungeon.actionManager.cardQueue.size() == 1) {
+                isActive = true;
+            }
         }
+        System.out.println("isActive = " + isActive);
     }
 
     @Override

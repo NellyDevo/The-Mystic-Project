@@ -34,12 +34,12 @@ public class HastePower extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        AbstractDungeon.player.masterHandSize++;
+        AbstractDungeon.player.gameHandSize++;
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
-        AbstractDungeon.player.masterHandSize--;
+        AbstractDungeon.player.gameHandSize--;
     }
 }

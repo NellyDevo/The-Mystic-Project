@@ -6,7 +6,7 @@
     <!-- Change These to match your mod -->
     <groupId>mysticmod</groupId>
     <artifactId>MysticMod</artifactId>
-    <version>0.5.8</version>
+    <version>0.5.8.1</version>
     <packaging>jar</packaging>
     <name>TheMystic</name>
     <description>Slay the Spire mod introducing custom character: The Mystic.</description>
@@ -24,14 +24,14 @@
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>ModTheSpire</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>BaseMod</artifactId>
-            <version>3.0.2</version>
+            <version>3.1.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
         </dependency>

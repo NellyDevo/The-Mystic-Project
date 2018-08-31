@@ -59,6 +59,13 @@ public class PowerAttack
     }
 
     @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        this.damage = this.baseDamage;
+        this.isDamageModified = false;
+    }
+
+    @Override
     public boolean hasEnoughEnergy() { //feat keyword functionality
         if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
             return false;
