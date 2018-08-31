@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,19 +36,19 @@ public class TomeOfSpells
             int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
             switch (randomlyGeneratedNumber) {
                 case 0:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new AcidSplash(), 1, false));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new AcidSplash(), 1));
                     break;
                 case 1:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Prestidigitation(), 1, false));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Prestidigitation(), 1));
                     break;
                 case 2:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RayOfFrost(), 1, false));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new RayOfFrost(), 1));
                     break;
                 case 3:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Spark(), 1, false));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Spark(), 1));
                     break;
                 case 4:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new ReadMagic(), 1, false));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new ReadMagic(), 1));
                     break;
             }
         }

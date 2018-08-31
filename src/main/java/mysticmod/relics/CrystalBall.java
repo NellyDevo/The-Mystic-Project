@@ -35,6 +35,9 @@ public class CrystalBall extends CustomRelic {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechniquesPlayed(AbstractDungeon.player, 1), 1));
         }
         if (c.type == AbstractCard.CardType.SKILL && !(c instanceof AbstractMysticCard && ((AbstractMysticCard)c).isTechnique())) {
+            if (c.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
+                return;
+            }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayed(AbstractDungeon.player, 1), 1));
         }
     }

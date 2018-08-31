@@ -20,16 +20,13 @@ public class KeenEdge
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/keenedge.png";
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
-    private static final int VULNERABLE_AMT = 8;
+    private static final int VULNERABLE_AMT = 4;
 
     public KeenEdge() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL_ENEMY);
         this.magicNumber = this.baseMagicNumber = VULNERABLE_AMT;
-        this.isTechnique = true;
-        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
@@ -37,7 +34,9 @@ public class KeenEdge
         for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        if (this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        }
     }
 
     @Override
@@ -49,7 +48,9 @@ public class KeenEdge
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADED_COST);
+            this.upgradeToTechnique();
+            this.crystalBallToggle = false;
+            this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
         }
     }
 }

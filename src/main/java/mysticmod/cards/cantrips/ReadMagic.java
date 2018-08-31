@@ -58,8 +58,10 @@ public class ReadMagic
                 bgChanged = false;
                 crystalBallToggle = false;
             }
+            this.isSpell = true;
             return true;
         }
+        this.isSpell = false;
         return super.isSpell();
     }
 

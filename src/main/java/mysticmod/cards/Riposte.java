@@ -25,7 +25,7 @@ public class Riposte
     public static final String IMG_PATH = "mysticmod/images/cards/riposte.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 6;
-    public static final int UPGRADE_WEAK_VULN = 1;
+    public static final int UPGRADE_DMG = 3;
     public static final int WEAK_VULN_AMT = 1;
 
     public Riposte() {
@@ -57,7 +57,7 @@ public class Riposte
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_WEAK_VULN);
+            this.upgradeDamage(UPGRADE_DMG);
         }
     }
 }

@@ -13,7 +13,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import mysticmod.actions.IncreaseMiscDamageAction;
+import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.TechniquesPlayed;
 
 public class HeavyStrike
@@ -24,19 +27,23 @@ public class HeavyStrike
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/heavystrike.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/heavystrike.png";
     private static final int COST = 2;
-    public static final int ATTACK_DMG = 10;
-    private static final int UPGRADE_PLUS_DMG = 4;
-    public static final int VULNERABLE_AMT = 2;
-    //private static final int UPGRADE_PLUS_VULN = 1;
+    public static final int ATTACK_DMG = 6;
+    private static final int UPGRADE_DAMAGE_INCREMENT = 1;
+    private static final int DAMAGE_INCREMENT = 2;
+    private boolean isArtAlternate = false;
 
     public HeavyStrike() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber=this.baseMagicNumber = VULNERABLE_AMT;
+        this.loadCardImage(IMG_PATH);
+        this.misc = ATTACK_DMG;
+        this.damage = this.baseDamage = this.misc;
+        this.magicNumber = this.baseMagicNumber = DAMAGE_INCREMENT;
         this.isTechnique = true;
+        this.exhaust = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         CardTags.addTags(this, BaseModTags.STRIKE);
     }
@@ -44,8 +51,40 @@ public class HeavyStrike
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new IncreaseMiscDamageAction(ID, this.misc, this.magicNumber));
+        }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        if (this.isArtAlternate) {
+            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
+            this.isArtAlternate = false;
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        this.baseDamage = this.misc;
+        super.applyPowers();
+        this.initializeDescription();
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            if (!this.isArtAlternate) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
+                this.isArtAlternate = true;
+            }
+        } else {
+            if (this.isArtAlternate) {
+                this.loadCardImage(IMG_PATH);
+                this.isArtAlternate = false;
+            }
+        }
+    }
+
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (this.isArtAlternate) {
+            this.loadCardImage(IMG_PATH);
+            this.isArtAlternate = false;
+        }
     }
 
     @Override
@@ -57,8 +96,7 @@ public class HeavyStrike
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
-            //this.upgradeMagicNumber(UPGRADE_PLUS_VULN);
+            this.upgradeMagicNumber(UPGRADE_DAMAGE_INCREMENT);
         }
     }
 }

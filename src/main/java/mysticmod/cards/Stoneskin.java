@@ -41,9 +41,6 @@ public class Stoneskin
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneskinPower(p, this.magicNumber), this.magicNumber));
-        if (!p.hasPower(StoneskinPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, 2), 2));
-        }
     }
 
     @Override

@@ -5,6 +5,7 @@ import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
+import mysticmod.cards.cantrips.AcidSplash;
 import mysticmod.relics.CrystalBall;
 
 import java.util.ArrayList;

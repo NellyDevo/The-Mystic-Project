@@ -37,9 +37,9 @@ public class MysticalShieldPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         if (!AbstractDungeon.player.hasPower("Barricade") && !AbstractDungeon.player.hasPower("Blur")) {
-            if (startOfTurnBlock >= 10) {
+            if (startOfTurnBlock >= 8) {
                 flash();
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 10));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8));
             } else if (startOfTurnBlock <= 0) {
                 return;
             } else {

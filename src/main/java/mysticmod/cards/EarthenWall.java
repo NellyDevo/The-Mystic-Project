@@ -22,9 +22,9 @@ public class EarthenWall
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/earthenwall.png";
     private static final int COST = 2;
-    private static final int BLOCK_AMT = 10;
+    private static final int BLOCK_AMT = 11;
     private static final int BLOCK_UPGRADE_AMT = 3;
-    private static final int DEXTERITY_GAIN = 5;
+    private static final int DEXTERITY_GAIN = 3;
 
     public EarthenWall() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

@@ -5,7 +5,7 @@
   },
   "mysticmod:ComboCasterPower": {
     "NAME": "Combo Caster",
-    "DESCRIPTIONS": ["At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand"]
+    "DESCRIPTIONS": ["At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand", " and draw ", " less card.", " less cards."]
   },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
@@ -21,7 +21,7 @@
   },
   "mysticmod:FlowPower": {
     "NAME": "Flow",
-    "DESCRIPTIONS": ["At the start of your turn, draw ", "a card.", " cards."]
+    "DESCRIPTIONS": ["At the start of your turn, draw ", "an additional card.", " additional cards."]
   },
   "mysticmod:FoxEvolutionPower": {
     "NAME": "Evolution",
@@ -53,11 +53,11 @@
   },
   "mysticmod:MysticalShieldPower": {
     "NAME": "Mystical Shield",
-    "DESCRIPTIONS": ["Block is reduced to 10 instead of 0 at the start of the turn."]
+    "DESCRIPTIONS": ["Block is reduced to 8 instead of 0 at the start of the turn."]
   },
   "mysticmod:MysticalShieldUpgradedPower": {
     "NAME": "Mystical Shield",
-    "DESCRIPTIONS": ["Block is set to 10 instead of 0 at the start of the turn."]
+    "DESCRIPTIONS": ["Block is set to 8 instead of 0 at the start of the turn."]
   },
   "mysticmod:Natural20Power": {
     "NAME": "Natural 20",
@@ -77,7 +77,7 @@
   },
   "mysticmod:SpontaneousCasterPower": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTIONS": ["Spells cost [E] less to play, Exhaust when played, and then generate a random spell in your discard pile."]
+    "DESCRIPTIONS": ["Spells Exhaust when played, and then generate a random spell in your discard pile."]
   },
   "mysticmod:StoneskinPower": {
     "NAME": "Stoneskin",

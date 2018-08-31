@@ -57,7 +57,7 @@
   },
   "mysticmod:ComboCaster": {
     "NAME": "Combo Caster",
-    "DESCRIPTION": "At the start of each turn, add a random Cantrip to your hand.",
+    "DESCRIPTION": "At the start of each turn, add a random Cantrip to your hand and draw 1 less card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ComponentsPouch": {
@@ -133,13 +133,13 @@
 },
   "mysticmod:EnergizedRift": {
     "NAME": "Energized Rift",
-    "DESCRIPTION": "Add a random Cantrip to your hand, then duplicate all Cantrips in your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a random Upgraded Cantrip to your hand, then duplicate all Cantrips in your hand. NL Exhaust."
+    "DESCRIPTION": "Add a random Cantrip to your hand, then copy all held Cantrips into your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add a random Upgraded Cantrip to your hand, then copy all held Cantrips into your discard pile. NL Exhaust."
   },
   "mysticmod:Feint": {
     "NAME": "Feint",
-    "DESCRIPTION": "Deal !D! damage. Add a random Cantrip to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded Cantrip to your hand."
+    "DESCRIPTION": "Deal !D! damage. Add a random Cantrip to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded Cantrip to your discard pile."
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
@@ -168,7 +168,7 @@
   },
   "mysticmod:Fly": {
     "NAME": "Fly",
-    "DESCRIPTION": "Gain !B! Block.",
+    "DESCRIPTION": "Gain !B! Block. NL Technical: Block is not removed at the start of your next turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:GeminiForm": {
@@ -203,7 +203,7 @@
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable.",
+    "DESCRIPTION": "Deal !D! damage. NL Arcane: permanently increase this card's Damage by !M!. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HunkerDown": {
@@ -264,8 +264,8 @@
   },
   "mysticmod:MysticalShield": {
     "NAME": "Mystical Shield",
-    "DESCRIPTION": "Block is reduced to 10 instead of 0 at the start of your turn.",
-    "UPGRADE_DESCRIPTION": "Block is set to 10 instead of 0 at the start of your turn."
+    "DESCRIPTION": "Block is reduced to 8 instead of 0 at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Block is set to 8 instead of 0 at the start of your turn."
   },
   "mysticmod:Natural20": {
     "NAME": "Natural 20",
@@ -404,7 +404,7 @@
   },
   "mysticmod:TomeOfSpells": {
     "NAME": "Tome Of Spells",
-    "DESCRIPTION": "Add !M! random Cantrips to your hand. NL Exhaust.",
+    "DESCRIPTION": "Add !M! random Cantrips to your discard pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:VorpalThrust": {

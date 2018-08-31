@@ -37,6 +37,15 @@ public class FlowPower extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.owner, this.amount));
+        for (int i = 0; i < this.amount; i++) {
+            AbstractDungeon.player.gameHandSize++;
+        }
+    }
+
+    @Override
+    public void atStartOfTurnPostDraw() {
+        for (int i = 0; i < this.amount; i++) {
+            AbstractDungeon.player.gameHandSize--;
+        }
     }
 }

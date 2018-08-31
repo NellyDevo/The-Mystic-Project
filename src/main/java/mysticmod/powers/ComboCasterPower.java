@@ -32,9 +32,9 @@ public class ComboCasterPower extends AbstractPower {
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + " 1 " + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[3] + "1" + DESCRIPTIONS[4];
         } else {
-            description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
         }
 
     }
@@ -61,6 +61,14 @@ public class ComboCasterPower extends AbstractPower {
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new ReadMagic(), 1, false));
                     break;
             }
+            AbstractDungeon.player.gameHandSize--;
+        }
+    }
+
+    @Override
+    public void atStartOfTurnPostDraw() {
+        for (int i = 0; i < this.amount; i++){
+            AbstractDungeon.player.gameHandSize++;
         }
     }
 }

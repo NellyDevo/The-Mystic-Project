@@ -6,7 +6,7 @@
     <!-- Change These to match your mod -->
     <groupId>mysticmod</groupId>
     <artifactId>MysticMod</artifactId>
-    <version>0.5.7</version>
+    <version>0.5.8</version>
     <packaging>jar</packaging>
     <name>TheMystic</name>
     <description>Slay the Spire mod introducing custom character: The Mystic.</description>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.megacrit.cardcrawl</groupId>
             <artifactId>slaythespire</artifactId>
-            <version>039</version>
+            <version>040</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>
         </dependency>
