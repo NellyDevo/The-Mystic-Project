@@ -3,8 +3,7 @@ package mysticmod.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -59,7 +58,7 @@ public class Feint
         if (this.upgraded) {
             randomCantrip.upgrade();
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(randomCantrip.makeStatEquivalentCopy(), 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip.makeStatEquivalentCopy(), 1, true, true));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
     }
 

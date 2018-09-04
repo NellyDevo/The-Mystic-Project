@@ -43,6 +43,8 @@ public class MagicMissile
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override
@@ -56,6 +58,12 @@ public class MagicMissile
         }
         this.initializeDescription();
         super.applyPowers();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

@@ -19,6 +19,7 @@ public class ComponentsPouch
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/componentspouch.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 7;
@@ -30,6 +31,7 @@ public class ComponentsPouch
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
     }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int spellsCount = 0;
@@ -46,6 +48,34 @@ public class ComponentsPouch
                         new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
             }
         }
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
+    }
+
+    @Override
+    public void applyPowers() {
+        int spellsCount = 0;
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()
+                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
+                spellsCount++;
+            }
+        }
+        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + spellsCount;
+        if (spellsCount == 1) {
+            this.rawDescription += EXTENDED_DESCRIPTION[1];
+        } else {
+            this.rawDescription += EXTENDED_DESCRIPTION[2];
+        }
+        this.initializeDescription();
+        super.applyPowers();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

@@ -18,6 +18,7 @@ public class PureInstinct
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/pureinstinct.png";
     private static final int COST = 1;
     public static final int BLOCK_AMT = 6;
@@ -29,6 +30,7 @@ public class PureInstinct
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
     }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int techniquesCount = 0;
@@ -43,6 +45,33 @@ public class PureInstinct
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
             }
         }
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
+    }
+
+    @Override
+    public void applyPowers() {
+        int techniquesCount = 0;
+        for (final AbstractCard card : AbstractDungeon.player.hand.group) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
+                if (!(card.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
+                    techniquesCount++;
+            }
+        }
+        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + techniquesCount;
+        if (techniquesCount == 1) {
+            this.rawDescription += EXTENDED_DESCRIPTION[1];
+        } else {
+            this.rawDescription += EXTENDED_DESCRIPTION[2];
+        }
+        this.initializeDescription();
+        super.applyPowers();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

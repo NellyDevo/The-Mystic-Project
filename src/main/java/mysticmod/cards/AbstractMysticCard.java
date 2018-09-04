@@ -1,11 +1,11 @@
 package mysticmod.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.abstracts.DynamicVariable;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
-import mysticmod.cards.cantrips.AcidSplash;
 import mysticmod.relics.CrystalBall;
 
 import java.util.ArrayList;
@@ -15,6 +15,10 @@ public abstract class AbstractMysticCard extends CustomCard {
     public boolean isSpell = false;
     public boolean isTechnique = false;
     public boolean crystalBallToggle = false;
+    public int baseSecondMagicNumber;
+    public int secondMagicNumber;
+    public boolean isSecondMagicNumberModified;
+    public boolean upgradedSecondMagicNumber;
     public static String BG_SMALL_SPELL_ATTACK_MYSTIC = "mysticmod/images/512/bg_spell_attack_mystic" + arteSpellSettings();
     public static String BG_LARGE_SPELL_ATTACK_MYSTIC = "mysticmod/images/1024/bg_spell_attack_mystic" + arteSpellSettings();
     public static String BG_SMALL_ARTE_ATTACK_MYSTIC = "mysticmod/images/512/bg_arte_attack_mystic" + arteSpellSettings();
@@ -41,6 +45,8 @@ public abstract class AbstractMysticCard extends CustomCard {
     public static String BG_ADDON_LARGE_ARTE_ATTACK = "mysticmod/images/1024/bg_arte_attack_addon" + arteSpellSettings();
     public static String BG_ADDON_SMALL_SPELL_SKILL = "mysticmod/images/512/bg_spell_skill_addon" + arteSpellSettings();
     public static String BG_ADDON_LARGE_SPELL_SKILL = "mysticmod/images/1024/bg_spell_skill_addon" + arteSpellSettings();
+    public static String BG_ADDON_SMALL_SPELL_ATTACK = "mysticmod/images/512/bg_spell_attack_addon" + arteSpellSettings();
+    public static String BG_ADDON_LARGE_SPELL_ATTACK = "mysticmod/images/1024/bg_spell_attack_addon" + arteSpellSettings();
 
     public AbstractMysticCard(final String id, final String name, final String img, final int cost, final String rawDescription,
                               final AbstractCard.CardType type, final AbstractCard.CardColor color,
@@ -118,15 +124,15 @@ public abstract class AbstractMysticCard extends CustomCard {
         List<TooltipInfo> retVal = new ArrayList<>();
         if (this.type == AbstractCard.CardType.SKILL) {
             if (this.isSpell) {
-                retVal.add(new TooltipInfo("Spell.", "This Skill is considered a Spell."));
+                retVal.add(new TooltipInfo("Spell.", "This Skill is considered a [#5299DC]Spell[]."));
             } else if (this.isTechnique) {
-                retVal.add(new TooltipInfo("Arte.", "This Skill is considered an Arte."));
+                retVal.add(new TooltipInfo("Arte.", "This Skill is considered an [#FF5252]Arte[]."));
             }
         } else if (this.type == AbstractCard.CardType.ATTACK) {
             if (this.isSpell) {
-                retVal.add(new TooltipInfo("Spell.", "This Attack is considered a Spell."));
+                retVal.add(new TooltipInfo("Spell.", "This Attack is considered a [#5299DC]Spell[]."));
             } else if (this.isTechnique) {
-                retVal.add(new TooltipInfo("Arte.", "This Attack is considered an Arte."));
+                retVal.add(new TooltipInfo("Arte.", "This Attack is considered an [#FF5252]Arte[]."));
             }
         }
         return retVal;
@@ -145,5 +151,39 @@ public abstract class AbstractMysticCard extends CustomCard {
 
     public void upgradeToTechnique() {
         this.isTechnique = true;
+    }
+
+    public void upgradeSecondMagicNumber(int amount) {
+        this.baseSecondMagicNumber += amount;
+        this.secondMagicNumber = this.baseSecondMagicNumber;
+        this.upgradedSecondMagicNumber = true;
+    }
+
+    public static class SecondMagicNumber extends DynamicVariable {
+
+        @Override
+        public int baseValue(AbstractCard card) {
+            return ((AbstractMysticCard)card).baseSecondMagicNumber;
+        }
+
+        @Override
+        public boolean isModified(AbstractCard card) {
+            return ((AbstractMysticCard)card).isSecondMagicNumberModified;
+        }
+
+        @Override
+        public String key() {
+            return "M2";
+        }
+
+        @Override
+        public boolean upgraded(AbstractCard card) {
+            return ((AbstractMysticCard)card).upgradedSecondMagicNumber;
+        }
+
+        @Override
+        public int value(AbstractCard card) {
+            return ((AbstractMysticCard)card).secondMagicNumber;
+        }
     }
 }

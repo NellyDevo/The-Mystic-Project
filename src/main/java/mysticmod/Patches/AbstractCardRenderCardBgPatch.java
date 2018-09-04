@@ -29,5 +29,28 @@ public class AbstractCardRenderCardBgPatch {
                 break;
             }
         }
+        if (__card_instance instanceof AbstractMysticCard && __card_instance.color == AbstractCard.CardColor.COLORLESS) {
+            Color reflectedColor = (Color)ReflectionHacks.getPrivate(__card_instance, AbstractCard.class, "renderColor");
+            switch (__card_instance.type) {
+                case ATTACK:
+                    if (((AbstractMysticCard) __card_instance).isSpell()) {
+                        Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
+                        sb.setColor(reflectedColor);
+                        sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
+                    } else if (((AbstractMysticCard) __card_instance).isTechnique()) {
+                        Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
+                        sb.setColor(reflectedColor);
+                        sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
+                    }
+                    break;
+                case SKILL:
+                    if (((AbstractMysticCard) __card_instance).isSpell()) {
+                        Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_SKILL);
+                        sb.setColor(reflectedColor);
+                        sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
+                    }
+                    break;
+            }
+        }
     }
 }

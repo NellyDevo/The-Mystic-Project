@@ -37,7 +37,7 @@ public class Flurry
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
-        this.block = this.baseBlock = ALTERNATIVE_ATTACK_COUNT;
+        this.secondMagicNumber = this.baseSecondMagicNumber = ALTERNATIVE_ATTACK_COUNT;
         this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
         this.isTechnique = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
@@ -46,7 +46,7 @@ public class Flurry
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(SpellsPlayed.POWER_ID) && p.getPower(SpellsPlayed.POWER_ID).amount >= 1) {
-            for (int i = 0; i < this.block; i++) {
+            for (int i = 0; i < this.secondMagicNumber; i++) {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         } else {
@@ -64,8 +64,6 @@ public class Flurry
     @Override
     public void applyPowers() {
         super.applyPowers();
-        this.block = this.baseBlock;
-        this.isBlockModified = false;
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
@@ -88,13 +86,6 @@ public class Flurry
     }
 
     @Override
-    public void calculateCardDamage(final AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        this.block = this.baseBlock;
-        this.isBlockModified = false;
-    }
-
-    @Override
     public AbstractCard makeCopy() {
         return new Flurry();
     }
@@ -103,7 +94,7 @@ public class Flurry
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(UPGRADE_ATTACK_COUNT);
+            this.upgradeSecondMagicNumber(UPGRADE_ATTACK_COUNT);
             this.upgradeMagicNumber(UPGRADE_ATTACK_COUNT);
         }
     }

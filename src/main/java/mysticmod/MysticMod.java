@@ -169,6 +169,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditCards() {
+        //secondMagicNumber dynamic variable
+        BaseMod.addDynamicVariable(new AbstractMysticCard.SecondMagicNumber());
+
         //Basic. 2 attacks, 2 skills
         BaseMod.addCard(new ArcaneDodge());
         BaseMod.addCard(new DefendMystic());
@@ -292,9 +295,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         String[] keywordArcane = {"arcane"};
         String[] keywordTechnical = {"technical"};
         String[] keywordFeat = {"feat"};
-        BaseMod.addKeyword(keywordCantrips, "Considered a spell so long as you've played fewer than 3 spells this turn.");
-        BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a spell this turn.");
-        BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played an Arte this turn.");
+        BaseMod.addKeyword(keywordCantrips, "Considered a [#5299DC]Spell[] so long as you've played fewer than 3 [#5299DC]Spells[] this turn.");
+        BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a [#5299DC]Spell[] this turn.");
+        BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played an [#FF5252]Arte[] this turn.");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
     }
 
@@ -341,16 +344,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         if (storedHealer != null) {
             storedHealer.dialogY = storedHealerDialogY;
             storedHealer = null;
-        }
-        for (final AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            if (card instanceof MagicMissile) {
-                card.rawDescription = MagicMissile.DESCRIPTION;
-                card.initializeDescription();
-            }
-            if (card instanceof ClosingBarrage) {
-                card.rawDescription = ClosingBarrage.DESCRIPTION;
-                card.initializeDescription();
-            }
         }
     }
 

@@ -49,6 +49,11 @@ public class Kama extends CustomRelic {
     }
 
     @Override
+    public void onVictory() {
+        this.pulse = false;
+    }
+
+    @Override
     public void atBattleStart() {
         if (this.counter == 4) {
             this.beginPulse();

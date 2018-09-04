@@ -21,7 +21,8 @@ public class GainDexterityPower extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
 
-        this.img = new Texture("mysticmod/images/powers/doublecast power.png");
+        //this.img = new Texture("mysticmod/images/powers/doublecast power.png");
+        this.loadRegion("shackle");
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();

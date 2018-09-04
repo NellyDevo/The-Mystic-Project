@@ -34,7 +34,7 @@ public class PowerAttack
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
-        this.damage = this.baseDamage = STRENGTH_GAIN;
+        this.secondMagicNumber = this.baseSecondMagicNumber = STRENGTH_GAIN;
         this.isTechnique = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
@@ -45,24 +45,10 @@ public class PowerAttack
         if (!p.hasPower("Artifact")) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.damage), this.damage));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.damage), this.damage));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
         //technique functionality
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-        this.damage = this.baseDamage;
-        this.isDamageModified = false;
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        this.damage = this.baseDamage;
-        this.isDamageModified = false;
     }
 
     @Override
@@ -83,7 +69,7 @@ public class PowerAttack
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(-UPGRADE_MINUS_DEX_LOSS);
-            this.upgradeDamage(UPGRADE_PLUS_STR_GAIN);
+            this.upgradeSecondMagicNumber(UPGRADE_PLUS_STR_GAIN);
         }
     }
 }

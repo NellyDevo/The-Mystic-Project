@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.BentSpoon;
 
@@ -30,15 +29,14 @@ public class RayOfFrost
     private static final int UPGRADE_PLUS_DMG = 1;
     private static final int BLOCK_AMT = 1;
     private static final int UPGRADE_PLUS_BLK = 1;
-    private boolean bgChanged = false;
+//    private boolean bgChanged = false;
 
     public RayOfFrost() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
+                AbstractCard.CardType.ATTACK, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.block = this.baseBlock = BLOCK_AMT;
-        this.changeColor(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS, true);
         crystalBallToggle = false;
     }
 
@@ -60,11 +58,11 @@ public class RayOfFrost
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            if (bgChanged) {
-                this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS);
-                crystalBallToggle = false;
-                bgChanged = false;
-            }
+//            if (bgChanged) {
+//                this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS);
+//                crystalBallToggle = false;
+//                bgChanged = false;
+//            }
             this.isSpell = true;
             return true;
         }
@@ -91,13 +89,13 @@ public class RayOfFrost
         } else {
             super.applyPowers();
         }
-        if (!this.isSpell()) {
-            if (!bgChanged) {
-                this.setBackgroundTexture(BG_SMALL_DEFAULT_ATTACK_COLORLESS, BG_LARGE_DEFAULT_ATTACK_COLORLESS);
-                crystalBallToggle = false;
-                bgChanged = true;
-            }
-        }
+//        if (!this.isSpell()) {
+//            if (!bgChanged) {
+//                this.setBackgroundTexture(BG_SMALL_DEFAULT_ATTACK_COLORLESS, BG_LARGE_DEFAULT_ATTACK_COLORLESS);
+//                crystalBallToggle = false;
+//                bgChanged = true;
+//            }
+//        }
     }
 
     @Override

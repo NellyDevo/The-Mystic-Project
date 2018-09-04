@@ -16,8 +16,8 @@
   },
   "mysticmod:ArcaneAccuracy": {
     "NAME": "Arcane Accuracy",
-    "DESCRIPTION": "Whenever you play a Spell during your turn, gain 1 Strength until end of turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Spell during your turn, gain 1 Strength until end of turn."
+    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[] during your turn, gain 1 Strength until end of turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[] during your turn, gain 1 Strength until end of turn."
   },
   "mysticmod:ArcaneDodge": {
     "NAME": "Arcane Dodge",
@@ -31,7 +31,7 @@
   },
   "mysticmod:BladeMaster": {
     "NAME": "Blade Master",
-    "DESCRIPTION": "Return up to !M! Artes from your discard pile to your hand.",
+    "DESCRIPTION": "Return up to !M! [#FF5252]Artes[] from your discard pile to your hand.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BladedDash": {
@@ -51,7 +51,7 @@
   },
   "mysticmod:ClosingBarrage": {
     "NAME": "Closing Barrage",
-    "DESCRIPTION": "Deals damage equal to !M! times the total number of Spells and Artes played this turn X times.",
+    "DESCRIPTION": "Deals damage equal to !M! times the total number of [#5299DC]Spells[] and [#FF5252]Artes[] played this turn X times.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [" NL ( !D! damage)"]
   },
@@ -62,8 +62,13 @@
   },
   "mysticmod:ComponentsPouch": {
     "NAME": "Components Pouch",
-    "DESCRIPTION": "Deal !D! damage for each Spell in your hand.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage for each [#5299DC]Spell[] in your hand.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have ",
+      " [#5299DC]Spell[]).",
+      " [#5299DC]Spells[])."
+    ]
   },
   "mysticmod:CorrosiveTouch": {
     "NAME": "Corrosive Touch",
@@ -93,7 +98,7 @@
   },
   "mysticmod:Discipline": {
     "NAME": "Discipline",
-    "DESCRIPTION": "Begin each turn as if you had already played one Spell and one Arte.",
+    "DESCRIPTION": "Begin each turn as if you had already played one [#5299DC]Spell[] and one [#FF5252]Arte[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Disengage": {
@@ -113,8 +118,8 @@
   },
   "mysticmod:Doublecast": {
     "NAME": "Doublecast",
-    "DESCRIPTION": "This turn, your next Spell is played twice.",
-    "UPGRADE_DESCRIPTION": "This turn, your next two Spells are played twice."
+    "DESCRIPTION": "This turn, your next [#5299DC]Spell[] is played twice.",
+    "UPGRADE_DESCRIPTION": "This turn, your next two [#5299DC]Spells[] are played twice."
   },
   "mysticmod:EarthenWall": {
     "NAME": "Earthen Wall",
@@ -123,8 +128,8 @@
   },
   "mysticmod:EbbAndFlow": {
     "NAME": "Ebb and Flow",
-    "DESCRIPTION": "Each turn, draw 1 card, then discard 2 cards unless you have a Spell and an Arte.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, draw 1 card, then discard 2 cards unless you have a Spell and an Arte."
+    "DESCRIPTION": "Each turn, draw 1 card, then discard 2 cards unless you have a [#5299DC]Spell[] and an [#FF5252]Arte[].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, draw 1 card, then discard 2 cards unless you have a [#5299DC]Spell[] and an [#FF5252]Arte[]."
   },
   "mysticmod:EnchantedMoulinet": {
     "NAME": "Enchanted Moulinet",
@@ -133,13 +138,13 @@
 },
   "mysticmod:EnergizedRift": {
     "NAME": "Energized Rift",
-    "DESCRIPTION": "Add a random Cantrip to your hand, then copy all held Cantrips into your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a random Upgraded Cantrip to your hand, then copy all held Cantrips into your discard pile. NL Exhaust."
+    "DESCRIPTION": "Add a random Cantrip to your hand, then copy all held Cantrips into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add a random Upgraded Cantrip to your hand, then copy all held Cantrips into your draw pile. NL Exhaust."
   },
   "mysticmod:Feint": {
     "NAME": "Feint",
-    "DESCRIPTION": "Deal !D! damage. Add a random Cantrip to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded Cantrip to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. Add a random Cantrip to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded Cantrip to your draw pile."
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
@@ -158,12 +163,12 @@
   },
   "mysticmod:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Costs [E] less per Spell or Arte played this turn. NL Deal !D! damage twice, then double the Spell and Arte count.",
+    "DESCRIPTION": "Costs [E] less per [#5299DC]Spell[] or [#FF5252]Arte[] played this turn. NL Deal !D! damage twice, then double the [#5299DC]Spell[] and [#FF5252]Arte[] count.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Flurry": {
     "NAME": "Flurry",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Arcane: !B! times instead",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Arcane: !M2! times instead",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Fly": {
@@ -173,8 +178,8 @@
   },
   "mysticmod:GeminiForm": {
     "NAME": "Gemini Form",
-    "DESCRIPTION": "For the first Spell and Arte you play each turn, play a random card of the other type from your draw pile. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "For the first Spell and Arte you play each turn, play a random card of the other type from your draw pile."
+    "DESCRIPTION": "For the first [#5299DC]Spell[] and [#FF5252]Arte[] you play each turn, play a random card of the other type from your draw pile. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "For the first [#5299DC]Spell[] and [#FF5252]Arte[] you play each turn, play a random card of the other type from your draw pile."
   },
   "mysticmod:Grapple": {
     "NAME": "Grapple",
@@ -188,8 +193,8 @@
   },
   "mysticmod:GreaterInvisibility": {
     "NAME": "Greater Invisibility",
-    "DESCRIPTION": "Gain 1 Intangible. NL If you did not play !M! Artes this turn, Exhaust. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL If you did not play an Arte this turn, Exhaust. NL Ethereal."
+    "DESCRIPTION": "Gain 1 Intangible. NL If you did not play !M! [#FF5252]Artes[] this turn, Exhaust. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL If you did not play an [#FF5252]Arte[] this turn, Exhaust. NL Ethereal."
   },
   "mysticmod:IllusionOfCalm": {
     "NAME": "Illusion Of Calm",
@@ -218,7 +223,7 @@
   },
   "mysticmod:KnowledgePool": {
     "NAME": "Knowledge Pool",
-    "DESCRIPTION": "Choose one of 3 random Spell cards and add it to your hand. it costs 0 this turn. NL Exhaust.",
+    "DESCRIPTION": "Choose one of 3 random [#5299DC]Spell[] cards and add it to your hand. it costs 0 this turn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:LightningBolt": {
@@ -244,22 +249,22 @@
   },
   "mysticmod:MightyMagic": {
     "NAME": "Mighty Magic",
-    "DESCRIPTION": "Whenever you play an Arte during your turn, gain 1 Dexterity until end of turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play an Arte during your turn, gain 1 Dexterity until end of turn."
+    "DESCRIPTION": "Whenever you play an [#FF5252]Arte[] during your turn, gain 1 Dexterity until end of turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play an [#FF5252]Arte[] during your turn, gain 1 Dexterity until end of turn."
   },
   "mysticmod:MirrorEntity": {
     "NAME": "Mirror Entity",
-    "DESCRIPTION": "Spells and Artes also advance next turn's Spells and Artes counter.",
+    "DESCRIPTION": "[#5299DC]Spells[] and [#FF5252]Artes[] also advance next turn's [#5299DC]Spells[] and [#FF5252]Artes[] counter.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:MirrorStrike": {
     "NAME": "Mirror Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Arcane: For every two spells played this turn, deal another !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL Arcane: For every two [#5299DC]Spells[] played this turn, deal another !D! damage.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Spells and Artes deal 1 more damage and gain 1 more Block for each card of the other type played this turn",
+    "DESCRIPTION": "[#5299DC]Spells[] and [#FF5252]Artes[] deal 1 more damage and gain 1 more Block for each card of the other type played this turn",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:MysticalShield": {
@@ -279,7 +284,7 @@
   },
   "mysticmod:PowerAttack": {
     "NAME": "Power Attack",
-    "DESCRIPTION": "Gain !D! Strength and lose !M! Dexterity this turn. NL Feat.",
+    "DESCRIPTION": "Gain !M2! Strength and lose !M! Dexterity this turn. NL Feat.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PowerSlash": {
@@ -289,7 +294,7 @@
   },
   "mysticmod:PreparedCaster": {
     "NAME": "Prepared Caster",
-    "DESCRIPTION": "Innate. NL Choose one Spell from your draw pile and add it to your hand. NL Exhaust.",
+    "DESCRIPTION": "Innate. NL Choose one [#5299DC]Spell[] from your draw pile and add it to your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Prestidigitation": {
@@ -309,8 +314,13 @@
   },
   "mysticmod:PureInstinct": {
     "NAME": "Pure Instinct",
-    "DESCRIPTION": "Gain !B! Block for every Arte in your hand.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block for each [#FF5252]Arte[] in your hand.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have ",
+      " [#FF5252]Arte[]).",
+      " [#FF5252]Artes[])."
+    ]
   },
   "mysticmod:RapidCaster": {
     "NAME": "Rapid Caster",
@@ -344,8 +354,8 @@
   },
   "mysticmod:SpellRecall": {
     "NAME": "Spell Recall",
-    "DESCRIPTION": "Return a Spell from your discard pile to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Return a Spell from your discard pile to your hand."
+    "DESCRIPTION": "Return a [#5299DC]Spell[] from your discard pile to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Return a [#5299DC]Spell[] from your discard pile to your hand."
   },
   "mysticmod:Shield": {
     "NAME": "Shield",
@@ -364,18 +374,18 @@
   },
   "mysticmod:Spark": {
     "NAME": "Spark",
-    "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a Spell or an Arte. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a Spell or an Arte."
+    "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]."
   },
   "mysticmod:Spellstrike": {
     "NAME": "Spellstrike",
-    "DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack Spell and play it. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack [#5299DC]Spell[] and play it. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:SpontaneousCaster": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTION": "Whenever you play a Spell, exhaust it and add a random Spell to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a Spell, exhaust it and add a random Spell to your discard pile."
+    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile."
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
@@ -389,7 +399,7 @@
   },
   "mysticmod:StyleChange": {
     "NAME": "Style Change",
-    "DESCRIPTION": "Add a random Arte to your hand. It costs 0 this turn. NL Exhaust.",
+    "DESCRIPTION": "Add a random [#FF5252]Arte[] to your hand. It costs 0 this turn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:SuddenClarity": {
@@ -404,12 +414,12 @@
   },
   "mysticmod:TomeOfSpells": {
     "NAME": "Tome Of Spells",
-    "DESCRIPTION": "Add !M! random Cantrips to your discard pile. NL Exhaust.",
+    "DESCRIPTION": "Add !M! random Cantrips to your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:VorpalThrust": {
     "NAME": "Vorpal Thrust",
-    "DESCRIPTION": "Deal !D! damage. NL Arcane: If you played two Spells this turn, deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage. NL Arcane: If you played two [#5299DC]Spells[] this turn, deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   }
 }

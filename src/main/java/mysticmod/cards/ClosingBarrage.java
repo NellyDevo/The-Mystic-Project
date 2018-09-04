@@ -39,6 +39,8 @@ public class ClosingBarrage
             this.energyOnUse = EnergyPanel.totalCount;
         }
         AbstractDungeon.actionManager.addToBottom(new ClosingBarrageAction(p, m, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse));
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override
@@ -79,6 +81,12 @@ public class ClosingBarrage
             this.isDamageModified = true;
         }
         this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION;
+        this.initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
 

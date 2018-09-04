@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.SparkAction;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
 public class Spark
@@ -22,14 +21,13 @@ public class Spark
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/spark.png";
     private static final int COST = 0;
-    private boolean bgChanged = false;
+//    private boolean bgChanged = false;
 
     public Spark() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
+                AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
-        this.changeColor(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS, true);
         crystalBallToggle = false;
     }
 
@@ -50,28 +48,28 @@ public class Spark
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            if (bgChanged) {
-                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
-                bgChanged = false;
-                crystalBallToggle = false;
-            }
+//            if (bgChanged) {
+//                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
+//                bgChanged = false;
+//                crystalBallToggle = false;
+//            }
             this.isSpell = true;
             return true;
         }
         this.isSpell = false;
-        return super.isSpell;
+        return super.isSpell();
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if (!this.isSpell) {
-            if (!bgChanged) {
-                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
-                bgChanged = true;
-                crystalBallToggle = false;
-            }
-        }
+//        if (!this.isSpell) {
+//            if (!bgChanged) {
+//                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
+//                bgChanged = true;
+//                crystalBallToggle = false;
+//            }
+//        }
     }
 
     @Override

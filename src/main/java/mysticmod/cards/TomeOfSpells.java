@@ -1,7 +1,6 @@
 package mysticmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -36,19 +35,19 @@ public class TomeOfSpells
             int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
             switch (randomlyGeneratedNumber) {
                 case 0:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new AcidSplash(), 1));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new AcidSplash(), 1, true, true));
                     break;
                 case 1:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Prestidigitation(), 1));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Prestidigitation(), 1, true, true));
                     break;
                 case 2:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new RayOfFrost(), 1));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new RayOfFrost(), 1, true, true));
                     break;
                 case 3:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Spark(), 1));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Spark(), 1, true, true));
                     break;
                 case 4:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new ReadMagic(), 1));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new ReadMagic(), 1, true, true));
                     break;
             }
         }

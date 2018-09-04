@@ -14,7 +14,6 @@ import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MagicWeapon

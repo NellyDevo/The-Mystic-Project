@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.BentSpoon;
 
@@ -26,14 +25,13 @@ public class AcidSplash
     private static final int COST = 0;
     private static final int ATTACK_DMG = 3;
     private static final int UPGRADE_PLUS_DMG = 2;
-    public boolean bgChanged = false;
+//    public boolean bgChanged = false;
 
     public AcidSplash() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
+                AbstractCard.CardType.ATTACK, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        this.changeColor(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS, true);
         crystalBallToggle = false;
     }
 
@@ -54,11 +52,11 @@ public class AcidSplash
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            if (bgChanged) {
-                this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS);
-                bgChanged = false;
-                crystalBallToggle = false;
-            }
+//            if (bgChanged) {
+//                this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS);
+//                bgChanged = false;
+//                crystalBallToggle = false;
+//            }
             this.isSpell = true;
             return true;
         }
@@ -85,13 +83,13 @@ public class AcidSplash
         } else {
             super.applyPowers();
         }
-        if (!this.isSpell()) {
-            if (!bgChanged) {
-                this.setBackgroundTexture(BG_SMALL_DEFAULT_ATTACK_COLORLESS, BG_LARGE_DEFAULT_ATTACK_COLORLESS);
-                crystalBallToggle = false;
-                bgChanged = true;
-            }
-        }
+//        if (!this.isSpell()) {
+//            if (!bgChanged) {
+//                this.setBackgroundTexture(BG_SMALL_DEFAULT_ATTACK_COLORLESS, BG_LARGE_DEFAULT_ATTACK_COLORLESS);
+//                crystalBallToggle = false;
+//                bgChanged = true;
+//            }
+//        }
     }
 
     @Override
