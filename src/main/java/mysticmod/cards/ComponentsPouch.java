@@ -38,7 +38,7 @@ public class ComponentsPouch
         for (final AbstractCard card : p.hand.group) {
             if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()))) {
                 spellsCount++;
             }
         }
@@ -58,7 +58,7 @@ public class ComponentsPouch
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()))) {
                 spellsCount++;
             }
         }

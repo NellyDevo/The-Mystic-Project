@@ -25,7 +25,6 @@ public class AcidSplash
     private static final int COST = 0;
     private static final int ATTACK_DMG = 3;
     private static final int UPGRADE_PLUS_DMG = 2;
-//    public boolean bgChanged = false;
 
     public AcidSplash() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -52,11 +51,6 @@ public class AcidSplash
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-//            if (bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_COLORLESS, BG_LARGE_SPELL_ATTACK_COLORLESS);
-//                bgChanged = false;
-//                crystalBallToggle = false;
-//            }
             this.isSpell = true;
             return true;
         }
@@ -83,13 +77,6 @@ public class AcidSplash
         } else {
             super.applyPowers();
         }
-//        if (!this.isSpell()) {
-//            if (!bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_DEFAULT_ATTACK_COLORLESS, BG_LARGE_DEFAULT_ATTACK_COLORLESS);
-//                crystalBallToggle = false;
-//                bgChanged = true;
-//            }
-//        }
     }
 
     @Override

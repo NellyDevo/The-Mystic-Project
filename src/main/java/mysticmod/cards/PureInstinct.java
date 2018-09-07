@@ -33,15 +33,15 @@ public class PureInstinct
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int techniquesCount = 0;
+        int ArtesCount = 0;
         for (final AbstractCard card : p.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
                 if (!(card.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
-                techniquesCount++;
+                ArtesCount++;
             }
         }
-        if (techniquesCount > 0) {
-            for (int i = 0; i < techniquesCount; i++){
+        if (ArtesCount > 0) {
+            for (int i = 0; i < ArtesCount; i++){
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
             }
         }
@@ -51,15 +51,15 @@ public class PureInstinct
 
     @Override
     public void applyPowers() {
-        int techniquesCount = 0;
+        int ArtesCount = 0;
         for (final AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
                 if (!(card.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
-                    techniquesCount++;
+                    ArtesCount++;
             }
         }
-        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + techniquesCount;
-        if (techniquesCount == 1) {
+        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + ArtesCount;
+        if (ArtesCount == 1) {
             this.rawDescription += EXTENDED_DESCRIPTION[1];
         } else {
             this.rawDescription += EXTENDED_DESCRIPTION[2];

@@ -25,7 +25,7 @@ public class TrainingManual extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        AbstractCard c = MysticMod.returnTrulyRandomTechnique();
+        AbstractCard c = MysticMod.returnTrulyRandomArte();
         UnlockTracker.markCardAsSeen(c.cardID);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, 1, false));
         flash();

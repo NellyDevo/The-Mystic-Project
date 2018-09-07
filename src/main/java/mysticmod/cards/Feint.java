@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.cantrips.*;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Feint
         extends AbstractMysticCard {
@@ -32,7 +32,7 @@ public class Feint
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
@@ -59,7 +59,7 @@ public class Feint
             randomCantrip.upgrade();
         }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip.makeStatEquivalentCopy(), 1, true, true));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

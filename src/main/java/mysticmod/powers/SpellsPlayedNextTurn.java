@@ -29,12 +29,12 @@ public class SpellsPlayedNextTurn extends AbstractPower {
 
     @Override
     public void updateDescription() {
+        description = DESCRIPTIONS[0] + amount;
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + " 1 " + DESCRIPTIONS[1];
+            description += DESCRIPTIONS[1];
         } else {
-            description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[2];
+            description += DESCRIPTIONS[2];
         }
-
     }
 
     @Override
@@ -42,6 +42,4 @@ public class SpellsPlayedNextTurn extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayed(AbstractDungeon.player, this.amount), this.amount));
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, SpellsPlayedNextTurn.POWER_ID, AbstractDungeon.player.getPower(SpellsPlayedNextTurn.POWER_ID).amount));
     }
-
-
 }

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class ArcaneDodge
         extends AbstractMysticCard {
@@ -35,7 +35,7 @@ public class ArcaneDodge
         this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = EXTRA_BLK;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
@@ -45,7 +45,7 @@ public class ArcaneDodge
         if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 1)) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
          }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

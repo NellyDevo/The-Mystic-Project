@@ -26,7 +26,7 @@ public class RabbitsFoot extends CustomRelic {
 
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        if (MysticMod.isThisATechnique(c)) {
+        if (MysticMod.isThisAnArte(c)) {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK_AMT));
             flash();
         }

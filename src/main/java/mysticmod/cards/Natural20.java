@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.Natural20Power;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Natural20
         extends AbstractMysticCard {
@@ -26,15 +26,15 @@ public class Natural20
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Natural20Power(p, 1), 1));
-        //technique functionality
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        //Arte functionality
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

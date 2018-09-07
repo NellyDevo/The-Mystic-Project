@@ -4,13 +4,18 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.relics.CrystalBall;
 
 public class SpellRecallAction extends AbstractGameAction
 {
     private AbstractPlayer p;
+    private static final String ID = "mysticmod:SpellRecallAction";
+    private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
+    private static final String[] TEXT = ui.TEXT;
 
     public SpellRecallAction(final int amount) {
         this.setValues(this.p = AbstractDungeon.player, AbstractDungeon.player, amount);
@@ -27,7 +32,7 @@ public class SpellRecallAction extends AbstractGameAction
             //BEGIN make card group from discard pile
             final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (final AbstractCard discardedCard : this.p.discardPile.group) {
-                if ((discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && discardedCard.type == AbstractCard.CardType.SKILL && !(discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isTechnique()))) {
+                if ((discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && discardedCard.type == AbstractCard.CardType.SKILL && !(discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isArte()))) {
                     tmp.addToRandomSpot(discardedCard);
                 }
             }
@@ -45,7 +50,7 @@ public class SpellRecallAction extends AbstractGameAction
                 this.isDone = true;
                 return;
             }
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose a Spell to add to your hand.", false);
+            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
             this.tickDuration();
             return;
         }

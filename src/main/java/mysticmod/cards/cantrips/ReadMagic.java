@@ -23,7 +23,6 @@ public class ReadMagic
     private static final int COST = 0;
     private static final int DRAW = 2;
     private static final int UPGRADE_EXTRA_DRAW = 1;
-//    private boolean bgChanged;
 
     public ReadMagic() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -51,28 +50,11 @@ public class ReadMagic
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-//            if (bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
-//                bgChanged = false;
-//                crystalBallToggle = false;
-//            }
             this.isSpell = true;
             return true;
         }
         this.isSpell = false;
         return super.isSpell();
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-//        if (!this.isSpell) {
-//            if (!bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
-//                crystalBallToggle = false;
-//                bgChanged = true;
-//            }
-//        }
     }
 
     @Override

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Probe
         extends AbstractMysticCard {
@@ -35,7 +35,7 @@ public class Probe
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         }
     }
 
@@ -51,7 +51,7 @@ public class Probe
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
             this.crystalBallToggle = false;
-            this.upgradeToTechnique();
+            this.upgradeToArte();
             this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         }
     }

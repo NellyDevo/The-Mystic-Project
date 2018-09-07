@@ -4,18 +4,23 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.CrystalBall;
 
-public class TechniqueHologram extends AbstractGameAction
+public class ArteHologram extends AbstractGameAction
 {
     private AbstractPlayer p;
     private int amount;
+    private static final String ID = "mysticmod:ArteHologram";
+    private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
+    private static final String[] TEXT = ui.TEXT;
 
-    public TechniqueHologram(final int amount) {
+    public ArteHologram(final int amount) {
         this.setValues(this.p = AbstractDungeon.player, AbstractDungeon.player, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
@@ -35,7 +40,7 @@ public class TechniqueHologram extends AbstractGameAction
         boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2);
         boolean hasCrystalBall = (AbstractDungeon.player.hasRelic(CrystalBall.ID));
         for (final AbstractCard c2 : this.p.discardPile.group) {
-            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isTechnique())
+            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isArte())
                 || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell()))
                 && !(c2.rawDescription.startsWith("Cantrip.") && cantripsAreSpells)) {
                 tmp.addToRandomSpot(c2);
@@ -55,11 +60,7 @@ public class TechniqueHologram extends AbstractGameAction
             return;
         }
         if (this.duration == 0.5f) {
-            String cardOrCards = "card";
-            if (this.amount == 2) {
-                cardOrCards = "cards";
-            }
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose " + this.amount + " Technique " + cardOrCards + " to add to your hand.", false);
+            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0] + this.amount + TEXT[1], false);
             this.tickDuration();
             return;
         }

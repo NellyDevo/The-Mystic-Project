@@ -28,10 +28,11 @@ public class SpellsPlayed extends AbstractPower {
 
     @Override
     public void updateDescription() {
+        description = DESCRIPTIONS[0] + amount;
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + " 1 " + DESCRIPTIONS[1];
+            description += DESCRIPTIONS[1];
         } else {
-            description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[2];
+            description += DESCRIPTIONS[2];
         }
 
     }

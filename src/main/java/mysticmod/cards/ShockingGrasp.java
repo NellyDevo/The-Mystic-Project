@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class ShockingGrasp
         extends AbstractMysticCard {
@@ -47,7 +47,7 @@ public class ShockingGrasp
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if ((p.hasPower(TechniquesPlayed.POWER_ID)) && (p.getPower(TechniquesPlayed.POWER_ID).amount >= 1)) {
+        if ((p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= 1)) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     } else {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
@@ -72,7 +72,7 @@ public class ShockingGrasp
         // repeat so this.damage holds the second condition's damage
         this.baseDamage = CURRENT_DMG;
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
                 this.isArtAlternate = true;

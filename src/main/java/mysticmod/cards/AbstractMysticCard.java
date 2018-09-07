@@ -7,13 +7,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
 import mysticmod.relics.CrystalBall;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractMysticCard extends CustomCard {
     public boolean isSpell = false;
-    public boolean isTechnique = false;
+    public boolean isArte = false;
     public boolean crystalBallToggle = false;
     public int baseSecondMagicNumber;
     public int secondMagicNumber;
@@ -55,19 +54,19 @@ public abstract class AbstractMysticCard extends CustomCard {
     }
 
     public boolean isSpell() {
-        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isTechnique && !this.isSpell) {
+        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isArte && !this.isSpell) {
             this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
             this.crystalBallToggle = true;
         }
         return this.isSpell;
     }
 
-    public boolean isTechnique() {
-        if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isTechnique && !this.isSpell) {
+    public boolean isArte() {
+        if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isArte && !this.isSpell) {
             this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
             this.crystalBallToggle = true;
         }
-        return this.isTechnique;
+        return this.isArte;
     }
 
     public static String arteSpellSettings() {
@@ -82,10 +81,10 @@ public abstract class AbstractMysticCard extends CustomCard {
 
     @Override
     public void applyPowers() {
-        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isTechnique && !this.isSpell) {
+        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isArte && !this.isSpell) {
             this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
             this.crystalBallToggle = true;
-        } else if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isTechnique && !this.isSpell) {
+        } else if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.isArte && !this.isSpell) {
             this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
             this.crystalBallToggle = true;
         }
@@ -125,13 +124,13 @@ public abstract class AbstractMysticCard extends CustomCard {
         if (this.type == AbstractCard.CardType.SKILL) {
             if (this.isSpell) {
                 retVal.add(new TooltipInfo("Spell.", "This Skill is considered a [#5299DC]Spell[]."));
-            } else if (this.isTechnique) {
+            } else if (this.isArte) {
                 retVal.add(new TooltipInfo("Arte.", "This Skill is considered an [#FF5252]Arte[]."));
             }
         } else if (this.type == AbstractCard.CardType.ATTACK) {
             if (this.isSpell) {
                 retVal.add(new TooltipInfo("Spell.", "This Attack is considered a [#5299DC]Spell[]."));
-            } else if (this.isTechnique) {
+            } else if (this.isArte) {
                 retVal.add(new TooltipInfo("Arte.", "This Attack is considered an [#FF5252]Arte[]."));
             }
         }
@@ -149,8 +148,8 @@ public abstract class AbstractMysticCard extends CustomCard {
         this.isSpell = true;
     }
 
-    public void upgradeToTechnique() {
-        this.isTechnique = true;
+    public void upgradeToArte() {
+        this.isArte = true;
     }
 
     public void upgradeSecondMagicNumber(int amount) {

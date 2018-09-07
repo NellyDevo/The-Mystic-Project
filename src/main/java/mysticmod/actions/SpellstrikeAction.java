@@ -9,17 +9,22 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
 
-public class PlaySpellAttackFromDrawPile extends AbstractGameAction {
+public class SpellstrikeAction extends AbstractGameAction {
     private AbstractPlayer p;
     private boolean exhaustCards;
     private AbstractMonster t;
+    private static final String ID = "mysticmod:SpellstrikeAction";
+    private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
+    private static final String[] TEXT = ui.TEXT;
 
-    public PlaySpellAttackFromDrawPile(final int amount, final AbstractMonster target, final boolean exhausts) {
+    public SpellstrikeAction(final int amount, final AbstractMonster target, final boolean exhausts) {
         this.setValues(this.t = target, this.p = AbstractDungeon.player, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
@@ -120,7 +125,7 @@ public class PlaySpellAttackFromDrawPile extends AbstractGameAction {
             this.isDone = true;
             return;
         }
-        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose an Attack Spell to Play", false);
+        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
         this.tickDuration();
     }
 

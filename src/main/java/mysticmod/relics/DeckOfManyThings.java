@@ -15,7 +15,7 @@ public class DeckOfManyThings extends CustomRelic {
     public static final Texture IMG = new Texture("mysticmod/images/relics/deckofmanythings.png");
     public static final Texture OUTLINE = new Texture("mysticmod/images/relics/deckofmanythings_p.png");
     private int spellPlayed;
-    private int techniquePlayed;
+    private int ArtePlayed;
 
     public DeckOfManyThings() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.FLAT);
@@ -31,10 +31,10 @@ public class DeckOfManyThings extends CustomRelic {
         if (MysticMod.isThisASpell(c)) {
             this.spellPlayed += 1;
         }
-        if (MysticMod.isThisATechnique(c)) {
-            this.techniquePlayed += 1;
+        if (MysticMod.isThisAnArte(c)) {
+            this.ArtePlayed += 1;
         }
-        if (this.spellPlayed > 1 && this.techniquePlayed > 1) {
+        if (this.spellPlayed > 1 && this.ArtePlayed > 1) {
             this.pulse = false;
         }
     }
@@ -56,7 +56,7 @@ public class DeckOfManyThings extends CustomRelic {
         this.beginPulse();
         this.pulse = true;
         this.spellPlayed = 0;
-        this.techniquePlayed = 0;
+        this.ArtePlayed = 0;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class DeckOfManyThings extends CustomRelic {
 
     @Override
     public void onPlayerEndTurn() {
-        if (!(this.spellPlayed > 1) || !(this.techniquePlayed > 1)) {
+        if (!(this.spellPlayed > 1) || !(this.ArtePlayed > 1)) {
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 2));
             this.flash();
             this.pulse = false;

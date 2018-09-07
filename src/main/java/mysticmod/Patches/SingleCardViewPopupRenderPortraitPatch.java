@@ -30,7 +30,7 @@ public class SingleCardViewPopupRenderPortraitPatch {
                     sb.draw(extraSkillBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
                     break;
             }
-        } else if (reflectedCard instanceof AbstractMysticCard && !((AbstractMysticCard)reflectedCard).isSpell() && !((AbstractMysticCard)reflectedCard).isTechnique() && AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
+        } else if (reflectedCard instanceof AbstractMysticCard && !((AbstractMysticCard)reflectedCard).isSpell() && !((AbstractMysticCard)reflectedCard).isArte() && AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
             switch (reflectedCard.type) {
                 case ATTACK:
                     Texture attackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_LARGE_ARTE_ATTACK_MYSTIC);
@@ -47,7 +47,7 @@ public class SingleCardViewPopupRenderPortraitPatch {
                     if (((AbstractMysticCard) reflectedCard).isSpell()) {
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_ATTACK);
                         sb.draw(extraAttackBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
-                    } else if (((AbstractMysticCard) reflectedCard).isTechnique()) {
+                    } else if (((AbstractMysticCard) reflectedCard).isArte()) {
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
                         sb.draw(extraAttackBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
                     }

@@ -15,12 +15,12 @@ import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.GeminiFormPower;
 import mysticmod.relics.CrystalBall;
 
-public class PlayRandomSpellArteFromDrawPile extends AbstractGameAction {
+public class GeminiFormAction extends AbstractGameAction {
     private AbstractPlayer p;
     private boolean lookingForArte;
     private AbstractMonster t;
 
-    public PlayRandomSpellArteFromDrawPile(final AbstractMonster target, final boolean lookingForArte, final AbstractCard triggerCard) {
+    public GeminiFormAction(final AbstractMonster target, final boolean lookingForArte, final AbstractCard triggerCard) {
         this.setValues(this.t = target, this.p = AbstractDungeon.player, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
@@ -32,7 +32,7 @@ public class PlayRandomSpellArteFromDrawPile extends AbstractGameAction {
         CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard drawPileCard : p.drawPile.group) {
             if (lookingForArte) {
-                if ((drawPileCard instanceof AbstractMysticCard && ((AbstractMysticCard)drawPileCard).isTechnique()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && drawPileCard.type == AbstractCard.CardType.ATTACK)) {
+                if ((drawPileCard instanceof AbstractMysticCard && ((AbstractMysticCard)drawPileCard).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && drawPileCard.type == AbstractCard.CardType.ATTACK)) {
                     tmp.addToRandomSpot(drawPileCard);
                 }
             } else {

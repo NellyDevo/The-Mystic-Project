@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Flurry
         extends AbstractMysticCard {
@@ -39,7 +39,7 @@ public class Flurry
         this.damage=this.baseDamage = ATTACK_DMG;
         this.secondMagicNumber = this.baseSecondMagicNumber = ALTERNATIVE_ATTACK_COUNT;
         this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
@@ -54,7 +54,7 @@ public class Flurry
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

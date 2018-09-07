@@ -24,7 +24,6 @@ public class Prestidigitation
     private static final int COST = 0;
     private static final int BLOCK_AMT = 2;
     private static final int UPGRADE_PLUS_BLK = 2;
-//    private boolean bgChanged = false;
 
     public Prestidigitation() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -51,11 +50,6 @@ public class Prestidigitation
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-//            if (bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
-//                crystalBallToggle = false;
-//                bgChanged = false;
-//            }
             this.isSpell = true;
             return true;
         }
@@ -82,13 +76,6 @@ public class Prestidigitation
         } else {
             super.applyPowers();
         }
-//        if (!this.isSpell()) {
-//            if (!bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
-//                crystalBallToggle = false;
-//                bgChanged = true;
-//            }
-//        }
     }
 
     @Override

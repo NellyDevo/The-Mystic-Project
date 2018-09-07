@@ -33,7 +33,7 @@ public class ArcaneAccuracyPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override

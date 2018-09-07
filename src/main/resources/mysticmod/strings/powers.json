@@ -1,15 +1,23 @@
 {
   "mysticmod:ArcaneAccuracyPower": {
     "NAME": "Arcane Accuracy",
-    "DESCRIPTIONS": ["Whenever you play a [#5299DC]Spell[], gain", "Strength until end of turn"]
+    "DESCRIPTIONS": ["Whenever you play a [#5299DC]Spell[], gain ", " Strength until end of turn"]
+  },
+  "mysticmod:ArtesPlayedPower": {
+    "NAME": "[#FF5252]Artes[] Played",
+    "DESCRIPTIONS": ["You have played ", " [#FF5252]Arte[] this turn.", " [#FF5252]Artes[] this turn."]
+  },
+  "mysticmod:ArtesPlayedNextTurnPower": {
+    "NAME": "[#FF5252]Artes[] Next Turn",
+    "DESCRIPTIONS": ["Start next turn as if you already played ", " [#FF5252]Arte[].", " [#FF5252]Artes[]."]
   },
   "mysticmod:ComboCasterPower": {
     "NAME": "Combo Caster",
-    "DESCRIPTIONS": ["At the start of each turn add", "random Cantrip to your hand", "random Cantrips to your hand", " and draw ", " less card.", " less cards."]
+    "DESCRIPTIONS": ["At the start of each turn add ", " random Cantrip to your hand", " random Cantrips to your hand", " and draw ", " less card.", " less cards."]
   },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
-    "DESCRIPTIONS": ["Begin each turn as if you had already played", "[#5299DC]Spell[] and [#FF5252]Arte[]", "[#5299DC]Spells[] and [#FF5252]Artes[]."]
+    "DESCRIPTIONS": ["Begin each turn as if you had already played ", " [#5299DC]Spell[] and [#FF5252]Arte[]", " [#5299DC]Spells[] and [#FF5252]Artes[]."]
   },
   "mysticmod:DoublecastPower": {
     "NAME": "Doublecast",
@@ -41,7 +49,7 @@
   },
   "mysticmod:MightyMagicPower": {
     "NAME": "Mighty Magic",
-    "DESCRIPTIONS": ["Whenever you play an [#FF5252]Arte[], gain", "Dexterity until end of turn"]
+    "DESCRIPTIONS": ["Whenever you play an [#FF5252]Arte[], gain ", " Dexterity until end of turn"]
   },
   "mysticmod:MirrorEntityPower": {
     "NAME": "Mirror Entity",
@@ -69,11 +77,11 @@
   },
   "mysticmod:SpellsPlayedPower": {
     "NAME": "[#5299DC]Spells[] Played",
-    "DESCRIPTIONS": ["You have played ", "[#5299DC]Spell[] this turn.", "[#5299DC]Spells[] this turn."]
+    "DESCRIPTIONS": ["You have played ", " [#5299DC]Spell[] this turn.", " [#5299DC]Spells[] this turn."]
   },
   "mysticmod:SpellsPlayedNextTurnPower": {
     "NAME": "[#5299DC]Spells[] Next Turn",
-    "DESCRIPTIONS": ["Start next turn as if you already played ", "[#5299DC]Spell[].", "[#5299DC]Spells[]."]
+    "DESCRIPTIONS": ["Start next turn as if you already played ", " [#5299DC]Spell[].", " [#5299DC]Spells[]."]
   },
   "mysticmod:SpontaneousCasterPower": {
     "NAME": "Spontaneous Caster",
@@ -81,14 +89,6 @@
   },
   "mysticmod:StoneskinPower": {
     "NAME": "Stoneskin",
-    "DESCRIPTIONS": ["Start your next turn with 3 extra block.", "Start your next ", " turns with 3 extra block."]
-  },
-  "mysticmod:TechniquesPlayedPower": {
-    "NAME": "[#FF5252]Artes[] Played",
-    "DESCRIPTIONS": ["You have played ", "[#FF5252]Arte[] this turn.", "[#FF5252]Artes[] this turn."]
-  },
-  "mysticmod:TechniquesPlayedNextTurnPower": {
-    "NAME": "[#FF5252]Artes[] Next Turn",
-    "DESCRIPTIONS": ["Start next turn as if you already played ", "[#FF5252]Arte[].", "[#FF5252]Artes[]."]
+    "DESCRIPTIONS": ["Start your next turn with 2 extra block.", "Start your next ", " turns with 2 extra block."]
   }
 }

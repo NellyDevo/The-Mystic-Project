@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import mysticmod.actions.SpellCombatAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class SpellCombat
         extends AbstractMysticCard {
@@ -44,7 +44,7 @@ public class SpellCombat
 
     @Override
     public void applyPowers() {
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID) && !AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID) && !AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             this.target = AbstractCard.CardTarget.SELF;
         } else {
             this.target = AbstractCard.CardTarget.ENEMY;
@@ -54,7 +54,7 @@ public class SpellCombat
 
     @Override
     public boolean hasEnoughEnergy() {
-        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && !AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && !AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
             return false;
         }
         return super.hasEnoughEnergy();

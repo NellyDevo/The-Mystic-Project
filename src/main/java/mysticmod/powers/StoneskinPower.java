@@ -33,7 +33,7 @@ public class StoneskinPower extends AbstractPower {
         if (amount == 1) {
             description = DESCRIPTIONS[0];
         } else {
-            description = DESCRIPTIONS[1] +amount+ DESCRIPTIONS[2];
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }
 

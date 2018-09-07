@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import mysticmod.actions.EnchantedMoulinetAction;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class EnchantedMoulinet
         extends AbstractMysticCard {
@@ -33,7 +33,7 @@ public class EnchantedMoulinet
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.isMultiDamage = true;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
     @Override
@@ -41,7 +41,7 @@ public class EnchantedMoulinet
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.25f));
         AbstractDungeon.actionManager.addToBottom(new EnchantedMoulinetAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

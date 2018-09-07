@@ -4,16 +4,21 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.relics.CrystalBall;
 
-public class SpellSeek extends AbstractGameAction
+public class SpellSeekAction extends AbstractGameAction
 {
     private AbstractPlayer p;
+    private static final String ID = "mysticmod:SpellSeekAction";
+    private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
+    private static final String[] TEXT = ui.TEXT;
 
-    public SpellSeek(final int amount) {
+    public SpellSeekAction(final int amount) {
         this.setValues(this.p = AbstractDungeon.player, AbstractDungeon.player, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
@@ -44,7 +49,7 @@ public class SpellSeek extends AbstractGameAction
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (final AbstractCard c2 : this.p.drawPile.group) {
-            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c2.type == AbstractCard.CardType.SKILL && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isTechnique()))) {
+            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c2.type == AbstractCard.CardType.SKILL && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isArte()))) {
                 tmp.addToRandomSpot(c2);
             }
         }
@@ -98,12 +103,14 @@ public class SpellSeek extends AbstractGameAction
             this.isDone = true;
             return;
         }
+        String uiText = TEXT[0];
         if (this.amount == 1) {
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose a Spell to add to your hand.", false);
+            uiText += TEXT[1];
+        } else {
+            uiText += this.amount + TEXT[2];
         }
-        else {
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose Spells to add to your hand.", false);
-        }
+        uiText += TEXT[3];
+        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, uiText, false);
         this.tickDuration();
     }
 }

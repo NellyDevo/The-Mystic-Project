@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.actions.SpellSeek;
+import mysticmod.actions.SpellSeekAction;
 import mysticmod.patches.AbstractCardEnum;
 
 public class PreparedCaster
@@ -30,7 +30,7 @@ public class PreparedCaster
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SpellSeek(1));
+        AbstractDungeon.actionManager.addToBottom(new SpellSeekAction(1));
     }
 
     @Override

@@ -32,7 +32,7 @@ public class AllIn
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.damage = this.baseDamage = DAMAGE_AMT;
         this.magicNumber = this.baseMagicNumber = WEAK_AMT;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 

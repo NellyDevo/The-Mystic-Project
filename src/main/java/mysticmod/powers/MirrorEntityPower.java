@@ -39,8 +39,8 @@ public class MirrorEntityPower extends AbstractPower {
         if (MysticMod.isThisASpell(card)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayedNextTurn(AbstractDungeon.player, 1), 1));
         }
-        if (MysticMod.isThisATechnique(card)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechniquesPlayedNextTurn(AbstractDungeon.player, 1), 1));
+        if (MysticMod.isThisAnArte(card)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtesPlayedNextTurn(AbstractDungeon.player, 1), 1));
         }
     }
 }

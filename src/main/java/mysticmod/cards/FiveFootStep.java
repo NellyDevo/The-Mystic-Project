@@ -14,7 +14,7 @@ import mysticmod.actions.AddMyActionToBottomOfQueueLaterAction;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class FiveFootStep
         extends AbstractMysticCard {
@@ -36,14 +36,14 @@ public class FiveFootStep
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.loadCardImage(IMG_PATH);
         this.damage = this.baseDamage = DAMAGE_AMT;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new AddMyActionToBottomOfQueueLaterAction(this, true));
         }

@@ -21,7 +21,6 @@ public class Spark
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/spark.png";
     private static final int COST = 0;
-//    private boolean bgChanged = false;
 
     public Spark() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -33,8 +32,7 @@ public class Spark
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-        AbstractDungeon.actionManager.addToBottom(new SparkAction());
+        AbstractDungeon.actionManager.addToBottom(new SparkAction(p, 1));
         //cantrip functionality
         if (
                 !(p.hasPower(SpellsPlayed.POWER_ID))
@@ -48,28 +46,11 @@ public class Spark
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-//            if (bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_COLORLESS, BG_LARGE_SPELL_SKILL_COLORLESS);
-//                bgChanged = false;
-//                crystalBallToggle = false;
-//            }
             this.isSpell = true;
             return true;
         }
         this.isSpell = false;
         return super.isSpell();
-    }
-
-    @Override
-    public void applyPowers() {
-        super.applyPowers();
-//        if (!this.isSpell) {
-//            if (!bgChanged) {
-//                this.setBackgroundTexture(BG_SMALL_DEFAULT_SKILL_COLORLESS, BG_LARGE_DEFAULT_SKILL_COLORLESS);
-//                bgChanged = true;
-//                crystalBallToggle = false;
-//            }
-//        }
     }
 
     @Override

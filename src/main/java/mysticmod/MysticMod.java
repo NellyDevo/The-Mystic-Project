@@ -16,10 +16,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.city.Healer;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import mysticmod.cards.*;
@@ -29,7 +26,6 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
 import mysticmod.potions.EssenceOfMagic;
 import mysticmod.relics.*;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -103,8 +99,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     //Used by @SpireInitializer
     public static void initialize(){
-
-        //This creates an instance of our classes and gets our code going after BaseMod and ModTheSpire initialize.
         MysticMod mysticMod = new MysticMod();
     }
 
@@ -120,7 +114,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             MysticMod.mysticConfig.setString("spellArteDisplay", "SHAPE");
             try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
             AbstractMysticCard.resetImageStrings();
-            return;
         });
         settingsPanel.addUIElement(shapes);
         colors = new ModLabeledToggleButton("Colors.", 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.COLOR, settingsPanel, label -> {}, button -> {
@@ -130,7 +123,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             MysticMod.mysticConfig.setString("spellArteDisplay", "COLOR");
             try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
             AbstractMysticCard.resetImageStrings();
-            return;
         });
         settingsPanel.addUIElement(colors);
         combined = new ModLabeledToggleButton("Both Shapes and Colors.", 350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.BOTH, settingsPanel, label -> {}, button -> {
@@ -140,7 +132,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             MysticMod.mysticConfig.setString("spellArteDisplay", "BOTH");
             try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
             AbstractMysticCard.resetImageStrings();
-            return;
         });
         settingsPanel.addUIElement(combined);
         settingsPanel.addUIElement(new ModLabel("Restart required for changes to reflect in compendium.", 350.0f, 450.0f, settingsPanel, me -> {}));
@@ -152,13 +143,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 MysticMod.mysticConfig.setString("Fox Minion Enabled", "FALSE");
             }
             try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
-            return;
         });
         settingsPanel.addUIElement(foxToggle);
         BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new character to the game: The Mystic.", settingsPanel);
     }
 
-    public void resetMysticConfigButtons() {
+    private void resetMysticConfigButtons() {
         ModToggleButton reflectShapes = (ModToggleButton)ReflectionHacks.getPrivate(shapes, ModLabeledToggleButton.class, "toggle");
         ModToggleButton reflectColors = (ModToggleButton)ReflectionHacks.getPrivate(colors, ModLabeledToggleButton.class, "toggle");
         ModToggleButton reflectBoth = (ModToggleButton)ReflectionHacks.getPrivate(combined, ModLabeledToggleButton.class, "toggle");
@@ -273,7 +263,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new MysticalShield());
         BaseMod.addCard(new SpontaneousCaster());
 
-        //friendlyminions only
+        //friendly minions only
         if (Loader.isModLoaded("Friendly_Minions_0987678") && mysticFriendlyMinionsToggle) {
             BaseMod.addCard(new SummonFamiliar());
             System.out.println("Friendly_Minions_0987678 detected, Summon Familiar added");
@@ -303,14 +293,18 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditStrings() {
-        String relicStrings = Gdx.files.internal("mysticmod/strings/relics.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
         String cardStrings = Gdx.files.internal("mysticmod/strings/cards.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-        String powerStrings = Gdx.files.internal("mysticmod/strings/powers.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
+        String characterStrings = Gdx.files.internal("mysticmod/strings/character.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
         String potionStrings = Gdx.files.internal("mysticmod/strings/potions.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
+        String powerStrings = Gdx.files.internal("mysticmod/strings/powers.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
+        String relicStrings = Gdx.files.internal("mysticmod/strings/relics.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
+        String uiStrings = Gdx.files.internal("mysticmod/strings/ui.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
     }
 
     @Override
@@ -352,15 +346,15 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
                 return true;
             } else {
-                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()));
+                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()));
             }
         }
         return false;
     }
 
-    public static boolean isThisATechnique(final AbstractCard card) {
+    public static boolean isThisAnArte(final AbstractCard card) {
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) {
                 return true;
             } else {
                 return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()));
@@ -380,11 +374,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
     }
 
-    public static AbstractCard returnTrulyRandomTechnique() {
+    public static AbstractCard returnTrulyRandomArte() {
         final ArrayList<AbstractCard> list = new ArrayList<>();
-        for (final Map.Entry<String, AbstractCard> potentialTechnique : CardLibrary.cards.entrySet()) {
-            final AbstractCard card = potentialTechnique.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) {
+        for (final Map.Entry<String, AbstractCard> potentialArte : CardLibrary.cards.entrySet()) {
+            final AbstractCard card = potentialArte.getValue();
+            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) {
                 list.add(card);
             }
         }

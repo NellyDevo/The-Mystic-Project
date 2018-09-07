@@ -18,16 +18,16 @@ public class EbbPowerAction extends AbstractGameAction {
     @Override
     public void update() {
         boolean hasSpell = false;
-        boolean hasTechnique = false;
+        boolean hasArte = false;
         for (final AbstractCard card : AbstractDungeon.player.hand.group) {
-            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) || card.rawDescription.startsWith("Cantrip.") || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()))) {
+            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) || card.rawDescription.startsWith("Cantrip.") || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()))) {
                 hasSpell = true;
             }
-            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
-                hasTechnique = true;
+            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()))) {
+                hasArte = true;
             }
             //insert relic logic here in the future
-            if (hasSpell && hasTechnique) {
+            if (hasSpell && hasArte) {
                 this.isDone = true;
                 return;
             }

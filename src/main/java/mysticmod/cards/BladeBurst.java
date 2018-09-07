@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class BladeBurst
         extends AbstractMysticCard {
@@ -35,14 +35,14 @@ public class BladeBurst
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = STRENGTH_LOSS;
         this.exhaust = true;
-        this.isTechnique = true;
+        this.isArte = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -this.magicNumber), -this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         AbstractCard newMagicWeapon = new MagicWeapon();
         if (this.upgraded) {
             newMagicWeapon.upgrade();

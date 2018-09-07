@@ -1,0 +1,26 @@
+{
+  "mysticmod:ArteHologram": {
+    "TEXT": [
+      "Choose up to ",
+      " Artes to add to your hand."
+    ]
+  },
+  "mysticmod:SpellRecallAction": {
+    "TEXT": [
+      "Choose a Spell to add to your hand."
+    ]
+  },
+  "mysticmod:SpellSeekAction": {
+    "TEXT": [
+      "Choose ",
+      "a Spell ",
+      " Spells ",
+      "to add to your hand."
+    ]
+  },
+  "mysticmod:SpellstrikeAction": {
+    "TEXT": [
+      "Choose an Attack Spell to play."
+    ]
+  }
+}

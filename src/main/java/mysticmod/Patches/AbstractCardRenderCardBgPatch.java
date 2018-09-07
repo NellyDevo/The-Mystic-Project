@@ -37,14 +37,14 @@ public class AbstractCardRenderCardBgPatch {
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
                         sb.setColor(reflectedColor);
                         sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
-                    } else if (((AbstractMysticCard) __card_instance).isTechnique()) {
+                    } else if (((AbstractMysticCard) __card_instance).isArte() || (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID))) {
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
                         sb.setColor(reflectedColor);
                         sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
                     }
                     break;
                 case SKILL:
-                    if (((AbstractMysticCard) __card_instance).isSpell()) {
+                    if (((AbstractMysticCard) __card_instance).isSpell() || (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID))) {
                         Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_SKILL);
                         sb.setColor(reflectedColor);
                         sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);

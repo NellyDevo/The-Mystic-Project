@@ -22,12 +22,10 @@ public class SpontaneousCasterPower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-
         this.img = new Texture("mysticmod/images/powers/spontaneous caster power.png");
         this.type = PowerType.BUFF;
         this.amount = -1;
         this.updateDescription();
-
     }
 
     @Override
@@ -37,7 +35,6 @@ public class SpontaneousCasterPower extends AbstractPower {
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        //if card is a spell, set exhaust = true, generate a random spell, add a copy of random spell to discard pile
         if (MysticMod.isThisASpell(card)) {
             this.flash();
             action.exhaustCard = true;

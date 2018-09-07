@@ -33,12 +33,12 @@ public class MightyMagicPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (MysticMod.isThisATechnique(card)) {
+        if (MysticMod.isThisAnArte(card)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, this.amount), this.amount));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LoseDexterityPower(AbstractDungeon.player, this.amount), this.amount));
         }

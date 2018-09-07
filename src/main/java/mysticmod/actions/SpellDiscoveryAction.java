@@ -8,19 +8,19 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import mysticmod.MysticMod;
 
-public class SpellDiscovery extends AbstractGameAction
+public class SpellDiscoveryAction extends AbstractGameAction
 {
     private boolean retrieveCard;
     private AbstractCard.CardType cardType;
 
-    public SpellDiscovery() {
+    public SpellDiscoveryAction() {
         this.retrieveCard = false;
         this.cardType = null;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
     }
 
-    public SpellDiscovery(final AbstractCard.CardType type) {
+    public SpellDiscoveryAction(final AbstractCard.CardType type) {
         this.retrieveCard = false;
         this.cardType = null;
         this.actionType = ActionType.CARD_MANIPULATION;

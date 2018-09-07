@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
 import mysticmod.powers.MomentumPower;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="applyPowersToBlock")
 public class ApplyPowersToBlockMomentumPatch {
@@ -20,11 +20,11 @@ public class ApplyPowersToBlockMomentumPatch {
             //store instance.baseBlock into a static placeholder variable for restoration in Postfix.
             baseBlockPlaceholder = __card_instance.baseBlock;
 
-            //Modify base block if instance is a spell or a technique respectively.
-            if (MysticMod.isThisASpell(__card_instance) && AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-                __card_instance.baseBlock += AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+            //Modify base block if instance is a spell or a Arte respectively.
+            if (MysticMod.isThisASpell(__card_instance) && AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+                __card_instance.baseBlock += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
             }
-            if (MysticMod.isThisATechnique(__card_instance) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            if (MysticMod.isThisAnArte(__card_instance) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
                 __card_instance.baseBlock += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
             }
 

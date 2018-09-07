@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Flourish
         extends AbstractMysticCard {
@@ -38,12 +38,12 @@ public class Flourish
         //deal !D! twice
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        //double spell/techniques played
+        //double spell/Artes played
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, p.getPower(SpellsPlayed.POWER_ID).amount), p.getPower(SpellsPlayed.POWER_ID).amount));
         }
-        if (p.hasPower(TechniquesPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, p.getPower(TechniquesPlayed.POWER_ID).amount), p.getPower(TechniquesPlayed.POWER_ID).amount));
+        if (p.hasPower(ArtesPlayed.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, p.getPower(ArtesPlayed.POWER_ID).amount), p.getPower(ArtesPlayed.POWER_ID).amount));
         }
     }
 
@@ -54,8 +54,8 @@ public class Flourish
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
         this.setCostForTurn(this.cost - reductionAmount);
     }
@@ -67,8 +67,8 @@ public class Flourish
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
         this.setCostForTurn(this.cost - reductionAmount);
     }
@@ -80,8 +80,8 @@ public class Flourish
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
         this.setCostForTurn(this.cost - reductionAmount);
     }

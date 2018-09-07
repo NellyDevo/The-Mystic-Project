@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.GainDexterityPower;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Lunge
         extends AbstractMysticCard {
@@ -32,7 +32,7 @@ public class Lunge
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = ENERGY_GAIN;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
@@ -46,8 +46,8 @@ public class Lunge
         if (!p.hasPower("Artifact")) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, 4), 4));
         }
-        //Technique functionality
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        //Arte functionality
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

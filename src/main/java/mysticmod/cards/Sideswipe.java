@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Sideswipe
         extends AbstractMysticCard {
@@ -38,7 +38,7 @@ public class Sideswipe
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = WEAK_AMT;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
@@ -48,7 +48,7 @@ public class Sideswipe
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

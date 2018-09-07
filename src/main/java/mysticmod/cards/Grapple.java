@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.EntanglePower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Grapple
         extends AbstractMysticCard {
@@ -42,9 +42,9 @@ public class Grapple
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EntanglePower(p)));
-        //conditional technique functionality
+        //conditional Arte functionality
         if(this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         }
     }
 
@@ -72,7 +72,7 @@ public class Grapple
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
             this.crystalBallToggle = false;
-            this.upgradeToTechnique();
+            this.upgradeToArte();
             this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
         }
     }

@@ -16,7 +16,7 @@ import mysticmod.actions.IncreaseMiscDamageAction;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class HeavyStrike
         extends AbstractMysticCard {
@@ -41,7 +41,7 @@ public class HeavyStrike
         this.misc = ATTACK_DMG;
         this.damage = this.baseDamage = this.misc;
         this.magicNumber = this.baseMagicNumber = DAMAGE_INCREMENT;
-        this.isTechnique = true;
+        this.isArte = true;
         this.exhaust = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         CardTags.addTags(this, BaseModTags.STRIKE);
@@ -53,7 +53,7 @@ public class HeavyStrike
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new IncreaseMiscDamageAction(ID, this.misc, this.magicNumber));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

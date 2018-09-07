@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Grease
         extends AbstractMysticCard {
@@ -41,7 +41,7 @@ public class Grease
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (!p.hasPower(ArtesPlayed.POWER_ID)) {
             if (!m.hasPower("Artifact")) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }
@@ -64,7 +64,7 @@ public class Grease
 
     @Override
     public void applyPowers() {
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
             this.target = AbstractCard.CardTarget.ALL_ENEMY;
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));

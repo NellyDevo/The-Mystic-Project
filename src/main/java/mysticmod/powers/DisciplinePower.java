@@ -29,9 +29,9 @@ public class DisciplinePower extends AbstractPower {
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + " 1 " + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + "1" + DESCRIPTIONS[1];
         } else {
-            description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
         }
 
     }
@@ -39,7 +39,7 @@ public class DisciplinePower extends AbstractPower {
     @Override
     public void atStartOfTurnPostDraw() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayed(AbstractDungeon.player, this.amount), this.amount));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechniquesPlayed(AbstractDungeon.player, this.amount), this.amount));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtesPlayed(AbstractDungeon.player, this.amount), this.amount));
     }
 
 }

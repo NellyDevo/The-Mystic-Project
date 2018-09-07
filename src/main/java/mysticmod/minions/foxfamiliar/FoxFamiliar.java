@@ -17,7 +17,7 @@ import kobting.friendlyminions.actions.ChooseActionInfo;
 import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.SpellsPlayedNextTurn;
-import mysticmod.powers.TechniquesPlayedNextTurn;
+import mysticmod.powers.ArtesPlayedNextTurn;
 
 import java.util.ArrayList;
 
@@ -49,7 +49,7 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(0)).loadCardImage(FoxSelectionCard.ATTACK_IMG);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(1)).loadCardImage(FoxSelectionCard.FLANK_IMG);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(1)).setBackgroundTexture(AbstractMysticCard.BG_SMALL_ARTE_ATTACK_MYSTIC, AbstractMysticCard.BG_LARGE_ARTE_ATTACK_MYSTIC);
-            ((AbstractMysticCard)reflectedChoiceGroup.group.get(1)).isTechnique = true;
+            ((AbstractMysticCard)reflectedChoiceGroup.group.get(1)).isArte = true;
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(2)).loadCardImage(FoxSelectionCard.CHARGE_IMG);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(2)).setBackgroundTexture(AbstractMysticCard.BG_SMALL_SPELL_ATTACK_MYSTIC, AbstractMysticCard.BG_LARGE_SPELL_ATTACK_MYSTIC);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(2)).isSpell = true;
@@ -129,7 +129,7 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
         }
         tempInfo.add(new ChooseActionInfo("Flank", arteDescription, () -> {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,
-                    new TechniquesPlayedNextTurn(AbstractDungeon.player, spellArteValue), spellArteValue));
+                    new ArtesPlayedNextTurn(AbstractDungeon.player, spellArteValue), spellArteValue));
         }));
 
         tempInfo.add(new ChooseActionInfo("Channel", spellDescription, () -> {

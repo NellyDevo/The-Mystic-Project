@@ -14,8 +14,6 @@ public class ComboCasterPower extends AbstractPower {
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
-    //public static final String NAME = "Combo Caster";
-    //public static final String[] DESCRIPTIONS = new String[]{ "At the start of each turn add", "random Cantrip to your hand", "random cantrips to your hand" };
 
     public ComboCasterPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -32,9 +30,9 @@ public class ComboCasterPower extends AbstractPower {
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[3] + "1" + DESCRIPTIONS[4];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
         } else {
-            description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
         }
 
     }

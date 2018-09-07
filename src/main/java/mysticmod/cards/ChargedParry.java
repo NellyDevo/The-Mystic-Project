@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class ChargedParry
         extends AbstractMysticCard {
@@ -37,7 +37,7 @@ public class ChargedParry
         this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = STRENGTH_GAIN;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
@@ -48,7 +48,7 @@ public class ChargedParry
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, AbstractDungeon.player, new StrengthPower(p, this.magicNumber), this.magicNumber));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, AbstractDungeon.player, new LoseStrengthPower(p, this.magicNumber), this.magicNumber));
          }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

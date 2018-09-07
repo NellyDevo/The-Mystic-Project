@@ -25,13 +25,13 @@ public class AbstractCardRenderTypePatch
     public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text)
     {
         if (__instance instanceof AbstractMysticCard) {
-            if (((AbstractMysticCard)__instance).isTechnique()
+            if (((AbstractMysticCard)__instance).isArte()
                     || (!((AbstractMysticCard)__instance).isSpell()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID))
                     && __instance.type == AbstractCard.CardType.ATTACK)) {
                 text[0] = "Arte";
             }
-            if (((AbstractMysticCard)__instance).isSpell() || (!((AbstractMysticCard)__instance).isTechnique()
+            if (((AbstractMysticCard)__instance).isSpell() || (!((AbstractMysticCard)__instance).isArte()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && __instance.type == AbstractCard.CardType.SKILL)) {
                 text[0] = "Spell";
             }

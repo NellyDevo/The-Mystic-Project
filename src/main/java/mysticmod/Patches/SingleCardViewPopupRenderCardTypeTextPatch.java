@@ -28,13 +28,13 @@ public class SingleCardViewPopupRenderCardTypeTextPatch
     {
         AbstractCard reflectedCard = (AbstractCard)ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
         if (reflectedCard instanceof AbstractMysticCard) {
-            if (((AbstractMysticCard)reflectedCard).isTechnique()
+            if (((AbstractMysticCard)reflectedCard).isArte()
                     || (!((AbstractMysticCard)reflectedCard).isSpell()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID))
                     && reflectedCard.type == AbstractCard.CardType.ATTACK)) {
                 label[0] = "Arte";
             }
-            if (((AbstractMysticCard)reflectedCard).isSpell() || (!((AbstractMysticCard)reflectedCard).isTechnique()
+            if (((AbstractMysticCard)reflectedCard).isSpell() || (!((AbstractMysticCard)reflectedCard).isArte()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && reflectedCard.type == AbstractCard.CardType.SKILL)) {
                 label[0] = "Spell";
             }

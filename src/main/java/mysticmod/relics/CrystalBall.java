@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class CrystalBall extends CustomRelic {
     public static final String ID = "mysticmod:CrystalBall";
@@ -28,13 +28,13 @@ public class CrystalBall extends CustomRelic {
     //Most interaction effects unfortunately hardcoded... everywhere.
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        if (c.type == AbstractCard.CardType.ATTACK && !(c instanceof AbstractMysticCard && ((AbstractMysticCard)c).isSpell())) {
+        if (c.type == AbstractCard.CardType.ATTACK && !(c instanceof AbstractMysticCard && (((AbstractMysticCard)c).isSpell() || ((AbstractMysticCard)c).isArte()))) {
             if (c.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
                 return;
             }
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechniquesPlayed(AbstractDungeon.player, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtesPlayed(AbstractDungeon.player, 1), 1));
         }
-        if (c.type == AbstractCard.CardType.SKILL && !(c instanceof AbstractMysticCard && ((AbstractMysticCard)c).isTechnique())) {
+        if (c.type == AbstractCard.CardType.SKILL && !(c instanceof AbstractMysticCard && (((AbstractMysticCard)c).isArte() || ((AbstractMysticCard)c).isSpell()))) {
             if (c.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
                 return;
             }

@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.actions.SpellDiscovery;
+import mysticmod.actions.SpellDiscoveryAction;
 import mysticmod.patches.AbstractCardEnum;
 
 public class KnowledgePool
@@ -30,7 +30,7 @@ public class KnowledgePool
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SpellDiscovery());
+        AbstractDungeon.actionManager.addToBottom(new SpellDiscoveryAction());
         }
 
     @Override

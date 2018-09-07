@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import mysticmod.actions.PlayRandomSpellArteFromDrawPile;
+import mysticmod.actions.GeminiFormAction;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.relics.CrystalBall;
 
@@ -49,13 +49,13 @@ public class GeminiFormPower extends AbstractPower {
         if (isActive) {
             if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.SKILL)) {
                 if (spellsPlayedThisTurn < this.amount) {
-                    AbstractDungeon.actionManager.addToBottom(new PlayRandomSpellArteFromDrawPile((AbstractMonster) action.target, true, c));
+                    AbstractDungeon.actionManager.addToBottom(new GeminiFormAction((AbstractMonster) action.target, true, c));
                 }
                 this.spellsPlayedThisTurn++;
             }
-            if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isTechnique()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.ATTACK)) {
+            if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.ATTACK)) {
                 if (artesPlayedThisTurn < this.amount) {
-                    AbstractDungeon.actionManager.addToBottom(new PlayRandomSpellArteFromDrawPile((AbstractMonster) action.target, false, c));
+                    AbstractDungeon.actionManager.addToBottom(new GeminiFormAction((AbstractMonster) action.target, false, c));
                 }
                 this.artesPlayedThisTurn++;
             }
@@ -82,7 +82,7 @@ public class GeminiFormPower extends AbstractPower {
             if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL)) {
                 this.spellsPlayedThisTurn++;
             }
-            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isTechnique()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK)) {
+            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK)) {
                 this.artesPlayedThisTurn++;
             }
         }

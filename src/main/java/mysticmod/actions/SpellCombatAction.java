@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class SpellCombatAction extends AbstractGameAction
 {
@@ -39,7 +39,7 @@ public class SpellCombatAction extends AbstractGameAction
     public void update() {
         boolean technical = false;
         boolean energized = false;
-        if (p.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (p.hasPower(ArtesPlayed.POWER_ID)) {
             technical = true;
         }
         if (p.hasPower(SpellsPlayed.POWER_ID)) {

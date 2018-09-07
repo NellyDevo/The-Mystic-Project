@@ -12,9 +12,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.actions.PlaySpellAttackFromDrawPile;
+import mysticmod.actions.SpellstrikeAction;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Spellstrike
         extends AbstractMysticCard {
@@ -34,7 +34,7 @@ public class Spellstrike
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.exhaust = true;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         CardTags.addTags(this, BaseModTags.STRIKE);
     }
@@ -42,8 +42,8 @@ public class Spellstrike
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
-        AbstractDungeon.actionManager.addToBottom(new PlaySpellAttackFromDrawPile(1, m, false));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new SpellstrikeAction(1, m, false));
     }
 
     @Override

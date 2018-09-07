@@ -31,7 +31,7 @@ public class StyleChange
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        final AbstractCard c = MysticMod.returnTrulyRandomTechnique();
+        final AbstractCard c = MysticMod.returnTrulyRandomArte();
         c.setCostForTurn(0);
         UnlockTracker.markCardAsSeen(c.cardID);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, true));

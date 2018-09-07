@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.GainDexterityPower;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class PowerAttack
         extends AbstractMysticCard {
@@ -35,7 +35,7 @@ public class PowerAttack
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
         this.secondMagicNumber = this.baseSecondMagicNumber = STRENGTH_GAIN;
-        this.isTechnique = true;
+        this.isArte = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
@@ -47,8 +47,8 @@ public class PowerAttack
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
-        //technique functionality
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TechniquesPlayed(p, 1), 1));
+        //Arte functionality
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

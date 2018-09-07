@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Daze
         extends AbstractMysticCard {
@@ -41,7 +41,7 @@ public class Daze
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
-        if (p.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (p.hasPower(ArtesPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
@@ -54,7 +54,7 @@ public class Daze
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
                 this.isArtAlternate = true;

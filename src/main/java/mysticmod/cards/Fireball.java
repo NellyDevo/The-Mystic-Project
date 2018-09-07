@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class Fireball
         extends AbstractMysticCard {
@@ -42,7 +42,7 @@ public class Fireball
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if ((p.hasPower(TechniquesPlayed.POWER_ID)) && (p.getPower(TechniquesPlayed.POWER_ID).amount >= 1)) {
+        if ((p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= 1)) {
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         } else {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
@@ -56,7 +56,7 @@ public class Fireball
 
     @Override
     public void applyPowers() {
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
             this.target = AbstractCard.CardTarget.ALL_ENEMY;
             this.isMultiDamage = true;
             if (!this.isArtAlternate) {

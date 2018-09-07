@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import mysticmod.actions.ClosingBarrageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.TechniquesPlayed;
+import mysticmod.powers.ArtesPlayed;
 
 public class ClosingBarrage
         extends AbstractMysticCard {
@@ -48,8 +48,8 @@ public class ClosingBarrage
         int baseDamagePlaceholder = this.baseDamage;
         int damageX = 0;
         int damageY = 0;
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-            damageX = AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            damageX = AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             damageY = AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
@@ -68,8 +68,8 @@ public class ClosingBarrage
         int baseDamagePlaceholder = this.baseDamage;
         int damageX = 0;
         int damageY = 0;
-        if (AbstractDungeon.player.hasPower(TechniquesPlayed.POWER_ID)) {
-            damageX = AbstractDungeon.player.getPower(TechniquesPlayed.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            damageX = AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             damageY = AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
