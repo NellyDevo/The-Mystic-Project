@@ -1,18 +1,23 @@
 package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
+import mysticmod.actions.SetCardTargetCoordinatesAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
+import mysticmod.vfx.MagicMissileEffect;
 
 public class MagicMissile
         extends AbstractMysticCard {
@@ -39,8 +44,25 @@ public class MagicMissile
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < this.magicNumber; i++){
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToBottom(new SetCardTargetCoordinatesAction(this, -1.0f, Settings.HEIGHT / 2.0f + 300f * Settings.scale));
+        int effectCount = 0;
+        int damageCount = 0;
+        int maximumCount = (m.currentHealth + m.currentBlock) / this.damage + 1;
+        if (this.magicNumber > maximumCount) {
+            this.magicNumber = maximumCount;
+        }
+        float elapsedTime = 0.0f;
+        while (effectCount < this.magicNumber || damageCount < this.magicNumber) {
+            if (effectCount < this.magicNumber) {
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new MagicMissileEffect(p.dialogX + 80.0f * Settings.scale, p.dialogY - 50.0f * Settings.scale, m.hb.cX, m.hb.cY)));
+                effectCount++;
+            }
+            if (damageCount < this.magicNumber && elapsedTime >= 1.0f) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
+                damageCount++;
+            }
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25f));
+            elapsedTime += 0.25f;
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         this.rawDescription = DESCRIPTION;

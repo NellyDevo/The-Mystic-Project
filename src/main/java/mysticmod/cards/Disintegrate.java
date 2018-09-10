@@ -13,9 +13,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.MindblastEffect;
+import com.megacrit.cardcrawl.vfx.combat.InversionBeamEffect;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
+import mysticmod.vfx.DisintegrateEffect;
 
 public class Disintegrate
         extends AbstractMysticCard {
@@ -42,12 +43,16 @@ public class Disintegrate
     public void use(AbstractPlayer p, AbstractMonster m) {
         // record current armor and then remove it
         int targetArmor = m.currentBlock;
-        AbstractDungeon.actionManager.addToBottom(new RemoveAllBlockAction(m, m));
+        if (targetArmor > 0) {
+            AbstractDungeon.actionManager.addToBottom(new RemoveAllBlockAction(m, m));
+        }
         // deal the damage
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new MindblastEffect(p.dialogX, p.dialogY)));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new DisintegrateEffect(p.dialogX, p.dialogY)));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         // restore the block
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, m, targetArmor));
+        if (targetArmor > 0) {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, m, targetArmor));
+        }
         // advance spells played
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }

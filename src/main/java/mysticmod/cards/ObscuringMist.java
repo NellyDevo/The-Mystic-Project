@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,6 +14,7 @@ import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.vfx.ObscuringMistEffect;
 
 public class ObscuringMist
         extends AbstractMysticCard {
@@ -43,6 +45,7 @@ public class ObscuringMist
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new ObscuringMistEffect(p.hb.cX, p.hb.cY), 0.5f));
         //block
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         //Technical: artifact
