@@ -1,0 +1,597 @@
+
+{| class="article-table sortable"
+|+Mystic_purple Cards
+|-
+!Name
+!Picture
+!Rarity
+!Type
+!Energy
+!Description
+|-
+|[[Arcane Dodge]]
+|[[File:ArcaneDodge.png|thumb|289x289px]]
+|Basic
+|[[Skill]]
+|1
+|Gain 5 [[Block]].
+Arcane: gain an additional 4(7) [[Block]].
+|-
+|[[Defend]]
+|[[File:Defend.png|thumb|289x289px]]
+|Basic
+|[[Skill]]
+|1
+|Gain 5(8) [[Block]].
+|-
+|[[Shocking Grasp]]
+|[[File:ShockingGrasp.png|thumb|289x289px]]
+|Basic
+|[[Attack]]
+|1
+|Deal 8(10) damage. Technical: deal 14(18) damage instead.
+|-
+|[[Strike]]
+|[[File:Strike.png|thumb|289x289px]]
+|Basic
+|[[Attack]]
+|1
+|Deal 6(9) damage.
+|-
+|[[Alacrity]]
+|[[File:Alacrity.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Gain 6(9) [[Block]].
+Technical: gain [E] next turn.
+|-
+|[[Bulk Up]]
+|[[File:BulkUp.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Gain 6(9) [[Block]], then [[Exhaust]] a random card in your hand.
+Arcane: Choose what to [[Exhaust]].
+|-
+|[[Components Pouch]]
+|[[File:ComponentsPouch.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|1
+|Deal 7(9) damage for each [#5299DC]Spell[] in your hand.
+|-
+|[[Corrosive Touch]]
+|[[File:CorrosiveTouch.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|0
+|Deal 5 damage.
+|-
+|[[Disengage]]
+|[[File:Disengage.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Gain 7(10) [[Block]].
+|-
+|[[Diversion]]
+|[[File:Diversion.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|0
+|Apply 1(2) [[Vulnerable]].
+Technical: apply 1(2) [[Weak]].
+|-
+|[[Divining Blow]]
+|[[File:DiviningBlow.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|1
+|Deal 8(11) damage.
+Arcane: draw 2 cards.
+|-
+|[[Heavy Strike]]
+|[[File:HeavyStrike.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|2
+|Deal 6 damage.
+Arcane: permanently increase this card's Damage by 2(3).
+[[Exhaust]].
+|-
+|[[Lightning Bolt]]
+|[[File:LightningBolt.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|1
+|Deal 6(9) damage to all enemies. Technical: Deal 10(14) damage instead.
+|-
+|[[Power Slash]]
+|[[File:PowerSlash.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|1
+|Deal 9(13) damage.
+|-
+|[[Probe]]
+|[[File:Probe.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|0
+|Deal 5 damage.
+|-
+|[[Pure Instinct]]
+|[[File:PureInstinct.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Gain 6(8) [[Block]] for each [#FF5252]Arte[] in your hand.
+|-
+|[[Riposte]]
+|[[File:Riposte.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|1
+|Deal 6(9) damage.
+If the enemy intends to attack, apply 1 [[Weak]] and 1 [[Vulnerable]].
+|-
+|[[Shield]]
+|[[File:Shield.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Gain 4(6) [[Block]].
+Gain 4(6) [[Block]] next turn.
+|-
+|[[Sideswipe]]
+|[[File:Sideswipe.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|0
+|Deal 2(4) damage.
+Arcane: Apply 1 [[weak]].
+|-
+|[[Snowball]]
+|[[File:Snowball.png|thumb|289x289px]]
+|Common
+|[[Attack]]
+|1
+|Deal 9(13) damage.
+|-
+|[[Sudden Clarity]]
+|[[File:SuddenClarity.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Gain 5 [[Block]].
+Draw a (1(2)) card(s)
+|-
+|[[Tome Of Spells]]
+|[[File:TomeOfSpells.png|thumb|289x289px]]
+|Common
+|[[Skill]]
+|1
+|Add 2(3) random [[Cantrips]] to your draw pile.
+[[Exhaust]].
+|-
+|[[5 Foot Step]]
+|[[File:5FootStep.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|0
+|Deal 4(6) damage.
+Arcane: Shuffle this card into your draw pile.
+|-
+|[[All In]]
+|[[File:AllIn.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|0
+|Deal 10 damage.
+Become [[Weak]] for 3(2) turns.
+|-
+|[[Arcane Accuracy]]
+|[[File:ArcaneAccuracy.png|thumb|289x289px]]
+|Uncommon
+|[[Power]]
+|2
+|([[Innate]].)
+ Whenever you play a [#5299DC]Spell[] during your turn, gain 1 [[Strength]] until end of turn.
+|-
+|[[Blade Master]]
+|[[File:BladeMaster.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Return up to 2(3) [#FF5252]Artes[] from your discard pile to your hand.
+|-
+|[[Bladed Dash]]
+|[[File:BladedDash.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|1
+|Deal 6(9) damage. Arcane: Gain 5(8) [[Block]].
+|-
+|[[Charged Parry]]
+|[[File:ChargedParry.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Gain 6 [[Block]].
+Arcane: Gain 3(5) [[Strength]] this turn.
+|-
+|[[Combo Caster]]
+|[[File:ComboCaster.png|thumb|289x289px]]
+|Uncommon
+|[[Power]]
+|1(0)
+|At the start of each turn, add a random [[Cantrip]] to your hand and draw 1 less card.
+|-
+|[[Cure Light Wounds]]
+|[[File:CureLightWounds.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|0
+|Gain 2(3) Regen.
+[[Exhaust]].
+|-
+|[[Dedication]]
+|[[File:Dedication.png|thumb|289x289px]]
+|Uncommon
+|[[Power]]
+|2(1)
+|Gain 1 [[Strength]].
+Gain 1 [[Dexterity]].
+|-
+|[[Earthen Wall]]
+|[[File:EarthenWall.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|2
+|Gain 11(14) [[Block]]. Gain 3 [[Dexterity]] this turn.
+|-
+|[[Ebb and Flow]]
+|[[File:EbbandFlow.png|thumb|289x289px]]
+|Uncommon
+|[[Power]]
+|1
+|([[Innate]].)
+ Each turn, draw 1 card, then discard 2 cards unless you have a [#5299DC]Spell[] and an [#FF5252]Arte[].
+|-
+|[[Energized Rift]]
+|[[File:EnergizedRift.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Add a random ([[Upgraded]]) [[Cantrip]] to your hand, then copy all held [[Cantrips]] into your draw pile.
+[[Exhaust]].
+|-
+|[[Feint]]
+|[[File:Feint.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|1
+|Deal 6(8) damage. Add a random ([[Upgraded]]) [[Cantrip]] to your draw pile.
+|-
+|[[Fireball]]
+|[[File:Fireball.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|2
+|Deal 14(20) damage. Technical: deal it to ALL enemies.
+|-
+|[[Floating Disk]]
+|[[File:FloatingDisk.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Gain 6 [[Block]].
+Technical: gain 1(2) [[Dexterity]]. [[Exhaust]].
+|-
+|[[Flourish]]
+|[[File:Flourish.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|5
+|Costs [E] less per [#5299DC]Spell[] or [#FF5252]Arte[] played this turn.
+Deal 6(8) damage twice, then double the [#5299DC]Spell[] and [#FF5252]Arte[] count.
+|-
+|[[Flurry]]
+|[[File:Flurry.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|1
+|Deal 2 damage 2(3) times.
+Arcane: !M2! times instead
+|-
+|[[Fly]]
+|[[File:Fly.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Gain 6(8) [[Block]].
+Technical: [[Block]] is not removed at the start of your next turn.
+|-
+|[[Grapple]]
+|[[File:Grapple.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Target loses 20 [[Strength]] this turn. Can't use the same turn as an Attack.
+[[Ethereal]]. [[Exhaust]].
+|-
+|[[Grease]]
+|[[File:Grease.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Target enemy loses 3(5) [[Strength]] this turn.
+Technical: ALL enemies instead.
+|-
+|[[Hunker Down]]
+|[[File:HunkerDown.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|0
+|Gain 2(3) [[Dexterity]] until the end of the turn.
+|-
+|[[Illusion Of Calm]]
+|[[File:IllusionOfCalm.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Gain 15 [[Block]].
+Become [[Frail]] for 3(2) turns.
+|-
+|[[Keen Edge]]
+|[[File:KeenEdge.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Apply 4 [[Vulnerable]] to all enemies.
+|-
+|[[Magic Missile]]
+|[[File:MagicMissile.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|0
+|Deal 3(4) damage for each time the deck was shuffled this combat.
+|-
+|[[Magic Weapon]]
+|[[File:MagicWeapon.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Gain 2(3) [[Strength]]. Add a Blade Burst (Burst+) to your discard pile.
+[[Exhaust]].
+|-
+|[[Mighty Magic]]
+|[[File:MightyMagic.png|thumb|289x289px]]
+|Uncommon
+|[[Power]]
+|2
+|([[Innate]].)
+ Whenever you play an [#FF5252]Arte[] during your turn, gain 1 [[Dexterity]] until end of turn.
+|-
+|[[Mirror Strike]]
+|[[File:MirrorStrike.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|1
+|Deal 7(9) damage.
+Arcane: For every two [#5299DC]Spells[] played this turn, deal another 7(9) damage.
+|-
+|[[Power Attack]]
+|[[File:PowerAttack.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|0
+|Gain !M2! [[Strength]] and lose 2(1) [[Dexterity]] this turn.
+[[Feat]].
+|-
+|[[Prepared Caster]]
+|[[File:PreparedCaster.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1(0)
+|[[Innate]].
+Choose one [#5299DC]Spell[] from your draw pile and add it to your hand.
+[[Exhaust]].
+|-
+|[[Punishing Armor]]
+|[[File:PunishingArmor.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1
+|Gain 5 [[Block]].
+Technical: Gain 2(4) [[Thorns]].
+[[Exhaust]].
+|-
+|[[Rapid Caster]]
+|[[File:RapidCaster.png|thumb|289x289px]]
+|Uncommon
+|[[Power]]
+|2
+|([[Innate]].)
+ The first [[Cantrip]] you play each turn is played twice.
+|-
+|[[Spell Combat]]
+|[[File:SpellCombat.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|X
+|Arcane: deal 6(9) damage X times.
+Technical: Gain 5(8) [[Block]] X times.
+|-
+|[[Stoneskin]]
+|[[File:Stoneskin.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|0
+|Gain 2 [[Block]].
+Gain 2 [[Block]] at the start of the next 3(4) turns.
+|-
+|[[Style Change]]
+|[[File:StyleChange.png|thumb|289x289px]]
+|Uncommon
+|[[Skill]]
+|1(0)
+|Add a random [#FF5252]Arte[] to your hand. It costs 0 this turn.
+[[Exhaust]].
+|-
+|[[Vorpal Thrust]]
+|[[File:VorpalThrust.png|thumb|289x289px]]
+|Uncommon
+|[[Attack]]
+|2
+|Deal 12(15) damage.
+Arcane: If you played two [#5299DC]Spells[] this turn, deal 24(30) damage instead.
+|-
+|[[Closing Barrage]]
+|[[File:ClosingBarrage.png|thumb|289x289px]]
+|Rare
+|[[Attack]]
+|X
+|Deals damage equal to 3(4) times the total number of [#5299DC]Spells[] and [#FF5252]Artes[] played this turn X times.
+|-
+|[[Discipline]]
+|[[File:Discipline.png|thumb|289x289px]]
+|Rare
+|[[Power]]
+|3(2)
+|Begin each turn as if you had already played one [#5299DC]Spell[] and one [#FF5252]Arte[].
+|-
+|[[Disintegrate]]
+|[[File:Disintegrate.png|thumb|289x289px]]
+|Rare
+|[[Attack]]
+|3
+|Deal 30(40) damage.
+Ignores [[Block]].
+|-
+|[[Doublecast]]
+|[[File:Doublecast.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|1
+|This turn, your next [#5299DC]Spell[] is (two [#5299DC]Spells[] are) played twice.
+|-
+|[[Enchanted Moulinet]]
+|[[File:EnchantedMoulinet.png|thumb|289x289px]]
+|Rare
+|[[Attack]]
+|2
+|Deal 15(18) damage to all enemies. If any of those enemies die, gain [E].
+|-
+|[[Gemini Form]]
+|[[File:GeminiForm.png|thumb|289x289px]]
+|Rare
+|[[Power]]
+|3
+|For the first [#5299DC]Spell[] and [#FF5252]Arte[] you play each turn, play a random card of the other type from your draw pile.
+[[Ethereal]]. (not
+Ethereal.)
+|-
+|[[Greater Invisibility]]
+|[[File:GreaterInvisibility.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|2
+|Gain 1 [[Intangible]].
+If you did not play 2(1) [#FF5252]Artes[] (an [#FF5252]Arte[]) this turn, [[Exhaust]].
+[[Ethereal]].
+|-
+|[[Haste]]
+|[[File:Haste.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|3
+|Gain [E] and Draw 1 card each turn.
+Gain 1 [[Dexterity]].
+Gain 1 [[Strength]].
+[[Ethereal]]. (not Ethereal.)[[Exhaust]].
+|-
+|[[Knowledge Pool]]
+|[[File:KnowledgePool.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|1(0)
+|Choose one of 3 random [#5299DC]Spell[] cards and add it to your hand. it costs 0 this turn.
+[[Exhaust]].
+|-
+|[[Lunge]]
+|[[File:Lunge.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|0
+|Gain [E] [E] ([E]).
+Draw 2 cards.
+Lose 4 [[Dexterity]] this turn.
+[[Exhaust]]. [[Feat]].
+|-
+|[[Mirror Entity]]
+|[[File:MirrorEntity.png|thumb|289x289px]]
+|Rare
+|[[Power]]
+|3(2)
+|[#5299DC]Spells[] and [#FF5252]Artes[] also advance next turn's [#5299DC]Spells[] and [#FF5252]Artes[] counter.
+|-
+|[[Momentum]]
+|[[File:Momentum.png|thumb|289x289px]]
+|Rare
+|[[Power]]
+|3(2)
+|[#5299DC]Spells[] and [#FF5252]Artes[] deal 1 more damage and gain 1 more [[Block]] for each card of the other type played this turn
+|-
+|[[Mystical Shield]]
+|[[File:MysticalShield.png|thumb|289x289px]]
+|Rare
+|[[Power]]
+|2
+|[[Block]] is reduced (set) to 8 instead of 0 at the start of your turn.
+|-
+|[[Natural 20]]
+|[[File:Natural20.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|1
+|Your next Attack this turn does double damage.
+[[Exhaust]]. (not
+Exhaust.)
+|-
+|[[Obscuring Mist]]
+|[[File:ObscuringMist.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|2
+|Gain 15 [[Block]].
+Technical: Gain 1(2) [[Artifact]].
+[[Exhaust]].
+|-
+|[[Spell Recall]]
+|[[File:SpellRecall.png|thumb|289x289px]]
+|Rare
+|[[Skill]]
+|0
+|Return a [#5299DC]Spell[] from your discard pile to your hand.
+[[Exhaust]]. (not
+Exhaust.)
+|-
+|[[Spellstrike]]
+|[[File:Spellstrike.png|thumb|289x289px]]
+|Rare
+|[[Attack]]
+|1
+|Deal 8(11) damage.
+Search your draw pile for an Attack [#5299DC]Spell[] and play it.
+[[Exhaust]].
+|-
+|[[Spontaneous Caster]]
+|[[File:SpontaneousCaster.png|thumb|289x289px]]
+|Rare
+|[[Power]]
+|1
+|([[Innate]].)
+ Whenever you play a [#5299DC]Spell[], [[exhaust]] it and add a random [#5299DC]Spell[] to your discard pile.
+|-

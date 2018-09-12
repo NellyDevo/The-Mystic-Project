@@ -1,0 +1,70 @@
+
+{| class="article-table sortable"
+|+Colorless Cards
+|-
+!Name
+!Picture
+!Rarity
+!Type
+!Energy
+!Description
+|-
+|[[Acid Splash]]
+|[[File:AcidSplash.png|thumb|289x289px]]
+|Special
+|[[Attack]]
+|0
+|[[Cantrip]].
+Deal 3(5) damage. Draw a card.
+|-
+|[[Blade Burst]]
+|[[File:BladeBurst.png|thumb|289x289px]]
+|Special
+|[[Attack]]
+|1
+|Lose 1 [[Strength]]. Deal 11(14) damage. Add a Magic Weapon (Weapon+) to your discard pile.
+[[Exhaust]].
+|-
+|[[Prestidigitation]]
+|[[File:Prestidigitation.png|thumb|289x289px]]
+|Special
+|[[Skill]]
+|0
+|[[Cantrip]].
+Gain 2(4) [[Block]]. Draw a card.
+|-
+|[[Ray Of Frost]]
+|[[File:RayOfFrost.png|thumb|289x289px]]
+|Special
+|[[Attack]]
+|0
+|[[Cantrip]].
+Deal 2(3) damage. Gain 1(2) [[Block]]. Draw a card.
+|-
+|[[Read Magic]]
+|[[File:ReadMagic.png|thumb|289x289px]]
+|Special
+|[[Skill]]
+|0
+|[[Cantrip]].
+Draw 2(3) cards, then discard 1 (2) card(s). [[Exhaust]]. (not.)
+|-
+|[[Spark]]
+|[[File:Spark.png|thumb|289x289px]]
+|Special
+|[[Skill]]
+|0
+|[[Cantrip]].
+Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[].
+[[Exhaust]]. (not
+Exhaust.)
+|-
+|[[Summon Familiar]]
+|[[File:SummonFamiliar.png|thumb|289x289px]]
+|Special
+|[[Skill]]
+|0
+|Summon your faithful Fox Familiar.
+[[Exhaust]].
+Currently disabled!
+|-
