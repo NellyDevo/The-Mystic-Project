@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.GainDexterityPower;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.powers.GainDexterityPower;
 
 public class PowerAttack
         extends AbstractMysticCard {

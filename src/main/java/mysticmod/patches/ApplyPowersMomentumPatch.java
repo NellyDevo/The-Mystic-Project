@@ -4,9 +4,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
+import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MomentumPower;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.ArtesPlayed;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="applyPowers")
 public class ApplyPowersMomentumPatch {

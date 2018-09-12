@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.powers.SpellsPlayed;
 
 public class SpellCombatAction extends AbstractGameAction
 {

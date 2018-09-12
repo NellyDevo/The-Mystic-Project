@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.GainDexterityPower;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.powers.GainDexterityPower;
 
 public class Lunge
         extends AbstractMysticCard {

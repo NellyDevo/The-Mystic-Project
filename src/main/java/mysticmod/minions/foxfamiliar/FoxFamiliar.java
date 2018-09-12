@@ -16,8 +16,8 @@ import kobting.friendlyminions.actions.ChooseAction;
 import kobting.friendlyminions.actions.ChooseActionInfo;
 import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.powers.SpellsPlayedNextTurn;
 import mysticmod.powers.ArtesPlayedNextTurn;
+import mysticmod.powers.SpellsPlayedNextTurn;
 
 import java.util.ArrayList;
 

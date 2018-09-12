@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.AddMyActionToBottomOfQueueLaterAction;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.powers.SpellsPlayed;
 
 public class FiveFootStep
         extends AbstractMysticCard {

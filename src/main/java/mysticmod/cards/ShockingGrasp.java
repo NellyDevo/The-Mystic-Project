@@ -2,7 +2,6 @@ package mysticmod.cards;
 
 import basemod.helpers.BaseModTags;
 import basemod.helpers.CardTags;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,16 +11,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.ImpactSparkEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.powers.SpellsPlayed;
 
 public class ShockingGrasp
         extends AbstractMysticCard {

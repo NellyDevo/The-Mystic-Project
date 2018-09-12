@@ -43,12 +43,8 @@ public class MysticMetricsPatch {
                     Method m = Metrics.class.getDeclaredMethod("gatherAllDataAndSend", boolean.class, MonsterGroup.class);
                     m.setAccessible(true);
                     m.invoke(__instance, __instance.death, __instance.monsters);
-                } catch (NoSuchMethodException e) {
+                } catch (NoSuchMethodException|InvocationTargetException|IllegalAccessException e) {
                     e.printStackTrace();
-                } catch (InvocationTargetException f) {
-                    f.printStackTrace();
-                } catch (IllegalAccessException g) {
-                    g.printStackTrace();
                 }
             }
         }

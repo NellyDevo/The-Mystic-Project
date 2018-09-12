@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.Natural20Power;
 import mysticmod.powers.ArtesPlayed;
+import mysticmod.powers.Natural20Power;
 
 public class Natural20
         extends AbstractMysticCard {

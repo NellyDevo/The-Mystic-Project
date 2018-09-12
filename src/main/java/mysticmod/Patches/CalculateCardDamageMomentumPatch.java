@@ -5,9 +5,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
+import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MomentumPower;
 import mysticmod.powers.SpellsPlayed;
-import mysticmod.powers.ArtesPlayed;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="calculateCardDamage")
 public class CalculateCardDamageMomentumPatch {
