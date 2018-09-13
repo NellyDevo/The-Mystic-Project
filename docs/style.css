@@ -31,7 +31,7 @@ a img {
 td {
   position: relative;
 }
-tr:hover .popup {
+td:hover .popup {
   display: block;
   position: absolute;
   top: -95px;

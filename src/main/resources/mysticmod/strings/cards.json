@@ -335,7 +335,7 @@
   "mysticmod:ReadMagic": {
     "NAME": "Read Magic",
     "DESCRIPTION": "Cantrip. NL Draw !M! cards, then discard 1 card. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw !M! cards, then discard 2 cards. Exhaust"
+    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw !M! cards, then discard 2 cards. Exhaust."
   },
   "mysticmod:Riposte": {
     "NAME": "Riposte",
