@@ -103,7 +103,7 @@
   },
   "mysticmod:Disengage": {
     "NAME": "Disengage",
-    "DESCRIPTION": "Gain !B! Block.",
+    "DESCRIPTION": "Gain !B! Block. NL Also advances next turn's [#FF5252]Arte[] counter.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Disintegrate": {
@@ -163,7 +163,7 @@
   },
   "mysticmod:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Costs [E] less per [#5299DC]Spell[] or [#FF5252]Arte[] played this turn. NL Deal !D! damage twice, then double the [#5299DC]Spell[] and [#FF5252]Arte[] count.",
+    "DESCRIPTION": "Costs [E] less per [#5299DC]Spell[] or [#FF5252]Arte[] played this turn. Deal !D! damage twice, then double the [#5299DC]Spell[] and [#FF5252]Arte[] count.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Flurry": {

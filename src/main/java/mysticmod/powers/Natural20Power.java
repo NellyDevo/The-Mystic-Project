@@ -1,6 +1,7 @@
 package mysticmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,8 +22,8 @@ public class Natural20Power extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-
-        this.img = new Texture("mysticmod/images/powers/natural20 power.png");
+        this.region128 = new TextureAtlas.AtlasRegion(new Texture("mysticmod/images/powers/natural20 power 84.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(new Texture("mysticmod/images/powers/natural20 power 32.png"), 0, 0, 32, 32);
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
