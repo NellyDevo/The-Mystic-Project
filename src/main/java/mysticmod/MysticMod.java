@@ -30,7 +30,10 @@ import mysticmod.relics.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 @SpireInitializer
 public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber {
@@ -286,7 +289,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receivePostDungeonInitialize() {
-        if (CardCrawlGame.trial.dailyModIDs().contains(CrystalClear.ID)) {
+        if (CardCrawlGame.trial != null && CardCrawlGame.trial.dailyModIDs().contains(CrystalClear.ID)) {
             RelicLibrary.getRelic(CrystalBall.ID).makeCopy().instantObtain();
             for (AbstractRelic relicInBossPool : RelicLibrary.bossList) {
                 if (relicInBossPool instanceof CrystalBall) {
