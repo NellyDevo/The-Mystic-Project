@@ -4,7 +4,7 @@
   "author_list": ["Johnny Devo"],
   "description": "Adds a new character: The Mystic.",
   "dependencies": ["basemod"],
-  "version": "0.6.1",
+  "version": "0.6.1.1",
   "sts_version": "09-06-2018",
   "mts_version": "3.1.0",
   "update_json": "https://api.github.com/repos/JohnnyDevo/The-Mystic-Project/releases/latest"

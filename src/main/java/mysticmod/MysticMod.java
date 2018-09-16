@@ -10,11 +10,8 @@ import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.daily.DailyMods;
-import com.megacrit.cardcrawl.daily.mods.AbstractDailyMod;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
@@ -22,8 +19,6 @@ import com.megacrit.cardcrawl.monsters.city.Healer;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
-import com.megacrit.cardcrawl.screens.custom.CustomModeScreen;
-import com.megacrit.cardcrawl.screens.mainMenu.MainMenuScreen;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
 import mysticmod.character.MysticCharacter;
@@ -34,13 +29,11 @@ import mysticmod.potions.EssenceOfMagic;
 import mysticmod.relics.*;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @SpireInitializer
-public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostCreateStartingRelicsSubscriber, AddCustomModeModsSubscriber {
+public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber {
 
     private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
     private static final String attackCard = "mysticmod/images/512/bg_attack_mystic.png";
@@ -292,10 +285,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     }
 
     @Override
-    public void receivePostCreateStartingRelics(AbstractPlayer.PlayerClass c, ArrayList<String> l) {
-        System.out.println("CrystalClear mod is active? " + CardCrawlGame.trial.dailyModIDs().contains(CrystalClear.ID));
+    public void receivePostDungeonInitialize() {
         if (CardCrawlGame.trial.dailyModIDs().contains(CrystalClear.ID)) {
-            l.add(CrystalBall.ID);
+            RelicLibrary.getRelic(CrystalBall.ID).makeCopy().instantObtain();
             for (AbstractRelic relicInBossPool : RelicLibrary.bossList) {
                 if (relicInBossPool instanceof CrystalBall) {
                     RelicLibrary.bossList.remove(relicInBossPool);
