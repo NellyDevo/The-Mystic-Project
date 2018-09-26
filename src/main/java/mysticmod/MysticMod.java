@@ -15,9 +15,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.city.Healer;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
@@ -36,7 +38,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @SpireInitializer
-public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber {
+public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber {
 
     private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
     private static final String attackCard = "mysticmod/images/512/bg_attack_mystic.png";
@@ -352,6 +354,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addRelicToCustomPool(new BlessedBook(), AbstractCardEnum.MYSTIC_PURPLE); //replaces starting relic
         BaseMod.addRelicToCustomPool(new CrystalBall(), AbstractCardEnum.MYSTIC_PURPLE);
         BaseMod.addRelicToCustomPool(new DeckOfManyThings(), AbstractCardEnum.MYSTIC_PURPLE);
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room) {
+        numberOfTimesDeckShuffledThisCombat = 0;
     }
 
     @Override

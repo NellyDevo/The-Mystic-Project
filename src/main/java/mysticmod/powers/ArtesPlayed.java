@@ -16,6 +16,7 @@ public class ArtesPlayed extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public ArtesPlayed(AbstractCreature owner, int amount) {
+        this.priority = -200;
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;

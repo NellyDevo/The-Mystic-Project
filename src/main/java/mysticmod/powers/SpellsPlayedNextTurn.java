@@ -17,6 +17,7 @@ public class SpellsPlayedNextTurn extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public SpellsPlayedNextTurn(AbstractCreature owner, int amount) {
+        this.priority = -199;
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -25,7 +26,6 @@ public class SpellsPlayedNextTurn extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override

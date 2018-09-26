@@ -85,7 +85,7 @@
   },
   "mysticmod:SpontaneousCasterPower": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTIONS": ["[#5299DC]Spells[] Exhaust when played, and then generate a random [#5299DC]Spell[] in your discard pile."]
+    "DESCRIPTIONS": ["[#5299DC]Spells[] Exhaust when played, and then generate a random [#5299DC]Spell[] in your discard pile. At the end of each turn, all [#5299DC]Spells[] are Retained."]
   },
   "mysticmod:StoneskinPower": {
     "NAME": "Stoneskin",

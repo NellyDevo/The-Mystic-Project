@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.MysticMod;
 import mysticmod.actions.ReplaceCardAction;
+import mysticmod.cards.AbstractMysticCard;
 
 public class SpontaneousCasterPower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:SpontaneousCasterPower";
@@ -43,6 +44,17 @@ public class SpontaneousCasterPower extends AbstractPower {
             AbstractCard newCard = MysticMod.returnTrulyRandomSpell();
             UnlockTracker.markCardAsSeen(newCard.cardID);
             AbstractDungeon.actionManager.addToBottom(new ReplaceCardAction(card, newCard.makeStatEquivalentCopy()));
+        }
+    }
+
+    @Override
+    public void atEndOfTurn(final boolean isPlayer) {
+        if (isPlayer && !AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
+            for (AbstractCard handCard : AbstractDungeon.player.hand.group) {
+                if (MysticMod.isThisASpell(handCard)) {
+                    handCard.retain = true;
+                }
+            }
         }
     }
 }

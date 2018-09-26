@@ -17,6 +17,7 @@ public class ArtesPlayedNextTurn extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public ArtesPlayedNextTurn(AbstractCreature owner, int amount) {
+        this.priority = -199;
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;

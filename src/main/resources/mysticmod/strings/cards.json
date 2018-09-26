@@ -384,8 +384,8 @@
   },
   "mysticmod:SpontaneousCaster": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile."
+    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL Retain all [#5299DC]Spells[].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL Retain all [#5299DC]Spells[]."
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",

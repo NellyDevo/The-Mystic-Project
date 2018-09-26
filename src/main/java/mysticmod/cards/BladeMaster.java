@@ -25,7 +25,6 @@ public class BladeMaster
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = ArteS_TO_RETURN;
     }
 

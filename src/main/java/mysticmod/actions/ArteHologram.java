@@ -60,7 +60,7 @@ public class ArteHologram extends AbstractGameAction
             return;
         }
         if (this.duration == 0.5f) {
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0] + this.amount + TEXT[1], false);
+            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, true, TEXT[0] + this.amount + TEXT[1]);
             this.tickDuration();
             return;
         }
