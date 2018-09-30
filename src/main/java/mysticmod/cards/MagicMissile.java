@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +16,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.actions.SetCardTargetCoordinatesAction;
-import mysticmod.actions.SetDurationWaitAction;
 import mysticmod.mystictags.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
@@ -49,7 +49,7 @@ public class MagicMissile
         AbstractDungeon.actionManager.addToBottom(new SetCardTargetCoordinatesAction(this, -1.0f, Settings.HEIGHT / 2.0f + 300f * Settings.scale));
         int effectCount = 0;
         int damageCount = 0;
-        int maximumCount = (m.currentHealth + m.currentBlock) / this.damage + 1;
+        int maximumCount = (int)Math.ceil(((float)m.currentHealth + (float)m.currentBlock) / (float)this.damage);
         if (this.magicNumber > maximumCount) {
             this.magicNumber = maximumCount;
         }
@@ -63,7 +63,7 @@ public class MagicMissile
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
                 damageCount++;
             }
-            AbstractDungeon.actionManager.addToBottom(new SetDurationWaitAction(0.25f));
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25f));
             elapsedTime += 0.25f;
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));

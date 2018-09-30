@@ -18,7 +18,7 @@ import mysticmod.relics.CrystalBall;
         cls="com.megacrit.cardcrawl.screens.SingleCardViewPopup",
         method="renderCardBack"
 )
-public class SingleCardViewPopupRenderPortraitPatch {
+public class SingleCardViewPopupRenderCardBackPatch {
     public static void Postfix(SingleCardViewPopup __instance, SpriteBatch sb) {
         AbstractCard reflectedCard = (AbstractCard) ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
         if (!(reflectedCard instanceof AbstractMysticCard) && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && (reflectedCard.type == AbstractCard.CardType.ATTACK || reflectedCard.type == AbstractCard.CardType.SKILL)) {
