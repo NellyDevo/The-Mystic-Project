@@ -2,6 +2,7 @@ package mysticmod;
 
 import basemod.*;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.CardTags;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -25,6 +26,7 @@ import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
 import mysticmod.character.MysticCharacter;
 import mysticmod.modifiers.CrystalClear;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
 import mysticmod.potions.EssenceOfMagic;
@@ -373,7 +375,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     public static boolean isThisASpell(final AbstractCard card) { //Is this a pigeon?
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)) {
                 return true;
             } else {
                 return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()));
@@ -384,10 +386,10 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     public static boolean isThisAnArte(final AbstractCard card) {
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE)) {
                 return true;
             } else {
-                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()));
+                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)));
             }
         }
         return false;

@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mysticmod.actions.LoadCardImageAction;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
@@ -43,7 +44,7 @@ public class ShockingGrasp
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
-        this.isSpell = true;
+        CardTags.addTags(this, MysticTags.IS_SPELL);
         this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
         CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
     }

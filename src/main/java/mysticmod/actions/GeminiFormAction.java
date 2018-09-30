@@ -1,5 +1,6 @@
 package mysticmod.actions;
 
+import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.powers.GeminiFormPower;
 import mysticmod.relics.CrystalBall;
 
@@ -32,11 +34,11 @@ public class GeminiFormAction extends AbstractGameAction {
         CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard drawPileCard : p.drawPile.group) {
             if (lookingForArte) {
-                if ((drawPileCard instanceof AbstractMysticCard && ((AbstractMysticCard)drawPileCard).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && drawPileCard.type == AbstractCard.CardType.ATTACK)) {
+                if ((drawPileCard instanceof AbstractMysticCard && ((AbstractMysticCard)drawPileCard).isArte() || CardTags.hasTag(drawPileCard, MysticTags.IS_ARTE)) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && drawPileCard.type == AbstractCard.CardType.ATTACK)) {
                     tmp.addToRandomSpot(drawPileCard);
                 }
             } else {
-                if ((drawPileCard instanceof AbstractMysticCard && ((AbstractMysticCard)drawPileCard).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && drawPileCard.type == AbstractCard.CardType.SKILL)) {
+                if ((drawPileCard instanceof AbstractMysticCard && ((AbstractMysticCard)drawPileCard).isSpell() || CardTags.hasTag(drawPileCard, MysticTags.IS_SPELL)) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && drawPileCard.type == AbstractCard.CardType.SKILL)) {
                     tmp.addToRandomSpot(drawPileCard);
                 }
             }

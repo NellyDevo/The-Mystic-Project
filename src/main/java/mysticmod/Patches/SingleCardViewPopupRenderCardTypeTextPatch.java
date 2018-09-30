@@ -1,6 +1,7 @@
 package mysticmod.patches;
 
 import basemod.ReflectionHacks;
+import basemod.helpers.CardTags;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 import java.util.ArrayList;
@@ -28,14 +30,14 @@ public class SingleCardViewPopupRenderCardTypeTextPatch
     {
         AbstractCard reflectedCard = (AbstractCard)ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
         if (reflectedCard instanceof AbstractMysticCard) {
-            if (((AbstractMysticCard)reflectedCard).isArte()
+            if (CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE) || (((AbstractMysticCard)reflectedCard).isArte()
                     || (!((AbstractMysticCard)reflectedCard).isSpell()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID))
-                    && reflectedCard.type == AbstractCard.CardType.ATTACK)) {
+                    && reflectedCard.type == AbstractCard.CardType.ATTACK))) {
                 label[0] = "Arte";
             }
-            if (((AbstractMysticCard)reflectedCard).isSpell() || (!((AbstractMysticCard)reflectedCard).isArte()
-                    && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && reflectedCard.type == AbstractCard.CardType.SKILL)) {
+            if (CardTags.hasTag(reflectedCard, MysticTags.IS_SPELL) || (((AbstractMysticCard)reflectedCard).isSpell() || (!((AbstractMysticCard)reflectedCard).isArte()
+                    && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && reflectedCard.type == AbstractCard.CardType.SKILL))) {
                 label[0] = "Spell";
             }
         }  else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
@@ -45,6 +47,15 @@ public class SingleCardViewPopupRenderCardTypeTextPatch
                 case SKILL : label[0] = "Spell";
                 break;
             }
+        }
+        if (CardTags.hasTag(reflectedCard, MysticTags.IS_SPELL)) {
+            if(CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE)) {
+                label[0] = "Sperte";
+            } else {
+                label[0] = "Spell";
+            }
+        } else if (CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE)) {
+            label[0] = "Arte";
         }
     }
 

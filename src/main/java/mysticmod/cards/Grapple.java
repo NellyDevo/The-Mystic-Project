@@ -24,7 +24,6 @@ public class Grapple
     public static final String IMG_PATH = "mysticmod/images/cards/grapple.png";
     private static final int COST = 1;
     private static final int STRENGTH_REDUCTION = 20;
-    private static boolean attackUsedThisTurn = false;
 
     public Grapple() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -53,8 +52,7 @@ public class Grapple
         boolean returnValue = super.hasEnoughEnergy();
         for (AbstractCard playedCard : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             if (playedCard.type == AbstractCard.CardType.ATTACK) {
-                returnValue = false;
-                return returnValue;
+                return false;
             }
         }
         return returnValue;

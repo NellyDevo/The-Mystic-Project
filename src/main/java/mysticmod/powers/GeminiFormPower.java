@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.helpers.CardTags;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.actions.GeminiFormAction;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 
@@ -48,13 +50,15 @@ public class GeminiFormPower extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action) {
         if (isActive) {
-            if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.SKILL)) {
+            if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isSpell() || CardTags.hasTag(c, MysticTags.IS_SPELL))
+                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.SKILL)) {
                 if (spellsPlayedThisTurn < this.amount) {
                     AbstractDungeon.actionManager.addToBottom(new GeminiFormAction((AbstractMonster) action.target, true, c));
                 }
                 this.spellsPlayedThisTurn++;
             }
-            if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.ATTACK)) {
+            if ((c instanceof AbstractMysticCard && ((AbstractMysticCard) c).isArte() || CardTags.hasTag(c, MysticTags.IS_ARTE))
+                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c.type == AbstractCard.CardType.ATTACK)) {
                 if (artesPlayedThisTurn < this.amount) {
                     AbstractDungeon.actionManager.addToBottom(new GeminiFormAction((AbstractMonster) action.target, false, c));
                 }
@@ -80,10 +84,12 @@ public class GeminiFormPower extends AbstractPower {
     @Override
     public void onInitialApplication() {
         for (AbstractCard card : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL)) {
+            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL))
+                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL)) {
                 this.spellsPlayedThisTurn++;
             }
-            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK)) {
+            if ((card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE))
+                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK)) {
                 this.artesPlayedThisTurn++;
             }
         }

@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.IncreaseMiscDamageAction;
 import mysticmod.actions.LoadCardImageAction;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
@@ -41,7 +42,7 @@ public class HeavyStrike
         this.misc = ATTACK_DMG;
         this.damage = this.baseDamage = this.misc;
         this.magicNumber = this.baseMagicNumber = DAMAGE_INCREMENT;
-        this.isArte = true;
+        CardTags.addTags(this, MysticTags.IS_ARTE);
         this.exhaust = true;
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         CardTags.addTags(this, BaseModTags.STRIKE);

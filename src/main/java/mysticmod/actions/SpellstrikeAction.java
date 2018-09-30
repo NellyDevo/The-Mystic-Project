@@ -1,5 +1,6 @@
 package mysticmod.actions;
 
+import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.mystictags.MysticTags;
 
 public class SpellstrikeAction extends AbstractGameAction {
     private AbstractPlayer p;
@@ -79,7 +81,7 @@ public class SpellstrikeAction extends AbstractGameAction {
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (final AbstractCard c2 : this.p.drawPile.group) {
-            if ((c2.type == AbstractCard.CardType.ATTACK) && (c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell())) {
+            if ((c2.type == AbstractCard.CardType.ATTACK) && (c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell() || CardTags.hasTag(c2, MysticTags.IS_SPELL))) {
                 tmp.addToRandomSpot(c2);
             }
         }

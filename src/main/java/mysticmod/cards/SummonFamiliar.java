@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import basemod.helpers.CardTags;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 import mysticmod.minions.foxfamiliar.FoxEvolutionPower;
 import mysticmod.minions.foxfamiliar.FoxFamiliar;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
@@ -33,7 +35,7 @@ public class SummonFamiliar
                 CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 CardRarity.COMMON, CardTarget.SELF);
         this.exhaust = true;
-        this.isSpell = true;
+        CardTags.addTags(this, MysticTags.IS_SPELL);
         this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 

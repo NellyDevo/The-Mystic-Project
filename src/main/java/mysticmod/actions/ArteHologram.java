@@ -1,5 +1,6 @@
 package mysticmod.actions;
 
+import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.cards.AbstractMysticCard;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.CrystalBall;
 
@@ -40,8 +42,8 @@ public class ArteHologram extends AbstractGameAction
         boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2);
         boolean hasCrystalBall = (AbstractDungeon.player.hasRelic(CrystalBall.ID));
         for (final AbstractCard c2 : this.p.discardPile.group) {
-            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isArte())
-                || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell()))
+            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isArte() || CardTags.hasTag(c2, MysticTags.IS_ARTE))
+                || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell() || CardTags.hasTag(c2, MysticTags.IS_SPELL)))
                 && !(c2.rawDescription.startsWith("Cantrip.") && cantripsAreSpells)) {
                 tmp.addToRandomSpot(c2);
             }

@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import mysticmod.actions.EnchantedMoulinetAction;
+import mysticmod.mystictags.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 
@@ -33,7 +35,7 @@ public class EnchantedMoulinet
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.isMultiDamage = true;
-        this.isArte = true;
+        CardTags.addTags(this, MysticTags.IS_ARTE);
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
     @Override

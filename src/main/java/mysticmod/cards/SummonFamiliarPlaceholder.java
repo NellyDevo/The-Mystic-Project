@@ -24,6 +24,7 @@ public class SummonFamiliarPlaceholder
                 CardType.SKILL, CardColor.COLORLESS,
                 CardRarity.SPECIAL, CardTarget.SELF);
         this.purgeOnUse = true;
+        this.dontTriggerOnUseCard = true;
         this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
