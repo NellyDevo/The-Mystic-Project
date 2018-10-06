@@ -1,7 +1,6 @@
 package mysticmod.patches;
 
 import basemod.ReflectionHacks;
-import basemod.helpers.CardTags;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 import java.util.ArrayList;
@@ -30,13 +28,13 @@ public class SingleCardViewPopupRenderCardTypeTextPatch
     {
         AbstractCard reflectedCard = (AbstractCard)ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
         if (reflectedCard instanceof AbstractMysticCard) {
-            if (CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE) || (((AbstractMysticCard)reflectedCard).isArte()
+            if (reflectedCard.hasTag(MysticTags.IS_ARTE) || (((AbstractMysticCard)reflectedCard).isArte()
                     || (!((AbstractMysticCard)reflectedCard).isSpell()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID))
                     && reflectedCard.type == AbstractCard.CardType.ATTACK))) {
                 label[0] = "Arte";
             }
-            if (CardTags.hasTag(reflectedCard, MysticTags.IS_SPELL) || (((AbstractMysticCard)reflectedCard).isSpell() || (!((AbstractMysticCard)reflectedCard).isArte()
+            if (reflectedCard.hasTag(MysticTags.IS_SPELL) || (((AbstractMysticCard)reflectedCard).isSpell() || (!((AbstractMysticCard)reflectedCard).isArte()
                     && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && reflectedCard.type == AbstractCard.CardType.SKILL))) {
                 label[0] = "Spell";
             }
@@ -48,13 +46,13 @@ public class SingleCardViewPopupRenderCardTypeTextPatch
                 break;
             }
         }
-        if (CardTags.hasTag(reflectedCard, MysticTags.IS_SPELL)) {
-            if(CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE)) {
+        if (reflectedCard.hasTag(MysticTags.IS_SPELL)) {
+            if(reflectedCard.hasTag(MysticTags.IS_ARTE)) {
                 label[0] = "Sperte";
             } else {
                 label[0] = "Spell";
             }
-        } else if (CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE)) {
+        } else if (reflectedCard.hasTag(MysticTags.IS_ARTE)) {
             label[0] = "Arte";
         }
     }

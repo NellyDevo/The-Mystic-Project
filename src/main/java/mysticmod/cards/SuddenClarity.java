@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 
@@ -33,7 +32,7 @@ public class SuddenClarity
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = CARD_DRAW;
-        CardTags.addTags(this, MysticTags.IS_ARTE);
+        this.tags.add(MysticTags.IS_ARTE);
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 

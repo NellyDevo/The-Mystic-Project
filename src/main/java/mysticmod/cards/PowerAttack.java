@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.GainDexterityPower;
@@ -37,7 +36,7 @@ public class PowerAttack
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
         this.secondMagicNumber = this.baseSecondMagicNumber = STRENGTH_GAIN;
-        CardTags.addTags(this, MysticTags.IS_ARTE);
+        this.tags.add(MysticTags.IS_ARTE);
         this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 

@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.relics.CrystalBall;
 
@@ -38,9 +37,9 @@ public class ComponentsPouch
     public void use(AbstractPlayer p, AbstractMonster m) {
         int spellsCount = 0;
         for (final AbstractCard card : p.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE)))) {
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)))) {
                 spellsCount++;
             }
         }
@@ -58,9 +57,9 @@ public class ComponentsPouch
     public void applyPowers() {
         int spellsCount = 0;
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE)))) {
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)))) {
                 spellsCount++;
             }
         }

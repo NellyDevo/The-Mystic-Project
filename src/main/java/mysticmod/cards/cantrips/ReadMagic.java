@@ -1,6 +1,5 @@
 package mysticmod.cards.cantrips;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -11,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
 public class ReadMagic
@@ -33,6 +32,7 @@ public class ReadMagic
         this.magicNumber = this.baseMagicNumber = DRAW;
         this.exhaust = true;
         crystalBallToggle = false;
+        this.tags.add(MysticTags.IS_CANTRIP);
     }
 
     @Override
@@ -52,10 +52,10 @@ public class ReadMagic
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            CardTags.addTags(this, MysticTags.IS_SPELL);
+            this.tags.add(MysticTags.IS_SPELL);
             return true;
         }
-        CardTags.removeTags(this, MysticTags.IS_SPELL);
+        this.tags.remove(MysticTags.IS_SPELL);
         return super.isSpell();
     }
 

@@ -1,7 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -13,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.SpellstrikeAction;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 
@@ -35,9 +33,9 @@ public class Spellstrike
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.exhaust = true;
-        CardTags.addTags(this, MysticTags.IS_ARTE);
+        this.tags.add(MysticTags.IS_ARTE);
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
-        CardTags.addTags(this, BaseModTags.STRIKE);
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override

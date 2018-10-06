@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -10,8 +9,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.MysticMod;
 import mysticmod.cards.cantrips.*;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 
@@ -30,34 +30,19 @@ public class EnergizedRift
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
-        CardTags.addTags(this, MysticTags.IS_SPELL);
+        this.tags.add(MysticTags.IS_SPELL);
         this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
-        AbstractCard randomCantrip;
-        switch (randomlyGeneratedNumber) {
-            case 0: randomCantrip = new AcidSplash();
-                break;
-            case 1: randomCantrip = new Prestidigitation();
-                break;
-            case 2: randomCantrip = new RayOfFrost();
-                break;
-            case 3: randomCantrip = new Spark();
-                break;
-            case 4: randomCantrip = new ReadMagic();
-                break;
-            default: randomCantrip = new StrikeMystic(); //how did you get here
-                break;
-        }
+        AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
         if (this.upgraded) {
             randomCantrip.upgrade();
         }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(randomCantrip.makeStatEquivalentCopy(), 1, false));
         for (final AbstractCard potentialCantrip : p.hand.group) {
-            if (potentialCantrip.rawDescription.startsWith("Cantrip.")) {
+            if (potentialCantrip.hasTag(MysticTags.IS_CANTRIP)) {
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(potentialCantrip.makeStatEquivalentCopy(), 1, true, true));
             }
         }

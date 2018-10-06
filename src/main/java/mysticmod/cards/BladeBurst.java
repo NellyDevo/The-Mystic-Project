@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -14,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
 public class BladeBurst
@@ -37,7 +36,7 @@ public class BladeBurst
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = STRENGTH_LOSS;
         this.exhaust = true;
-        CardTags.addTags(this, MysticTags.IS_ARTE);
+        this.tags.add(MysticTags.IS_ARTE);
     }
 
     @Override

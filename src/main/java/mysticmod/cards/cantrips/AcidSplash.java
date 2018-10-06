@@ -1,6 +1,5 @@
 package mysticmod.cards.cantrips;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.BentSpoon;
 
@@ -34,6 +33,7 @@ public class AcidSplash
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         crystalBallToggle = false;
+        this.tags.add(MysticTags.IS_CANTRIP);
     }
 
     @Override
@@ -53,10 +53,10 @@ public class AcidSplash
     @Override
     public boolean isSpell() {
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            CardTags.addTags(this, MysticTags.IS_SPELL);
+            this.tags.add(MysticTags.IS_SPELL);
             return true;
         }
-        CardTags.removeTags(this, MysticTags.IS_SPELL);
+        this.tags.remove(MysticTags.IS_SPELL);
         return super.isSpell();
     }
 

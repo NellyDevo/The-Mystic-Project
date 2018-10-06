@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.CrystalBall;
@@ -41,11 +40,11 @@ public class PureInstinct
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(p.hb.cX, p.hb.cY - 40.0f * Settings.scale, Settings.GREEN_TEXT_COLOR.cpy()), 0.3f));
         int ArtesCount = 0;
         for (final AbstractCard card : p.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE)
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK
                     && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()
-                    || CardTags.hasTag(card, MysticTags.IS_SPELL)))) {
-                if (!(card.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
+                    || card.hasTag(MysticTags.IS_SPELL)))) {
+                if (!(card.hasTag(MysticTags.IS_CANTRIP) && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
                         || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
                 ArtesCount++;
             }
@@ -63,10 +62,10 @@ public class PureInstinct
     public void applyPowers() {
         int ArtesCount = 0;
         for (final AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE)
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)))) {
-                if (!(card.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
+                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)))) {
+                if (!(card.hasTag(MysticTags.IS_CANTRIP) && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
                         || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
                     ArtesCount++;
             }

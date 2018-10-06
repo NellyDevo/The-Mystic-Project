@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -12,8 +11,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.MysticMod;
 import mysticmod.cards.cantrips.*;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 
@@ -34,33 +34,18 @@ public class Feint
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        CardTags.addTags(this, MysticTags.IS_ARTE);
+        this.tags.add(MysticTags.IS_ARTE);
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
-        AbstractCard randomCantrip;
-        switch (randomlyGeneratedNumber) {
-            case 0: randomCantrip = new AcidSplash();
-                break;
-            case 1: randomCantrip = new Prestidigitation();
-                break;
-            case 2: randomCantrip = new RayOfFrost();
-                break;
-            case 3: randomCantrip = new Spark();
-                break;
-            case 4: randomCantrip = new ReadMagic();
-                break;
-            default: randomCantrip = new StrikeMystic(); //how did you get here
-                break;
-        }
+        AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
         if (this.upgraded) {
             randomCantrip.upgrade();
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip.makeStatEquivalentCopy(), 1, true, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip, 1, true, true));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 

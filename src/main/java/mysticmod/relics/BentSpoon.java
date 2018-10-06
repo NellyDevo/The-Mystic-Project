@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mysticmod.patches.MysticTags;
 
 public class BentSpoon extends CustomRelic {
     public static final String ID = "mysticmod:BentSpoon";
@@ -22,7 +23,7 @@ public class BentSpoon extends CustomRelic {
 
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        if (c.rawDescription.startsWith("Cantrip.")) {
+        if (c.hasTag(MysticTags.IS_CANTRIP)) {
             this.flash();
             //Effects unfortunately hardcoded into cantrips' ApplyPowers overrides
         }

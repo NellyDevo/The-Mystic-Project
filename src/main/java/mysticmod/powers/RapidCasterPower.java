@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import mysticmod.patches.MysticTags;
 
 public class RapidCasterPower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:RapidCasterPower";
@@ -44,7 +45,7 @@ public class RapidCasterPower extends AbstractPower {
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (card.rawDescription.startsWith("Cantrip.") && !card.purgeOnUse) {
+        if (card.hasTag(MysticTags.IS_CANTRIP) && !card.purgeOnUse) {
             this.cantripsPlayedThisTurn++;
             if (this.cantripsPlayedThisTurn <= this.amount) {
                 this.flash();
@@ -71,7 +72,7 @@ public class RapidCasterPower extends AbstractPower {
     @Override
     public void onInitialApplication() {
         for (final AbstractCard potentialCantrip : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            if (potentialCantrip.rawDescription.startsWith("Cantrip.") && !potentialCantrip.purgeOnUse) {
+            if (potentialCantrip.hasTag(MysticTags.IS_CANTRIP) && !potentialCantrip.purgeOnUse) {
                 this.cantripsPlayedThisTurn++;
             }
         }

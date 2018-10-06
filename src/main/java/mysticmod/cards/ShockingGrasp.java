@@ -1,7 +1,6 @@
 package mysticmod.cards;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -16,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mysticmod.actions.LoadCardImageAction;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
@@ -44,9 +43,9 @@ public class ShockingGrasp
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
-        CardTags.addTags(this, MysticTags.IS_SPELL);
+        this.tags.add(MysticTags.IS_SPELL);
         this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
-        CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
+        this.tags.add(BaseModCardTags.GREMLIN_MATCH);
     }
 
     @Override

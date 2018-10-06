@@ -2,7 +2,6 @@ package mysticmod;
 
 import basemod.*;
 import basemod.abstracts.CustomCard;
-import basemod.helpers.CardTags;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -16,17 +15,15 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.city.Healer;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
 import mysticmod.character.MysticCharacter;
 import mysticmod.modifiers.CrystalClear;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
 import mysticmod.potions.EssenceOfMagic;
@@ -67,6 +64,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public static ModLabeledToggleButton foxToggle;
     public static SpireConfig mysticConfig;
     public static boolean mysticFriendlyMinionsToggle;
+    public static ArrayList<AbstractCard> cantripsGroup = new ArrayList<>();
 
 
     public MysticMod(){
@@ -153,6 +151,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         });
         settingsPanel.addUIElement(foxToggle);
         BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new character to the game: The Mystic.", settingsPanel);
+        cantripsGroup.add(new AcidSplash());
+        cantripsGroup.add(new Prestidigitation());
+        cantripsGroup.add(new RayOfFrost());
+        cantripsGroup.add(new ReadMagic());
+        cantripsGroup.add(new Spark());
     }
 
     private void resetMysticConfigButtons() {
@@ -375,7 +378,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     public static boolean isThisASpell(final AbstractCard card) { //Is this a pigeon?
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)) {
                 return true;
             } else {
                 return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()));
@@ -386,10 +389,10 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     public static boolean isThisAnArte(final AbstractCard card) {
         if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || CardTags.hasTag(card, MysticTags.IS_ARTE)) {
+            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)) {
                 return true;
             } else {
-                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || CardTags.hasTag(card, MysticTags.IS_SPELL)));
+                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)));
             }
         }
         return false;

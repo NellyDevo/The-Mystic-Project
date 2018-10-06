@@ -1,7 +1,6 @@
 package mysticmod.patches;
 
 import basemod.ReflectionHacks;
-import basemod.helpers.CardTags;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 @SpirePatch(
@@ -63,7 +61,7 @@ public class SingleCardViewPopupRenderCardBackPatch {
             }
         }
         if (!(reflectedCard instanceof AbstractMysticCard)) {
-            if (CardTags.hasTag(reflectedCard, MysticTags.IS_SPELL)) {
+            if (reflectedCard.hasTag(MysticTags.IS_SPELL)) {
                 switch (reflectedCard.type) {
                     case ATTACK:
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_ATTACK);
@@ -75,7 +73,7 @@ public class SingleCardViewPopupRenderCardBackPatch {
                         break;
                 }
             }
-            if (CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE)) {
+            if (reflectedCard.hasTag(MysticTags.IS_ARTE)) {
                 switch (reflectedCard.type) {
                     case ATTACK:
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
@@ -88,7 +86,7 @@ public class SingleCardViewPopupRenderCardBackPatch {
                 }
             }
         }
-        if (CardTags.hasTag(reflectedCard, MysticTags.IS_SPELL) && CardTags.hasTag(reflectedCard, MysticTags.IS_ARTE)) {
+        if (reflectedCard.hasTag(MysticTags.IS_SPELL) && reflectedCard.hasTag(MysticTags.IS_ARTE)) {
             switch (reflectedCard.type) {
                 case ATTACK:
                     Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPERTE_ATTACK);

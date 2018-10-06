@@ -2,12 +2,11 @@ package mysticmod.cards;
 
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
-import basemod.helpers.CardTags;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 import java.util.ArrayList;
@@ -33,14 +32,8 @@ public abstract class AbstractMysticCard extends CustomCard {
     public static String BG_LARGE_SPELL_ATTACK_COLORLESS = "mysticmod/images/1024/bg_spell_attack_colorless" + arteSpellSettings();
     public static String BG_SMALL_ARTE_ATTACK_COLORLESS = "mysticmod/images/512/bg_arte_attack_colorless" + arteSpellSettings();
     public static String BG_LARGE_ARTE_ATTACK_COLORLESS = "mysticmod/images/1024/bg_arte_attack_colorless" + arteSpellSettings();
-    public static String BG_SMALL_DEFAULT_ATTACK_COLORLESS = "mysticmod/images/512/bg_attack_colorless.png";
-    public static String BG_LARGE_DEFAULT_ATTACK_COLORLESS = "mysticmod/images/1024/bg_attack_colorless.png";
     public static String BG_SMALL_SPELL_SKILL_COLORLESS = "mysticmod/images/512/bg_spell_skill_colorless" + arteSpellSettings();
     public static String BG_LARGE_SPELL_SKILL_COLORLESS = "mysticmod/images/1024/bg_spell_skill_colorless" + arteSpellSettings();
-    public static String BG_SMALL_DEFAULT_SKILL_COLORLESS = "mysticmod/images/512/bg_skill_colorless.png";
-    public static String BG_LARGE_DEFAULT_SKILL_COLORLESS = "mysticmod/images/1024/bg_skill_colorless.png";
-    public static String SMALL_ORB_COLORLESS = "mysticmod/images/512/card_colorless_orb_copy.png";
-    public static String LARGE_ORB_COLORLESS = "mysticmod/images/1024/card_colorless_orb_copy.png";
     public static String BG_ADDON_SMALL_ARTE_ATTACK = "mysticmod/images/512/bg_arte_attack_addon" + arteSpellSettings();
     public static String BG_ADDON_LARGE_ARTE_ATTACK = "mysticmod/images/1024/bg_arte_attack_addon" + arteSpellSettings();
     public static String BG_ADDON_SMALL_ARTE_SKILL = "mysticmod/images/512/bg_arte_skill_addon" + arteSpellSettings();
@@ -61,19 +54,19 @@ public abstract class AbstractMysticCard extends CustomCard {
     }
 
     public boolean isSpell() {
-        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !CardTags.hasTag(this, MysticTags.IS_ARTE) && !CardTags.hasTag(this, MysticTags.IS_SPELL)) {
+        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.hasTag(MysticTags.IS_ARTE) && !this.hasTag(MysticTags.IS_SPELL)) {
             this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
             this.crystalBallToggle = true;
         }
-        return CardTags.hasTag(this, MysticTags.IS_SPELL);
+        return this.hasTag(MysticTags.IS_SPELL);
     }
 
     public boolean isArte() {
-        if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !CardTags.hasTag(this, MysticTags.IS_ARTE) && !CardTags.hasTag(this, MysticTags.IS_SPELL)) {
+        if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.hasTag(MysticTags.IS_ARTE) && !this.hasTag(MysticTags.IS_SPELL)) {
             this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
             this.crystalBallToggle = true;
         }
-        return CardTags.hasTag(this, MysticTags.IS_ARTE);
+        return this.hasTag(MysticTags.IS_ARTE);
     }
 
     public static String arteSpellSettings() {
@@ -88,10 +81,10 @@ public abstract class AbstractMysticCard extends CustomCard {
 
     @Override
     public void applyPowers() {
-        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !CardTags.hasTag(this, MysticTags.IS_ARTE) && !CardTags.hasTag(this, MysticTags.IS_SPELL)) {
+        if (this.type == AbstractCard.CardType.SKILL && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.hasTag(MysticTags.IS_ARTE) && !this.hasTag(MysticTags.IS_SPELL)) {
             this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
             this.crystalBallToggle = true;
-        } else if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !CardTags.hasTag(this, MysticTags.IS_ARTE) && !CardTags.hasTag(this, MysticTags.IS_SPELL)) {
+        } else if (this.type == AbstractCard.CardType.ATTACK && (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) && !this.crystalBallToggle && !this.hasTag(MysticTags.IS_ARTE) && !this.hasTag(MysticTags.IS_SPELL)) {
             this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
             this.crystalBallToggle = true;
         }
@@ -127,34 +120,27 @@ public abstract class AbstractMysticCard extends CustomCard {
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = new ArrayList<>();
         if (this.type == AbstractCard.CardType.SKILL) {
-            if (CardTags.hasTag(this, MysticTags.IS_SPELL)) {
-                retVal.add(new TooltipInfo("Spell.", "This Skill is considered a [#5299DC]Spell[]."));
-            } else if (CardTags.hasTag(this, MysticTags.IS_ARTE)) {
-                retVal.add(new TooltipInfo("Arte.", "This Skill is considered an [#FF5252]Arte[]."));
+            if (this.hasTag(MysticTags.IS_SPELL)) {
+                retVal.add(new TooltipInfo("Spell.", "This Skill is also considered a [#5299DC]Spell[]."));
+            } else if (this.hasTag(MysticTags.IS_ARTE)) {
+                retVal.add(new TooltipInfo("Arte.", "This Skill is also considered an [#FF5252]Arte[]."));
             }
         } else if (this.type == AbstractCard.CardType.ATTACK) {
-            if (CardTags.hasTag(this, MysticTags.IS_SPELL)) {
-                retVal.add(new TooltipInfo("Spell.", "This Attack is considered a [#5299DC]Spell[]."));
-            } else if (CardTags.hasTag(this, MysticTags.IS_ARTE)) {
-                retVal.add(new TooltipInfo("Arte.", "This Attack is considered an [#FF5252]Arte[]."));
+            if (this.hasTag(MysticTags.IS_SPELL)) {
+                retVal.add(new TooltipInfo("Spell.", "This Attack is also considered a [#5299DC]Spell[]."));
+            } else if (this.hasTag(MysticTags.IS_ARTE)) {
+                retVal.add(new TooltipInfo("Arte.", "This Attack is also considered an [#FF5252]Arte[]."));
             }
         }
         return retVal;
     }
 
-    public void changeColor(String smallBGTexture, String largeBGTexture, boolean colorlessOrb) {
-        this.setBackgroundTexture(smallBGTexture, largeBGTexture);
-        if (colorlessOrb) {
-            this.setOrbTexture(SMALL_ORB_COLORLESS, LARGE_ORB_COLORLESS);
-        }
-    }
-
     public void upgradeToSpell() {
-        CardTags.addTags(this, MysticTags.IS_SPELL);
+        this.tags.add(MysticTags.IS_SPELL);
     }
 
     public void upgradeToArte() {
-        CardTags.addTags(this, MysticTags.IS_ARTE);
+        this.tags.add(MysticTags.IS_ARTE);
     }
 
     public void upgradeSecondMagicNumber(int amount) {

@@ -1,7 +1,6 @@
 package mysticmod.cards;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,7 +27,7 @@ public class DefendMystic
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
-        CardTags.addTags(this, BaseModTags.BASIC_DEFEND);
+        this.tags.add(BaseModCardTags.BASIC_DEFEND);
     }
 
     @Override

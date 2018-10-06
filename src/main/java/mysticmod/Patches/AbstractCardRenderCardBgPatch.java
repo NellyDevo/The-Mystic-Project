@@ -1,7 +1,6 @@
 package mysticmod.patches;
 
 import basemod.ReflectionHacks;
-import basemod.helpers.CardTags;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 @SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="renderCardBg")
@@ -56,7 +54,7 @@ public class AbstractCardRenderCardBgPatch {
             }
         }
         if (!(__card_instance instanceof AbstractMysticCard)) {
-            if (CardTags.hasTag(__card_instance, MysticTags.IS_SPELL)) {
+            if (__card_instance.hasTag(MysticTags.IS_SPELL)) {
                 switch (__card_instance.type) {
                     case ATTACK:
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
@@ -70,7 +68,7 @@ public class AbstractCardRenderCardBgPatch {
                         break;
                 }
             }
-            if (CardTags.hasTag(__card_instance, MysticTags.IS_ARTE)) {
+            if (__card_instance.hasTag(MysticTags.IS_ARTE)) {
                 switch (__card_instance.type) {
                     case ATTACK:
                         Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
@@ -85,7 +83,7 @@ public class AbstractCardRenderCardBgPatch {
                 }
             }
         }
-        if (CardTags.hasTag(__card_instance, MysticTags.IS_SPELL) && CardTags.hasTag(__card_instance, MysticTags.IS_ARTE)) {
+        if (__card_instance.hasTag(MysticTags.IS_SPELL) && __card_instance.hasTag(MysticTags.IS_ARTE)) {
             switch (__card_instance.type) {
                 case ATTACK:
                     Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPERTE_ATTACK);

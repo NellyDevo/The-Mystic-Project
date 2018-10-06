@@ -1,7 +1,6 @@
 package mysticmod.cards;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,7 +26,7 @@ public class GeminiForm
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         this.isEthereal = true;
-        CardTags.addTags(this, BaseModTags.FORM);
+        this.tags.add(BaseModCardTags.FORM);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package mysticmod.actions;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -9,7 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 public class SpellRecallAction extends AbstractGameAction
@@ -35,9 +34,9 @@ public class SpellRecallAction extends AbstractGameAction
             final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (final AbstractCard discardedCard : this.p.discardPile.group) {
                 if ((discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isSpell()
-                        || CardTags.hasTag(discardedCard, MysticTags.IS_SPELL)) || (AbstractDungeon.player.hasRelic(CrystalBall.ID)
+                        || discardedCard.hasTag(MysticTags.IS_SPELL)) || (AbstractDungeon.player.hasRelic(CrystalBall.ID)
                         && discardedCard.type == AbstractCard.CardType.SKILL && !(discardedCard instanceof AbstractMysticCard
-                        && ((AbstractMysticCard)discardedCard).isArte() || CardTags.hasTag(discardedCard, MysticTags.IS_ARTE)))) {
+                        && ((AbstractMysticCard)discardedCard).isArte() || discardedCard.hasTag(MysticTags.IS_ARTE)))) {
                     tmp.addToRandomSpot(discardedCard);
                 }
             }

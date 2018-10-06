@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 
@@ -32,7 +32,7 @@ public class CrystalBall extends CustomRelic {
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
         if (c.type == AbstractCard.CardType.ATTACK && !(c instanceof AbstractMysticCard && (((AbstractMysticCard)c).isSpell()
                 || CardTags.hasTag(c, MysticTags.IS_SPELL) || ((AbstractMysticCard)c).isArte() || CardTags.hasTag(c, MysticTags.IS_ARTE)))) {
-            if (c.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
+            if (c.hasTag(MysticTags.IS_CANTRIP) && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
                     || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
                 return;
             }
@@ -42,7 +42,7 @@ public class CrystalBall extends CustomRelic {
         }
         if (c.type == AbstractCard.CardType.SKILL && !(c instanceof AbstractMysticCard && (((AbstractMysticCard)c).isArte()
                 || CardTags.hasTag(c, MysticTags.IS_ARTE) || ((AbstractMysticCard)c).isSpell() || CardTags.hasTag(c, MysticTags.IS_SPELL)))) {
-            if (c.rawDescription.startsWith("Cantrip.") && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
+            if (c.hasTag(MysticTags.IS_CANTRIP) && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
                     || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
                 return;
             }

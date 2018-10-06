@@ -1,7 +1,6 @@
 package mysticmod.minions.foxfamiliar;
 
 import basemod.ReflectionHacks;
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -17,7 +16,7 @@ import kobting.friendlyminions.actions.ChooseAction;
 import kobting.friendlyminions.actions.ChooseActionInfo;
 import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayedNextTurn;
 import mysticmod.powers.SpellsPlayedNextTurn;
 
@@ -51,10 +50,10 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(0)).loadCardImage(FoxSelectionCard.ATTACK_IMG);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(1)).loadCardImage(FoxSelectionCard.FLANK_IMG);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(1)).setBackgroundTexture(AbstractMysticCard.BG_SMALL_ARTE_ATTACK_MYSTIC, AbstractMysticCard.BG_LARGE_ARTE_ATTACK_MYSTIC);
-            CardTags.addTags(reflectedChoiceGroup.group.get(1), MysticTags.IS_ARTE);
+            reflectedChoiceGroup.group.get(1).tags.add(MysticTags.IS_ARTE);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(2)).loadCardImage(FoxSelectionCard.CHARGE_IMG);
             ((AbstractMysticCard)reflectedChoiceGroup.group.get(2)).setBackgroundTexture(AbstractMysticCard.BG_SMALL_SPELL_ATTACK_MYSTIC, AbstractMysticCard.BG_LARGE_SPELL_ATTACK_MYSTIC);
-            CardTags.addTags(reflectedChoiceGroup.group.get(2), MysticTags.IS_SPELL);
+            reflectedChoiceGroup.group.get(2).tags.add(MysticTags.IS_SPELL);
             if (this.hasPower(FoxEvolutionPower.POWER_ID) && this.getPower(FoxEvolutionPower.POWER_ID).amount >= 1) {
                 ((AbstractMysticCard)reflectedChoiceGroup.group.get(3)).type = AbstractCard.CardType.SKILL;
                 ((AbstractMysticCard)reflectedChoiceGroup.group.get(3)).loadCardImage(FoxSelectionCard.REINFORCE_IMG);

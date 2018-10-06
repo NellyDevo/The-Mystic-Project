@@ -1,7 +1,6 @@
 package mysticmod.patches.othermods.hubris;
 
 import basemod.ReflectionHacks;
-import basemod.helpers.CardTags;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class DuctTapeRenderPatch {
             try {
                 Class<?> DuctTapeClass = Class.forName("com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard");
                 List<AbstractCard> reflectedList = (List<AbstractCard>)ReflectionHacks.getPrivate(__instance, DuctTapeClass, "cards");
-                if (CardTags.hasTag(reflectedList.get(0), MysticTags.IS_SPELL)) {
+                if (reflectedList.get(0).hasTag(MysticTags.IS_SPELL)) {
                     switch (reflectedList.get(0).type){
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -36,7 +35,7 @@ public class DuctTapeRenderPatch {
                             break;
                     }
                 }
-                if (CardTags.hasTag(reflectedList.get(1), MysticTags.IS_SPELL)) {
+                if (reflectedList.get(1).hasTag(MysticTags.IS_SPELL)) {
                     switch (reflectedList.get(1).type) {
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -50,7 +49,7 @@ public class DuctTapeRenderPatch {
                             break;
                     }
                 }
-                if (CardTags.hasTag(reflectedList.get(0), MysticTags.IS_ARTE)) {
+                if (reflectedList.get(0).hasTag(MysticTags.IS_ARTE)) {
                     switch (reflectedList.get(0).type) {
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -64,7 +63,7 @@ public class DuctTapeRenderPatch {
                             break;
                     }
                 }
-                if (CardTags.hasTag(reflectedList.get(1), MysticTags.IS_ARTE)) {
+                if (reflectedList.get(1).hasTag(MysticTags.IS_ARTE)) {
                     switch (reflectedList.get(1).type) {
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -90,7 +89,7 @@ public class DuctTapeRenderPatch {
             try {
                 Class<?> DuctTapeClass = Class.forName("com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard");
                 List<AbstractCard> reflectedList = (List<AbstractCard>)ReflectionHacks.getPrivate(__instance, DuctTapeClass, "cards");
-                if (CardTags.hasTag(reflectedList.get(0), MysticTags.IS_SPELL)) {
+                if (reflectedList.get(0).hasTag(MysticTags.IS_SPELL)) {
                     switch (reflectedList.get(0).type){
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -104,7 +103,7 @@ public class DuctTapeRenderPatch {
                             break;
                     }
                 }
-                if (CardTags.hasTag(reflectedList.get(1), MysticTags.IS_SPELL)) {
+                if (reflectedList.get(1).hasTag(MysticTags.IS_SPELL)) {
                     switch (reflectedList.get(1).type) {
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -118,7 +117,7 @@ public class DuctTapeRenderPatch {
                             break;
                     }
                 }
-                if (CardTags.hasTag(reflectedList.get(0), MysticTags.IS_ARTE)) {
+                if (reflectedList.get(0).hasTag(MysticTags.IS_ARTE)) {
                     switch (reflectedList.get(0).type) {
                         case ATTACK:
                             sb.setColor(Color.WHITE);
@@ -132,7 +131,7 @@ public class DuctTapeRenderPatch {
                             break;
                     }
                 }
-                if (CardTags.hasTag(reflectedList.get(1), MysticTags.IS_ARTE)) {
+                if (reflectedList.get(1).hasTag(MysticTags.IS_ARTE)) {
                     switch (reflectedList.get(1).type) {
                         case ATTACK:
                             sb.setColor(Color.WHITE);

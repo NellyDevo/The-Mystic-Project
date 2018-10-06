@@ -1,7 +1,6 @@
 package mysticmod.cards;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -30,8 +29,8 @@ public class StrikeMystic
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        CardTags.addTags(this, BaseModTags.STRIKE);
-        CardTags.addTags(this, BaseModTags.BASIC_STRIKE);
+        this.tags.add(CardTags.STRIKE);
+        this.tags.add(BaseModCardTags.BASIC_STRIKE);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mysticmod.MysticMod;
 import mysticmod.cards.cantrips.*;
 import mysticmod.patches.AbstractCardEnum;
 
@@ -32,24 +33,8 @@ public class TomeOfSpells
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < this.magicNumber; i++) {
-            int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
-            switch (randomlyGeneratedNumber) {
-                case 0:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new AcidSplash(), 1, true, true));
-                    break;
-                case 1:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Prestidigitation(), 1, true, true));
-                    break;
-                case 2:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new RayOfFrost(), 1, true, true));
-                    break;
-                case 3:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Spark(), 1, true, true));
-                    break;
-                case 4:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new ReadMagic(), 1, true, true));
-                    break;
-            }
+            AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip, 1, true, true));
         }
     }
 

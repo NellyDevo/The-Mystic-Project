@@ -1,6 +1,5 @@
 package mysticmod.actions;
 
-import basemod.helpers.CardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.mystictags.MysticTags;
+import mysticmod.patches.MysticTags;
 import mysticmod.relics.CrystalBall;
 
 public class SpellSeekAction extends AbstractGameAction
@@ -51,9 +50,9 @@ public class SpellSeekAction extends AbstractGameAction
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (final AbstractCard c2 : this.p.drawPile.group) {
-            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell() || CardTags.hasTag(c2, MysticTags.IS_SPELL))
+            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell() || c2.hasTag(MysticTags.IS_SPELL))
                     || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && c2.type == AbstractCard.CardType.SKILL && !(c2 instanceof AbstractMysticCard
-                    && ((AbstractMysticCard)c2).isArte() || CardTags.hasTag(c2, MysticTags.IS_ARTE)))) {
+                    && ((AbstractMysticCard)c2).isArte() || c2.hasTag(MysticTags.IS_ARTE)))) {
                 tmp.addToRandomSpot(c2);
             }
         }
