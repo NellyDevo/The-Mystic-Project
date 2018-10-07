@@ -39,7 +39,7 @@ public class VorpalThrust
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = BASE_DMG;
         this.magicNumber = this.baseMagicNumber = ATTACK_DMG;
-        this.tags.add(MysticTags.IS_SPELL);
+        this.tags.add(MysticTags.IS_ARTE);
         this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
