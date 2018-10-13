@@ -45,7 +45,6 @@ public class ShockingGrasp
         this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
         this.tags.add(MysticTags.IS_SPELL);
         this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
-        this.tags.add(BaseModCardTags.GREMLIN_MATCH);
     }
 
     @Override

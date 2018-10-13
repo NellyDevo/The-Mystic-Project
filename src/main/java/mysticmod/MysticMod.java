@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -35,6 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
+import static mysticmod.patches.AbstractCardEnum.MYSTIC_PURPLE;
 
 @SpireInitializer
 public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber {
@@ -70,7 +73,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public MysticMod(){
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(AbstractCardEnum.MYSTIC_PURPLE,
+        BaseMod.addColor(MYSTIC_PURPLE,
                 mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple, mysticPurple,   //Background color, back color, frame color, frame outline color, description box color, glow color
                 attackCard, skillCard, powerCard, energyOrb,                                                        //attack background image, skill background image, power background image, energy orb image
                 attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait,                        //as above, but for card inspect view
@@ -284,9 +287,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(MysticCharacter.class, "The Mystic", "MysticCharacter",
-                AbstractCardEnum.MYSTIC_PURPLE, "The Mystic", charButton, charPortrait,
-                MysticEnum.MYSTIC_CLASS);
+        BaseMod.addCharacter(new MysticCharacter("The Mystic"), AbstractCardEnum.MYSTIC_PURPLE, charButton, charPortrait, MysticEnum.MYSTIC_CLASS);
     }
 
     @Override
@@ -340,25 +341,25 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receiveEditRelics() {
         //starter
-        BaseMod.addRelicToCustomPool(new SpellBook(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new SpellBook(), MYSTIC_PURPLE);
 
         //Common
-        BaseMod.addRelicToCustomPool(new TrainingManual(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new TrainingManual(), MYSTIC_PURPLE);
 
         //Uncommon
-        BaseMod.addRelicToCustomPool(new RabbitsFoot(), AbstractCardEnum.MYSTIC_PURPLE);
-        BaseMod.addRelicToCustomPool(new RunicPrism(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new RabbitsFoot(), MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new RunicPrism(), MYSTIC_PURPLE);
 
         //Rare
-        BaseMod.addRelicToCustomPool(new Kama(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new Kama(), MYSTIC_PURPLE);
 
         //Shop
-        BaseMod.addRelicToCustomPool(new BentSpoon(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new BentSpoon(), MYSTIC_PURPLE);
 
         //Boss
-        BaseMod.addRelicToCustomPool(new BlessedBook(), AbstractCardEnum.MYSTIC_PURPLE); //replaces starting relic
-        BaseMod.addRelicToCustomPool(new CrystalBall(), AbstractCardEnum.MYSTIC_PURPLE);
-        BaseMod.addRelicToCustomPool(new DeckOfManyThings(), AbstractCardEnum.MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new BlessedBook(), MYSTIC_PURPLE); //replaces starting relic
+        BaseMod.addRelicToCustomPool(new CrystalBall(), MYSTIC_PURPLE);
+        BaseMod.addRelicToCustomPool(new DeckOfManyThings(), MYSTIC_PURPLE);
     }
 
     @Override
