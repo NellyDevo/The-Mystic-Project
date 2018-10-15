@@ -1,5 +1,6 @@
 package mysticmod.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -46,7 +47,7 @@ public class SpellDiscoveryAction extends AbstractGameAction
             if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                 final AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
                 disCard.current_x = -1000.0f * Settings.scale;
-                if (AbstractDungeon.player.hand.size() < 10) {
+                if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                     AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
                 }
                 else {

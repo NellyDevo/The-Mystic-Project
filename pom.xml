@@ -6,7 +6,7 @@
     <!-- Change These to match your mod -->
     <groupId>mysticmod</groupId>
     <artifactId>MysticMod</artifactId>
-    <version>0.10.0</version>
+    <version>0.10.1</version>
     <packaging>jar</packaging>
     <name>TheMystic</name>
     <description>Slay the Spire mod introducing custom character: The Mystic.</description>
@@ -31,14 +31,14 @@
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>BaseMod</artifactId>
-            <version>4.0.0</version>
+            <version>4.0.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>friendlyminions</groupId>
             <artifactId>FriendlyMinions</artifactId>
-            <version>0.0.4</version>
+            <version>0.1.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/FriendlyMinions.jar</systemPath>
         </dependency>

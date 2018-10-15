@@ -1,5 +1,6 @@
 package mysticmod.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -30,12 +31,14 @@ public class ArteHologram extends AbstractGameAction
 
     @Override
     public void update() {
-        if (this.p.hand.size() >= 10) {
+        int handSize = this.p.hand.size();
+        if (handSize >= BaseMod.MAX_HAND_SIZE) {
             this.isDone = true;
             return;
         }
-        if (this.p.hand.size() == 9) {
-            this.amount = 1;
+        int minAmount = BaseMod.MAX_HAND_SIZE - handSize;
+        if (minAmount < this.amount) {
+            this.amount = minAmount;
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2);
