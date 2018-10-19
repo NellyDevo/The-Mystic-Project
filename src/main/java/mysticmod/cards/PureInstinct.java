@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
-import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.CrystalBall;
 

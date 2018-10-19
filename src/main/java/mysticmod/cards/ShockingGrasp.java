@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -15,8 +14,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mysticmod.actions.LoadCardImageAction;
-import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 

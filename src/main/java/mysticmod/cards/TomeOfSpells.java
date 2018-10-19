@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
-import mysticmod.cards.cantrips.*;
 import mysticmod.patches.AbstractCardEnum;
 
 public class TomeOfSpells

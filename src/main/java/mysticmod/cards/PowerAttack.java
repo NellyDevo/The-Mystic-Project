@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.GainDexterityPower;
 

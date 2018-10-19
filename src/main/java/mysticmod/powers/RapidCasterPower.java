@@ -53,7 +53,7 @@ public class RapidCasterPower extends AbstractPower {
                 if (action.target != null) {
                     m = (AbstractMonster)action.target;
                 }
-                final AbstractCard tmp = card.makeStatEquivalentCopy();
+                final AbstractCard tmp = card.makeSameInstanceOf();
                 AbstractDungeon.player.limbo.addToBottom(tmp);
                 tmp.current_x = card.current_x;
                 tmp.current_y = card.current_y;

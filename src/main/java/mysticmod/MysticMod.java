@@ -1,6 +1,9 @@
 package mysticmod;
 
-import basemod.*;
+import basemod.BaseMod;
+import basemod.ModLabel;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -9,7 +12,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -24,9 +26,8 @@ import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
 import mysticmod.character.MysticCharacter;
 import mysticmod.modifiers.CrystalClear;
-import mysticmod.patches.MysticTags;
-import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.potions.EssenceOfMagic;
 import mysticmod.relics.*;
 
@@ -162,12 +163,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     }
 
     private void resetMysticConfigButtons() {
-        ModToggleButton reflectShapes = (ModToggleButton)ReflectionHacks.getPrivate(shapes, ModLabeledToggleButton.class, "toggle");
-        ModToggleButton reflectColors = (ModToggleButton)ReflectionHacks.getPrivate(colors, ModLabeledToggleButton.class, "toggle");
-        ModToggleButton reflectBoth = (ModToggleButton)ReflectionHacks.getPrivate(combined, ModLabeledToggleButton.class, "toggle");
-        reflectShapes.enabled = false;
-        reflectColors.enabled = false;
-        reflectBoth.enabled = false;
+        shapes.toggle.enabled = false;
+        colors.toggle.enabled = false;
+        combined.toggle.enabled = false;
     }
 
     @Override
@@ -287,7 +285,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new MysticCharacter("The Mystic"), AbstractCardEnum.MYSTIC_PURPLE, charButton, charPortrait, MysticEnum.MYSTIC_CLASS);
+        BaseMod.addCharacter(new MysticCharacter(CardCrawlGame.playerName), charButton, charPortrait, MysticEnum.MYSTIC_CLASS);
     }
 
     @Override

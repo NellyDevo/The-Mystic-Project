@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import mysticmod.MysticMod;
-import mysticmod.cards.cantrips.*;
 
 public class BlessedBook extends CustomRelic {
     public static final String ID = "mysticmod:BlessedBook";

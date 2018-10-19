@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.Natural20Power;
 

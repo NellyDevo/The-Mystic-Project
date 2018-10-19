@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.MysticMod;
 import mysticmod.actions.ReplaceCardAction;
-import mysticmod.cards.AbstractMysticCard;
 
 public class SpontaneousCasterPower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:SpontaneousCasterPower";

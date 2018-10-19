@@ -14,8 +14,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.actions.AddMyActionToBottomOfQueueLaterAction;
 import mysticmod.actions.LoadCardImageAction;
-import mysticmod.patches.MysticTags;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 

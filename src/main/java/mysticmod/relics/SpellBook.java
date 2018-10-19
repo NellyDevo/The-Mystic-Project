@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import mysticmod.MysticMod;
-import mysticmod.cards.cantrips.*;
 
 public class SpellBook extends CustomRelic {
     public static final String ID = "mysticmod:SpellBook";

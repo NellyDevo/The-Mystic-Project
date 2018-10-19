@@ -5,6 +5,7 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,13 +21,14 @@ import mysticmod.cards.ArcaneDodge;
 import mysticmod.cards.DefendMystic;
 import mysticmod.cards.ShockingGrasp;
 import mysticmod.cards.StrikeMystic;
+import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticEnum;
 import mysticmod.relics.SpellBook;
 
 import java.util.ArrayList;
 
 public class MysticCharacter extends CustomPlayer {
-    public static final int ENERGY_PER_TURN = 3; // how much energy you get every turn
+    public static final int ENERGY_PER_TURN = 3;
     public static final String MY_CHARACTER_SHOULDER_2 = "mysticmod/images/char/shoulder2.png";
     public static final String MY_CHARACTER_SHOULDER_1 = "mysticmod/images/char/shoulder.png";
     public static final String MY_CHARACTER_CORPSE = "mysticmod/images/char/corpse.png";
@@ -64,13 +66,47 @@ public class MysticCharacter extends CustomPlayer {
     }
 
     @Override
+    public String getSpireHeartText() {
+        return "NL You tighten your grip on Book and Blade..."; //UPDATE BODY TEXT :(
+    }
+
+    @Override
+    public Color getSlashAttackColor() {
+        return mysticPurple;
+    }
+
+    @Override
+    public String getVampireText() {
+        return "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~wanderer,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~";
+    }
+
+    @Override
     public String getTitle(PlayerClass playerClass) {
         return NAMES[0];
     }
 
     @Override
-    public Color getCardColor() {
+    public AbstractCard.CardColor getCardColor() {
+        return AbstractCardEnum.MYSTIC_PURPLE;
+    }
+
+    @Override
+    public Color getCardRenderColor() {
         return mysticPurple;
+    }
+
+    @Override
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[]{
+                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+                AbstractGameAction.AttackEffect.FIRE,
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.POISON,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY
+                };
     }
 
     @Override
