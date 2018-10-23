@@ -42,7 +42,6 @@ public class HeavyStrike
         this.magicNumber = this.baseMagicNumber = DAMAGE_INCREMENT;
         this.tags.add(MysticTags.IS_ARTE);
         this.exhaust = true;
-        this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
         this.tags.add(CardTags.STRIKE);
     }
 
@@ -52,7 +51,6 @@ public class HeavyStrike
             AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(this.uuid, this.misc, this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

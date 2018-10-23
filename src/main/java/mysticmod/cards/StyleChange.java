@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 
-public class StyleChange
-        extends AbstractMysticCard {
+public class StyleChange extends AbstractMysticCard {
     public static final String ID = "mysticmod:StyleChange";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -31,7 +30,10 @@ public class StyleChange
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        final AbstractCard c = MysticMod.returnTrulyRandomArte();
+        AbstractCard c = MysticMod.returnTrulyRandomArte();
+        while (c instanceof PowerAttack || c instanceof Lunge) { //blacklist feats
+            c = MysticMod.returnTrulyRandomArte();
+        }
         c.setCostForTurn(0);
         UnlockTracker.markCardAsSeen(c.cardID);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, true));

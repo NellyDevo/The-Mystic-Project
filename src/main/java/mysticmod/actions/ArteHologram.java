@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
@@ -41,12 +42,8 @@ public class ArteHologram extends AbstractGameAction
             this.amount = minAmount;
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        boolean cantripsAreSpells = (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2);
-        boolean hasCrystalBall = (AbstractDungeon.player.hasRelic(CrystalBall.ID));
         for (final AbstractCard c2 : this.p.discardPile.group) {
-            if ((c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isArte() || c2.hasTag(MysticTags.IS_ARTE))
-                || (hasCrystalBall && c2.type == AbstractCard.CardType.ATTACK && !(c2 instanceof AbstractMysticCard && ((AbstractMysticCard)c2).isSpell() || c2.hasTag(MysticTags.IS_SPELL)))
-                && !(c2.hasTag(MysticTags.IS_CANTRIP) && cantripsAreSpells)) {
+            if (MysticMod.isThisAnArte(c2)) {
                 tmp.addToRandomSpot(c2);
             }
         }

@@ -19,8 +19,7 @@ import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 
-public class ShockingGrasp
-        extends AbstractMysticCard {
+public class ShockingGrasp extends AbstractMysticCard {
     public static final String ID = "mysticmod:ShockingGrasp";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -43,7 +42,6 @@ public class ShockingGrasp
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
         this.tags.add(MysticTags.IS_SPELL);
-        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
 
     @Override
@@ -55,7 +53,6 @@ public class ShockingGrasp
     } else {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
     }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

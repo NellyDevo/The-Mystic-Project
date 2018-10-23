@@ -31,13 +31,11 @@ public class Disengage
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
         this.tags.add(MysticTags.IS_ARTE);
-        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayedNextTurn(p, 1), 1));
     }
 

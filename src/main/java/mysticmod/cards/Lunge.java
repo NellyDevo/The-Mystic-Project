@@ -34,7 +34,6 @@ public class Lunge
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = ENERGY_GAIN;
         this.tags.add(MysticTags.IS_ARTE);
-        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
@@ -47,8 +46,6 @@ public class Lunge
         if (!p.hasPower("Artifact")) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, 4), 4));
         }
-        //Arte functionality
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

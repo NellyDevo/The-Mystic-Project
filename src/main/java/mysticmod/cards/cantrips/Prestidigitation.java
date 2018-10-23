@@ -31,7 +31,6 @@ public class Prestidigitation
                 AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
-        crystalBallToggle = false;
         this.tags.add(MysticTags.IS_CANTRIP);
     }
 
@@ -39,24 +38,12 @@ public class Prestidigitation
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-        //cantrip functionality
-        if (
-                !(p.hasPower(SpellsPlayed.POWER_ID))
-                        ||
-                        (p.hasPower(SpellsPlayed.POWER_ID) && (p.getPower(SpellsPlayed.POWER_ID).amount <= 2))
-        ) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
-        }
     }
 
     @Override
     public boolean isSpell() {
-        if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            this.tags.add(MysticTags.IS_SPELL);
-            return true;
-        }
-        this.tags.remove(MysticTags.IS_SPELL);
-        return super.isSpell();
+        return (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
+                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2));
     }
 
     @Override

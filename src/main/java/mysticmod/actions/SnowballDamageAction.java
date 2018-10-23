@@ -20,7 +20,7 @@ public class SnowballDamageAction extends AbstractGameAction {
         this.skipWait = false;
         this.setValues(target, this.info = info);
         this.actionType = ActionType.DAMAGE;
-        this.duration = 0.1f;
+        this.duration = DURATION;
     }
     
     @Override
@@ -49,7 +49,7 @@ public class SnowballDamageAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
             if (!this.skipWait && !Settings.FAST_MODE) {
-                AbstractDungeon.actionManager.addToTop(new WaitAction(0.1f));
+                AbstractDungeon.actionManager.addToTop(new WaitAction(POST_ATTACK_WAIT_DUR));
             }
         }
     }

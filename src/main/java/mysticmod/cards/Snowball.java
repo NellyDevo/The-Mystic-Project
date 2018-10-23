@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,10 +10,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.SnowballDamageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
 
-public class Snowball
-        extends AbstractMysticCard {
+public class Snowball extends AbstractMysticCard {
     public static final String ID = "mysticmod:Snowball";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -31,13 +28,11 @@ public class Snowball
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.tags.add(MysticTags.IS_SPELL);
-        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SnowballDamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }
 
     @Override

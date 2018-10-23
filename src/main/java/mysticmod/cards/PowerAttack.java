@@ -37,7 +37,6 @@ public class PowerAttack
         this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
         this.secondMagicNumber = this.baseSecondMagicNumber = STRENGTH_GAIN;
         this.tags.add(MysticTags.IS_ARTE);
-        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
@@ -48,8 +47,6 @@ public class PowerAttack
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
-        //Arte functionality
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
     }
 
     @Override

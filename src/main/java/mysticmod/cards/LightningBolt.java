@@ -40,7 +40,6 @@ public class LightningBolt
         this.magicNumber = this.baseMagicNumber = ALTERNATE_DMG;
         this.isMultiDamage = true;
         this.tags.add(MysticTags.IS_SPELL);
-        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -49,7 +48,6 @@ public class LightningBolt
         } else {
             AbstractDungeon.actionManager.addToBottom(new LightningBoltAction(this.multiDamage, this.damageTypeForTurn, p, this));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

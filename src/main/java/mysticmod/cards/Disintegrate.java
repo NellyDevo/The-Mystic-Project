@@ -36,7 +36,6 @@ public class Disintegrate
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.tags.add(MysticTags.IS_SPELL);
-        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
 
     @Override
@@ -53,8 +52,6 @@ public class Disintegrate
         if (targetArmor > 0) {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, m, targetArmor));
         }
-        // advance spells played
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }
     @Override
     public AbstractCard makeCopy() {

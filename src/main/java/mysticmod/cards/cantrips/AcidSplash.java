@@ -32,7 +32,6 @@ public class AcidSplash
                 AbstractCard.CardType.ATTACK, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
-        crystalBallToggle = false;
         this.tags.add(MysticTags.IS_CANTRIP);
     }
 
@@ -40,24 +39,12 @@ public class AcidSplash
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DrawCardAction(p, 1));
-        //cantrip functionality
-        if (
-                !(p.hasPower(SpellsPlayed.POWER_ID))
-                ||
-                (p.hasPower(SpellsPlayed.POWER_ID) && (p.getPower(SpellsPlayed.POWER_ID).amount <= 2))
-        ) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
-        }
     }
 
     @Override
     public boolean isSpell() {
-        if (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)) {
-            this.tags.add(MysticTags.IS_SPELL);
-            return true;
-        }
-        this.tags.remove(MysticTags.IS_SPELL);
-        return super.isSpell();
+        return (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
+                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2));
     }
 
     @Override

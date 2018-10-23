@@ -44,7 +44,6 @@ public class BladedDash
         this.damage=this.baseDamage = ATTACK_DMG;
         this.block = this.baseBlock = BLOCK_AMT;
         this.tags.add(MysticTags.IS_ARTE);
-        this.setBackgroundTexture(BG_SMALL_ARTE_ATTACK_MYSTIC, BG_LARGE_ARTE_ATTACK_MYSTIC);
     }
 
     @Override
@@ -55,7 +54,6 @@ public class BladedDash
         if (p.hasPower(SpellsPlayed.POWER_ID) && p.getPower(SpellsPlayed.POWER_ID).amount >= 1) {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

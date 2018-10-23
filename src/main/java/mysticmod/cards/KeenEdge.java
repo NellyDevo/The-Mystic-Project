@@ -34,9 +34,6 @@ public class KeenEdge
         for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber));
         }
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
-        }
     }
 
     @Override
@@ -49,8 +46,6 @@ public class KeenEdge
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeToArte();
-            this.crystalBallToggle = false;
-            this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
         }
     }
 }

@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.RapidCasterPower;
 
-public class RapidCaster
-        extends AbstractMysticCard {
+public class RapidCaster extends AbstractMysticCard {
     public static final String ID = "mysticmod:RapidCaster";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -28,9 +27,7 @@ public class RapidCaster
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RapidCasterPower(p, 1), 1));
-
     }
 
     @Override

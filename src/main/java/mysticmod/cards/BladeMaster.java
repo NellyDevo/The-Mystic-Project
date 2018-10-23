@@ -18,14 +18,14 @@ public class BladeMaster
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/blademaster.png";
     private static final int COST = 1;
-    private static final int ArteS_TO_RETURN = 2;
+    private static final int ARTES_TO_RETURN = 2;
     private static final int UPGRADE_PLUS_TECH = 1;
 
     public BladeMaster() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = ArteS_TO_RETURN;
+        this.magicNumber = this.baseMagicNumber = ARTES_TO_RETURN;
     }
 
     @Override

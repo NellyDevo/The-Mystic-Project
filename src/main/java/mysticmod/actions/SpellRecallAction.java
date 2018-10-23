@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
 import mysticmod.patches.MysticTags;
 import mysticmod.relics.CrystalBall;
@@ -34,10 +35,7 @@ public class SpellRecallAction extends AbstractGameAction
             //BEGIN make card group from discard pile
             final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (final AbstractCard discardedCard : this.p.discardPile.group) {
-                if ((discardedCard instanceof AbstractMysticCard && ((AbstractMysticCard)discardedCard).isSpell()
-                        || discardedCard.hasTag(MysticTags.IS_SPELL)) || (AbstractDungeon.player.hasRelic(CrystalBall.ID)
-                        && discardedCard.type == AbstractCard.CardType.SKILL && !(discardedCard instanceof AbstractMysticCard
-                        && ((AbstractMysticCard)discardedCard).isArte() || discardedCard.hasTag(MysticTags.IS_ARTE)))) {
+                if (MysticMod.isThisASpell(discardedCard)) {
                     tmp.addToRandomSpot(discardedCard);
                 }
             }

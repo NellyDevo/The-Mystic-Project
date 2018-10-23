@@ -4,12 +4,12 @@
     "DESCRIPTIONS": ["Whenever you play a [#5299DC]Spell[], gain ", " Strength until end of turn"]
   },
   "mysticmod:ArtesPlayedPower": {
-    "NAME": "[#FF5252]Artes[] Played",
+    "NAME": "[#FF5252]Poise[]",
     "DESCRIPTIONS": ["You have played ", " [#FF5252]Arte[] this turn.", " [#FF5252]Artes[] this turn."]
   },
   "mysticmod:ArtesPlayedNextTurnPower": {
-    "NAME": "[#FF5252]Artes[] Next Turn",
-    "DESCRIPTIONS": ["Start next turn as if you already played ", " [#FF5252]Arte[].", " [#FF5252]Artes[]."]
+    "NAME": "[#FF5252]Poise[] Next Turn",
+    "DESCRIPTIONS": ["Start next turn with ", " [#FF5252]Poise[]."]
   },
   "mysticmod:ComboCasterPower": {
     "NAME": "Combo Caster",
@@ -17,7 +17,7 @@
   },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
-    "DESCRIPTIONS": ["Begin each turn as if you had already played ", " [#5299DC]Spell[] and [#FF5252]Arte[]", " [#5299DC]Spells[] and [#FF5252]Artes[]."]
+    "DESCRIPTIONS": ["Begin each turn with ", " [#5299DC]Power[] and [#FF5252]Poise[]"]
   },
   "mysticmod:DoublecastPower": {
     "NAME": "Doublecast",
@@ -53,11 +53,11 @@
   },
   "mysticmod:MirrorEntityPower": {
     "NAME": "Mirror Entity",
-    "DESCRIPTIONS": ["[#5299DC]Spells[] and [#FF5252]Artes[] played carry over to the next turn"]
+    "DESCRIPTIONS": ["[#5299DC]Spells[] and [#FF5252]Artes[] also advance next turn's [#5299DC]Power[] and [#FF5252]Poise[] counters."]
   },
   "mysticmod:MomentumPower": {
     "NAME": "Momentum",
-    "DESCRIPTIONS": ["[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block for each card of the other type played this turn"]
+    "DESCRIPTIONS": ["[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block equal to your [#FF5252]Poise[] and [#5299DC]Power[] respectively."]
   },
   "mysticmod:MysticalShieldPower": {
     "NAME": "Mystical Shield",
@@ -76,12 +76,12 @@
     "DESCRIPTIONS": ["The first Cantrip you play each turn is played twice.", "The first ", " Cantrips you play each turn are played twice."]
   },
   "mysticmod:SpellsPlayedPower": {
-    "NAME": "[#5299DC]Spells[] Played",
+    "NAME": "[#5299DC]Power[]",
     "DESCRIPTIONS": ["You have played ", " [#5299DC]Spell[] this turn.", " [#5299DC]Spells[] this turn."]
   },
   "mysticmod:SpellsPlayedNextTurnPower": {
-    "NAME": "[#5299DC]Spells[] Next Turn",
-    "DESCRIPTIONS": ["Start next turn as if you already played ", " [#5299DC]Spell[].", " [#5299DC]Spells[]."]
+    "NAME": "[#5299DC]Power[] Next Turn",
+    "DESCRIPTIONS": ["Start next turn with ", " [#5299DC]Power[]."]
   },
   "mysticmod:SpontaneousCasterPower": {
     "NAME": "Spontaneous Caster",

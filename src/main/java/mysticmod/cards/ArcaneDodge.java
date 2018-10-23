@@ -37,7 +37,6 @@ public class ArcaneDodge
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = EXTRA_BLK;
         this.tags.add(MysticTags.IS_ARTE);
-        this.setBackgroundTexture(BG_SMALL_ARTE_SKILL_MYSTIC, BG_LARGE_ARTE_SKILL_MYSTIC);
     }
 
     @Override
@@ -45,8 +44,7 @@ public class ArcaneDodge
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 1)) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
-         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, 1), 1));
+        }
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;

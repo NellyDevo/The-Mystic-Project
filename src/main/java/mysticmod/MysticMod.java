@@ -69,6 +69,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public static SpireConfig mysticConfig;
     public static boolean mysticFriendlyMinionsToggle;
     public static ArrayList<AbstractCard> cantripsGroup = new ArrayList<>();
+    public static ArrayList<AbstractCard> spellsGroup;
+    public static ArrayList<AbstractCard> artesGroup;
 
 
     public MysticMod(){
@@ -309,12 +311,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receiveEditKeywords() {
         String[] keywordCantrips = {"cantrip", "cantrips"};
-        String[] keywordArcane = {"arcane"};
-        String[] keywordTechnical = {"technical"};
+        String[] keywordPowerful = {"powerful"};
+        String[] keywordPoised = {"poised"};
         String[] keywordFeat = {"feat"};
         BaseMod.addKeyword(keywordCantrips, "Considered a [#5299DC]Spell[] so long as you've played fewer than 3 [#5299DC]Spells[] this turn.");
-        BaseMod.addKeyword(keywordArcane, "Has a special effect if you played a [#5299DC]Spell[] this turn.");
-        BaseMod.addKeyword(keywordTechnical, "Has a special effect if you played an [#FF5252]Arte[] this turn.");
+        BaseMod.addKeyword(keywordPowerful, "Has an additional effect if you have a stack of [#5299DC]Power[].");
+        BaseMod.addKeyword(keywordPoised, "Has an additional effect if you have a stack of [#FF5252]Poise[].");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
     }
 
@@ -366,7 +368,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     }
 
     @Override
-    public void receivePostBattle(final AbstractRoom p0) { //for Magic Missile
+    public void receivePostBattle(final AbstractRoom p0) {
         numberOfTimesDeckShuffledThisCombat = 0;
         healerAccused = false;
         if (storedHealer != null) {
@@ -375,48 +377,66 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
     }
 
-    public static boolean isThisASpell(final AbstractCard card) { //Is this a pigeon?
-        if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)) {
-                return true;
-            } else {
-                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.SKILL && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()));
+    public static boolean isThisASpell(AbstractCard card) {
+        boolean retVal = false;
+        if (card instanceof AbstractMysticCard) {
+            if (((AbstractMysticCard)card).isSpell()) { //methods simply call against hasTag, but exist to offer hooks into conditional spell/arte logic
+                retVal = true;
+            } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)
+                    && card.type == AbstractCard.CardType.SKILL && !((AbstractMysticCard)card).isArte()) {
+                retVal = true;
             }
+        } else if (card.hasTag(MysticTags.IS_SPELL)) {
+            retVal = true;
+        } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)
+                && card.type == AbstractCard.CardType.SKILL && !card.hasTag(MysticTags.IS_ARTE)) {
+            retVal = true;
         }
-        return false;
+        return retVal;
     }
 
-    public static boolean isThisAnArte(final AbstractCard card) {
-        if (card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)) {
-                return true;
-            } else {
-                return (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)));
+    public static boolean isThisAnArte(AbstractCard card) {
+        boolean retVal = false;
+        if (card instanceof AbstractMysticCard) {
+            if (((AbstractMysticCard)card).isArte()) { //if card is Mystic card, test if has Arte tag
+                retVal = true;
+            } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID) //else, test if crystal ball and not a spell.
+                    && card.type == AbstractCard.CardType.ATTACK && !((AbstractMysticCard)card).isSpell()) {
+                retVal = true;
             }
+        } else if (card.hasTag(MysticTags.IS_ARTE)) { //if card is not a mystic card, repeat tests.
+            retVal = true;
+        } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)
+                && card.type == AbstractCard.CardType.ATTACK && !card.hasTag(MysticTags.IS_SPELL)) {
+            retVal = true;
         }
-        return false;
+        return retVal;
     }
 
     public static AbstractCard returnTrulyRandomSpell() {
-        final ArrayList<AbstractCard> list = new ArrayList<>();
-        for (final Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
-            final AbstractCard card = potentialSpell.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()) {
-                list.add(card);
+        if (spellsGroup == null) {
+            spellsGroup = new ArrayList<>();
+            for (Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
+                AbstractCard card = potentialSpell.getValue();
+                if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card.hasTag(MysticTags.IS_SPELL)) {
+                    spellsGroup.add(card.makeCopy());
+                }
             }
         }
-        return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
+        return spellsGroup.get(AbstractDungeon.cardRandomRng.random(spellsGroup.size() - 1));
     }
 
     public static AbstractCard returnTrulyRandomArte() {
-        final ArrayList<AbstractCard> list = new ArrayList<>();
-        for (final Map.Entry<String, AbstractCard> potentialArte : CardLibrary.cards.entrySet()) {
-            final AbstractCard card = potentialArte.getValue();
-            if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte()) {
-                list.add(card);
+        if (artesGroup == null) {
+            artesGroup = new ArrayList<>();
+            for (Map.Entry<String, AbstractCard> potentialArte : CardLibrary.cards.entrySet()) {
+                AbstractCard card = potentialArte.getValue();
+                if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card.hasTag(MysticTags.IS_ARTE)) {
+                    artesGroup.add(card.makeCopy());
+                }
             }
         }
-        return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
+        return artesGroup.get(AbstractDungeon.cardRandomRng.random(artesGroup.size() - 1));
     }
 
     public static Texture loadBgAddonTexture(String imgPath) {

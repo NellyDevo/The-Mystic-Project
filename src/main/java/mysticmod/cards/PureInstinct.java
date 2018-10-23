@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
+import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
@@ -40,12 +41,7 @@ public class PureInstinct
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(p.hb.cX, p.hb.cY - 40.0f * Settings.scale, Settings.GREEN_TEXT_COLOR.cpy()), 0.3f));
         int ArtesCount = 0;
         for (final AbstractCard card : p.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)
-                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell()
-                    || card.hasTag(MysticTags.IS_SPELL)))) {
-                if (!(card.hasTag(MysticTags.IS_CANTRIP) && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
-                        || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
+            if (MysticMod.isThisAnArte(card)) {
                 ArtesCount++;
             }
         }
@@ -62,12 +58,8 @@ public class PureInstinct
     public void applyPowers() {
         int ArtesCount = 0;
         for (final AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isArte() || card.hasTag(MysticTags.IS_ARTE)
-                    || (AbstractDungeon.player.hasRelic(CrystalBall.ID) && card.type == AbstractCard.CardType.ATTACK
-                    && !(card instanceof AbstractMysticCard && ((AbstractMysticCard)card).isSpell() || card.hasTag(MysticTags.IS_SPELL)))) {
-                if (!(card.hasTag(MysticTags.IS_CANTRIP) && (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
-                        || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2)))
-                    ArtesCount++;
+            if (MysticMod.isThisAnArte(card)){
+                ArtesCount++;
             }
         }
         this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + ArtesCount;

@@ -29,9 +29,7 @@ public class ComboCaster
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboCasterPower(p, 1), 1));
-
     }
 
     @Override

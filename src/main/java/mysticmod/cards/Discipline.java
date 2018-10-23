@@ -29,9 +29,7 @@ public class Discipline
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DisciplinePower(p, 1), 1));
-
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DisciplinePower(p, 1), 1));
     }
 
     @Override

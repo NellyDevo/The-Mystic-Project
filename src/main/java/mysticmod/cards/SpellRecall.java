@@ -9,8 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.SpellRecallAction;
 import mysticmod.patches.AbstractCardEnum;
 
-public class SpellRecall
-        extends AbstractMysticCard {
+public class SpellRecall extends AbstractMysticCard {
     public static final String ID = "mysticmod:SpellRecall";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

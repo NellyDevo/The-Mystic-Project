@@ -126,7 +126,7 @@ public class MysticCharacter extends CustomPlayer {
 
     @Override
     public BitmapFont getEnergyNumFont() {
-        return FontHelper.energyNumFontRed; //TODO
+        return FontHelper.energyNumFontRed;
     }
 
     @Override

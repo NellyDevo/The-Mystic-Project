@@ -30,7 +30,6 @@ public class EnergizedRift
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
         this.tags.add(MysticTags.IS_SPELL);
-        this.setBackgroundTexture(BG_SMALL_SPELL_SKILL_MYSTIC, BG_LARGE_SPELL_SKILL_MYSTIC);
     }
 
     @Override
@@ -46,7 +45,6 @@ public class EnergizedRift
             }
         }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip.makeStatEquivalentCopy(), 1, true, true));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
     }
 
     @Override

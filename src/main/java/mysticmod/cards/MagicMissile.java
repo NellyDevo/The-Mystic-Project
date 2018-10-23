@@ -40,7 +40,6 @@ public class MagicMissile
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = 1;
         this.tags.add(MysticTags.IS_SPELL);
-        this.setBackgroundTexture(BG_SMALL_SPELL_ATTACK_MYSTIC, BG_LARGE_SPELL_ATTACK_MYSTIC);
     }
 
     @Override
@@ -65,7 +64,6 @@ public class MagicMissile
             AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25f));
             elapsedTime += 0.25f;
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, 1), 1));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }

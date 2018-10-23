@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.SpontaneousCasterPower;
 
-public class SpontaneousCaster
-        extends AbstractMysticCard {
+public class SpontaneousCaster extends AbstractMysticCard {
     public static final String ID = "mysticmod:SpontaneousCaster";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
