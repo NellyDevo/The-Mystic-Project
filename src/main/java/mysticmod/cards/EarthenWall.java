@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
 
 public class EarthenWall
         extends AbstractMysticCard {

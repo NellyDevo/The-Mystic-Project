@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +11,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
 
 public class EnergizedRift
         extends AbstractMysticCard {

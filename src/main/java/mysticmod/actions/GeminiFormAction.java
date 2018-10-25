@@ -12,10 +12,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
-import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
 import mysticmod.powers.GeminiFormPower;
-import mysticmod.relics.CrystalBall;
 
 public class GeminiFormAction extends AbstractGameAction {
     private AbstractPlayer p;

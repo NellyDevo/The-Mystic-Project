@@ -6,9 +6,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
-import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
-import mysticmod.relics.CrystalBall;
 
 public class EbbPowerAction extends AbstractGameAction {
 

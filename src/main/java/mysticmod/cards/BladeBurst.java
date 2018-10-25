@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.MysticTags;
-import mysticmod.powers.ArtesPlayed;
 
 public class BladeBurst
         extends AbstractMysticCard {

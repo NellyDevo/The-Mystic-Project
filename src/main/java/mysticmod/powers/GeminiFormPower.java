@@ -12,9 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.MysticMod;
 import mysticmod.actions.GeminiFormAction;
-import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
-import mysticmod.relics.CrystalBall;
 
 
 public class GeminiFormPower extends AbstractPower {

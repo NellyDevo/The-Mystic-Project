@@ -20,7 +20,6 @@ import mysticmod.minions.foxfamiliar.FoxFamiliar;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayedNextTurn;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.powers.SpellsPlayedNextTurn;
 
 import java.util.ArrayList;

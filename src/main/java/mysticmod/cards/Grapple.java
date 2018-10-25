@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.powers.EntanglePower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.powers.ArtesPlayed;
 
 public class Grapple
         extends AbstractMysticCard {

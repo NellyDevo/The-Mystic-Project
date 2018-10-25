@@ -4,10 +4,8 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
 import mysticmod.patches.MysticTags;
-import mysticmod.relics.CrystalBall;
 
 import java.util.ArrayList;
 import java.util.List;

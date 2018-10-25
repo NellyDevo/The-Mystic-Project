@@ -12,7 +12,6 @@ import mysticmod.actions.LoadCardImageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
-import mysticmod.powers.SpellsPlayed;
 
 public class GreaterInvisibility
         extends AbstractMysticCard {

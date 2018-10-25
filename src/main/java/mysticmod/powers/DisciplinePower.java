@@ -29,12 +29,7 @@ public class DisciplinePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + "1" + DESCRIPTIONS[1];
-        } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-        }
-
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override

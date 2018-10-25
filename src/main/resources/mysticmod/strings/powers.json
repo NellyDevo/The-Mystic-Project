@@ -17,7 +17,7 @@
   },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
-    "DESCRIPTIONS": ["Begin each turn with ", " [#5299DC]Power[] and [#FF5252]Poise[]"]
+    "DESCRIPTIONS": ["Begin each turn with ", " [#5299DC]Power[] and [#FF5252]Poise[]."]
   },
   "mysticmod:DoublecastPower": {
     "NAME": "Doublecast",

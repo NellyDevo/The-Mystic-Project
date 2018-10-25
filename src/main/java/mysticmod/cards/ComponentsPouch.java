@@ -11,8 +11,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
-import mysticmod.patches.MysticTags;
-import mysticmod.relics.CrystalBall;
 
 public class ComponentsPouch
         extends AbstractMysticCard {

@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import mysticmod.powers.ArtesPlayed;
 
 public class Riposte extends AbstractMysticCard {
     public static final String ID = "mysticmod:Riposte";

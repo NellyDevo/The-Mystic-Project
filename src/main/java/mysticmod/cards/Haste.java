@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.HastePower;
-import mysticmod.powers.SpellsPlayed;
 
 public class Haste
         extends AbstractMysticCard {
