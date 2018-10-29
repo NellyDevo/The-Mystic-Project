@@ -40,8 +40,6 @@ public class GreaterInvisibility
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.exhaust = (p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= this.magicNumber);
-        //Intangible
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
@@ -57,11 +55,13 @@ public class GreaterInvisibility
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
                 this.isArtAlternate = true;
             }
+            this.exhaust = false;
         } else {
             if (this.isArtAlternate) {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
+            this.exhaust = true;
         }
     }
 
