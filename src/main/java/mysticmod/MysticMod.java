@@ -418,7 +418,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             spellsGroup = new ArrayList<>();
             for (Map.Entry<String, AbstractCard> potentialSpell : CardLibrary.cards.entrySet()) {
                 AbstractCard card = potentialSpell.getValue();
-                if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card.hasTag(MysticTags.IS_SPELL)) {
+                if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL
+                        && card.hasTag(MysticTags.IS_SPELL) && !card.hasTag(AbstractCard.CardTags.HEALING)) {
                     spellsGroup.add(card.makeCopy());
                 }
             }
@@ -431,7 +432,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             artesGroup = new ArrayList<>();
             for (Map.Entry<String, AbstractCard> potentialArte : CardLibrary.cards.entrySet()) {
                 AbstractCard card = potentialArte.getValue();
-                if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL && card.hasTag(MysticTags.IS_ARTE)) {
+                if (card.rarity != AbstractCard.CardRarity.BASIC && card.rarity != AbstractCard.CardRarity.SPECIAL
+                        && card.hasTag(MysticTags.IS_ARTE) && !card.hasTag(AbstractCard.CardTags.HEALING)) {
                     artesGroup.add(card.makeCopy());
                 }
             }

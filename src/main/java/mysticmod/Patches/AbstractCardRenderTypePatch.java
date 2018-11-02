@@ -15,10 +15,7 @@ import java.util.ArrayList;
         method="renderType"
 )
 public class AbstractCardRenderTypePatch {
-    @SpireInsertPatch(
-            localvars={"text"},
-            locator = Locator.class
-    )
+    @SpireInsertPatch(localvars={"text"}, locator = Locator.class)
     public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text) {
         boolean isSpell = MysticMod.isThisASpell(__instance);
         boolean isArte = MysticMod.isThisAnArte(__instance);

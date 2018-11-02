@@ -71,6 +71,26 @@ public class Fireball
         super.applyPowers();
     }
 
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            this.target = AbstractCard.CardTarget.ALL_ENEMY;
+            this.isMultiDamage = true;
+            if (!this.isArtAlternate) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
+                this.isArtAlternate = true;
+            }
+        } else {
+            this.target = AbstractCard.CardTarget.ENEMY;
+            this.isMultiDamage = false;
+            if (this.isArtAlternate) {
+                this.loadCardImage(IMG_PATH);
+                this.isArtAlternate = false;
+            }
+        }
+        super.calculateCardDamage(mo);
+    }
+
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isArtAlternate) {
