@@ -18,7 +18,7 @@ public class MysticMetricsPatch {
 
         public static void Prefix(Metrics __instance, @ByRef String[] url, String fileName) {
             if (AbstractDungeon.player.chosenClass == MysticEnum.MYSTIC_CLASS) {
-                url[0] = "http://hwsrv-317610.hostwindsdns.com/";
+                url[0] = "http://hwsrv-317610.hostwindsdns.com/firstpass/";
             }
         }
     }
@@ -40,9 +40,9 @@ public class MysticMetricsPatch {
         public static void Postfix(Metrics __instance) {
             if (__instance.type == Metrics.MetricRequestType.UPLOAD_METRICS && AbstractDungeon.player.chosenClass == MysticEnum.MYSTIC_CLASS) {
                 try {
-                    Method m = Metrics.class.getDeclaredMethod("gatherAllDataAndSend", boolean.class, MonsterGroup.class);
+                    Method m = Metrics.class.getDeclaredMethod("gatherAllDataAndSend", boolean.class, boolean.class, MonsterGroup.class);
                     m.setAccessible(true);
-                    m.invoke(__instance, __instance.death, __instance.monsters);
+                    m.invoke(__instance, __instance.death, __instance.trueVictory, __instance.monsters);
                 } catch (NoSuchMethodException|InvocationTargetException|IllegalAccessException e) {
                     e.printStackTrace();
                 }

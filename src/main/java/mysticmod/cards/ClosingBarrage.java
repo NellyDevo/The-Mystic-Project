@@ -23,7 +23,6 @@ public class ClosingBarrage
     public static final String IMG_PATH = "mysticmod/images/cards/closingbarrage.png";
     private static final int COST = -1;
     private static final int MULTIPLIER = 3;
-    private static final int UPGRADE_PLUS_MULTIPLIER = 1;
 
     public ClosingBarrage() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -38,7 +37,7 @@ public class ClosingBarrage
         if (this.energyOnUse < EnergyPanel.totalCount) {
             this.energyOnUse = EnergyPanel.totalCount;
         }
-        AbstractDungeon.actionManager.addToBottom(new ClosingBarrageAction(p, m, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse));
+        AbstractDungeon.actionManager.addToBottom(new ClosingBarrageAction(p, m, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse, this.upgraded));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
@@ -100,7 +99,6 @@ public class ClosingBarrage
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_MULTIPLIER);
         }
     }
 }

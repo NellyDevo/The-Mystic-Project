@@ -17,7 +17,7 @@ public class SpontaneousCaster extends AbstractMysticCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/spontaneouscaster.png";
-    private static final int COST = 1;
+    private static final int COST = 3;
 
     public SpontaneousCaster() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

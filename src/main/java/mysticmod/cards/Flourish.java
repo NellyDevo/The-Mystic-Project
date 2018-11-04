@@ -22,9 +22,9 @@ public class Flourish
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/flourish.png";
-    private static final int COST = 5;
+    private static final int COST = 4;
     public static final int ATTACK_DMG = 6;
-    private static final int UPGRADE_PLUS_DMG = 2;
+    private static final int UPGRADE_COST = 3;
 
     public Flourish() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -95,7 +95,7 @@ public class Flourish
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+            this.upgradeBaseCost(UPGRADE_COST);
         }
     }
 }

@@ -69,13 +69,15 @@ public abstract class AbstractMysticCard extends CustomCard {
         if (this.type == AbstractCard.CardType.SKILL) {
             if (this.hasTag(MysticTags.IS_SPELL)) {
                 retVal.add(new TooltipInfo("Spell.", "This Skill is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
-            } else if (this.hasTag(MysticTags.IS_ARTE)) {
+            }
+            if (this.hasTag(MysticTags.IS_ARTE)) {
                 retVal.add(new TooltipInfo("Arte.", "This Skill is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
             }
         } else if (this.type == AbstractCard.CardType.ATTACK) {
             if (this.hasTag(MysticTags.IS_SPELL)) {
                 retVal.add(new TooltipInfo("Spell.", "This Attack is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
-            } else if (this.hasTag(MysticTags.IS_ARTE)) {
+            }
+            if (this.hasTag(MysticTags.IS_ARTE)) {
                 retVal.add(new TooltipInfo("Arte.", "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
             }
         }

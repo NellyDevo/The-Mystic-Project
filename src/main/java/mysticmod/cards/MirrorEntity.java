@@ -18,8 +18,8 @@ public class MirrorEntity
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/mirrorentity.png";
-    private static final int COST = 3;
-    public static final int UPGRADE_COST = 2;
+    private static final int COST = 2;
+    public static final int UPGRADE_COST = 1;
 
     public MirrorEntity() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

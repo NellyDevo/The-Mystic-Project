@@ -21,7 +21,8 @@ public class IllusionOfCalm
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/illusionofcalm.png";
     private static final int COST = 1;
-    private static final int BLOCK_AMT = 15;
+    private static final int BLOCK_AMT = 16;
+    private static final int UPGRADE_BLOCK_AMT = 2;
     private static final int FRAIL_AMT = 3;
     private static final int UPGRADE_MINUS_FRAIL = 1;
 
@@ -50,6 +51,7 @@ public class IllusionOfCalm
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(-UPGRADE_MINUS_FRAIL);
+            this.upgradeBlock(UPGRADE_BLOCK_AMT);
         }
     }
 }

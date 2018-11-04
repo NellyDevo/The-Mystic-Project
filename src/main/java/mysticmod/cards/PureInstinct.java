@@ -23,7 +23,7 @@ public class PureInstinct
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/pureinstinct.png";
     private static final int COST = 1;
-    public static final int BLOCK_AMT = 6;
+    public static final int BLOCK_AMT = 5;
     private static final int UPGRADE_PLUS_BLK = 2;
 
     public PureInstinct() {
@@ -42,10 +42,8 @@ public class PureInstinct
                 ArtesCount++;
             }
         }
-        if (ArtesCount > 0) {
-            for (int i = 0; i < ArtesCount; i++){
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-            }
+        for (int i = 0; i <= ArtesCount; i++){
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         }
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();

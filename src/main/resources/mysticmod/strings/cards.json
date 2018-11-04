@@ -41,7 +41,7 @@
   },
   "mysticmod:BulkUp": {
     "NAME": "Bulk Up",
-    "DESCRIPTION": "Gain !B! Block, then Exhaust a random card in your hand. NL Powerful: Choose what to Exhaust.",
+    "DESCRIPTION": "Gain !B! Block, then Exhaust a random card in your hand. NL Powerful: Choose if and what to Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ChargedParry": {
@@ -51,8 +51,8 @@
   },
   "mysticmod:ClosingBarrage": {
     "NAME": "Closing Barrage",
-    "DESCRIPTION": "Deals damage equal to !M! times your total [#5299DC]Power[] and [#FF5252]Poise[] X times.",
-    "UPGRADE_DESCRIPTION": "",
+    "DESCRIPTION": "Deals Y damage X times, where Y is equal to your total [#5299DC]Power[] and [#FF5252]Poise[] multiplied by !M!.",
+    "UPGRADE_DESCRIPTION": "Deals Y damage X+1 times, where Y is equal to your total [#5299DC]Power[] and [#FF5252]Poise[] multiplied by !M!.",
     "EXTENDED_DESCRIPTION": [" NL ( !D! damage)"]
   },
   "mysticmod:ComboCaster": {
@@ -62,7 +62,7 @@
   },
   "mysticmod:ComponentsPouch": {
     "NAME": "Components Pouch",
-    "DESCRIPTION": "Deal !D! damage for each [#5299DC]Spell[] in your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage for each [#5299DC]Spell[] in your hand.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (You have ",
@@ -73,7 +73,7 @@
   "mysticmod:CorrosiveTouch": {
     "NAME": "Corrosive Touch",
     "DESCRIPTION": "Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Begin next turn with one [#5299DC]Power[]."
   },
   "mysticmod:CureLightWounds": {
     "NAME": "Cure Light Wounds",
@@ -128,8 +128,8 @@
   },
   "mysticmod:EbbAndFlow": {
     "NAME": "Ebb and Flow",
-    "DESCRIPTION": "Each turn, draw 1 card, then discard 2 cards unless you have a [#5299DC]Spell[] and an [#FF5252]Arte[].",
-    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, draw 1 card, then discard 2 cards unless you have a [#5299DC]Spell[] and an [#FF5252]Arte[]."
+    "DESCRIPTION": "Each turn, draw 1 card, then discard 1 card unless you have a [#5299DC]Spell[] and 1 card unless you have an [#FF5252]Arte[].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, draw 1 card, then discard 1 card unless you have a [#5299DC]Spell[] and 1 card unless you have an [#FF5252]Arte[]."
   },
   "mysticmod:EnchantedMoulinet": {
     "NAME": "Enchanted Moulinet",
@@ -184,7 +184,7 @@
   "mysticmod:Grapple": {
     "NAME": "Grapple",
     "DESCRIPTION": "Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Ethereal. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Ethereal. Exhaust."
+    "UPGRADE_DESCRIPTION": "Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Exhaust."
   },
   "mysticmod:Grease": {
     "NAME": "Grease",
@@ -305,7 +305,7 @@
   "mysticmod:Probe": {
     "NAME": "Probe",
     "DESCRIPTION": "Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Begin next turn with one [#FF5252]Poise[]."
   },
   "mysticmod:PunishingArmor": {
     "NAME": "Punishing Armor",
@@ -314,7 +314,7 @@
   },
   "mysticmod:PureInstinct": {
     "NAME": "Pure Instinct",
-    "DESCRIPTION": "Gain !B! Block for each [#FF5252]Arte[] in your hand.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block for each [#FF5252]Arte[] in your hand.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (You have ",
@@ -350,7 +350,10 @@
   "mysticmod:SpellCombat": {
     "NAME": "Spell Combat",
     "DESCRIPTION": "Powerful: deal !D! damage X times. NL Poised: Gain !B! Block X times.",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "I don't have any [#5299DC]Power[] or [#FF5252]Poise[]!"
+    ]
   },
   "mysticmod:SpellRecall": {
     "NAME": "Spell Recall",
@@ -384,12 +387,12 @@
   },
   "mysticmod:SpontaneousCaster": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL Retain all [#5299DC]Spells[].",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL Retain all [#5299DC]Spells[]."
+    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL All [#5299DC]Spells'[] costs are reduced to [E] .",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL All [#5299DC]Spells'[] costs are reduced to [E] ."
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 2 Block at the start of the next !M! turns.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Stoneskin.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Strike_Mystic": {
@@ -404,8 +407,8 @@
   },
   "mysticmod:SuddenClarity": {
     "NAME": "Sudden Clarity",
-    "DESCRIPTION": "Gain !B! Block. NL Draw a card",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards"
+    "DESCRIPTION": "Gain !B! Block. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
   },
   "mysticmod:SummonFamiliar": {
     "NAME": "Summon Familiar",

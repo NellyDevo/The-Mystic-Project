@@ -47,12 +47,46 @@ public class SpontaneousCasterPower extends AbstractPower {
     }
 
     @Override
-    public void atEndOfTurn(final boolean isPlayer) {
-        if (isPlayer && !AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
-            for (AbstractCard handCard : AbstractDungeon.player.hand.group) {
-                if (MysticMod.isThisASpell(handCard)) {
-                    handCard.retain = true;
-                }
+    public void onDrawOrDiscard() {
+        setSpellCosts();
+    }
+
+    @Override
+    public void onInitialApplication() {
+        setSpellCosts();
+    }
+
+    private void setSpellCosts() {
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
+            if (card.costForTurn > 1 && MysticMod.isThisASpell(card)) {
+                card.costForTurn = 1;
+                card.isCostModifiedForTurn = true;
+                card.cost = 1;
+                card.isCostModified = true;
+            }
+        }
+        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+            if (card.costForTurn > 1 && MysticMod.isThisASpell(card)) {
+                card.costForTurn = 1;
+                card.isCostModifiedForTurn = true;
+                card.cost = 1;
+                card.isCostModified = true;
+            }
+        }
+        for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+            if (card.costForTurn > 1 && MysticMod.isThisASpell(card)) {
+                card.costForTurn = 1;
+                card.isCostModifiedForTurn = true;
+                card.cost = 1;
+                card.isCostModified = true;
+            }
+        }
+        for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
+            if (card.costForTurn > 1 && MysticMod.isThisASpell(card)) {
+                card.costForTurn = 1;
+                card.isCostModifiedForTurn = true;
+                card.cost = 1;
+                card.isCostModified = true;
             }
         }
     }

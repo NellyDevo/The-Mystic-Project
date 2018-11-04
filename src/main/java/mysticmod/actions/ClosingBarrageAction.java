@@ -19,9 +19,10 @@ public class ClosingBarrageAction extends AbstractGameAction {
     private int energyOnUse;
     private AbstractMonster m;
     private int inheritedDamage;
+    private boolean upgraded;
 
 
-    public ClosingBarrageAction(final AbstractPlayer p, final AbstractMonster m, final int damage, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
+    public ClosingBarrageAction(AbstractPlayer p, AbstractMonster m, int damage, DamageInfo.DamageType damageType, boolean isThisFreeToPlayOnce, int energyOnUse, boolean upgraded) {
         this.freeToPlayOnce = false;
         this.energyOnUse = -1;
         this.damageType = damageType;
@@ -32,6 +33,7 @@ public class ClosingBarrageAction extends AbstractGameAction {
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
         this.inheritedDamage = damage;
+        this.upgraded = upgraded;
     }
 
     @Override
@@ -43,6 +45,9 @@ public class ClosingBarrageAction extends AbstractGameAction {
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
+        }
+        if (this.upgraded) {
+            effect += 1;
         }
         Random generator = new Random();
         ArrayList<AttackEffect> randomEffect = new ArrayList<>();

@@ -17,7 +17,20 @@ import mysticmod.cards.AbstractMysticCard;
 public class SingleCardViewPopupRenderCardBackPatch {
     public static void Postfix(SingleCardViewPopup __instance, SpriteBatch sb) {
         AbstractCard reflectedCard = (AbstractCard) ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
-        if (MysticMod.isThisASpell(reflectedCard)) {
+        boolean isArte = MysticMod.isThisAnArte(reflectedCard);
+        boolean isSpell = MysticMod.isThisASpell(reflectedCard);
+        if (isArte && isSpell) {
+            switch (reflectedCard.type) {
+                case ATTACK:
+                    Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPERTE_ATTACK);
+                    sb.draw(extraAttackBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
+                    break;
+                case SKILL:
+                    Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPERTE_SKILL);
+                    sb.draw(extraSkillBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
+                    break;
+            }
+        } else if (isSpell) {
             switch (reflectedCard.type) {
                 case ATTACK:
                     Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_ATTACK);
@@ -28,8 +41,7 @@ public class SingleCardViewPopupRenderCardBackPatch {
                     sb.draw(extraSkillBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
                     break;
             }
-        }
-        if (MysticMod.isThisAnArte(reflectedCard)) {
+        } else if (isArte) {
             switch (reflectedCard.type) {
                 case ATTACK:
                     Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
@@ -37,18 +49,6 @@ public class SingleCardViewPopupRenderCardBackPatch {
                     break;
                 case SKILL:
                     Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_SKILL);
-                    sb.draw(extraSkillBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
-                    break;
-            }
-        }
-        if (reflectedCard.hasTag(MysticTags.IS_SPELL) && reflectedCard.hasTag(MysticTags.IS_ARTE)) {
-            switch (reflectedCard.type) {
-                case ATTACK:
-                    Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPERTE_ATTACK);
-                    sb.draw(extraAttackBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
-                    break;
-                case SKILL:
-                    Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPERTE_SKILL);
                     sb.draw(extraSkillBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
                     break;
             }

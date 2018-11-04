@@ -22,9 +22,10 @@ public class EarthenWall
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/earthenwall.png";
     private static final int COST = 2;
-    private static final int BLOCK_AMT = 11;
+    private static final int BLOCK_AMT = 12;
     private static final int BLOCK_UPGRADE_AMT = 3;
-    private static final int DEXTERITY_GAIN = 3;
+    private static final int DEXTERITY_GAIN = 4;
+    private static final int UPGRADE_DEXTERITY_GAIN = 1;
 
     public EarthenWall() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -54,6 +55,7 @@ public class EarthenWall
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(BLOCK_UPGRADE_AMT);
+            this.upgradeMagicNumber(UPGRADE_DEXTERITY_GAIN);
         }
     }
 }

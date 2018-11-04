@@ -41,7 +41,7 @@ public class BulkUp
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false));
+            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false, true, true));
         } else {
             AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, true));
         }

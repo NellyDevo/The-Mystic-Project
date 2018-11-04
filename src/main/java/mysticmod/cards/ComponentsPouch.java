@@ -22,7 +22,7 @@ public class ComponentsPouch
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/componentspouch.png";
     private static final int COST = 1;
-    public static final int ATTACK_DMG = 7;
+    public static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public ComponentsPouch() {
@@ -40,11 +40,9 @@ public class ComponentsPouch
                 spellsCount++;
             }
         }
-        if (spellsCount > 0) {
-            for (int i = 0; i < spellsCount; i++){
-                AbstractDungeon.actionManager.addToBottom(
-                        new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-            }
+        for (int i = 0; i <= spellsCount; i++){
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
         }
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();

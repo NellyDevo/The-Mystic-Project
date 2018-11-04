@@ -20,7 +20,7 @@ public class SuddenClarity
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/suddenclarity.png";
     private static final int COST = 1;
-    private static final int BLOCK_AMT = 5;
+    private static final int BLOCK_AMT = 7;
     private static final int CARD_DRAW = 1;
     private static final int UPGRADE_EXTRA_DRAW = 1;
 

@@ -21,7 +21,7 @@ public class HunkerDown
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/hunkerdown.png";
     private static final int COST = 0;
-    private static final int DEXTERITY_GAIN = 2;
+    private static final int DEXTERITY_GAIN = 3;
     private static final int UPGRADE_DEX_PLUS = 1;
 
     public HunkerDown() {

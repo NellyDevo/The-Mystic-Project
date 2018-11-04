@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.EntanglePower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 
 public class Grapple
         extends AbstractMysticCard {
@@ -31,6 +32,7 @@ public class Grapple
         this.exhaust = true;
         this.isEthereal = true;
         this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
+        this.tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
@@ -62,9 +64,9 @@ public class Grapple
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.isEthereal = false;
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            this.upgradeToArte();
         }
     }
 }

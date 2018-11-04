@@ -23,7 +23,8 @@ public class AllIn
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/allin.png";
     private static final int COST = 0;
-    private static final int DAMAGE_AMT = 10;
+    private static final int DAMAGE_AMT = 13;
+    private static final int UPGRADE_DAMAGE_AMT = 2;
     private static final int WEAK_AMT = 3;
     private static final int UPGRADE_MINUS_WEAK = 1;
 
@@ -52,6 +53,7 @@ public class AllIn
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(-UPGRADE_MINUS_WEAK);
+            this.upgradeDamage(UPGRADE_DAMAGE_AMT);
         }
     }
 }

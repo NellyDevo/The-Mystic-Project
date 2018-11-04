@@ -158,7 +158,6 @@ public class MysticCharacter extends CustomPlayer {
         retVal.add(StrikeMystic.ID);
         retVal.add(StrikeMystic.ID);
         retVal.add(StrikeMystic.ID);
-        retVal.add(StrikeMystic.ID);
         retVal.add(DefendMystic.ID);
         retVal.add(DefendMystic.ID);
         retVal.add(DefendMystic.ID);

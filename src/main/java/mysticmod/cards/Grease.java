@@ -25,7 +25,7 @@ public class Grease
     public static final String IMG_PATH = "mysticmod/images/cards/grease.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/grease.png";
     private static final int COST = 1;
-    private static final int STRENGTH_REDUCTION = 3;
+    private static final int STRENGTH_REDUCTION = 4;
     private static final int UPGRADE_STRENGTH_REDUCTION = 2;
     private boolean isArtAlternate = false;
 

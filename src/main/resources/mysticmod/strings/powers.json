@@ -85,10 +85,10 @@
   },
   "mysticmod:SpontaneousCasterPower": {
     "NAME": "Spontaneous Caster",
-    "DESCRIPTIONS": ["[#5299DC]Spells[] Exhaust when played, and then generate a random [#5299DC]Spell[] in your discard pile. At the end of each turn, all [#5299DC]Spells[] are Retained."]
+    "DESCRIPTIONS": ["[#5299DC]Spells[] Exhaust when played, and then generate a random [#5299DC]Spell[] in your discard pile. The cost of all Spells are reduced to [E] ."]
   },
   "mysticmod:StoneskinPower": {
     "NAME": "Stoneskin",
-    "DESCRIPTIONS": ["Start your next turn with 2 extra block.", "Start your next ", " turns with 2 extra block."]
+    "DESCRIPTIONS": ["Start your next ", "turn with 2(", " turns with 2(", ") extra block. This block is affected by block-affecting powers."]
   }
 }

@@ -314,10 +314,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         String[] keywordPowerful = {"powerful"};
         String[] keywordPoised = {"poised"};
         String[] keywordFeat = {"feat"};
+        String[] keywordStoneskin = {"stoneskin"};
         BaseMod.addKeyword(keywordCantrips, "Considered a [#5299DC]Spell[] so long as you've played fewer than 3 [#5299DC]Spells[] this turn.");
         BaseMod.addKeyword(keywordPowerful, "Has an additional effect if you have a stack of [#5299DC]Power[].");
         BaseMod.addKeyword(keywordPoised, "Has an additional effect if you have a stack of [#FF5252]Poise[].");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
+        BaseMod.addKeyword(keywordStoneskin, "Gives 2 block at the start of each turn. This block is affected by any block-affecting powers.");
     }
 
     @Override

@@ -19,7 +19,7 @@ public class BladeMaster
     public static final String IMG_PATH = "mysticmod/images/cards/blademaster.png";
     private static final int COST = 1;
     private static final int ARTES_TO_RETURN = 2;
-    private static final int UPGRADE_PLUS_TECH = 1;
+    private static final int UPGRADED_COST = 0;
 
     public BladeMaster() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -42,7 +42,7 @@ public class BladeMaster
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_TECH);
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
 }

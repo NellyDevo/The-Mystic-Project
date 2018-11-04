@@ -18,6 +18,7 @@ public class EbbPowerAction extends AbstractGameAction {
     public void update() {
         boolean hasSpell = false;
         boolean hasArte = false;
+        int discardAmount = 2;
         for (final AbstractCard card : AbstractDungeon.player.hand.group) {
             if (MysticMod.isThisASpell(card)) {
                 hasSpell = true;
@@ -30,7 +31,10 @@ public class EbbPowerAction extends AbstractGameAction {
                 return;
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 2, false));
+        if (hasSpell || hasArte) {
+            discardAmount = 1;
+        }
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, discardAmount, false));
         this.isDone = true;
     }
 }

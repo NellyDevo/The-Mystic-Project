@@ -21,8 +21,8 @@ public class PowerSlash
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/powerslash.png";
     private static final int COST = 1;
-    public static final int ATTACK_DMG = 9;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    public static final int ATTACK_DMG = 11;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     public PowerSlash() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,

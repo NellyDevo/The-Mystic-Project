@@ -26,8 +26,8 @@ public class HeavyStrike
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/heavystrike.png";
     private static final int COST = 2;
     public static final int ATTACK_DMG = 6;
-    private static final int UPGRADE_DAMAGE_INCREMENT = 1;
-    private static final int DAMAGE_INCREMENT = 2;
+    private static final int UPGRADE_DAMAGE_INCREMENT = 2;
+    private static final int DAMAGE_INCREMENT = 3;
     private boolean isArtAlternate = false;
 
     public HeavyStrike() {

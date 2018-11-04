@@ -15,7 +15,22 @@ public class AbstractCardRenderCardBgPatch {
 
     public static void Postfix(AbstractCard __card_instance, SpriteBatch sb, float x, float y) {
         Color reflectedColor = (Color)ReflectionHacks.getPrivate(__card_instance, AbstractCard.class, "renderColor");
-        if (MysticMod.isThisASpell(__card_instance)) {
+        boolean isSpell = MysticMod.isThisASpell(__card_instance);
+        boolean isArte = MysticMod.isThisAnArte(__card_instance);
+        if (isSpell && isArte) {
+            switch (__card_instance.type) {
+                case ATTACK:
+                    Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPERTE_ATTACK);
+                    sb.setColor(reflectedColor);
+                    sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
+                    break;
+                case SKILL:
+                    Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPERTE_SKILL);
+                    sb.setColor(reflectedColor);
+                    sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
+                    break;
+            }
+        } else if (isSpell) {
             switch (__card_instance.type) {
                 case ATTACK:
                     Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
@@ -28,8 +43,7 @@ public class AbstractCardRenderCardBgPatch {
                     sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
                     break;
             }
-        }
-        if (MysticMod.isThisAnArte(__card_instance)) {
+        } else if (isArte) {
             switch (__card_instance.type) {
                 case ATTACK:
                     Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
@@ -38,20 +52,6 @@ public class AbstractCardRenderCardBgPatch {
                     break;
                 case SKILL:
                     Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_SKILL);
-                    sb.setColor(reflectedColor);
-                    sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
-                    break;
-            }
-        }
-        if (__card_instance.hasTag(MysticTags.IS_SPELL) && __card_instance.hasTag(MysticTags.IS_ARTE)) {
-            switch (__card_instance.type) {
-                case ATTACK:
-                    Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPERTE_ATTACK);
-                    sb.setColor(reflectedColor);
-                    sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
-                    break;
-                case SKILL:
-                    Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPERTE_SKILL);
                     sb.setColor(reflectedColor);
                     sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __card_instance.drawScale * Settings.scale, __card_instance.drawScale * Settings.scale, __card_instance.angle, 0, 0, 512, 512, false, false);
                     break;

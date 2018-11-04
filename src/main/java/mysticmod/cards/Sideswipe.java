@@ -25,8 +25,9 @@ public class Sideswipe extends AbstractMysticCard {
     public static final String IMG_PATH = "mysticmod/images/cards/sideswipe.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/sideswipe.png";
     private static final int COST = 0;
-    public static final int ATTACK_DMG = 2;
+    private static final int ATTACK_DMG = 3;
     private static final int WEAK_AMT = 1;
+    private static final int UPGRADE_WEAK_AMT = 1;
     private static final int UPGRADE_ATK_DMG = 2;
     private boolean isArtAlternate = false;
 
@@ -86,6 +87,7 @@ public class Sideswipe extends AbstractMysticCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(UPGRADE_ATK_DMG);
+            this.upgradeMagicNumber(UPGRADE_WEAK_AMT);
         }
     }
 }
