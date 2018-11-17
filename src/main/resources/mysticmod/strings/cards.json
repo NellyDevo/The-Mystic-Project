@@ -168,7 +168,7 @@
   },
   "mysticmod:Flurry": {
     "NAME": "Flurry",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Powerful: !M2! times instead",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Powerful: !mysticmod:M2! times instead",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Fly": {
@@ -284,7 +284,7 @@
   },
   "mysticmod:PowerAttack": {
     "NAME": "Power Attack",
-    "DESCRIPTION": "Gain !M2! Strength and lose !M! Dexterity this turn. NL Feat.",
+    "DESCRIPTION": "Gain !mysticmod:M2! Strength and lose !M! Dexterity this turn. NL Feat.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PowerSlash": {

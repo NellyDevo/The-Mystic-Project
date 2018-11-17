@@ -112,7 +112,7 @@ public abstract class AbstractMysticCard extends CustomCard {
 
         @Override
         public String key() {
-            return "M2";
+            return "mysticmod:M2";
         }
 
         @Override

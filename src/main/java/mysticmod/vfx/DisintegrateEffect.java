@@ -26,8 +26,8 @@ public class DisintegrateEffect extends AbstractGameEffect
         if (DisintegrateEffect.img == null) {
             DisintegrateEffect.img = ImageMaster.vfxAtlas.findRegion("combat/laserThick");
         }
-        this.x = x + 80.0f * Settings.scale;
-        this.y = y - 50.0f * Settings.scale;
+        this.x = x;
+        this.y = y;
         this.color = Color.SKY.cpy();
         this.duration = DUR;
         this.startingDuration = DUR;

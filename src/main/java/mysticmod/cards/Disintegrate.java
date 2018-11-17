@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -44,7 +45,9 @@ public class Disintegrate
             AbstractDungeon.actionManager.addToBottom(new RemoveAllBlockAction(m, m));
         }
         // deal the damage
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new DisintegrateEffect(p.dialogX, p.dialogY)));
+        float originX = p.dialogX + 80.0f * Settings.scale;
+        float originY = p.dialogY - 50.0f * Settings.scale;
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new DisintegrateEffect(originX, originY)));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         // restore the block
         if (targetArmor > 0) {

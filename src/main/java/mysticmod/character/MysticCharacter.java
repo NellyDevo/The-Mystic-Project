@@ -55,8 +55,8 @@ public class MysticCharacter extends CustomPlayer {
     public MysticCharacter(String name) {
         super(name, MysticEnum.MYSTIC_CLASS, orbTextures, "mysticmod/images/char/orb/vfx.png", null, new SpriterAnimation(MY_CHARACTER_ANIMATION));
 
-        this.dialogX = (this.drawX + 0.0F * Settings.scale);
-        this.dialogY = (this.drawY + 220.0F * Settings.scale);
+        this.dialogX = this.drawX + DIALOG_X_ADJUSTMENT * Settings.scale;
+        this.dialogY = this.drawY + DIALOG_Y_ADJUSTMENT * Settings.scale;
 
         initializeClass(null,
                 MY_CHARACTER_SHOULDER_2,
@@ -173,6 +173,17 @@ public class MysticCharacter extends CustomPlayer {
         retVal.add(SpellBook.ID);
         UnlockTracker.markRelicAsSeen(SpellBook.ID);
         return retVal;
+    }
+
+    @Override
+    public void movePosition(final float x, final float y) {
+        this.drawX = x;
+        this.drawY = y;
+        this.dialogX = this.drawX + DIALOG_X_ADJUSTMENT * Settings.scale;
+        this.dialogY = this.drawY + DIALOG_Y_ADJUSTMENT * Settings.scale;
+        this.animX = 0.0f;
+        this.animY = 0.0f;
+        this.refreshHitboxLocation();
     }
 
     @Override

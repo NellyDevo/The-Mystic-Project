@@ -42,8 +42,14 @@ public class Daze
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(p.dialogX + 80.0f * Settings.scale, p.dialogY - 40.0f * Settings.scale, m.hb.cX + 1000.0f * Settings.scale, m.hb.cY + 300.0f * Settings.scale)));
-        CardCrawlGame.sound.playV("POWER_ENTANGLED", 4.0f);
+        float originX = p.dialogX + 80.0f * Settings.scale;
+        float originY = p.dialogY - 35.0f * Settings.scale;
+        float midX = m.hb.cX;
+        float midY = m.hb.cY + 100.0f * Settings.scale;
+        float destinationX = originX + 1500.0f * Settings.scale;
+        float destinationY = ((midY - originY) / (midX - originX)) * (destinationX - originX) + originY;
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(originX, originY, destinationX, destinationY)));
+        CardCrawlGame.sound.playV("POWER_ENTANGLED", 3.0f);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         if (p.hasPower(ArtesPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));

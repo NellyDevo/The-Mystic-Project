@@ -51,39 +51,45 @@ public class Flourish
     public void applyPowers() {
         super.applyPowers();
         int reductionAmount = 0;
-        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+        if (this.costForTurn > 0) {
+            if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+                reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            }
+            if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+                reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            }
+            this.setCostForTurn(this.cost - reductionAmount);
         }
-        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
-        }
-        this.setCostForTurn(this.cost - reductionAmount);
     }
 
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        int reductionAmount = 0;
-        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+        if (this.costForTurn > 0) {
+            int reductionAmount = 0;
+            if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+                reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            }
+            if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+                reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            }
+            this.setCostForTurn(this.cost - reductionAmount);
         }
-        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
-        }
-        this.setCostForTurn(this.cost - reductionAmount);
     }
 
     @Override
     public void triggerWhenCopied() {
         super.triggerWhenDrawn();
-        int reductionAmount = 0;
-        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+        if (this.costForTurn > 0) {
+            int reductionAmount = 0;
+            if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+                reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            }
+            if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+                reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            }
+            this.setCostForTurn(this.cost - reductionAmount);
         }
-        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
-        }
-        this.setCostForTurn(this.cost - reductionAmount);
     }
 
     @Override

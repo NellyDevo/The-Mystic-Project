@@ -12,7 +12,7 @@ import mysticmod.MysticMod;
 public class BlessedBook extends CustomRelic {
     public static final String ID = "mysticmod:BlessedBook";
     private static final Texture IMG = new Texture("mysticmod/images/relics/blessedbook.png");
-    private static final Texture OUTLINE = new Texture("mysticmod/images/relics/book_p.png");
+    private static final Texture OUTLINE = new Texture("mysticmod/images/relics/blessedbook_p.png");
     private static final int TURN_COUNT = 2;
 
     public BlessedBook() {
