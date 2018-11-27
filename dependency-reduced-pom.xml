@@ -4,7 +4,7 @@
   <groupId>mysticmod</groupId>
   <artifactId>MysticMod</artifactId>
   <name>TheMystic</name>
-  <version>0.14.0</version>
+  <version>0.14.2</version>
   <description>Slay the Spire mod introducing custom character: The Mystic.</description>
   <build>
     <finalName>TheMystic</finalName>
@@ -52,21 +52,21 @@
     <dependency>
       <groupId>com.megacrit.cardcrawl</groupId>
       <artifactId>slaythespire</artifactId>
-      <version>048</version>
+      <version>050</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.evacipated.cardcrawl</groupId>
       <artifactId>ModTheSpire</artifactId>
-      <version>3.6.0</version>
+      <version>3.6.2</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.evacipated.cardcrawl</groupId>
       <artifactId>BaseMod</artifactId>
-      <version>5.3.0</version>
+      <version>5.3.4</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
     </dependency>

@@ -4,9 +4,9 @@
   "author_list": ["Johnny Devo"],
   "description": "Adds a new character: The Mystic.",
   "dependencies": ["basemod"],
-  "credits": "Artists: RedDyeNo5 for 5 relics.",
-  "version": "0.14.0",
+  "credits": "Artists: RedDyeNo5 (https://twitter.com/RedDyeNo5/media) for 6 relics: Spellbook, Blessed Book, Crystal Ball, Training Manual, Rabbit's Foot, and Bent Spoon.",
+  "version": "0.14.2",
   "sts_version": "11-15-2018",
-  "mts_version": "3.6.0",
+  "mts_version": "3.6.2",
   "update_json": "https://api.github.com/repos/JohnnyDevo/The-Mystic-Project/releases/latest"
 }

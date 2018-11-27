@@ -38,6 +38,8 @@ public class MysticCharacter extends CustomPlayer {
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
     private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
+    private static final float DIALOG_X_ADJUSTMENT = 0.0F;
+    private static final float DIALOG_Y_ADJUSTMENT = 220.0F;
     public static final String[] orbTextures = {
             "mysticmod/images/char/orb/layer1.png",
             "mysticmod/images/char/orb/layer2.png",
@@ -173,17 +175,6 @@ public class MysticCharacter extends CustomPlayer {
         retVal.add(SpellBook.ID);
         UnlockTracker.markRelicAsSeen(SpellBook.ID);
         return retVal;
-    }
-
-    @Override
-    public void movePosition(final float x, final float y) {
-        this.drawX = x;
-        this.drawY = y;
-        this.dialogX = this.drawX + DIALOG_X_ADJUSTMENT * Settings.scale;
-        this.dialogY = this.drawY + DIALOG_Y_ADJUSTMENT * Settings.scale;
-        this.animX = 0.0f;
-        this.animY = 0.0f;
-        this.refreshHitboxLocation();
     }
 
     @Override
