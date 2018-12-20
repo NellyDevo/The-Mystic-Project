@@ -26,11 +26,12 @@ import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
 import mysticmod.character.MysticCharacter;
+import mysticmod.interfaces.SpellArteLogicAffector;
 import mysticmod.modifiers.CrystalClear;
 import mysticmod.patches.MysticEnum;
 import mysticmod.patches.MysticTags;
+import mysticmod.patches.RefreshSpellArteLogicField;
 import mysticmod.potions.EssenceOfMagic;
-import mysticmod.powers.AbstractSpellArteLogicAffectingPower;
 import mysticmod.relics.*;
 
 import java.io.IOException;
@@ -390,23 +391,31 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         } else if (card.hasTag(MysticTags.IS_SPELL)) { //First, determine if card is naturally a spell (has the tag)
             retVal = true;
         }
-        if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
-            Iterator iter;
-            iter = AbstractDungeon.player.relics.iterator();
-            AbstractRelic r;
-            while (iter.hasNext()) {
-                r = (AbstractRelic)iter.next();
-                if (r instanceof AbstractSpellArteLogicAffectingRelic) {
-                    retVal = ((AbstractSpellArteLogicAffectingRelic)r).modifyIsSpell(card, retVal);
+        if (RefreshSpellArteLogicField.checkSpell.get(card)) {
+            if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
+                Iterator iter;
+                iter = AbstractDungeon.player.relics.iterator();
+                AbstractRelic r;
+                while (iter.hasNext()) {
+                    r = (AbstractRelic) iter.next();
+                    if (r instanceof SpellArteLogicAffector) {
+                        retVal = ((SpellArteLogicAffector) r).modifyIsSpell(card, retVal);
+                    }
+                }
+                iter = AbstractDungeon.player.powers.iterator();
+                AbstractPower p;
+                while (iter.hasNext()) {
+                    p = (AbstractPower) iter.next();
+                    if (p instanceof SpellArteLogicAffector) {
+                        retVal = ((SpellArteLogicAffector) p).modifyIsSpell(card, retVal);
+                    }
                 }
             }
-            iter = AbstractDungeon.player.powers.iterator();
-            AbstractPower p;
-            while (iter.hasNext()) {
-                p = (AbstractPower)iter.next();
-                if (p instanceof AbstractSpellArteLogicAffectingPower) {
-                    retVal = ((AbstractSpellArteLogicAffectingPower)p).modifyIsSpell(card, retVal);
-                }
+            RefreshSpellArteLogicField.isConditionalSpell.set(card, retVal);
+            RefreshSpellArteLogicField.checkSpell.set(card, false);
+        } else {
+            if (RefreshSpellArteLogicField.isConditionalSpell.get(card)) {
+                retVal = true;
             }
         }
         return retVal;
@@ -424,23 +433,31 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         } else if (card.hasTag(MysticTags.IS_ARTE)) { //if card is not a mystic card, repeat tests.
             retVal = true;
         }
-        if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
-            Iterator iter;
-            iter = AbstractDungeon.player.relics.iterator();
-            AbstractRelic r;
-            while (iter.hasNext()) {
-                r = (AbstractRelic)iter.next();
-                if (r instanceof AbstractSpellArteLogicAffectingRelic) {
-                    retVal = ((AbstractSpellArteLogicAffectingRelic)r).modifyIsArte(card, retVal);
+        if (RefreshSpellArteLogicField.checkArte.get(card)) {
+            if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
+                Iterator iter;
+                iter = AbstractDungeon.player.relics.iterator();
+                AbstractRelic r;
+                while (iter.hasNext()) {
+                    r = (AbstractRelic) iter.next();
+                    if (r instanceof SpellArteLogicAffector) {
+                        retVal = ((SpellArteLogicAffector) r).modifyIsArte(card, retVal);
+                    }
+                }
+                iter = AbstractDungeon.player.powers.iterator();
+                AbstractPower p;
+                while (iter.hasNext()) {
+                    p = (AbstractPower) iter.next();
+                    if (p instanceof SpellArteLogicAffector) {
+                        retVal = ((SpellArteLogicAffector) p).modifyIsArte(card, retVal);
+                    }
                 }
             }
-            iter = AbstractDungeon.player.powers.iterator();
-            AbstractPower p;
-            while (iter.hasNext()) {
-                p = (AbstractPower)iter.next();
-                if (p instanceof AbstractSpellArteLogicAffectingPower) {
-                    retVal = ((AbstractSpellArteLogicAffectingPower)p).modifyIsArte(card, retVal);
-                }
+            RefreshSpellArteLogicField.isConditionalArte.set(card, retVal);
+            RefreshSpellArteLogicField.checkArte.set(card, false);
+        } else {
+            if (RefreshSpellArteLogicField.isConditionalArte.get(card)) {
+                retVal = true;
             }
         }
         return retVal;

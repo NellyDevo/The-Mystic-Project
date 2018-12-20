@@ -8,13 +8,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
-import mysticmod.relics.BentSpoon;
 
 public class Prestidigitation
-        extends AbstractMysticCard {
+        extends AbstractCantrip {
     public static final String ID = "mysticmod:Prestidigitation";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -30,61 +26,12 @@ public class Prestidigitation
                 AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
-        this.tags.add(MysticTags.IS_CANTRIP);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-    }
-
-    @Override
-    public boolean isSpell() {
-        return (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
-                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2));
-    }
-
-    @Override
-    public void applyPowers() {
-        if (AbstractDungeon.player.hasRelic(BentSpoon.ID)) {
-            int baseDamagePlaceholder = this.baseDamage;
-            int baseBlockPlaceholder = this.baseBlock;
-            this.baseDamage += 1;
-            this.baseBlock += 1;
-            super.applyPowers();
-            this.baseDamage = baseDamagePlaceholder;
-            this.baseBlock = baseBlockPlaceholder;
-            if (this.damage != this.baseDamage) {
-                this.isDamageModified = true;
-            }
-            if (this.block != this.baseBlock) {
-                this.isBlockModified = true;
-            }
-        } else {
-            super.applyPowers();
-        }
-    }
-
-    @Override
-    public void calculateCardDamage(final AbstractMonster mo) {
-        if (AbstractDungeon.player.hasRelic(BentSpoon.ID)) {
-            int baseDamagePlaceholder = this.baseDamage;
-            int baseBlockPlaceholder = this.baseBlock;
-            this.baseDamage += 1;
-            this.baseBlock += 1;
-            super.calculateCardDamage(mo);
-            this.baseDamage = baseDamagePlaceholder;
-            this.baseBlock = baseBlockPlaceholder;
-            if (this.damage != this.baseDamage) {
-                this.isDamageModified = true;
-            }
-            if (this.block != this.baseBlock) {
-                this.isBlockModified = true;
-            }
-        } else {
-            super.calculateCardDamage(mo);
-        }
     }
 
     @Override

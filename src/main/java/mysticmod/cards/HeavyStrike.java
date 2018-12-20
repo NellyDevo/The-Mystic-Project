@@ -2,7 +2,6 @@ package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.defect.IncreaseMiscAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.LoadCardImageAction;
+import mysticmod.actions.MysticIncreaseMiscAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
@@ -46,7 +46,7 @@ public class HeavyStrike
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(this.uuid, this.misc, this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new MysticIncreaseMiscAction(this.uuid, this.misc, this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         if (this.isArtAlternate) {
@@ -57,9 +57,8 @@ public class HeavyStrike
 
     @Override
     public void applyPowers() {
-        this.baseDamage = this.misc;
+        this.updateBaseDamage();
         super.applyPowers();
-        this.initializeDescription();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
@@ -71,6 +70,10 @@ public class HeavyStrike
                 this.isArtAlternate = false;
             }
         }
+    }
+
+    public void updateBaseDamage() {
+        this.baseDamage = this.misc;
     }
 
     public void triggerOnEndOfPlayerTurn() {

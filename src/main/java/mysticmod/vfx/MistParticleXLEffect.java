@@ -54,4 +54,8 @@ public class MistParticleXLEffect extends AbstractGameEffect
         sb.draw(this.img, this.x, this.y, this.img.packedWidth / 2.0f, this.img.packedHeight / 2.0f, this.img.packedWidth, this.img.packedHeight, this.scale, this.scale, this.rotation);
         sb.setBlendFunction(770, 771);
     }
+
+    @Override
+    public void dispose() {
+    }
 }

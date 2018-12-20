@@ -83,4 +83,8 @@ public class MagicMissileEffect extends AbstractGameEffect {
         sb.setColor(Color.CYAN);
         sb.draw(this.img, this.x, this.y, this.img.packedWidth / 2.0f, this.img.packedHeight / 2.0f, this.img.packedWidth, this.img.packedHeight, 0.5f, 0.5f, this.rotation + 90f);
     }
+
+    @Override
+    public void dispose() {
+    }
 }

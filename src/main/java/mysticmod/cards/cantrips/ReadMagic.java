@@ -8,12 +8,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
 
 public class ReadMagic
-        extends AbstractMysticCard {
+        extends AbstractCantrip {
     public static final String ID = "mysticmod:ReadMagic";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -30,19 +27,12 @@ public class ReadMagic
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = DRAW;
         this.exhaust = true;
-        this.tags.add(MysticTags.IS_CANTRIP);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber - 1, false));
-    }
-
-    @Override
-    public boolean isSpell() {
-        return (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
-                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2));
     }
 
     @Override

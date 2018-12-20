@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.Calipers;
 
 public class MysticalShieldPower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:MysticalShieldPower";
@@ -38,14 +39,16 @@ public class MysticalShieldPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         if (!AbstractDungeon.player.hasPower("Barricade") && !AbstractDungeon.player.hasPower("Blur")) {
-            if (startOfTurnBlock >= 8) {
-                flash();
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8));
-            } else if (startOfTurnBlock <= 0) {
-                return;
-            } else {
-                flash();
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, startOfTurnBlock));
+            if (!AbstractDungeon.player.hasRelic(Calipers.ID)) {
+                if (startOfTurnBlock >= 8) {
+                    flash();
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8));
+                } else if (startOfTurnBlock > 0) {
+                    flash();
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, startOfTurnBlock));
+                }
+            } else if (AbstractDungeon.player.currentBlock < 8 && startOfTurnBlock >= 8) {
+                AbstractDungeon.player.currentBlock = 8;
             }
         }
     }

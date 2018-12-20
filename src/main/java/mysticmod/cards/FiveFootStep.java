@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
-import mysticmod.actions.AddMyActionToBottomOfQueueLaterAction;
 import mysticmod.actions.LoadCardImageAction;
+import mysticmod.actions.ReboundCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
@@ -44,7 +44,7 @@ public class FiveFootStep
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new AddMyActionToBottomOfQueueLaterAction(this, true));
+            AbstractDungeon.actionManager.addToBottom(new ReboundCardAction(this, true));
             if (p.drawPile.size() > 0) {
                 AbstractDungeon.actionManager.addToBottom(new ShuffleAction(p.drawPile));
                 MysticMod.numberOfTimesDeckShuffledThisCombat++;

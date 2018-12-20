@@ -34,14 +34,9 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        if (!AbstractDungeon.player.hasPower("Barricade") && !AbstractDungeon.player.hasPower("Blur")) {
+        if (AbstractDungeon.player.currentBlock < 8) {
             flash();
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8));
-        } else {
-            if (AbstractDungeon.player.currentBlock < 8) {
-                flash();
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8 - AbstractDungeon.player.currentBlock));
-            }
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8 - AbstractDungeon.player.currentBlock));
         }
     }
 }

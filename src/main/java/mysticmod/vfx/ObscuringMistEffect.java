@@ -41,8 +41,8 @@ public class ObscuringMistEffect extends AbstractGameEffect
             AbstractDungeon.effectsQueue.add(new BorderLongFlashEffect(new Color(0.5f, 0.4f, 0.1f, 1.0f)));
         }
         final float tmp = Interpolation.fade.apply(-209.0f, 30.0f, this.duration / 0.5f) * 0.017453292f;
-        this.v.x = MathUtils.cos(tmp) * this.X_RADIUS;
-        this.v.y = -MathUtils.sin(tmp) * this.Y_RADIUS;
+        this.v.x = MathUtils.cos(tmp) * X_RADIUS;
+        this.v.y = -MathUtils.sin(tmp) * Y_RADIUS;
         AbstractDungeon.effectsQueue.add(new MistParticleXLEffect(this.x + this.v.x + MathUtils.random(-30.0f, 30.0f) * Settings.scale, this.y + this.v.y + MathUtils.random(-10.0f, 10.0f) * Settings.scale));
         AbstractDungeon.effectsQueue.add(new MistParticleXLEffect(this.x + this.v.x + MathUtils.random(-30.0f, 30.0f) * Settings.scale, this.y + this.v.y + MathUtils.random(-10.0f, 10.0f) * Settings.scale));
         AbstractDungeon.effectsQueue.add(new MistParticleXLEffect(this.x + this.v.x + MathUtils.random(-30.0f, 30.0f) * Settings.scale, this.y + this.v.y + MathUtils.random(-10.0f, 10.0f) * Settings.scale));
@@ -55,5 +55,9 @@ public class ObscuringMistEffect extends AbstractGameEffect
     
     @Override
     public void render(final SpriteBatch sb) {
+    }
+
+    @Override
+    public void dispose() {
     }
 }

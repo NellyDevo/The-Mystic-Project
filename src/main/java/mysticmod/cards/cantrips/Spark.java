@@ -7,12 +7,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.SparkAction;
-import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
 
 public class Spark
-        extends AbstractMysticCard {
+        extends AbstractCantrip {
     public static final String ID = "mysticmod:Spark";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -26,18 +23,11 @@ public class Spark
                 AbstractCard.CardType.SKILL, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
-        this.tags.add(MysticTags.IS_CANTRIP);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SparkAction(p, 1));
-    }
-
-    @Override
-    public boolean isSpell() {
-        return (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
-                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2));
     }
 
     @Override

@@ -63,4 +63,8 @@ public class DisintegrateEffect extends AbstractGameEffect
         sb.draw(DisintegrateEffect.img, this.x, this.y - DisintegrateEffect.img.packedHeight / 2.0f, 0.0f, DisintegrateEffect.img.packedHeight / 2.0f, DisintegrateEffect.img.packedWidth, DisintegrateEffect.img.packedHeight, this.scale * 2.0f, this.scale / 2.0f, MathUtils.random(-2.0f, 2.0f));
         sb.setBlendFunction(770, 771);
     }
+
+    @Override
+    public void dispose() {
+    }
 }

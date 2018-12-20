@@ -55,4 +55,8 @@ public class MagicMissileTrailEffect extends AbstractGameEffect {
     static {
         MagicMissileTrailEffect.img = null;
     }
+
+    @Override
+    public void dispose() {
+    }
 }

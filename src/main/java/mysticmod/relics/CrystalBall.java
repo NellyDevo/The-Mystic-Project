@@ -1,11 +1,13 @@
 package mysticmod.relics;
 
+import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mysticmod.interfaces.SpellArteLogicAffector;
 import mysticmod.patches.MysticTags;
 
-public class CrystalBall extends AbstractSpellArteLogicAffectingRelic {
+public class CrystalBall extends CustomRelic implements SpellArteLogicAffector {
     public static final String ID = "mysticmod:CrystalBall";
     public static final Texture IMG = new Texture("mysticmod/images/relics/crystalball.png");
     public static final Texture OUTLINE = new Texture("mysticmod/images/relics/crystalball_p.png");
