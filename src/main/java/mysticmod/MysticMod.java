@@ -315,7 +315,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         String[] keywordPoised = {"poised"};
         String[] keywordFeat = {"feat"};
         String[] keywordStoneskin = {"stoneskin"};
-        BaseMod.addKeyword(keywordCantrips, "Considered a [#5299DC]Spell[] so long as you've played fewer than 3 [#5299DC]Spells[] this turn.");
+        BaseMod.addKeyword(keywordCantrips, "Considered a [#5299DC]Spell[] so long as you have fewer than 3 stacks of [#5299DC]Power[].");
         BaseMod.addKeyword(keywordPowerful, "Has an additional effect if you have a stack of [#5299DC]Power[].");
         BaseMod.addKeyword(keywordPoised, "Has an additional effect if you have a stack of [#FF5252]Poise[].");
         BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
@@ -384,9 +384,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         if (card instanceof AbstractMysticCard) {
             if (((AbstractMysticCard)card).isSpell()) { //methods simply call against hasTag, but exist to offer hooks into conditional spell/arte logic within specific cards
                 retVal = true;
-            } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)
-                    && card.type == AbstractCard.CardType.SKILL && !((AbstractMysticCard)card).isArte()) {
-                retVal = true;
             }
         } else if (card.hasTag(MysticTags.IS_SPELL)) { //First, determine if card is naturally a spell (has the tag)
             retVal = true;
@@ -414,9 +411,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             RefreshSpellArteLogicField.isConditionalSpell.set(card, retVal);
             RefreshSpellArteLogicField.checkSpell.set(card, false);
         } else {
-            if (RefreshSpellArteLogicField.isConditionalSpell.get(card)) {
-                retVal = true;
-            }
+            retVal = RefreshSpellArteLogicField.isConditionalSpell.get(card);
         }
         return retVal;
     }
@@ -425,9 +420,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         boolean retVal = false;
         if (card instanceof AbstractMysticCard) {
             if (((AbstractMysticCard)card).isArte()) { //if card is Mystic card, test if has Arte tag
-                retVal = true;
-            } else if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID) //else, test if crystal ball and not a spell.
-                    && card.type == AbstractCard.CardType.ATTACK && !((AbstractMysticCard)card).isSpell()) {
                 retVal = true;
             }
         } else if (card.hasTag(MysticTags.IS_ARTE)) { //if card is not a mystic card, repeat tests.
@@ -456,9 +448,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             RefreshSpellArteLogicField.isConditionalArte.set(card, retVal);
             RefreshSpellArteLogicField.checkArte.set(card, false);
         } else {
-            if (RefreshSpellArteLogicField.isConditionalArte.get(card)) {
-                retVal = true;
-            }
+            retVal = RefreshSpellArteLogicField.isConditionalArte.get(card);
         }
         return retVal;
     }
