@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
         method= SpirePatch.CLASS
 )
 public class RefreshSpellArteLogicField {
-    public static SpireField<Boolean> checkSpell = new SpireField<>(() -> false);
-    public static SpireField<Boolean> checkArte = new SpireField<>(() -> false);
+    public static SpireField<Boolean> checkSpell = new SpireField<>(() -> true);
+    public static SpireField<Boolean> checkArte = new SpireField<>(() -> true);
     public static SpireField<Boolean> isConditionalSpell = new SpireField<>(() -> false);
     public static SpireField<Boolean> isConditionalArte = new SpireField<>(() -> false);
 }
