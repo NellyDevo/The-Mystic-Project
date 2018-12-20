@@ -67,18 +67,18 @@ public abstract class AbstractMysticCard extends CustomCard {
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = new ArrayList<>();
         if (this.type == AbstractCard.CardType.SKILL) {
-            if (this.hasTag(MysticTags.IS_SPELL)) {
-                retVal.add(new TooltipInfo("Spell.", "This Skill is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
+            if (MysticMod.isThisASpell(this)) {
+                retVal.add(new TooltipInfo("Spell", "This Skill is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
             }
-            if (this.hasTag(MysticTags.IS_ARTE)) {
-                retVal.add(new TooltipInfo("Arte.", "This Skill is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
+            if (MysticMod.isThisAnArte(this)) {
+                retVal.add(new TooltipInfo("Arte", "This Skill is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
             }
         } else if (this.type == AbstractCard.CardType.ATTACK) {
-            if (this.hasTag(MysticTags.IS_SPELL)) {
-                retVal.add(new TooltipInfo("Spell.", "This Attack is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
+            if (MysticMod.isThisASpell(this)) {
+                retVal.add(new TooltipInfo("Spell", "This Attack is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
             }
-            if (this.hasTag(MysticTags.IS_ARTE)) {
-                retVal.add(new TooltipInfo("Arte.", "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
+            if (MysticMod.isThisAnArte(this)) {
+                retVal.add(new TooltipInfo("Arte", "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
             }
         }
         return retVal;
