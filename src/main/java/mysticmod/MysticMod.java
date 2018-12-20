@@ -390,13 +390,31 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
         if (RefreshSpellArteLogicField.checkSpell.get(card)) {
             if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
+//                Iterator iter;
+//                iter = AbstractDungeon.player.relics.iterator();
+//                AbstractRelic r;
+//                while (iter.hasNext()) {
+//                    r = (AbstractRelic) iter.next();
+//                    if (r instanceof SpellArteLogicAffector) {
+//                        retVal = ((SpellArteLogicAffector) r).modifyIsSpell(card, retVal);
+//                    }
+//                }
+//                iter = AbstractDungeon.player.powers.iterator();
+//                AbstractPower p;
+//                while (iter.hasNext()) {
+//                    p = (AbstractPower) iter.next();
+//                    if (p instanceof SpellArteLogicAffector) {
+//                        retVal = ((SpellArteLogicAffector) p).modifyIsSpell(card, retVal);
+//                    }
+//                }
+                ArrayList<SpellArteLogicAffector> listByPriority = new ArrayList<>();
                 Iterator iter;
                 iter = AbstractDungeon.player.relics.iterator();
                 AbstractRelic r;
                 while (iter.hasNext()) {
                     r = (AbstractRelic) iter.next();
                     if (r instanceof SpellArteLogicAffector) {
-                        retVal = ((SpellArteLogicAffector) r).modifyIsSpell(card, retVal);
+                        listByPriority.add((SpellArteLogicAffector)r);
                     }
                 }
                 iter = AbstractDungeon.player.powers.iterator();
@@ -404,8 +422,13 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 while (iter.hasNext()) {
                     p = (AbstractPower) iter.next();
                     if (p instanceof SpellArteLogicAffector) {
-                        retVal = ((SpellArteLogicAffector) p).modifyIsSpell(card, retVal);
+                        listByPriority.add((SpellArteLogicAffector)p);
                     }
+                }
+                listByPriority.sort(new SpellArteLogicAffector.SortByPriority());
+                iter = listByPriority.iterator();
+                while (iter.hasNext()) {
+                    retVal = ((SpellArteLogicAffector)iter.next()).modifyIsSpell(card, retVal);
                 }
             }
             RefreshSpellArteLogicField.isConditionalSpell.set(card, retVal);
@@ -427,13 +450,32 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
         if (RefreshSpellArteLogicField.checkArte.get(card)) {
             if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
+//                Iterator iter;
+//                iter = AbstractDungeon.player.relics.iterator();
+//                AbstractRelic r;
+//                while (iter.hasNext()) {
+//                    r = (AbstractRelic) iter.next();
+//                    if (r instanceof SpellArteLogicAffector) {
+//                        retVal = ((SpellArteLogicAffector) r).modifyIsArte(card, retVal);
+//                    }
+//                }
+//                iter = AbstractDungeon.player.powers.iterator();
+//                AbstractPower p;
+//                while (iter.hasNext()) {
+//                    p = (AbstractPower) iter.next();
+//                    if (p instanceof SpellArteLogicAffector) {
+//                        retVal = ((SpellArteLogicAffector) p).modifyIsArte(card, retVal);
+//                    }
+//                }
+//            }
+                ArrayList<SpellArteLogicAffector> listByPriority = new ArrayList<>();
                 Iterator iter;
                 iter = AbstractDungeon.player.relics.iterator();
                 AbstractRelic r;
                 while (iter.hasNext()) {
                     r = (AbstractRelic) iter.next();
                     if (r instanceof SpellArteLogicAffector) {
-                        retVal = ((SpellArteLogicAffector) r).modifyIsArte(card, retVal);
+                        listByPriority.add((SpellArteLogicAffector)r);
                     }
                 }
                 iter = AbstractDungeon.player.powers.iterator();
@@ -441,8 +483,13 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 while (iter.hasNext()) {
                     p = (AbstractPower) iter.next();
                     if (p instanceof SpellArteLogicAffector) {
-                        retVal = ((SpellArteLogicAffector) p).modifyIsArte(card, retVal);
+                        listByPriority.add((SpellArteLogicAffector)p);
                     }
+                }
+                listByPriority.sort(new SpellArteLogicAffector.SortByPriority());
+                iter = listByPriority.iterator();
+                while (iter.hasNext()) {
+                    retVal = ((SpellArteLogicAffector)iter.next()).modifyIsArte(card, retVal);
                 }
             }
             RefreshSpellArteLogicField.isConditionalArte.set(card, retVal);
