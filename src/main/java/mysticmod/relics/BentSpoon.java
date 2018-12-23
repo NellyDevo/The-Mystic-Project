@@ -22,15 +22,16 @@ public class BentSpoon extends CustomRelic {
     }
 
     @Override
-    public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
+    public void onPlayCard(final AbstractCard c, final AbstractMonster m) { //damage effects hardcoded into cantrips' ApplyPowers overrides
         if (c.hasTag(MysticTags.IS_CANTRIP)) {
-            this.flash();
-            //Effects unfortunately hardcoded into cantrips' ApplyPowers overrides
+            if (c.baseBlock > -1 || c.baseDamage > -1) {
+                this.flash();
+            }
         }
     }
 
     @Override
-    public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
+    public AbstractRelic makeCopy() {
         return new BentSpoon();
     }
 }
