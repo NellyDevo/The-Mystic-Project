@@ -4,10 +4,25 @@
   <groupId>mysticmod</groupId>
   <artifactId>MysticMod</artifactId>
   <name>TheMystic</name>
-  <version>0.14.8</version>
+  <version>0.15.0</version>
   <description>Slay the Spire mod introducing custom character: The Mystic.</description>
   <build>
-    <finalName>TheMystic</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>ModTheSpire.json</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>ModTheSpire.json</include>
+        </includes>
+      </resource>
+    </resources>
+    <finalName>${name}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
@@ -52,35 +67,39 @@
     <dependency>
       <groupId>com.megacrit.cardcrawl</groupId>
       <artifactId>slaythespire</artifactId>
-      <version>052</version>
+      <version>${SlayTheSpire.version}</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.evacipated.cardcrawl</groupId>
       <artifactId>ModTheSpire</artifactId>
-      <version>3.6.3</version>
+      <version>${ModTheSpire.version}</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.evacipated.cardcrawl</groupId>
       <artifactId>BaseMod</artifactId>
-      <version>5.4.0</version>
+      <version>${BaseMod.version}</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>friendlyminions</groupId>
       <artifactId>FriendlyMinions</artifactId>
-      <version>0.1.1</version>
+      <version>${FriendlyMinions.version}</version>
       <scope>system</scope>
       <systemPath>${basedir}/../lib/FriendlyMinions.jar</systemPath>
     </dependency>
   </dependencies>
   <properties>
+    <FriendlyMinions.version>0.1.1</FriendlyMinions.version>
+    <ModTheSpire.version>3.6.3</ModTheSpire.version>
+    <BaseMod.version>5.4.0</BaseMod.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <SlayTheSpire.version>12-20-2018</SlayTheSpire.version>
   </properties>
 </project>
 
