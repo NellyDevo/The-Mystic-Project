@@ -1,4 +1,17 @@
 {
+  "mysticmod:AbstractMysticCard": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "Spell",
+      "Arte",
+      "This Skill is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[].",
+      "This Skill is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[].",
+      "This Attack is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[].",
+      "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."
+    ]
+  },
   "mysticmod:AcidSplash": {
     "NAME": "Acid Splash",
     "DESCRIPTION": "Cantrip. NL Deal !D! damage. Draw a card.",
@@ -413,7 +426,10 @@
   "mysticmod:SummonFamiliar": {
     "NAME": "Summon Familiar",
     "DESCRIPTION": "Summon your faithful Fox Familiar. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "Can attack or help set up your combos. Playing more copies of this card will upgrade your familiar, up to 3 times."
+    ]
   },
   "mysticmod:TomeOfSpells": {
     "NAME": "Tome Of Spells",

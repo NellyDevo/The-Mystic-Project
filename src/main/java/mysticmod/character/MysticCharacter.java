@@ -69,7 +69,7 @@ public class MysticCharacter extends CustomPlayer {
 
     @Override
     public String getSpireHeartText() {
-        return "NL You tighten your grip on Book and Blade..."; //UPDATE BODY TEXT :(
+        return TEXT[1]; //UPDATE BODY TEXT :(
     }
 
     @Override
@@ -79,7 +79,7 @@ public class MysticCharacter extends CustomPlayer {
 
     @Override
     public String getVampireText() {
-        return "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~wanderer,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~";
+        return TEXT[2];
     }
 
     @Override

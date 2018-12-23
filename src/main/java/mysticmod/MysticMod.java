@@ -349,6 +349,10 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.loadCustomStrings(RunModStrings.class, runModStrings);
         String uiStrings = Gdx.files.internal("mysticmod/strings/ui.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+        String monsterStrings = Gdx.files.internal("mysticmod/strings/monsters.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
+        String eventStrings = Gdx.files.internal("mysticmod/strings/events.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
     }
 
     @Override

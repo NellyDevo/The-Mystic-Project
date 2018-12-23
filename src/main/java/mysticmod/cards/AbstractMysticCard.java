@@ -4,6 +4,8 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import mysticmod.MysticMod;
 import mysticmod.patches.MysticTags;
 
@@ -27,6 +29,8 @@ public abstract class AbstractMysticCard extends CustomCard {
     public static String BG_ADDON_LARGE_SPERTE_ATTACK = "mysticmod/images/1024/bg_sperte_attack_addon.png";
     public static String BG_ADDON_SMALL_SPERTE_SKILL = "mysticmod/images/512/bg_sperte_skill_addon.png";
     public static String BG_ADDON_LARGE_SPERTE_SKILL = "mysticmod/images/1024/bg_sperte_skill_addon.png";
+    public static CardStrings tooltip = CardCrawlGame.languagePack.getCardStrings("mysticmod:AbstractMysticCard");
+    public static String[] tooltips = tooltip.EXTENDED_DESCRIPTION;
 
     public AbstractMysticCard(final String id, final String name, final String img, final int cost, final String rawDescription,
                               final AbstractCard.CardType type, final AbstractCard.CardColor color,
@@ -68,17 +72,17 @@ public abstract class AbstractMysticCard extends CustomCard {
         List<TooltipInfo> retVal = new ArrayList<>();
         if (this.type == AbstractCard.CardType.SKILL) {
             if (MysticMod.isThisASpell(this)) {
-                retVal.add(new TooltipInfo("Spell", "This Skill is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
+                retVal.add(new TooltipInfo(tooltips[0], tooltips[2]));
             }
             if (MysticMod.isThisAnArte(this)) {
-                retVal.add(new TooltipInfo("Arte", "This Skill is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
+                retVal.add(new TooltipInfo(tooltips[1], tooltips[3]));
             }
         } else if (this.type == AbstractCard.CardType.ATTACK) {
             if (MysticMod.isThisASpell(this)) {
-                retVal.add(new TooltipInfo("Spell", "This Attack is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[]."));
+                retVal.add(new TooltipInfo(tooltips[0], tooltips[4]));
             }
             if (MysticMod.isThisAnArte(this)) {
-                retVal.add(new TooltipInfo("Arte", "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."));
+                retVal.add(new TooltipInfo(tooltips[1], tooltips[5]));
             }
         }
         return retVal;

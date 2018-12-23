@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 import kobting.friendlyminions.monsters.MinionMove;
@@ -28,9 +29,13 @@ import java.util.List;
 public class SummonFamiliar extends AbstractMysticCard {
     public static final String ID = "mysticmod:SummonFamiliar";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(FoxFamiliar.ID);
+    public static final String[] monsterDialog = monsterStrings.DIALOG;
+    public static final String[] monsterMoves = monsterStrings.MOVES;
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/summonfamiliar.png";
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
@@ -50,15 +55,15 @@ public class SummonFamiliar extends AbstractMysticCard {
         } else {
             FoxFamiliar fox = (FoxFamiliar)BasePlayerMinionHelper.getMinions(p).getMonster(FoxFamiliar.ID);
             if (!fox.hasPower(FoxEvolutionPower.POWER_ID)){
-                fox.addMove(new MinionMove("Fortify", fox, new Texture("mysticmod/images/minions/defend move.png"),"Gain " + fox.baseBlockAmount + " Block.", () -> {
+                fox.addMove(new MinionMove(monsterDialog[3], fox, new Texture("mysticmod/images/minions/defend move.png"),monsterMoves[5] + fox.baseBlockAmount + monsterMoves[6], () -> {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, fox, fox.baseBlockAmount));
                 }));
             } else if (fox.getPower(FoxEvolutionPower.POWER_ID).amount == 1) {
-                fox.removeMove("Attack");
-                fox.removeMove("Flank");
-                fox.removeMove("Channel");
-                fox.removeMove("Fortify");
-                fox.addMove(new MinionMove("Attack", fox, new Texture("mysticmod/images/minions/area attack move.png"), "Deal " + fox.baseDamageAmount + " damage to all enemies.", () -> {
+                fox.removeMove(monsterDialog[0]);
+                fox.removeMove(monsterDialog[1]);
+                fox.removeMove(monsterDialog[2]);
+                fox.removeMove(monsterDialog[3]);
+                fox.addMove(new MinionMove(monsterDialog[0], fox, new Texture("mysticmod/images/minions/area attack move.png"), monsterMoves[0] + fox.baseDamageAmount + monsterMoves[7], () -> {
                     ArrayList<DamageInfo> multiDamageInfo = new ArrayList<>();
                     int monsterCount = AbstractDungeon.getCurrRoom().monsters.monsters.size();
                     ArrayList<AbstractMonster> monsterList = AbstractDungeon.getCurrRoom().monsters.monsters;
@@ -68,24 +73,24 @@ public class SummonFamiliar extends AbstractMysticCard {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(monsterList.get(i), multiDamageInfo.get(i)));
                     }
                 }));
-                fox.addMove(new MinionMove("Flank", fox, new Texture("mysticmod/images/minions/arte move.png"),"Start next turn with " + fox.baseSpellArteAmount + " [#FF5252]Arte[] played", () -> {
+                fox.addMove(new MinionMove(monsterDialog[1], fox, new Texture("mysticmod/images/minions/arte move.png"),monsterMoves[2] + fox.baseSpellArteAmount + monsterMoves[3], () -> {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, fox, new ArtesPlayedNextTurn(AbstractDungeon.player, fox.baseSpellArteAmount), fox.baseSpellArteAmount));
                 }));
-                fox.addMove(new MinionMove("Channel", fox, new Texture("mysticmod/images/minions/spell move.png"),"Start next turn with " + fox.baseSpellArteAmount + " [#5299DC]Spell[] played", () -> {
+                fox.addMove(new MinionMove(monsterDialog[2], fox, new Texture("mysticmod/images/minions/spell move.png"),monsterMoves[2] + fox.baseSpellArteAmount + monsterMoves[4], () -> {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, fox, new SpellsPlayedNextTurn(AbstractDungeon.player, fox.baseSpellArteAmount), fox.baseSpellArteAmount));
                 }));
-                fox.addMove(new MinionMove("Fortify", fox, new Texture("mysticmod/images/minions/defend move.png"),"Gain " + fox.baseBlockAmount + " Block.", () -> {
+                fox.addMove(new MinionMove(monsterDialog[3], fox, new Texture("mysticmod/images/minions/defend move.png"),monsterMoves[5] + fox.baseBlockAmount + monsterMoves[6], () -> {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, fox, fox.baseBlockAmount));
                 }));
             } else if (fox.getPower(FoxEvolutionPower.POWER_ID).amount == 2) {
                 fox.baseSpellArteAmount += 1;
                 fox.baseDamageAmount += 2;
                 fox.baseBlockAmount += 2;
-                fox.removeMove("Attack");
-                fox.removeMove("Flank");
-                fox.removeMove("Channel");
-                fox.removeMove("Fortify");
-                fox.addMove(new MinionMove("Attack", fox, new Texture("mysticmod/images/minions/area attack move.png"), "Deal " + fox.baseDamageAmount + " damage to all enemies.", () -> {
+                fox.removeMove(monsterDialog[0]);
+                fox.removeMove(monsterDialog[1]);
+                fox.removeMove(monsterDialog[2]);
+                fox.removeMove(monsterDialog[3]);
+                fox.addMove(new MinionMove(monsterDialog[0], fox, new Texture("mysticmod/images/minions/area attack move.png"), monsterMoves[0] + fox.baseDamageAmount + monsterMoves[7], () -> {
                     ArrayList<DamageInfo> multiDamageInfo = new ArrayList<>();
                     int monsterCount = AbstractDungeon.getCurrRoom().monsters.monsters.size();
                     ArrayList<AbstractMonster> monsterList = AbstractDungeon.getCurrRoom().monsters.monsters;
@@ -95,13 +100,13 @@ public class SummonFamiliar extends AbstractMysticCard {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(monsterList.get(i), multiDamageInfo.get(i)));
                     }
                 }));
-                fox.addMove(new MinionMove("Flank", fox, new Texture("mysticmod/images/minions/arte move.png"),"Start next turn with " + fox.baseSpellArteAmount + " [#FF5252]Artes[] played", () -> {
+                fox.addMove(new MinionMove(monsterDialog[1], fox, new Texture("mysticmod/images/minions/arte move.png"),monsterMoves[2] + fox.baseSpellArteAmount + monsterMoves[3], () -> {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, fox, new ArtesPlayedNextTurn(AbstractDungeon.player, fox.baseSpellArteAmount), fox.baseSpellArteAmount));
                 }));
-                fox.addMove(new MinionMove("Channel", fox, new Texture("mysticmod/images/minions/spell move.png"),"Start next turn with " + fox.baseSpellArteAmount + " [#5299DC]Spells[] played", () -> {
+                fox.addMove(new MinionMove(monsterDialog[2], fox, new Texture("mysticmod/images/minions/spell move.png"),monsterMoves[2] + fox.baseSpellArteAmount + monsterMoves[4], () -> {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, fox, new SpellsPlayedNextTurn(AbstractDungeon.player, fox.baseSpellArteAmount), fox.baseSpellArteAmount));
                 }));
-                fox.addMove(new MinionMove("Fortify", fox, new Texture("mysticmod/images/minions/defend move.png"),"Gain " + fox.baseBlockAmount + " Block.", () -> {
+                fox.addMove(new MinionMove(monsterDialog[3], fox, new Texture("mysticmod/images/minions/defend move.png"),monsterMoves[5] + fox.baseBlockAmount + monsterMoves[6], () -> {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, fox, fox.baseBlockAmount));
                 }));
             }
@@ -113,7 +118,7 @@ public class SummonFamiliar extends AbstractMysticCard {
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = super.getCustomTooltips();
-        retVal.add(new TooltipInfo("Fox Familiar", "Can attack or help set up your combos. Playing more copies of this card will upgrade your familiar, up to 3 times."));
+        retVal.add(new TooltipInfo(NAME, EXTENDED_DESCRIPTION[0]));
         return retVal;
     }
 

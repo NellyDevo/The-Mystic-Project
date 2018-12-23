@@ -1,0 +1,21 @@
+{
+  "mysticmod:FoxFamiliar": {
+    "NAME": "Fox Familiar",
+    "DIALOG": [
+      "Attack",
+      "Flank",
+      "Channel",
+      "Fortify"
+    ],
+    "MOVES": [
+      "Deal ",
+      " damage.",
+      "Start next turn with ",
+      " [#FF5252]Poise[].",
+      " [#5299DC]Power[].",
+      "Gain ",
+      " Block.",
+      " damage to all enemies."
+    ]
+  }
+}
