@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import mysticmod.MysticMod;
@@ -11,7 +12,7 @@ import mysticmod.MysticMod;
 import java.util.ArrayList;
 
 @SpirePatch(
-        cls="com.megacrit.cardcrawl.cards.AbstractCard",
+        clz=AbstractCard.class,
         method="renderType"
 )
 public class AbstractCardRenderTypePatch {
@@ -30,7 +31,7 @@ public class AbstractCardRenderTypePatch {
 
     public static class Locator extends SpireInsertLocator {
         public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException {
-            Matcher finalMatcher = new Matcher.MethodCallMatcher("com.megacrit.cardcrawl.helpers.FontHelper", "renderRotatedText");
+            Matcher finalMatcher = new Matcher.MethodCallMatcher(FontHelper.class, "renderRotatedText");
 
             return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
         }

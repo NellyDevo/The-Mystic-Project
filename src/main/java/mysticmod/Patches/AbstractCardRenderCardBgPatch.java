@@ -10,7 +10,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
 
-@SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="renderCardBg")
+@SpirePatch(
+        clz=AbstractCard.class,
+        method="renderCardBg"
+)
 public class AbstractCardRenderCardBgPatch {
 
     public static void Postfix(AbstractCard __card_instance, SpriteBatch sb, float x, float y) {

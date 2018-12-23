@@ -8,7 +8,10 @@ import com.megacrit.cardcrawl.monsters.city.Healer;
 import mysticmod.MysticMod;
 import mysticmod.character.MysticCharacter;
 
-@SpirePatch(cls="com.megacrit.cardcrawl.monsters.city.Healer",method="takeTurn")
+@SpirePatch(
+        clz = Healer.class,
+        method = "takeTurn"
+)
 public class HealerTalkyPatch {
 
     public static void Prefix(Healer __healer_instance) {

@@ -9,7 +9,10 @@ import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MomentumPower;
 import mysticmod.powers.SpellsPlayed;
 
-@SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="calculateCardDamage")
+@SpirePatch(
+        clz = AbstractCard.class,
+        method = "calculateCardDamage"
+)
 public class CalculateCardDamageMomentumPatch {
     public static int baseDamagePlaceholder;
 

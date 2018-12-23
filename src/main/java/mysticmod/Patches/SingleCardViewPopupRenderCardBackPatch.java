@@ -11,8 +11,8 @@ import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
 
 @SpirePatch(
-        cls="com.megacrit.cardcrawl.screens.SingleCardViewPopup",
-        method="renderCardBack"
+        clz = SingleCardViewPopup.class,
+        method = "renderCardBack"
 )
 public class SingleCardViewPopupRenderCardBackPatch {
     public static void Postfix(SingleCardViewPopup __instance, SpriteBatch sb) {

@@ -8,7 +8,9 @@ import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MomentumPower;
 import mysticmod.powers.SpellsPlayed;
 
-@SpirePatch(cls="com.megacrit.cardcrawl.cards.AbstractCard",method="applyPowersToBlock")
+@SpirePatch(
+        clz=AbstractCard.class,
+        method="applyPowersToBlock")
 public class ApplyPowersToBlockMomentumPatch {
     public static int baseBlockPlaceholder;
 
