@@ -24,7 +24,6 @@ public class EbbPower extends AbstractPower {
         this.type = PowerType.DEBUFF;
         this.amount = -1;
         this.updateDescription();
-
     }
 
     @Override

@@ -11,8 +11,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.EbbPower;
 import mysticmod.powers.FlowPower;
 
-public class EbbAndFlow
-        extends AbstractMysticCard {
+public class EbbAndFlow extends AbstractMysticCard {
     public static final String ID = "mysticmod:EbbAndFlow";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

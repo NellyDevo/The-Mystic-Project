@@ -17,8 +17,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.vfx.DisintegrateEffect;
 
-public class Disintegrate
-        extends AbstractMysticCard {
+public class Disintegrate extends AbstractMysticCard {
     public static final String ID = "mysticmod:Disintegrate";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -10,12 +10,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-public class MistParticleXLEffect extends AbstractGameEffect
-{
+public class MistParticleXLEffect extends AbstractGameEffect {
     private float x;
     private float y;
     private float vY;
-    public static TextureAtlas.AtlasRegion[] imgs = new TextureAtlas.AtlasRegion[3];
+    private static TextureAtlas.AtlasRegion[] imgs = new TextureAtlas.AtlasRegion[3];
     private TextureAtlas.AtlasRegion img;
     
     public MistParticleXLEffect(final float x, final float y) {

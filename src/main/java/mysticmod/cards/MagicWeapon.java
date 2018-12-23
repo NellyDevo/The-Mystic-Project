@@ -16,8 +16,7 @@ import mysticmod.patches.MysticTags;
 
 import java.util.List;
 
-public class MagicWeapon
-        extends AbstractMysticCard {
+public class MagicWeapon extends AbstractMysticCard {
     public static final String ID = "mysticmod:MagicWeapon";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

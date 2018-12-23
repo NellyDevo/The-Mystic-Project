@@ -13,8 +13,7 @@ import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
-public class EarthenWall
-        extends AbstractMysticCard {
+public class EarthenWall extends AbstractMysticCard {
     public static final String ID = "mysticmod:EarthenWall";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

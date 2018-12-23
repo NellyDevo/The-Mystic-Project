@@ -14,8 +14,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class Flurry
-        extends AbstractMysticCard {
+public class Flurry extends AbstractMysticCard {
     public static final String ID = "mysticmod:Flurry";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

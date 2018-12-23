@@ -12,8 +12,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 
-public class ClosingBarrage
-        extends AbstractMysticCard {
+public class ClosingBarrage extends AbstractMysticCard {
     public static final String ID = "mysticmod:ClosingBarrage";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

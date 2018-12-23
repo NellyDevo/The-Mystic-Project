@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.powers.RegenPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
-public class CureLightWounds
-        extends AbstractMysticCard {
+public class CureLightWounds extends AbstractMysticCard {
     public static final String ID = "mysticmod:CureLightWounds";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -14,8 +14,7 @@ import mysticmod.actions.EnchantedMoulinetAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
-public class EnchantedMoulinet
-        extends AbstractMysticCard {
+public class EnchantedMoulinet extends AbstractMysticCard {
     public static final String ID = "mysticmod:EnchantedMoulinet";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

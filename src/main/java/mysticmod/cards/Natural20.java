@@ -11,8 +11,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.Natural20Power;
 
-public class Natural20
-        extends AbstractMysticCard {
+public class Natural20 extends AbstractMysticCard {
     public static final String ID = "mysticmod:Natural20";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

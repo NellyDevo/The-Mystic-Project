@@ -8,7 +8,10 @@ import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MomentumPower;
 import mysticmod.powers.SpellsPlayed;
 
-@SpirePatch(clz=AbstractCard.class, method="applyPowers")
+@SpirePatch(
+        clz=AbstractCard.class,
+        method="applyPowers"
+)
 public class ApplyPowersMomentumPatch {
     public static int baseDamagePlaceholder;
 

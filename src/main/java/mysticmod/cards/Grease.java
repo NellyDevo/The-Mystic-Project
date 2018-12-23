@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.actions.LoadCardImageAction;
@@ -15,8 +16,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-public class Grease
-        extends AbstractMysticCard {
+public class Grease extends AbstractMysticCard {
     public static final String ID = "mysticmod:Grease";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -41,13 +41,13 @@ public class Grease
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(ArtesPlayed.POWER_ID)) {
-            if (!m.hasPower("Artifact")) {
+            if (!m.hasPower(ArtifactPower.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         } else {
             for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (!mo.hasPower("Artifact")) {
+                if (!mo.hasPower(ArtifactPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber), this.magicNumber));
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber), -this.magicNumber));

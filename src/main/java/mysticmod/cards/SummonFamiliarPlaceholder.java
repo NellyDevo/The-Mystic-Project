@@ -9,8 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class SummonFamiliarPlaceholder
-        extends AbstractMysticCard {
+public class SummonFamiliarPlaceholder extends AbstractMysticCard {
     public static final String ID = "mysticmod:SummonFamiliar";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

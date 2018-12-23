@@ -13,8 +13,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-public class GreaterInvisibility
-        extends AbstractMysticCard {
+public class GreaterInvisibility extends AbstractMysticCard {
     public static final String ID = "mysticmod:GreaterInvisibility";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

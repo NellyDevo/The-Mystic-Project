@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.MysticMod;
 
-public class SpellRecallAction extends AbstractGameAction
-{
+public class SpellRecallAction extends AbstractGameAction {
     private AbstractPlayer p;
     private static final String ID = "mysticmod:SpellRecallAction";
     private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);

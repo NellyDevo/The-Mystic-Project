@@ -43,7 +43,7 @@ import java.util.*;
 import static mysticmod.patches.AbstractCardEnum.MYSTIC_PURPLE;
 
 @SpireInitializer
-public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber {
+public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber {
 
     private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
     private static final String attackCard = "mysticmod/images/512/bg_attack_mystic.png";
@@ -63,16 +63,14 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public static Healer storedHealer;
     public static float storedHealerDialogY;
     public static CardBackgroundConfig cardBackgroundSetting;
-    public static ModPanel settingsPanel;
-    public static ModLabeledToggleButton shapes;
-    public static ModLabeledToggleButton colors;
-    public static ModLabeledToggleButton combined;
-    public static ModLabeledToggleButton foxToggle;
-    public static SpireConfig mysticConfig;
-    public static boolean mysticFriendlyMinionsToggle;
+    private static ModLabeledToggleButton shapes;
+    private static ModLabeledToggleButton colors;
+    private static ModLabeledToggleButton combined;
+    private static SpireConfig mysticConfig;
+    private static boolean mysticFriendlyMinionsToggle;
     public static ArrayList<AbstractCard> cantripsGroup = new ArrayList<>();
-    public static ArrayList<AbstractCard> spellsGroup;
-    public static ArrayList<AbstractCard> artesGroup;
+    private static ArrayList<AbstractCard> spellsGroup;
+    private static ArrayList<AbstractCard> artesGroup;
 
 
     public MysticMod(){
@@ -111,6 +109,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     }
 
     //Used by @SpireInitializer
+    @SuppressWarnings("unused")
     public static void initialize(){
         MysticMod mysticMod = new MysticMod();
     }
@@ -118,7 +117,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     @Override
     public void receivePostInitialize() {
         Texture badgeImg = new Texture("mysticmod/images/badge.png");
-        settingsPanel = new ModPanel();
+        ModPanel settingsPanel = new ModPanel();
         settingsPanel.addUIElement(new ModLabel("Spells and Artes should be differentiated by...", 350.0f, 750.0f, settingsPanel, me -> {}));
         shapes = new ModLabeledToggleButton("Shapes.", 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.SHAPE, settingsPanel, label -> {}, button -> {
             MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
@@ -148,7 +147,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         });
         settingsPanel.addUIElement(combined);
         settingsPanel.addUIElement(new ModLabel("Restart required for changes to reflect in compendium.", 350.0f, 450.0f, settingsPanel, me -> {}));
-        foxToggle = new ModLabeledToggleButton("Enable Fox Minion Card (requires FriendlyMinions)", 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, mysticFriendlyMinionsToggle, settingsPanel, label -> {}, button -> {
+        ModLabeledToggleButton foxToggle = new ModLabeledToggleButton("Enable Fox Minion Card (requires FriendlyMinions)", 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, mysticFriendlyMinionsToggle, settingsPanel, label -> {}, button -> {
             mysticFriendlyMinionsToggle = button.enabled;
             if (mysticFriendlyMinionsToggle) {
                 MysticMod.mysticConfig.setString("Fox Minion Enabled", "TRUE");
@@ -293,8 +292,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     }
 
     @Override
-    public void receiveCustomModeMods(List<CustomMod> l) {
-        l.add(new CustomMod(CrystalClear.ID, "g", true));
+    public void receiveCustomModeMods(List<CustomMod> modsList) {
+        modsList.add(new CustomMod(CrystalClear.ID, "g", true));
     }
 
     @Override
@@ -402,23 +401,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
         if (RefreshSpellArteLogicField.checkSpell.get(card)) {
             if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
-//                Iterator iter;
-//                iter = AbstractDungeon.player.relics.iterator();
-//                AbstractRelic r;
-//                while (iter.hasNext()) {
-//                    r = (AbstractRelic) iter.next();
-//                    if (r instanceof SpellArteLogicAffector) {
-//                        retVal = ((SpellArteLogicAffector) r).modifyIsSpell(card, retVal);
-//                    }
-//                }
-//                iter = AbstractDungeon.player.powers.iterator();
-//                AbstractPower p;
-//                while (iter.hasNext()) {
-//                    p = (AbstractPower) iter.next();
-//                    if (p instanceof SpellArteLogicAffector) {
-//                        retVal = ((SpellArteLogicAffector) p).modifyIsSpell(card, retVal);
-//                    }
-//                }
                 ArrayList<SpellArteLogicAffector> listByPriority = new ArrayList<>();
                 Iterator iter;
                 iter = AbstractDungeon.player.relics.iterator();
@@ -462,24 +444,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
         if (RefreshSpellArteLogicField.checkArte.get(card)) {
             if (AbstractDungeon.player != null) { //Then, apply any conditional relic/power logic with provided hooks.
-//                Iterator iter;
-//                iter = AbstractDungeon.player.relics.iterator();
-//                AbstractRelic r;
-//                while (iter.hasNext()) {
-//                    r = (AbstractRelic) iter.next();
-//                    if (r instanceof SpellArteLogicAffector) {
-//                        retVal = ((SpellArteLogicAffector) r).modifyIsArte(card, retVal);
-//                    }
-//                }
-//                iter = AbstractDungeon.player.powers.iterator();
-//                AbstractPower p;
-//                while (iter.hasNext()) {
-//                    p = (AbstractPower) iter.next();
-//                    if (p instanceof SpellArteLogicAffector) {
-//                        retVal = ((SpellArteLogicAffector) p).modifyIsArte(card, retVal);
-//                    }
-//                }
-//            }
                 ArrayList<SpellArteLogicAffector> listByPriority = new ArrayList<>();
                 Iterator iter;
                 iter = AbstractDungeon.player.relics.iterator();

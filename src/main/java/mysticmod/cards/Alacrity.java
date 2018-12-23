@@ -14,9 +14,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-
-public class Alacrity
-        extends AbstractMysticCard {
+public class Alacrity extends AbstractMysticCard {
     public static final String ID = "mysticmod:Alacrity";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

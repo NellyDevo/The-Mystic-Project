@@ -17,8 +17,6 @@ public class MagicMissileEffect extends AbstractGameEffect {
     private static final float EFFECT_DUR = 1.0f;
     private float x;
     private float y;
-    private float originX;
-    private float originY;
     private float targetX;
     private float targetY;
     private float straightStartX;
@@ -32,10 +30,8 @@ public class MagicMissileEffect extends AbstractGameEffect {
         this.img = ImageMaster.WOBBLY_LINE;
         this.rotation = MathUtils.random(180.0f) - 90.0f;
         this.initialRotation = this.rotation;
-        this.originX = originX;
-        this.originY = originY;
-        this.x = this.originX - this.img.packedWidth / 2.0f;
-        this.y = this.originY - this.img.packedHeight / 2.0f;
+        this.x = originX - this.img.packedWidth / 2.0f;
+        this.y = originY - this.img.packedHeight / 2.0f;
         this.targetX = targetX - this.img.packedWidth / 2.0f;
         this.targetY = targetY - this.img.packedHeight / 2.0f;
         this.duration = EFFECT_DUR;
@@ -65,7 +61,7 @@ public class MagicMissileEffect extends AbstractGameEffect {
             this.y += tmp.y;
             this.straightStartX = this.x;
             this.straightStartY = this.y;
-            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f, this.rotation));
+            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f));
         } else if (this.duration < 0.0f) {
             this.isDone = true;
         } else {
@@ -74,7 +70,7 @@ public class MagicMissileEffect extends AbstractGameEffect {
             }
             this.x = Interpolation.linear.apply(this.straightStartX, targetX, 1.0f - (this.duration) * 2);
             this.y = Interpolation.linear.apply(this.straightStartY, targetY, 1.0f - (this.duration) * 2);
-            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f, this.rotation));
+            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f));
         }
     }
 

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
@@ -13,13 +14,13 @@ import mysticmod.MysticMod;
 import java.util.ArrayList;
 
 @SpirePatch(
-        cls="com.megacrit.cardcrawl.screens.SingleCardViewPopup",
-        method="renderCardTypeText"
+        clz = SingleCardViewPopup.class,
+        method = "renderCardTypeText"
 )
 public class SingleCardViewPopupRenderCardTypeTextPatch {
     @SpireInsertPatch(
-            localvars={"label"},
-            locator=Locator.class
+            localvars = {"label"},
+            locator = Locator.class
     )
     public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label) {
         AbstractCard reflectedCard = (AbstractCard) ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");

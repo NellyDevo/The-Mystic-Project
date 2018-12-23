@@ -12,8 +12,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.MysticalShieldPower;
 import mysticmod.powers.MysticalShieldUpgradedPower;
 
-public class MysticalShield
-        extends AbstractMysticCard {
+public class MysticalShield extends AbstractMysticCard {
     public static final String ID = "mysticmod:MysticalShield";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

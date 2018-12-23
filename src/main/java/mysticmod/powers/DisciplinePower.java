@@ -24,7 +24,6 @@ public class DisciplinePower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override
@@ -37,5 +36,4 @@ public class DisciplinePower extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellsPlayed(AbstractDungeon.player, this.amount), this.amount));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtesPlayed(AbstractDungeon.player, this.amount), this.amount));
     }
-
 }

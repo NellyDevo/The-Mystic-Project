@@ -12,8 +12,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 
-public class DisintegrateEffect extends AbstractGameEffect
-{
+public class DisintegrateEffect extends AbstractGameEffect {
     private float x;
     private float y;
     private static final float DUR = 1.0f;

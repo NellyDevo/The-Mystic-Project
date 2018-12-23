@@ -9,8 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.SpellDiscoveryAction;
 import mysticmod.patches.AbstractCardEnum;
 
-public class KnowledgePool
-        extends AbstractMysticCard {
+public class KnowledgePool extends AbstractMysticCard {
     public static final String ID = "mysticmod:KnowledgePool";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

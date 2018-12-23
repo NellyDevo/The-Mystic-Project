@@ -1,6 +1,5 @@
 package mysticmod.vfx;
 
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,13 +14,13 @@ public class MagicMissileTrailEffect extends AbstractGameEffect {
     private float y;
     private static TextureAtlas.AtlasRegion img;
 
-    public MagicMissileTrailEffect(final float x, final float y, final float angle) {
+    public MagicMissileTrailEffect(float x, float y) {
         if (MagicMissileTrailEffect.img == null) {
             MagicMissileTrailEffect.img = ImageMaster.vfxAtlas.findRegion("combat/blurDot");
         }
         this.renderBehind = false;
-        this.duration = 0.4f;
-        this.startingDuration = 0.4f;
+        this.duration = EFFECT_DUR;
+        this.startingDuration = EFFECT_DUR;
         this.x = x - MagicMissileTrailEffect.img.packedWidth / 2.0f;
         this.y = y - MagicMissileTrailEffect.img.packedHeight / 2.0f;
         this.rotation = 0.0f;

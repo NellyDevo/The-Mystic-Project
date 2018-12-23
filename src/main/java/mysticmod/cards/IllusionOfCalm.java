@@ -12,8 +12,7 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
-public class IllusionOfCalm
-        extends AbstractMysticCard {
+public class IllusionOfCalm extends AbstractMysticCard {
     public static final String ID = "mysticmod:IllusionOfCalm";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

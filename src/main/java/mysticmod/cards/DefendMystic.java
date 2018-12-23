@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 
-public class DefendMystic
-        extends AbstractMysticCard {
+public class DefendMystic extends AbstractMysticCard {
     public static final String ID = "mysticmod:Defend_Mystic";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

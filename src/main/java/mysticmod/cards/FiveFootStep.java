@@ -17,8 +17,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class FiveFootStep
-        extends AbstractMysticCard {
+public class FiveFootStep extends AbstractMysticCard {
     public static final String ID = "mysticmod:FiveFootStep";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -14,8 +14,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.ExhaustEmberEffect;
 
-public class ObscuringMistEffect extends AbstractGameEffect
-{
+public class ObscuringMistEffect extends AbstractGameEffect {
     private float x;
     private float y;
     private static final float X_RADIUS = 200.0f * Settings.scale;

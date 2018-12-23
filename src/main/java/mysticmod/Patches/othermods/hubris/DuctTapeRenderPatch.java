@@ -17,7 +17,11 @@ import java.util.List;
 
 public class DuctTapeRenderPatch {
 
-    @SpirePatch(cls="com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard",method="renderCardBg",optional=true)
+    @SpirePatch(
+            cls = "com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard",
+            method = "renderCardBg",
+            optional = true
+    )
     public static class DuctTapeRenderCardBgPatch {
         public static void Postfix(AbstractCard __instance, SpriteBatch sb, float x, float y) {
             boolean hasTags = false;
@@ -106,7 +110,11 @@ public class DuctTapeRenderPatch {
         }
     }
 
-    @SpirePatch(cls="com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard",method="renderDuctTapeLargeCardBg",optional=true)
+    @SpirePatch(
+            cls = "com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard",
+            method = "renderDuctTapeLargeCardBg",
+            optional = true
+    )
     public static class DuctTapeRenderDuctTapeLargeCardBgPatch {
         public static void Postfix(AbstractCard __instance, SpriteBatch sb) {
             boolean hasTags = false;

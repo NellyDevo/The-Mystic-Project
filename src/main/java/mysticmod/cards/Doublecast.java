@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.DoublecastPower;
 
-public class Doublecast
-        extends AbstractMysticCard {
+public class Doublecast extends AbstractMysticCard {
     public static final String ID = "mysticmod:Doublecast";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mysticmod.patches.AbstractCardEnum;
 
-public class Dedication
-        extends AbstractMysticCard {
+public class Dedication extends AbstractMysticCard {
     public static final String ID = "mysticmod:Dedication";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

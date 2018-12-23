@@ -16,8 +16,7 @@ import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.vfx.ObscuringMistEffect;
 
-public class ObscuringMist
-        extends AbstractMysticCard {
+public class ObscuringMist extends AbstractMysticCard {
     public static final String ID = "mysticmod:ObscuringMist";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

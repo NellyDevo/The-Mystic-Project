@@ -14,8 +14,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.GainDexterityPower;
 
-public class Lunge
-        extends AbstractMysticCard {
+public class Lunge extends AbstractMysticCard {
     public static final String ID = "mysticmod:Lunge";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -52,7 +51,6 @@ public class Lunge
         boolean returnValue = super.hasEnoughEnergy();
         if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
             returnValue = false;
-            return returnValue;
         }
         return returnValue;
     }

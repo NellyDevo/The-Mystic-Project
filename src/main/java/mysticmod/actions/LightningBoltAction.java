@@ -10,10 +10,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-public class LightningBoltAction extends AbstractGameAction { //Rifle
+public class LightningBoltAction/*Rifle*/ extends AbstractGameAction {
     private int[] multiDamage;
     private DamageInfo.DamageType damageTypeForTurn;
     private AbstractPlayer p;
@@ -22,8 +20,6 @@ public class LightningBoltAction extends AbstractGameAction { //Rifle
     private Float ROTATION = 90f;
     private Float DURATION = 0.5f;
     private AbstractCard parentCard;
-
-    public static final Logger logger = LogManager.getLogger(LightningBoltAction.class);
 
     public LightningBoltAction(final int[] multiDamage, final DamageInfo.DamageType damageTypeForTurn, AbstractPlayer player, AbstractCard parentCard) {
         this.actionType = ActionType.SPECIAL;

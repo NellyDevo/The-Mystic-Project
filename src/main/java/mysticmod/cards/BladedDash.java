@@ -18,8 +18,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class BladedDash
-        extends AbstractMysticCard {
+public class BladedDash extends AbstractMysticCard {
     public static final String ID = "mysticmod:BladedDash";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

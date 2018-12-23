@@ -27,7 +27,6 @@ public class Natural20Power extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override

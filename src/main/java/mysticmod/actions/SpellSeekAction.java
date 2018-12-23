@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.MysticMod;
 
-public class SpellSeekAction extends AbstractGameAction
-{
+public class SpellSeekAction extends AbstractGameAction {
     private AbstractPlayer p;
     private static final String ID = "mysticmod:SpellSeekAction";
     private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);

@@ -29,7 +29,6 @@ public class ArcaneAccuracyPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override

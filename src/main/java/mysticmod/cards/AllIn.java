@@ -14,8 +14,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
-public class AllIn
-        extends AbstractMysticCard {
+public class AllIn extends AbstractMysticCard {
     public static final String ID = "mysticmod:AllIn";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

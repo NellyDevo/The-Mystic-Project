@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 
-public class TomeOfSpells
-        extends AbstractMysticCard {
+public class TomeOfSpells extends AbstractMysticCard {
     public static final String ID = "mysticmod:TomeOfSpells";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

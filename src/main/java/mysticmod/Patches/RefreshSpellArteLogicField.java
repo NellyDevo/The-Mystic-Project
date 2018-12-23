@@ -5,8 +5,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 @SpirePatch(
-        clz= AbstractCard.class,
-        method= SpirePatch.CLASS
+        clz = AbstractCard.class,
+        method = SpirePatch.CLASS
 )
 public class RefreshSpellArteLogicField {
     public static SpireField<Boolean> checkSpell = new SpireField<>(() -> true);

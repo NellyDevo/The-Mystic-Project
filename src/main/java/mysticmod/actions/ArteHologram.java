@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import mysticmod.MysticMod;
 
-public class ArteHologram extends AbstractGameAction
-{
+public class ArteHologram extends AbstractGameAction {
     private AbstractPlayer p;
     private int amount;
     private static final String ID = "mysticmod:ArteHologram";

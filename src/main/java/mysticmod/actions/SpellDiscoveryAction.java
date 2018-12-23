@@ -9,8 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
 
-public class SpellDiscoveryAction extends AbstractGameAction
-{
+public class SpellDiscoveryAction extends AbstractGameAction {
     private boolean retrieveCard;
     private AbstractCard.CardType cardType;
 

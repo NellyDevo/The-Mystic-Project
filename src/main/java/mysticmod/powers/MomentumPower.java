@@ -24,7 +24,6 @@ public class MomentumPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = -1;
         this.updateDescription();
-
     }
 
     @Override

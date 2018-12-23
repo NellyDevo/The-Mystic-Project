@@ -12,8 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 
-public class ComponentsPouch
-        extends AbstractMysticCard {
+public class ComponentsPouch extends AbstractMysticCard {
     public static final String ID = "mysticmod:ComponentsPouch";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

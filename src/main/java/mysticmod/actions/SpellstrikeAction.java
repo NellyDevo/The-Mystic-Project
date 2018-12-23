@@ -129,7 +129,4 @@ public class SpellstrikeAction extends AbstractGameAction {
         AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
         this.tickDuration();
     }
-
 }
-
-

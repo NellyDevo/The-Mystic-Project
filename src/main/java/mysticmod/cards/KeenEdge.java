@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import mysticmod.patches.AbstractCardEnum;
 
-public class KeenEdge
-        extends AbstractMysticCard {
+public class KeenEdge extends AbstractMysticCard {
     public static final String ID = "mysticmod:KeenEdge";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

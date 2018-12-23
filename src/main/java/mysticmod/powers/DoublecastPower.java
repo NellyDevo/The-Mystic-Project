@@ -30,7 +30,6 @@ public class DoublecastPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override

@@ -14,8 +14,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 
-public class Flourish
-        extends AbstractMysticCard {
+public class Flourish extends AbstractMysticCard {
     public static final String ID = "mysticmod:Flourish";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

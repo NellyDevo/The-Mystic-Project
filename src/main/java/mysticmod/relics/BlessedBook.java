@@ -40,7 +40,7 @@ public class BlessedBook extends CustomRelic {
     @Override
     public void obtain() {
         if (AbstractDungeon.player.hasRelic(SpellBook.ID)) {
-            for (int i=0; i<AbstractDungeon.player.relics.size(); ++i) {
+            for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
                 if (AbstractDungeon.player.relics.get(i).relicId.equals(SpellBook.ID)) {
                     instantObtain(AbstractDungeon.player, i, true);
                     break;
@@ -52,7 +52,7 @@ public class BlessedBook extends CustomRelic {
     }
 
     @Override
-    public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
+    public AbstractRelic makeCopy() {
         return new BlessedBook();
     }
 }

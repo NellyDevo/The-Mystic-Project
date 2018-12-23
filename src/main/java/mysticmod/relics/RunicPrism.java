@@ -34,7 +34,7 @@ public class RunicPrism extends CustomRelic {
     }
 
     @Override
-    public AbstractRelic makeCopy() { // always override this method to return a new instance of your relic
+    public AbstractRelic makeCopy() {
         return new RunicPrism();
     }
 }

@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArcaneAccuracyPower;
 
-public class ArcaneAccuracy
-        extends AbstractMysticCard {
+public class ArcaneAccuracy extends AbstractMysticCard {
     public static final String ID = "mysticmod:ArcaneAccuracy";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -19,7 +19,9 @@ import java.util.ArrayList;
 @SpirePatch(clz=AbstractPlayer.class, method="useCard")
 public class SpellArteCounterPatch {
 
-    @SpireInsertPatch(locator = Locator.class)
+    @SpireInsertPatch(
+            locator = Locator.class
+    )
     public static void Insert(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
         if (MysticMod.isThisASpell(c)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(__instance, __instance, new SpellsPlayed(__instance, 1), 1));

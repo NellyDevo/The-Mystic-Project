@@ -18,8 +18,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.vfx.MagicMissileEffect;
 
-public class MagicMissile
-        extends AbstractMysticCard {
+public class MagicMissile extends AbstractMysticCard {
     public static final String ID = "mysticmod:MagicMissile";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.MysticMod;
 import mysticmod.actions.GeminiFormAction;
 
-
 public class GeminiFormPower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:GeminiFormPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -32,7 +31,6 @@ public class GeminiFormPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override

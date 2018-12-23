@@ -25,8 +25,7 @@ import mysticmod.powers.SpellsPlayedNextTurn;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SummonFamiliar
-        extends AbstractMysticCard {
+public class SummonFamiliar extends AbstractMysticCard {
     public static final String ID = "mysticmod:SummonFamiliar";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

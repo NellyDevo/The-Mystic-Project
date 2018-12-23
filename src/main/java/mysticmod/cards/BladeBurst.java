@@ -15,8 +15,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.MysticTags;
 
-public class BladeBurst
-        extends AbstractMysticCard {
+public class BladeBurst extends AbstractMysticCard {
     public static final String ID = "mysticmod:BladeBurst";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

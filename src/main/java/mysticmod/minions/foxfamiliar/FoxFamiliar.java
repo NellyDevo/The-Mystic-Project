@@ -12,7 +12,6 @@ import mysticmod.powers.ArtesPlayedNextTurn;
 import mysticmod.powers.SpellsPlayedNextTurn;
 
 public class FoxFamiliar extends AbstractFriendlyMonster {
-
     public static String NAME = "Fox Familiar";
     public static String ID = "mysticmod:FoxFamiliar";
     private AbstractMonster target;

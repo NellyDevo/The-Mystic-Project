@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
-public class EnchantedMoulinetAction extends AbstractGameAction
-{
+public class EnchantedMoulinetAction extends AbstractGameAction {
     public int[] damage;
     private boolean firstFrame;
 

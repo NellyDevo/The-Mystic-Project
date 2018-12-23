@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
@@ -20,7 +21,6 @@ public class ClosingBarrageAction extends AbstractGameAction {
     private AbstractMonster m;
     private int inheritedDamage;
     private boolean upgraded;
-
 
     public ClosingBarrageAction(AbstractPlayer p, AbstractMonster m, int damage, DamageInfo.DamageType damageType, boolean isThisFreeToPlayOnce, int energyOnUse, boolean upgraded) {
         this.freeToPlayOnce = false;
@@ -42,9 +42,9 @@ public class ClosingBarrageAction extends AbstractGameAction {
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
         }
-        if (this.p.hasRelic("Chemical X")) {
+        if (this.p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            this.p.getRelic(ChemicalX.ID).flash();
         }
         if (this.upgraded) {
             effect += 1;
@@ -57,7 +57,9 @@ public class ClosingBarrageAction extends AbstractGameAction {
         randomEffect.add(AttackEffect.SLASH_DIAGONAL);
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.inheritedDamage, this.damageType), randomEffect.get(generator.nextInt(randomEffect.size()))));
+                AbstractDungeon.actionManager.addToBottom(
+                        new DamageAction(this.m, new DamageInfo(this.p, this.inheritedDamage, this.damageType),
+                                randomEffect.get(generator.nextInt(randomEffect.size()))));
             }
             if (!this.freeToPlayOnce) {
                 this.p.energy.use(EnergyPanel.totalCount);

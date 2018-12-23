@@ -13,8 +13,7 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 
-public class PureInstinct
-        extends AbstractMysticCard {
+public class PureInstinct extends AbstractMysticCard {
     public static final String ID = "mysticmod:PureInstinct";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

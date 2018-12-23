@@ -26,7 +26,6 @@ public class ComboCasterPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
-
     }
 
     @Override
@@ -36,7 +35,6 @@ public class ComboCasterPower extends AbstractPower {
         } else {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
         }
-
     }
 
     @Override

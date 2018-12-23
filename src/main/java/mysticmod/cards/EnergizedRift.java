@@ -12,8 +12,7 @@ import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
-public class EnergizedRift
-        extends AbstractMysticCard {
+public class EnergizedRift extends AbstractMysticCard {
     public static final String ID = "mysticmod:EnergizedRift";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

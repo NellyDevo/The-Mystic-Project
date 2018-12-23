@@ -14,8 +14,7 @@ import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
 
-public class BulkUp
-        extends AbstractMysticCard {
+public class BulkUp extends AbstractMysticCard {
     public static final String ID = "mysticmod:BulkUp";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

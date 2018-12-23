@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.DisciplinePower;
 
-public class Discipline
-        extends AbstractMysticCard {
+public class Discipline extends AbstractMysticCard {
     public static final String ID = "mysticmod:Discipline";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

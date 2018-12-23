@@ -13,8 +13,7 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.HastePower;
 
-public class Haste
-        extends AbstractMysticCard {
+public class Haste extends AbstractMysticCard {
     public static final String ID = "mysticmod:Haste";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

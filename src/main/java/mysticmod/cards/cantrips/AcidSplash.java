@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class AcidSplash
-        extends AbstractCantrip {
+public class AcidSplash extends AbstractCantrip {
     public static final String ID = "mysticmod:AcidSplash";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

@@ -9,8 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.actions.ArteHologram;
 import mysticmod.patches.AbstractCardEnum;
 
-public class BladeMaster
-        extends AbstractMysticCard {
+public class BladeMaster extends AbstractMysticCard {
     public static final String ID = "mysticmod:BladeMaster";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
