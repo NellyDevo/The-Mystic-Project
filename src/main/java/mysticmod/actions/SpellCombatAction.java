@@ -37,13 +37,13 @@ public class SpellCombatAction extends AbstractGameAction
 
     @Override
     public void update() {
-        boolean technical = false;
-        boolean energized = false;
+        boolean poised = false;
+        boolean powerful = false;
         if (p.hasPower(ArtesPlayed.POWER_ID)) {
-            technical = true;
+            poised = true;
         }
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
-            energized = true;
+            powerful = true;
         }
         int effect = EnergyPanel.totalCount;
         if (this.energyOnUse != -1) {
@@ -55,7 +55,7 @@ public class SpellCombatAction extends AbstractGameAction
         }
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
-                if (energized) {
+                if (powerful) {
                     AttackEffect alternatingEffect;
                     if (i % 2 == 0) {
                         alternatingEffect = AttackEffect.SLASH_HORIZONTAL;
@@ -64,7 +64,7 @@ public class SpellCombatAction extends AbstractGameAction
                     }
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.damage, damageType), alternatingEffect));
                 }
-                if (technical) {
+                if (poised) {
                     AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
                 }
             }
