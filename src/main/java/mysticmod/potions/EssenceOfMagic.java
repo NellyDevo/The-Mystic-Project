@@ -1,16 +1,16 @@
 package mysticmod.potions;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import mysticmod.cards.cantrips.*;
+import mysticmod.MysticMod;
 
 public class EssenceOfMagic extends AbstractPotion {
-
     public static final String POTION_ID = "mysticmod:EssenceOfMagic";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     public static final String NAME = potionStrings.NAME;
@@ -32,24 +32,8 @@ public class EssenceOfMagic extends AbstractPotion {
     @Override
     public void use(final AbstractCreature target) {
         for (int i = 0; i < this.potency; i++) {
-            int randomlyGeneratedNumber = AbstractDungeon.cardRandomRng.random(4);
-            switch (randomlyGeneratedNumber) {
-                case 0:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new AcidSplash(), 1, false));
-                    break;
-                case 1:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Prestidigitation(), 1, false));
-                    break;
-                case 2:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RayOfFrost(), 1, false));
-                    break;
-                case 3:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Spark(), 1, false));
-                    break;
-                case 4:
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new ReadMagic(), 1, false));
-                    break;
-            }
+            AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(randomCantrip, 1));
         }
     }
 
