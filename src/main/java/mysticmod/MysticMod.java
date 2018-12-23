@@ -32,6 +32,8 @@ import mysticmod.patches.MysticEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.patches.RefreshSpellArteLogicField;
 import mysticmod.potions.EssenceOfMagic;
+import mysticmod.powers.MysticalShieldPower;
+import mysticmod.powers.MysticalShieldUpgradedPower;
 import mysticmod.relics.*;
 
 import java.io.IOException;
@@ -306,6 +308,16 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 }
             }
         }
+    }
+
+    @Override
+    public int receiveOnPlayerLoseBlock(int amount) {
+        if (AbstractDungeon.player.hasPower(MysticalShieldPower.POWER_ID)) {
+            amount = ((MysticalShieldPower)AbstractDungeon.player.getPower(MysticalShieldPower.POWER_ID)).onMoreSpecificTrigger(amount);
+        } else if (AbstractDungeon.player.hasPower(MysticalShieldUpgradedPower.POWER_ID)) {
+            amount = ((MysticalShieldUpgradedPower)AbstractDungeon.player.getPower(MysticalShieldUpgradedPower.POWER_ID)).onMoreSpecificTrigger(amount);
+        }
+        return amount;
     }
 
     @Override

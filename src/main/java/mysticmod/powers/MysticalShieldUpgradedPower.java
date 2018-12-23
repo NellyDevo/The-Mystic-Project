@@ -14,6 +14,7 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
+    private boolean hasFlashed;
 
     public MysticalShieldUpgradedPower(AbstractCreature owner) {
         this.name = NAME;
@@ -24,7 +25,7 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = -1;
         this.updateDescription();
-
+        this.hasFlashed = false;
     }
 
     @Override
@@ -32,11 +33,26 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
         description = DESCRIPTIONS[0];
     }
 
+    public int onMoreSpecificTrigger(int amount) {
+        if (AbstractDungeon.player.currentBlock - amount < 8) {
+            amount = AbstractDungeon.player.currentBlock - 8;
+            if (!hasFlashed) {
+                flash();
+                hasFlashed = true;
+            }
+        }
+        return amount;
+    }
+
     @Override
     public void atStartOfTurn() {
         if (AbstractDungeon.player.currentBlock < 8) {
-            flash();
+            if (!hasFlashed) {
+                flash();
+                hasFlashed = true;
+            }
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8 - AbstractDungeon.player.currentBlock));
         }
+        hasFlashed = false;
     }
 }
