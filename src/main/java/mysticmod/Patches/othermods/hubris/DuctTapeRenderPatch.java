@@ -7,12 +7,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import mysticmod.MysticMod;
 import mysticmod.cards.AbstractMysticCard;
-import mysticmod.patches.MysticTags;
-import mysticmod.relics.CrystalBall;
+import mysticmod.patches.RefreshSpellArteLogicField;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class DuctTapeRenderPatch {
@@ -23,86 +24,48 @@ public class DuctTapeRenderPatch {
             optional = true
     )
     public static class DuctTapeRenderCardBgPatch {
+        private static HashMap<String,String> smallTextures = new HashMap<>();
+        private static HashMap<List<Boolean>,String> spellArteStatusToString = new HashMap<>();
+
         public static void Postfix(AbstractCard __instance, SpriteBatch sb, float x, float y) {
-            boolean hasTags = false;
+            if (smallTextures.isEmpty()) {
+                smallTextures.put("SPELL" + AbstractCard.CardType.ATTACK.toString(), AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
+                smallTextures.put("ARTE" + AbstractCard.CardType.ATTACK.toString(), AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
+                smallTextures.put("SPERTE" + AbstractCard.CardType.ATTACK.toString(), AbstractMysticCard.BG_ADDON_SMALL_SPERTE_ATTACK);
+                smallTextures.put("SPELL" + AbstractCard.CardType.SKILL.toString(), AbstractMysticCard.BG_ADDON_SMALL_SPELL_SKILL);
+                smallTextures.put("ARTE" + AbstractCard.CardType.SKILL.toString(), AbstractMysticCard.BG_ADDON_SMALL_ARTE_SKILL);
+                smallTextures.put("SPERTE" + AbstractCard.CardType.SKILL.toString(), AbstractMysticCard.BG_ADDON_SMALL_SPERTE_SKILL);
+            }
+            if (spellArteStatusToString.isEmpty()) {
+                spellArteStatusToString.put(new ArrayList<>(Arrays.asList(true, false)), "SPELL");
+                spellArteStatusToString.put(new ArrayList<>(Arrays.asList(false, true)), "ARTE");
+                spellArteStatusToString.put(new ArrayList<>(Arrays.asList(true, true)), "SPERTE");
+            }
             try {
                 Class<?> DuctTapeClass = Class.forName("com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard");
                 List<AbstractCard> reflectedList = (List<AbstractCard>)ReflectionHacks.getPrivate(__instance, DuctTapeClass, "cards");
                 AbstractCard leftCard = reflectedList.get(0);
                 AbstractCard rightCard = reflectedList.get(1);
-                if (leftCard.hasTag(MysticTags.IS_SPELL)) {
-                    hasTags = true;
-                    switch (leftCard.type){
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture leftSpellAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
-                            sb.draw(leftSpellAttackOverlay, x, y, 256.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 256, 512, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture leftSpellSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_SKILL);
-                            sb.draw(leftSpellSkillOverlay, x, y, 256.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 256, 512, false, false);
-                            break;
-                    }
+                if (RefreshSpellArteLogicField.checkSpell.get(__instance)) {
+                    RefreshSpellArteLogicField.checkSpell.set(leftCard, true);
+                    RefreshSpellArteLogicField.checkSpell.set(rightCard, true);
                 }
-                if (rightCard.hasTag(MysticTags.IS_SPELL)) {
-                    hasTags = true;
-                    switch (rightCard.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture rightSpellAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_ATTACK);
-                            sb.draw(rightSpellAttackOverlay,x + 256.0f, y, 0.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 256, 0, 256, 512, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture rightSpellSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_SKILL);
-                            sb.draw(rightSpellSkillOverlay,x + 256.0f, y, 0.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 256, 0, 256, 512, false, false);
-                            break;
-                    }
+                if (RefreshSpellArteLogicField.checkArte.get(__instance)) {
+                    RefreshSpellArteLogicField.checkArte.set(leftCard, true);
+                    RefreshSpellArteLogicField.checkArte.set(rightCard, true);
                 }
-                if (leftCard.hasTag(MysticTags.IS_ARTE)) {
-                    hasTags = true;
-                    switch (leftCard.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture leftArteAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
-                            sb.draw(leftArteAttackOverlay, x, y, 256.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 256, 512, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture leftArteSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_SKILL);
-                            sb.draw(leftArteSkillOverlay, x, y, 256.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 256, 512, false, false);
-                            break;
-                    }
+                boolean leftSpell = MysticMod.isThisASpell(leftCard);
+                boolean leftArte = MysticMod.isThisAnArte(leftCard);
+                boolean rightSpell = MysticMod.isThisASpell(rightCard);
+                boolean rightArte = MysticMod.isThisAnArte(rightCard);
+                sb.setColor(Color.WHITE);
+                if (leftSpell || leftArte) {
+                    Texture leftCardOverlay = MysticMod.loadBgAddonTexture(smallTextures.get(spellArteStatusToString.get(new ArrayList<>(Arrays.asList(leftSpell, leftArte))) + leftCard.type.toString()));
+                    sb.draw(leftCardOverlay, x, y, 256.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 256, 512, false, false);
                 }
-                if (rightCard.hasTag(MysticTags.IS_ARTE)) {
-                    hasTags = true;
-                    switch (rightCard.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture rightArteAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
-                            sb.draw(rightArteAttackOverlay,x + 256.0f, y, 0.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 256, 0, 256, 512, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture rightArteSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_SKILL);
-                            sb.draw(rightArteSkillOverlay,x + 256.0f, y, 0.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 256, 0, 256, 512, false, false);
-                            break;
-                    }
-                }
-                if (!hasTags && AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
-                    switch (__instance.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_ARTE_ATTACK);
-                            sb.draw(extraAttackBG, x, y, 256f, 256f, 512f, 512f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 512, 512, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_SMALL_SPELL_SKILL);
-                            sb.draw(extraSkillBG, x, y, 256f, 256f, 512f, 512f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 0, 0, 512, 512, false, false);
-                            break;
-                    }
+                if (rightSpell || rightArte) {
+                    Texture rightCardOverlay = MysticMod.loadBgAddonTexture(smallTextures.get(spellArteStatusToString.get(new ArrayList<>(Arrays.asList(rightSpell, rightArte))) + rightCard.type.toString()));
+                    sb.draw(rightCardOverlay,x + 256.0f, y, 0.0f, 256.0f, 256.0f, 512.0f, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle, 256, 0, 256, 512, false, false);
                 }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -116,86 +79,48 @@ public class DuctTapeRenderPatch {
             optional = true
     )
     public static class DuctTapeRenderDuctTapeLargeCardBgPatch {
+        private static HashMap<String,String> largeTextures = new HashMap<>();
+        private static HashMap<List<Boolean>,String> spellArteStatusToString = new HashMap<>();
+
         public static void Postfix(AbstractCard __instance, SpriteBatch sb) {
-            boolean hasTags = false;
+            if (largeTextures.isEmpty()) {
+                largeTextures.put("SPELL" + AbstractCard.CardType.ATTACK.toString(), AbstractMysticCard.BG_ADDON_LARGE_SPELL_ATTACK);
+                largeTextures.put("ARTE" + AbstractCard.CardType.ATTACK.toString(), AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
+                largeTextures.put("SPERTE" + AbstractCard.CardType.ATTACK.toString(), AbstractMysticCard.BG_ADDON_LARGE_SPERTE_ATTACK);
+                largeTextures.put("SPELL" + AbstractCard.CardType.SKILL.toString(), AbstractMysticCard.BG_ADDON_LARGE_SPELL_SKILL);
+                largeTextures.put("ARTE" + AbstractCard.CardType.SKILL.toString(), AbstractMysticCard.BG_ADDON_LARGE_ARTE_SKILL);
+                largeTextures.put("SPERTE" + AbstractCard.CardType.SKILL.toString(), AbstractMysticCard.BG_ADDON_LARGE_SPERTE_SKILL);
+            }
+            if (spellArteStatusToString.isEmpty()) {
+                spellArteStatusToString.put(new ArrayList<>(Arrays.asList(true, false)), "SPELL");
+                spellArteStatusToString.put(new ArrayList<>(Arrays.asList(false, true)), "ARTE");
+                spellArteStatusToString.put(new ArrayList<>(Arrays.asList(true, true)), "SPERTE");
+            }
             try {
                 Class<?> DuctTapeClass = Class.forName("com.evacipated.cardcrawl.mod.hubris.cards.DuctTapeCard");
                 List<AbstractCard> reflectedList = (List<AbstractCard>)ReflectionHacks.getPrivate(__instance, DuctTapeClass, "cards");
                 AbstractCard leftCard = reflectedList.get(0);
                 AbstractCard rightCard = reflectedList.get(1);
-                if (leftCard.hasTag(MysticTags.IS_SPELL)) {
-                    hasTags = true;
-                    switch (leftCard.type){
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture leftSpellAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_ATTACK);
-                            sb.draw(leftSpellAttackOverlay, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512, 512, 512, 1024, Settings.scale, Settings.scale, 0, 0, 0, 512, 1024, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture leftSpellSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_SKILL);
-                            sb.draw(leftSpellSkillOverlay, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512, 512, 512, 1024, Settings.scale, Settings.scale, 0, 0, 0, 512, 1024, false, false);
-                            break;
-                    }
+                if (RefreshSpellArteLogicField.checkSpell.get(__instance)) {
+                    RefreshSpellArteLogicField.checkSpell.set(leftCard, true);
+                    RefreshSpellArteLogicField.checkSpell.set(rightCard, true);
                 }
-                if (rightCard.hasTag(MysticTags.IS_SPELL)) {
-                    hasTags = true;
-                    switch (rightCard.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture rightSpellAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_ATTACK);
-                            sb.draw(rightSpellAttackOverlay, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f - 512.0f, 0, 512, 512, 1024, Settings.scale, Settings.scale, 0, 512, 0, 512, 1024, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture rightSpellSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_SKILL);
-                            sb.draw(rightSpellSkillOverlay, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f - 512.0f, 0, 512, 512, 1024, Settings.scale, Settings.scale, 0, 512, 0, 512, 1024, false, false);
-                            break;
-                    }
+                if (RefreshSpellArteLogicField.checkArte.get(__instance)) {
+                    RefreshSpellArteLogicField.checkArte.set(leftCard, true);
+                    RefreshSpellArteLogicField.checkArte.set(rightCard, true);
                 }
-                if (leftCard.hasTag(MysticTags.IS_ARTE)) {
-                    hasTags = true;
-                    switch (leftCard.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture leftArteAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
-                            sb.draw(leftArteAttackOverlay, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512, 512, 512, 1024, Settings.scale, Settings.scale, 0, 0, 0, 512, 1024, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture leftArteSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_SKILL);
-                            sb.draw(leftArteSkillOverlay, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512, 512, 512, 1024, Settings.scale, Settings.scale, 0, 0, 0, 512, 1024, false, false);
-                            break;
-                    }
+                boolean leftSpell = MysticMod.isThisASpell(leftCard);
+                boolean leftArte = MysticMod.isThisAnArte(leftCard);
+                boolean rightSpell = MysticMod.isThisASpell(rightCard);
+                boolean rightArte = MysticMod.isThisAnArte(rightCard);
+                sb.setColor(Color.WHITE);
+                if (leftSpell || leftArte) {
+                    Texture leftCardOverlay = MysticMod.loadBgAddonTexture(largeTextures.get(spellArteStatusToString.get(new ArrayList<>(Arrays.asList(leftSpell, leftArte))) + leftCard.type.toString()));
+                    sb.draw(leftCardOverlay, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512, 512, 512, 1024, Settings.scale, Settings.scale, 0, 0, 0, 512, 1024, false, false);
                 }
-                if (rightCard.hasTag(MysticTags.IS_ARTE)) {
-                    hasTags = true;
-                    switch (rightCard.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture rightArteAttackOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
-                            sb.draw(rightArteAttackOverlay, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f - 512.0f, 0, 512, 512, 1024, Settings.scale, Settings.scale, 0, 512, 0, 512, 1024, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture rightArteSkillOverlay = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_SKILL);
-                            sb.draw(rightArteSkillOverlay, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f - 512.0f, 0, 512, 512, 1024, Settings.scale, Settings.scale, 0, 512, 0, 512, 1024, false, false);
-                            break;
-                    }
-                }
-                if (!hasTags && AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CrystalBall.ID)) {
-                    switch (__instance.type) {
-                        case ATTACK:
-                            sb.setColor(Color.WHITE);
-                            Texture extraAttackBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_ARTE_ATTACK);
-                            sb.draw(extraAttackBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
-                            break;
-                        case SKILL:
-                            sb.setColor(Color.WHITE);
-                            Texture extraSkillBG = MysticMod.loadBgAddonTexture(AbstractMysticCard.BG_ADDON_LARGE_SPELL_SKILL);
-                            sb.draw(extraSkillBG, Settings.WIDTH / 2.0f - 512.0f, Settings.HEIGHT / 2.0f - 512.0f, 512.0f, 512.0f, 1024.0f, 1024.0f, Settings.scale, Settings.scale, 0.0f, 0, 0, 1024, 1024, false, false);
-                            break;
-                    }
+                if (rightSpell || rightArte) {
+                    Texture rightCardOverlay = MysticMod.loadBgAddonTexture(largeTextures.get(spellArteStatusToString.get(new ArrayList<>(Arrays.asList(rightSpell, rightArte))) + rightCard.type.toString()));
+                    sb.draw(rightCardOverlay, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f - 512.0f, 0, 512, 512, 1024, Settings.scale, Settings.scale, 0, 512, 0, 512, 1024, false, false);
                 }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
