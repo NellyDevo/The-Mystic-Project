@@ -49,7 +49,7 @@
   },
   "mysticmod:BladedDash": {
     "NAME": "Bladed Dash",
-    "DESCRIPTION": "Deal !D! damage. Powerful: Gain !B! Block.",
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BulkUp": {
@@ -161,7 +161,7 @@
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage. Poised: deal it to ALL enemies.",
+    "DESCRIPTION": "Deal !D! damage. NL Poised: deal it to ALL enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FiveFootStep": {
@@ -221,7 +221,7 @@
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: permanently increase this card's Damage by !M!. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: increase this card's damage by !M! permanently. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HunkerDown": {
@@ -241,7 +241,7 @@
   },
   "mysticmod:LightningBolt": {
     "NAME": "Lightning Bolt",
-    "DESCRIPTION": "Deal !D! damage to all enemies. Poised: Deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Poised: Deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Lunge": {
@@ -380,7 +380,7 @@
   },
   "mysticmod:ShockingGrasp": {
     "NAME": "Shocking Grasp",
-    "DESCRIPTION": "Deal !D! damage. Poised: deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage. NL Poised: deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Sideswipe": {
