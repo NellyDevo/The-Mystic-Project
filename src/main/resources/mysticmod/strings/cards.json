@@ -19,7 +19,7 @@
   },
   "mysticmod:Alacrity": {
     "NAME": "Alacrity",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: gain [E] next turn.",
+    "DESCRIPTION": "Gain !B! Block. NL Poised: Gain [E] next turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:AllIn": {
@@ -34,7 +34,7 @@
   },
   "mysticmod:ArcaneDodge": {
     "NAME": "Arcane Dodge",
-    "DESCRIPTION": "Gain !B! Block. NL Powerful: gain an additional !M! Block.",
+    "DESCRIPTION": "Gain !B! Block. NL Powerful: Gain an additional !M! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BladeBurst": {
@@ -96,7 +96,7 @@
   },
   "mysticmod:Daze": {
     "NAME": "Diversion",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Poised: apply !M! Weak.",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Poised: Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Dedication": {
@@ -126,7 +126,7 @@
   },
   "mysticmod:DiviningBlow": {
     "NAME": "Divining Blow",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: draw !M! cards.",
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: Draw !M! cards.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Doublecast": {
@@ -161,7 +161,7 @@
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage. NL Poised: deal it to ALL enemies.",
+    "DESCRIPTION": "Deal !D! damage. NL Poised: Deal it to ALL enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FiveFootStep": {
@@ -171,7 +171,7 @@
   },
   "mysticmod:FloatingDisk": {
     "NAME": "Floating Disk",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: gain !M! Dexterity. Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. NL Poised: Gain !M! Dexterity. Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Flourish": {
@@ -221,7 +221,7 @@
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: increase this card's damage by !M! permanently. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: Increase this card's damage by !M! permanently. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HunkerDown": {
@@ -362,7 +362,7 @@
   },
   "mysticmod:SpellCombat": {
     "NAME": "Spell Combat",
-    "DESCRIPTION": "Powerful: deal !D! damage X times. NL Poised: Gain !B! Block X times.",
+    "DESCRIPTION": "Powerful: Deal !D! damage X times. NL Poised: Gain !B! Block X times.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "I don't have any [#5299DC]Power[] or [#FF5252]Poise[]!"
@@ -380,7 +380,7 @@
   },
   "mysticmod:ShockingGrasp": {
     "NAME": "Shocking Grasp",
-    "DESCRIPTION": "Deal !D! damage. NL Poised: deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage. NL Poised: Deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Sideswipe": {
