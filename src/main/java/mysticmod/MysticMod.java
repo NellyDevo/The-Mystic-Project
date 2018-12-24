@@ -43,7 +43,7 @@ import java.util.*;
 import static mysticmod.patches.AbstractCardEnum.MYSTIC_PURPLE;
 
 @SpireInitializer
-public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber {
+public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber, RelicGetSubscriber {
 
     private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
     private static final String attackCard = "mysticmod/images/512/bg_attack_mystic.png";
@@ -518,6 +518,37 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
         extraTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         return extraTexture;
+    }
+
+    public static void refreshSpellArteLogicChecks() {
+        //for spell/arte logic, refresh conditional logic.
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
+            RefreshSpellArteLogicField.checkSpell.set(card, true);
+            RefreshSpellArteLogicField.checkArte.set(card, true);
+        }
+        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+            RefreshSpellArteLogicField.checkSpell.set(card, true);
+            RefreshSpellArteLogicField.checkArte.set(card, true);
+        }
+        for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+            RefreshSpellArteLogicField.checkSpell.set(card, true);
+            RefreshSpellArteLogicField.checkArte.set(card, true);
+        }
+        for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
+            RefreshSpellArteLogicField.checkSpell.set(card, true);
+            RefreshSpellArteLogicField.checkArte.set(card, true);
+        }
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            RefreshSpellArteLogicField.checkSpell.set(card, true);
+            RefreshSpellArteLogicField.checkArte.set(card, true);
+        }
+    }
+
+    @Override
+    public void receiveRelicGet(AbstractRelic r) {
+        if (r instanceof SpellArteLogicAffector) {
+            refreshSpellArteLogicChecks();
+        }
     }
 
     public enum CardBackgroundConfig {

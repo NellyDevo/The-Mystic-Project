@@ -16,27 +16,7 @@ public class ApplyPowersMomentumPatch {
     public static int baseDamagePlaceholder;
 
     public static void Prefix(AbstractCard __card_instance) {
-        //for spell/arte logic, refresh conditional logic.
-        for (AbstractCard card : AbstractDungeon.player.hand.group) {
-            RefreshSpellArteLogicField.checkSpell.set(card, true);
-            RefreshSpellArteLogicField.checkArte.set(card, true);
-        }
-        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-            RefreshSpellArteLogicField.checkSpell.set(card, true);
-            RefreshSpellArteLogicField.checkArte.set(card, true);
-        }
-        for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
-            RefreshSpellArteLogicField.checkSpell.set(card, true);
-            RefreshSpellArteLogicField.checkArte.set(card, true);
-        }
-        for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
-            RefreshSpellArteLogicField.checkSpell.set(card, true);
-            RefreshSpellArteLogicField.checkArte.set(card, true);
-        }
-        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            RefreshSpellArteLogicField.checkSpell.set(card, true);
-            RefreshSpellArteLogicField.checkArte.set(card, true);
-        }
+        MysticMod.refreshSpellArteLogicChecks();
 
         //only run code if momentum power exists
         if (AbstractDungeon.player.hasPower(MomentumPower.POWER_ID)) {
