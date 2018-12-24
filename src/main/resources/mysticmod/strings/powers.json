@@ -27,6 +27,13 @@
     "NAME": "Ebb",
     "DESCRIPTIONS": ["At the start of your turn, discard 2 cards if your hand does not contain a [#5299DC]Spell[] and an [#FF5252]Arte[]."]
   },
+  "mysticmod:EnergizedPurplePower": {
+    "NAME": "Energized",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " additional [E] next turn."
+    ]
+  },
   "mysticmod:FlowPower": {
     "NAME": "Flow",
     "DESCRIPTIONS": ["At the start of your turn, draw ", "an additional card.", " additional cards."]
