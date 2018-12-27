@@ -1,9 +1,6 @@
 package mysticmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,10 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
+import mysticmod.actions.MagicMissileAction;
 import mysticmod.actions.SetCardTargetCoordinatesAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import mysticmod.vfx.MagicMissileEffect;
 
 public class MagicMissile extends AbstractMysticCard {
     public static final String ID = "mysticmod:MagicMissile";
@@ -42,25 +39,8 @@ public class MagicMissile extends AbstractMysticCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SetCardTargetCoordinatesAction(this, -1.0f, Settings.HEIGHT / 2.0f + 300f * Settings.scale));
-        int effectCount = 0;
-        int damageCount = 0;
-        int maximumCount = (int)Math.ceil(((float)m.currentHealth + (float)m.currentBlock) / (float)this.damage);
-        if (this.magicNumber > maximumCount) {
-            this.magicNumber = maximumCount;
-        }
-        float elapsedTime = 0.0f;
-        while (effectCount < this.magicNumber || damageCount < this.magicNumber) {
-            if (effectCount < this.magicNumber) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new MagicMissileEffect(p.dialogX + 80.0f * Settings.scale, p.dialogY - 50.0f * Settings.scale, m.hb.cX, m.hb.cY)));
-                effectCount++;
-            }
-            if (damageCount < this.magicNumber && elapsedTime >= 1.0f) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
-                damageCount++;
-            }
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25f));
-            elapsedTime += 0.25f;
-        }
+        float projectileDelay = Interpolation.linear.apply(1.0F/3.0F, 0.05F, Math.min(((float)magicNumber)/100.0F, 1.0F));
+        AbstractDungeon.actionManager.addToBottom(new MagicMissileAction(m, new DamageInfo(p, this.damage), this.magicNumber, projectileDelay));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }

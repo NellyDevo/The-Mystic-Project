@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import mysticmod.actions.MagicMissileAction;
 
 public class MagicMissileEffect extends AbstractGameEffect {
     private static final float EFFECT_DUR = 1.0f;
@@ -25,8 +26,13 @@ public class MagicMissileEffect extends AbstractGameEffect {
     private float initialRotation;
     private TextureAtlas.AtlasRegion img;
     private boolean soundPlayed = false;
+    private MagicMissileAction parentAction;
 
     public MagicMissileEffect(float originX, float originY, float targetX, float targetY) {
+        this(originX, originY, targetX, targetY, null);
+    }
+
+    public MagicMissileEffect(float originX, float originY, float targetX, float targetY, MagicMissileAction parentAction) {
         this.img = ImageMaster.WOBBLY_LINE;
         this.rotation = MathUtils.random(180.0f) - 90.0f;
         this.initialRotation = this.rotation;
@@ -36,6 +42,7 @@ public class MagicMissileEffect extends AbstractGameEffect {
         this.targetY = targetY - this.img.packedHeight / 2.0f;
         this.duration = EFFECT_DUR;
         this.speed = 900.0f * Settings.scale;
+        this.parentAction = parentAction;
     }
 
     @Override
@@ -71,6 +78,9 @@ public class MagicMissileEffect extends AbstractGameEffect {
             this.x = Interpolation.linear.apply(this.straightStartX, targetX, 1.0f - (this.duration) * 2);
             this.y = Interpolation.linear.apply(this.straightStartY, targetY, 1.0f - (this.duration) * 2);
             AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f));
+        }
+        if (isDone && parentAction != null) {
+            parentAction.doDamage = true;
         }
     }
 
