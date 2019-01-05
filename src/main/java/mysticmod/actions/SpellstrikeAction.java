@@ -53,21 +53,18 @@ public class SpellstrikeAction extends AbstractGameAction {
                     if (!chosenCard.canUse(AbstractDungeon.player, this.t)) {
                         if (this.exhaustCards) {
                             AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(chosenCard, AbstractDungeon.player.limbo));
-                        }
-                        else {
+                        } else {
                             AbstractDungeon.actionManager.addToTop(new UnlimboAction(chosenCard));
                             AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(chosenCard, AbstractDungeon.player.limbo));
                             AbstractDungeon.actionManager.addToTop(new WaitAction(0.4f));
                         }
-                    }
-                    else {
+                    } else {
                         chosenCard.applyPowers();
                         AbstractDungeon.actionManager.addToTop(new QueueCardAction(chosenCard, this.t));
                         AbstractDungeon.actionManager.addToTop(new UnlimboAction(chosenCard));
                         if (!Settings.FAST_MODE) {
                             AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
-                        }
-                        else {
+                        } else {
                             AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
                         }
                     }
@@ -105,14 +102,12 @@ public class SpellstrikeAction extends AbstractGameAction {
             if (!card.canUse(AbstractDungeon.player, this.t)) {
                 if (this.exhaustCards) {
                     AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
-                }
-                else {
+                } else {
                     AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
                     AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.limbo));
                     AbstractDungeon.actionManager.addToTop(new WaitAction(0.4f));
                 }
-            }
-            else {
+            } else {
                 card.applyPowers();
                 AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.t));
                 AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));

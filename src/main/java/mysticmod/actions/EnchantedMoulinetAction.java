@@ -24,8 +24,7 @@ public class EnchantedMoulinetAction extends AbstractGameAction {
         this.attackEffect = effect;
         if (isFast) {
             this.duration = Settings.ACTION_DUR_XFAST;
-        }
-        else {
+        } else {
             this.duration = Settings.ACTION_DUR_FAST;
         }
     }
@@ -42,8 +41,7 @@ public class EnchantedMoulinetAction extends AbstractGameAction {
                 if (!AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isDying && AbstractDungeon.getCurrRoom().monsters.monsters.get(i).currentHealth > 0 && !AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isEscaping) {
                     if (playedMusic) {
                         AbstractDungeon.effectList.add(new FlashAtkImgEffect(AbstractDungeon.getCurrRoom().monsters.monsters.get(i).hb.cX, AbstractDungeon.getCurrRoom().monsters.monsters.get(i).hb.cY, this.attackEffect, true));
-                    }
-                    else {
+                    } else {
                         playedMusic = true;
                         AbstractDungeon.effectList.add(new FlashAtkImgEffect(AbstractDungeon.getCurrRoom().monsters.monsters.get(i).hb.cX, AbstractDungeon.getCurrRoom().monsters.monsters.get(i).hb.cY, this.attackEffect));
                     }
@@ -61,8 +59,7 @@ public class EnchantedMoulinetAction extends AbstractGameAction {
                     if (this.attackEffect == AttackEffect.POISON) {
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(j).tint.color = Color.CHARTREUSE.cpy();
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(j).tint.changeColor(Color.WHITE.cpy());
-                    }
-                    else if (this.attackEffect == AttackEffect.FIRE) {
+                    } else if (this.attackEffect == AttackEffect.FIRE) {
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(j).tint.color = Color.RED.cpy();
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(j).tint.changeColor(Color.WHITE.cpy());
                     }

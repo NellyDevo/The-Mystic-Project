@@ -32,8 +32,7 @@ public class SpellSeekAction extends AbstractGameAction {
                     if (this.p.hand.size() >= BaseMod.MAX_HAND_SIZE) {
                         this.p.drawPile.moveToDiscardPile(c);
                         this.p.createHandIsFullDialog();
-                    }
-                    else {
+                    } else {
                         this.p.drawPile.removeCard(c);
                         this.p.hand.addToTop(c);
                     }
@@ -61,8 +60,7 @@ public class SpellSeekAction extends AbstractGameAction {
             if (this.p.hand.size() >= BaseMod.MAX_HAND_SIZE) {
                 this.p.drawPile.moveToDiscardPile(card);
                 this.p.createHandIsFullDialog();
-            }
-            else {
+            } else {
                 card.unhover();
                 card.lighten(true);
                 card.setAngle(0.0f);
@@ -84,8 +82,7 @@ public class SpellSeekAction extends AbstractGameAction {
                 if (this.p.hand.size() >= BaseMod.MAX_HAND_SIZE) {
                     this.p.drawPile.moveToDiscardPile(card2);
                     this.p.createHandIsFullDialog();
-                }
-                else {
+                } else {
                     card2.unhover();
                     card2.lighten(true);
                     card2.setAngle(0.0f);

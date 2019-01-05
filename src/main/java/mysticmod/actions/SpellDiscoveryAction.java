@@ -26,8 +26,7 @@ public class SpellDiscoveryAction extends AbstractGameAction {
             MysticMod.isDiscoveryLookingForSpells = true;
             if (this.cardType == null) {
                 AbstractDungeon.cardRewardScreen.discoveryOpen();
-            }
-            else {
+            } else {
                 AbstractDungeon.cardRewardScreen.discoveryOpen(this.cardType);
             }
             MysticMod.isDiscoveryLookingForSpells = false;
@@ -40,8 +39,7 @@ public class SpellDiscoveryAction extends AbstractGameAction {
                 disCard.current_x = -1000.0f * Settings.scale;
                 if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                     AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(disCard, 1));
-                }
-                else {
+                } else {
                     AbstractDungeon.actionManager.addToTop(new MakeTempCardInDiscardAction(disCard, 1));
                 }
                 disCard.setCostForTurn(0);

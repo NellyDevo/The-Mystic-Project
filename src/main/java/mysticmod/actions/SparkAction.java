@@ -21,8 +21,7 @@ public class SparkAction extends AbstractGameAction {
         this.shuffleCheck = false;
         if (endTurnDraw) {
             AbstractDungeon.topLevelEffects.add(new PlayerTurnEffect());
-        }
-        else if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
+        } else if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
             AbstractDungeon.player.getPower(NoDrawPower.POWER_ID).flash();
             this.setValues(AbstractDungeon.player, source, amount);
             this.isDone = true;
@@ -34,8 +33,7 @@ public class SparkAction extends AbstractGameAction {
         this.actionType = ActionType.DRAW;
         if (Settings.FAST_MODE) {
             this.duration = Settings.ACTION_DUR_XFAST;
-        }
-        else {
+        } else {
             this.duration = Settings.ACTION_DUR_FASTER;
         }
     }
@@ -81,8 +79,7 @@ public class SparkAction extends AbstractGameAction {
         if (this.amount != 0 && this.duration < 0.0f) {
             if (Settings.FAST_MODE) {
                 this.duration = Settings.ACTION_DUR_XFAST;
-            }
-            else {
+            } else {
                 this.duration = Settings.ACTION_DUR_FASTER;
             }
             --this.amount;
