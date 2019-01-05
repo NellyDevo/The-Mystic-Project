@@ -48,7 +48,7 @@ public class Daze extends AbstractMysticCard {
         float destinationX = originX + 1500.0f * Settings.scale;
         float destinationY = ((midY - originY) / (midX - originX)) * (destinationX - originX) + originY;
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(originX, originY, destinationX, destinationY)));
-        CardCrawlGame.sound.playV("POWER_ENTANGLED", 3.0f);
+        CardCrawlGame.sound.playV("POWER_ENTANGLED", 1.5f);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         if (p.hasPower(ArtesPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
