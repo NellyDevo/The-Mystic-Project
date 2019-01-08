@@ -106,12 +106,22 @@ public abstract class AbstractMysticCard extends CustomCard {
 
         @Override
         public int baseValue(AbstractCard card) {
-            return ((AbstractMysticCard)card).baseSecondMagicNumber;
+            if (card instanceof AbstractMysticCard) {
+                return ((AbstractMysticCard)card).baseSecondMagicNumber;
+            } else {
+                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                return -1;
+            }
         }
 
         @Override
         public boolean isModified(AbstractCard card) {
-            return ((AbstractMysticCard)card).isSecondMagicNumberModified;
+            if (card instanceof AbstractMysticCard) {
+                return ((AbstractMysticCard)card).isSecondMagicNumberModified;
+            } else {
+                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                return false;
+            }
         }
 
         @Override
@@ -121,12 +131,22 @@ public abstract class AbstractMysticCard extends CustomCard {
 
         @Override
         public boolean upgraded(AbstractCard card) {
-            return ((AbstractMysticCard)card).upgradedSecondMagicNumber;
+            if (card instanceof AbstractMysticCard) {
+                return ((AbstractMysticCard)card).upgradedSecondMagicNumber;
+            } else {
+                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                return false;
+            }
         }
 
         @Override
         public int value(AbstractCard card) {
-            return ((AbstractMysticCard)card).secondMagicNumber;
+            if (card instanceof AbstractMysticCard) {
+                return ((AbstractMysticCard)card).secondMagicNumber;
+            } else {
+                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                return -1;
+            }
         }
     }
 }
