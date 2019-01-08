@@ -103,13 +103,18 @@ public abstract class AbstractMysticCard extends CustomCard {
     }
 
     public static class SecondMagicNumber extends DynamicVariable {
+        private static boolean didAlert = false;
 
         @Override
         public int baseValue(AbstractCard card) {
             if (card instanceof AbstractMysticCard) {
                 return ((AbstractMysticCard)card).baseSecondMagicNumber;
             } else {
-                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                if (!didAlert) {
+                    System.out.println("AbstractMysticCard: How the heck did you get here?");
+                    System.out.println("offending card: " + card);
+                    didAlert = true;
+                }
                 return -1;
             }
         }
@@ -119,7 +124,11 @@ public abstract class AbstractMysticCard extends CustomCard {
             if (card instanceof AbstractMysticCard) {
                 return ((AbstractMysticCard)card).isSecondMagicNumberModified;
             } else {
-                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                if (!didAlert) {
+                    System.out.println("AbstractMysticCard: How the heck did you get here?");
+                    System.out.println("offending card: " + card);
+                    didAlert = true;
+                }
                 return false;
             }
         }
@@ -134,7 +143,11 @@ public abstract class AbstractMysticCard extends CustomCard {
             if (card instanceof AbstractMysticCard) {
                 return ((AbstractMysticCard)card).upgradedSecondMagicNumber;
             } else {
-                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                if (!didAlert) {
+                    System.out.println("AbstractMysticCard: How the heck did you get here?");
+                    System.out.println("offending card: " + card);
+                    didAlert = true;
+                }
                 return false;
             }
         }
@@ -144,7 +157,11 @@ public abstract class AbstractMysticCard extends CustomCard {
             if (card instanceof AbstractMysticCard) {
                 return ((AbstractMysticCard)card).secondMagicNumber;
             } else {
-                System.out.println("AbstractMysticCard: How the heck did you get here?");
+                if (!didAlert) {
+                    System.out.println("AbstractMysticCard: How the heck did you get here?");
+                    System.out.println("offending card: " + card);
+                    didAlert = true;
+                }
                 return -1;
             }
         }
