@@ -14,7 +14,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
+import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import kobting.friendlyminions.monsters.MinionMove;
 import mysticmod.minions.foxfamiliar.FoxEvolutionPower;
 import mysticmod.minions.foxfamiliar.FoxFamiliar;
@@ -50,8 +52,38 @@ public class SummonFamiliar extends AbstractMysticCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!BasePlayerMinionHelper.hasMinions(p)) {
-            BasePlayerMinionHelper.addMinion(p, new FoxFamiliar());
+        MonsterGroup playerMinions = BasePlayerMinionHelper.getMinions(p);
+        if (!(BasePlayerMinionHelper.hasMinions(p) && playerMinions.getMonsterNames().contains(FoxFamiliar.ID))) {
+            int minionCount = playerMinions.monsters.size();
+            if (BasePlayerMinionHelper.getMaxMinions(p) <= minionCount) {
+                BasePlayerMinionHelper.changeMaxMinionAmount(p, minionCount + 1);
+            }
+            float x;
+            float y;
+            switch (minionCount) {
+                case 0:
+                    x = -700.0F;
+                    y = 50.0F;
+                    break;
+                case 1:
+                    x = -1200.0F;
+                    y = 50.0F;
+                    break;
+                case 2:
+                    x = -700.0F;
+                    y = 250.0F;
+                    break;
+                case 3:
+                    x = -1200.0F;
+                    y = 250.0F;
+                    break;
+                default:
+                    x = 0;
+                    y = 400.0F;
+                    System.out.println("Tell @JohnnyDevo that you somehow got more than 3 minions before the fox and to make more positions");
+                    break;
+            }
+            BasePlayerMinionHelper.addMinion(p, new FoxFamiliar(x, y));
         } else {
             FoxFamiliar fox = (FoxFamiliar)BasePlayerMinionHelper.getMinions(p).getMonster(FoxFamiliar.ID);
             if (!fox.hasPower(FoxEvolutionPower.POWER_ID)){

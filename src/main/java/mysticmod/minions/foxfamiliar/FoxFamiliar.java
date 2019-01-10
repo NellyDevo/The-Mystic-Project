@@ -24,8 +24,8 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
     public int baseBlockAmount = 4;
     public int baseSpellArteAmount = 1;
 
-    public FoxFamiliar() {
-        super(NAME, ID, 20, -8.0F, 10.0F, 230.0F, 240.0F, "mysticmod/images/minions/foxfamiliar.png", -700.0F, 50.0F);
+    public FoxFamiliar(float x, float y) {
+        super(NAME, ID, 20, -8.0F, 10.0F, 230.0F, 240.0F, "mysticmod/images/minions/foxfamiliar.png", x, y);
         addMoves();
     }
 
