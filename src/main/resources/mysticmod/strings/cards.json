@@ -241,7 +241,7 @@
   },
   "mysticmod:LightningBolt": {
     "NAME": "Lightning Bolt",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Poised: Deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Poised: Deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Lunge": {
