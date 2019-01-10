@@ -6,7 +6,7 @@
     <!-- Change These to match your mod -->
     <groupId>mysticmod</groupId>
     <artifactId>MysticMod</artifactId>
-    <version>0.15.4</version>
+    <version>0.15.5</version>
     <packaging>jar</packaging>
     <name>TheMystic</name>
     <description>Slay the Spire mod introducing custom character: The Mystic.</description>
