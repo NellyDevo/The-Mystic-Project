@@ -25,7 +25,7 @@
   },
   "mysticmod:EbbPower": {
     "NAME": "Ebb",
-    "DESCRIPTIONS": ["At the start of your turn, discard 2 cards if your hand does not contain a [#5299DC]Spell[] and an [#FF5252]Arte[]."]
+    "DESCRIPTIONS": ["At the start of your turn, discard 1 card unless you have a [#5299DC]Spell[] and 1 card unless you have an [#FF5252]Arte[]."]
   },
   "mysticmod:EnergizedPurplePower": {
     "NAME": "Energized",
