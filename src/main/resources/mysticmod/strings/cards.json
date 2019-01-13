@@ -146,7 +146,7 @@
   },
   "mysticmod:EnchantedMoulinet": {
     "NAME": "Enchanted Moulinet",
-    "DESCRIPTION": "Deal !D! damage to all enemies. For each enemy that dies, gain [E] .",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. For each enemy that dies, gain [E] .",
     "UPGRADE_DESCRIPTION": ""
 },
   "mysticmod:EnergizedRift": {
@@ -231,7 +231,7 @@
   },
   "mysticmod:KeenEdge": {
     "NAME": "Keen Edge",
-    "DESCRIPTION": "Apply !M! Vulnerable to all enemies.",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:KnowledgePool": {
