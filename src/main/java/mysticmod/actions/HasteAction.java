@@ -39,7 +39,8 @@ public class HasteAction extends AbstractGameAction {
             effect += 1;
         }
         if (effect > 0) {
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new HastePower(p, effect), effect));
+            boolean decay = AbstractDungeon.player.hasPower(HastePower.POWER_ID);
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new HastePower(p, decay, effect), effect));
         }
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);

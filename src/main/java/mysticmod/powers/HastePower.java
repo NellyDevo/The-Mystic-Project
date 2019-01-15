@@ -16,8 +16,9 @@ public class HastePower extends AbstractPower {
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
+    private boolean justApplied;
 
-    public HastePower(AbstractCreature owner, int amount) {
+    public HastePower(AbstractCreature owner, boolean dontDecayTurnOne, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -26,6 +27,7 @@ public class HastePower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
+        this.justApplied = dontDecayTurnOne;
     }
 
     @Override
@@ -55,9 +57,19 @@ public class HastePower extends AbstractPower {
     @Override
     public void atStartOfTurnPostDraw() {
         AbstractDungeon.player.gameHandSize--;
-        --amount;
-        if (amount == 0) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            if (!justApplied) {
+                --amount;
+            } else {
+                justApplied = false;
+            }
+            if (amount == 0) {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
+            }
         }
     }
 }
