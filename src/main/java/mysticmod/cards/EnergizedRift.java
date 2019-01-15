@@ -28,11 +28,12 @@ public class EnergizedRift extends AbstractMysticCard {
     private String currentDescription = DESCRIPTION;
 
     public EnergizedRift() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
         this.tags.add(MysticTags.IS_SPELL);
+        this.loadCardImage(IMG_PATH);
     }
 
     @Override
