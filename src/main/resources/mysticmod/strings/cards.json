@@ -383,6 +383,11 @@
     "DESCRIPTION": "Return a [#5299DC]Spell[] from your discard pile to your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Return a [#5299DC]Spell[] from your discard pile to your hand."
   },
+  "mysticmod:Spellstrike": {
+    "NAME": "Spellstrike",
+    "DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack [#5299DC]Spell[] and play it. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack [#5299DC]Spell[] and play it."
+  },
   "mysticmod:Shield": {
     "NAME": "Shield",
     "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn.",
@@ -402,11 +407,6 @@
     "NAME": "Spark",
     "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]."
-  },
-  "mysticmod:Spellstrike": {
-    "NAME": "Spellstrike",
-    "DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack [#5299DC]Spell[] and play it. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:SpontaneousCaster": {
     "NAME": "Spontaneous Caster",

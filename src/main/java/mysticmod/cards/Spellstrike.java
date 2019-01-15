@@ -22,7 +22,6 @@ public class Spellstrike extends AbstractMysticCard {
     public static final String IMG_PATH = "mysticmod/images/cards/spellstrike.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 8;
-    private static final int UPGRADE_PLUS_DMG = 3;
 
     public Spellstrike() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -49,7 +48,9 @@ public class Spellstrike extends AbstractMysticCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+            this.exhaust = false;
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }
