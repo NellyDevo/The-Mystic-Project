@@ -28,9 +28,9 @@
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ArcaneAccuracy": {
-    "NAME": "Arcane Accuracy",
-    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[] during your turn, gain 1 Strength until end of turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[] during your turn, gain 1 Strength until end of turn."
+    "NAME": "Metamagic",
+    "DESCRIPTION": "Gain !M! Spellpower.",
+    "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ArcaneDodge": {
     "NAME": "Arcane Dodge",

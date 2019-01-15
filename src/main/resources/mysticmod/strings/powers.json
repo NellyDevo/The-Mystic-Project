@@ -1,7 +1,7 @@
 {
   "mysticmod:ArcaneAccuracyPower": {
-    "NAME": "Arcane Accuracy",
-    "DESCRIPTIONS": ["Whenever you play a [#5299DC]Spell[], gain ", " Strength until end of turn"]
+    "NAME": "Spellpower",
+    "DESCRIPTIONS": ["Increase the block gained from and damage dealt by [#5299DC]Spells[] by ", "."]
   },
   "mysticmod:ArtesPlayedPower": {
     "NAME": "[#FF5252]Poise[]",

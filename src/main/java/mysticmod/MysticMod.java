@@ -247,7 +247,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new Stoneskin());
         BaseMod.addCard(new StyleChange());
         //6 powers
-        BaseMod.addCard(new ArcaneAccuracy());
+        BaseMod.addCard(new Metamagic());
         BaseMod.addCard(new ComboCaster());
         BaseMod.addCard(new Dedication());
         BaseMod.addCard(new EbbAndFlow());
