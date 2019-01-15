@@ -4,7 +4,7 @@
       "cantrip",
       "cantrips"
     ],
-    "DESCRIPTION": "Considered a [#5299DC]Spell[] so long as you have fewer than 3 stacks of [#5299DC]Power[]."
+    "DESCRIPTION": "Considered a [#5299DC]Spell[] so long as you have fewer than 2 stacks of [#5299DC]Power[]."
   },
   "FEAT": {
     "NAMES": [

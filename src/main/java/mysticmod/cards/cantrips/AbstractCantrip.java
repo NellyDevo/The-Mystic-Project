@@ -19,7 +19,7 @@ public abstract class AbstractCantrip extends AbstractMysticCard {
     @Override
     public boolean isSpell() {
         boolean retVal = (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
-                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 2));
+                || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 1)); //controls how many much power you can have before cantrips no longer count as spells
         if (retVal) {
             if (!this.hasTag(MysticTags.IS_SPELL)) {
                 this.tags.add(MysticTags.IS_SPELL);
