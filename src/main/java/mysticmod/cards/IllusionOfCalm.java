@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
+import mysticmod.powers.ArtesPlayed;
 
 public class IllusionOfCalm extends AbstractMysticCard {
     public static final String ID = "mysticmod:IllusionOfCalm";
@@ -20,10 +21,9 @@ public class IllusionOfCalm extends AbstractMysticCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/illusionofcalm.png";
     private static final int COST = 1;
-    private static final int BLOCK_AMT = 16;
-    private static final int UPGRADE_BLOCK_AMT = 2;
+    private static final int BLOCK_AMT = 12;
+    private static final int UPGRADE_BLOCK_AMT = 4;
     private static final int FRAIL_AMT = 3;
-    private static final int UPGRADE_MINUS_FRAIL = 1;
 
     public IllusionOfCalm() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -37,7 +37,22 @@ public class IllusionOfCalm extends AbstractMysticCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, false), this.magicNumber));
+        if (this.magicNumber > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, false), this.magicNumber));
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        this.magicNumber = this.baseMagicNumber;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            this.magicNumber -= AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+        }
+        if (this.magicNumber < 0) {
+            this.magicNumber = 0;
+        }
+        this.isMagicNumberModified = this.baseMagicNumber != this.magicNumber;
     }
 
     @Override
@@ -49,7 +64,6 @@ public class IllusionOfCalm extends AbstractMysticCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(-UPGRADE_MINUS_FRAIL);
             this.upgradeBlock(UPGRADE_BLOCK_AMT);
         }
     }

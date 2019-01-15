@@ -221,7 +221,7 @@
   },
   "mysticmod:IllusionOfCalm": {
     "NAME": "Illusion Of Calm",
-    "DESCRIPTION": "Gain !B! Block. NL Become Frail for !M! turns.",
+    "DESCRIPTION": "Gain !B! Block. NL Become Frail for !M! turns. NL Frail amount is reduced for each stack of [#FF5252]Poise[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Haste": {
