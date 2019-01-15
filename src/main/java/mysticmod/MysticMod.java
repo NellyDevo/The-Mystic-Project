@@ -12,6 +12,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -37,6 +39,7 @@ import mysticmod.powers.MysticalShieldUpgradedPower;
 import mysticmod.relics.*;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -321,16 +324,18 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditKeywords() {
-        String[] keywordCantrips = {"cantrip", "cantrips"};
-        String[] keywordPowerful = {"powerful"};
-        String[] keywordPoised = {"poised"};
-        String[] keywordFeat = {"feat"};
-        String[] keywordStoneskin = {"stoneskin"};
-        BaseMod.addKeyword(keywordCantrips, "Considered a [#5299DC]Spell[] so long as you have fewer than 3 stacks of [#5299DC]Power[].");
-        BaseMod.addKeyword(keywordPowerful, "Has an additional effect if you have a stack of [#5299DC]Power[].");
-        BaseMod.addKeyword(keywordPoised, "Has an additional effect if you have a stack of [#FF5252]Poise[].");
-        BaseMod.addKeyword(keywordFeat, "Can only be played as the first card of the turn.");
-        BaseMod.addKeyword(keywordStoneskin, "Gives 2 block at the start of each turn. This block is affected by any block-affecting powers.");
+        Gson gson = new Gson();
+
+        String keywordStrings = Gdx.files.internal("mysticmod/strings/keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        Type typeToken = new TypeToken<Map<String, Keyword>>() {}.getType();
+
+        Map<String, Keyword> keywords = (Map)gson.fromJson(keywordStrings, typeToken);
+
+        keywords.forEach((k,v)->{
+            // Keyword word = (Keyword)v;
+            System.out.println("MysticMod: adding Keyword - " + v.NAMES[0]);
+            BaseMod.addKeyword(v.NAMES, v.DESCRIPTION);
+        });
     }
 
     @Override

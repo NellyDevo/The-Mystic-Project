@@ -1,0 +1,51 @@
+{
+  "CANTRIP": {
+    "NAMES": [
+      "cantrip",
+      "cantrips"
+    ],
+    "DESCRIPTION": "Considered a [#5299DC]Spell[] so long as you have fewer than 3 stacks of [#5299DC]Power[]."
+  },
+  "FEAT": {
+    "NAMES": [
+      "feat"
+    ],
+    "DESCRIPTION": "Can only be played as the first card of the turn."
+  },
+  "HASTE": {
+    "NAMES": [
+      "haste"
+    ],
+    "DESCRIPTION": "Each turn, draw 1 card, gain [E], increase attack damage from cards by 1, and increase block gained from cards by 1."
+  },
+  "POISED": {
+    "NAMES": [
+      "poised"
+    ],
+    "DESCRIPTION": "Has an additional effect if you have a stack of [#FF5252]Poise[]."
+  },
+  "POWERFUL": {
+    "NAMES": [
+      "powerful"
+    ],
+    "DESCRIPTION": "Has an additional effect if you have a stack of [#5299DC]Power[]."
+  },
+  "SPELLPOWER": {
+    "NAMES": [
+      "spellpower"
+    ],
+    "DESCRIPTION": "Increases the Block gained from and damage dealt by [#5299DC]Spells[]."
+  },
+  "STONESKIN": {
+    "NAMES": [
+      "stoneskin"
+    ],
+    "DESCRIPTION": "Gives 2 block at the start of each turn. This block is affected by any block-affecting powers."
+  },
+  "TECHNIQUE": {
+    "NAMES": [
+      "technique"
+    ],
+    "DESCRIPTION": "Increases the Block gained from and damage dealt by [#FF5252]Artes[]."
+  }
+}
