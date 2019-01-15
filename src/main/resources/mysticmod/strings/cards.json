@@ -257,7 +257,10 @@
   "mysticmod:Lunge": {
     "NAME": "Lunge",
     "DESCRIPTION": "Gain [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. Feat.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. Feat."
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. Feat.",
+    "EXTENDED_DESCRIPTION": [
+      "I have already played an [#FF5252]Arte[] this turn!"
+    ]
   },
   "mysticmod:MagicMissile": {
     "NAME": "Magic Missile",
@@ -308,7 +311,10 @@
   "mysticmod:PowerAttack": {
     "NAME": "Power Attack",
     "DESCRIPTION": "Gain !mysticmod:M2! Strength and lose !M! Dexterity this turn. NL Feat.",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "I have already played an [#FF5252]Arte[] this turn!"
+    ]
   },
   "mysticmod:PowerSlash": {
     "NAME": "Power Slash",

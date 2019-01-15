@@ -10,7 +10,7 @@
     "NAMES": [
       "feat"
     ],
-    "DESCRIPTION": "Can only be played as the first card of the turn."
+    "DESCRIPTION": "Can only be played as the first [#FF5252]Arte[] of the turn."
   },
   "HASTE": {
     "NAMES": [

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.GainDexterityPower;
@@ -20,6 +21,7 @@ public class Lunge extends AbstractMysticCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/lunge.png";
     private static final int COST = 0;
     private static final int ENERGY_GAIN = 2;
@@ -48,11 +50,13 @@ public class Lunge extends AbstractMysticCard {
 
     @Override
     public boolean hasEnoughEnergy() { //feat keyword functionality
-        boolean returnValue = super.hasEnoughEnergy();
-        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
-            returnValue = false;
+        for (AbstractCard potentialArte : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+            if (MysticMod.isThisAnArte(potentialArte)) {
+                this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+                return false;
+            }
         }
-        return returnValue;
+        return super.hasEnoughEnergy();
     }
 
     @Override
