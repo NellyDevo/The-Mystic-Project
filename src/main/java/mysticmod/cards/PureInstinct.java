@@ -49,7 +49,7 @@ public class PureInstinct extends AbstractMysticCard {
         for (int i = 0; i <= ArtesCount; i++){
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PureInstinctPower(this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PureInstinctPower(p, this.magicNumber), this.magicNumber));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
