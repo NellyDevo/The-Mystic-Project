@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
-import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import kobting.friendlyminions.monsters.MinionMove;
 import mysticmod.minions.foxfamiliar.FoxEvolutionPower;
 import mysticmod.minions.foxfamiliar.FoxFamiliar;

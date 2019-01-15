@@ -1,6 +1,5 @@
 package mysticmod.powers;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -34,6 +33,6 @@ public class MomentumPower extends AbstractPower {
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        //Refer to ApplyPowersToBlockMomentumPatch.java, CalculateCardDamageMomentumPatch.java, and ApplyPowersMomentumPatch.java for full effects
+        //Refer to ApplyPowersToBlockPatch.java, CalculateCardDamagePatch.java, and ApplyPowersPatch.java for full effects
     }
 }
