@@ -288,7 +288,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new MysticCharacter(CardCrawlGame.playerName), charButton, charPortrait, MysticEnum.MYSTIC_CLASS);
+        BaseMod.addCharacter(new MysticCharacter(CardCrawlGame.playerName), charButton, charPortrait, MysticEnum.MYSTIC_CLASS); //TODO
     }
 
     @Override
