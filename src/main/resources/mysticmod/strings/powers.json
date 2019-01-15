@@ -82,6 +82,10 @@
     "NAME": "Natural 20",
     "DESCRIPTIONS": ["Critical hit!"]
   },
+  "mysticmod:PureInstinctPower": {
+    "NAME": "Pure Instinct",
+    "DESCRIPTIONS": ["For ", " turn, all Strikes count as [#FF5252]Artes[].", "turns, all Strikes count as [#FF5252]Artes[]."]
+  },
   "mysticmod:RapidCasterPower": {
     "NAME": "Rapid Caster",
     "DESCRIPTIONS": ["The first Cantrip you play each turn is played twice.", "The first ", " Cantrips you play each turn are played twice."]

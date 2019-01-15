@@ -1,6 +1,7 @@
 package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.powers.PureInstinctPower;
 
 public class PureInstinct extends AbstractMysticCard {
     public static final String ID = "mysticmod:PureInstinct";
@@ -24,12 +26,15 @@ public class PureInstinct extends AbstractMysticCard {
     private static final int COST = 1;
     public static final int BLOCK_AMT = 5;
     private static final int UPGRADE_PLUS_BLK = 2;
+    private static final int POWER_AMT = 2;
+    private static final int UPGRADE_POWER_AMT = 1;
 
     public PureInstinct() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
+        this.magicNumber=this.baseMagicNumber = POWER_AMT;
     }
 
     @Override
@@ -44,6 +49,7 @@ public class PureInstinct extends AbstractMysticCard {
         for (int i = 0; i <= ArtesCount; i++){
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PureInstinctPower(this.magicNumber), this.magicNumber));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
@@ -82,6 +88,7 @@ public class PureInstinct extends AbstractMysticCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(UPGRADE_PLUS_BLK);
+            this.upgradeMagicNumber(UPGRADE_POWER_AMT);
         }
     }
 }

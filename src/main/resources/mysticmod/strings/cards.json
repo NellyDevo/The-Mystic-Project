@@ -337,7 +337,7 @@
   },
   "mysticmod:PureInstinct": {
     "NAME": "Pure Instinct",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block for each [#FF5252]Arte[] in your hand.",
+    "DESCRIPTION": "Gain !B! Block, then gain !B! Block for each [#FF5252]Arte[] in your hand. NL for !M! turns, all Strikes count as [#FF5252]Artes[].",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (You have ",
