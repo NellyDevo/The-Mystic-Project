@@ -312,7 +312,7 @@
   },
   "mysticmod:PowerSlash": {
     "NAME": "Power Slash",
-    "DESCRIPTION": "Deal !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain an additional stack of [#FF5252]Poise[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PreparedCaster": {
