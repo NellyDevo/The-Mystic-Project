@@ -13,8 +13,9 @@ public class MagicMissileTrailEffect extends AbstractGameEffect {
     private float x;
     private float y;
     private static TextureAtlas.AtlasRegion img;
+    private Color effectColor;
 
-    public MagicMissileTrailEffect(float x, float y) {
+    public MagicMissileTrailEffect(float x, float y, Color effectColor) {
         if (MagicMissileTrailEffect.img == null) {
             MagicMissileTrailEffect.img = ImageMaster.vfxAtlas.findRegion("combat/blurDot");
         }
@@ -25,6 +26,7 @@ public class MagicMissileTrailEffect extends AbstractGameEffect {
         this.y = y - MagicMissileTrailEffect.img.packedHeight / 2.0f;
         this.rotation = 0.0f;
         this.scale = 0.01f;
+        this.effectColor = effectColor;
     }
 
     @Override
@@ -43,7 +45,9 @@ public class MagicMissileTrailEffect extends AbstractGameEffect {
 
     @Override
     public void render(final SpriteBatch sb) {
-        sb.setColor(new Color(0.0F, 1.0F, 1.0F, 1.0F - (0.8f - (this.duration * 2))));
+        Color tmp = effectColor.cpy();
+        tmp.set(tmp.r, tmp.g, tmp.b, 1.0F - (0.8f - (this.duration * 2)));
+        sb.setColor(tmp);
         sb.draw(MagicMissileTrailEffect.img, this.x, this.y, MagicMissileTrailEffect.img.packedWidth / 2.0f, MagicMissileTrailEffect.img.packedHeight / 2.0f, MagicMissileTrailEffect.img.packedWidth, MagicMissileTrailEffect.img.packedHeight, this.scale, this.scale, this.rotation);
         sb.setBlendFunction(770, 1);
         sb.setColor(new Color(0.0F, 0.0F, 1.0F, 1.0F - (0.8f - (this.duration * 2))));

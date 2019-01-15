@@ -252,7 +252,7 @@
   "mysticmod:MagicMissile": {
     "NAME": "Magic Missile",
     "DESCRIPTION": "Deal !D! damage for each time the deck was shuffled this combat.",
-    "UPGRADE_DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage for each time the deck was shuffled this combat, and for each stack of [#FF5252]Poise[].",
     "EXTENDED_DESCRIPTION": [" NL ( !M! times.)", " NL ( !M! time.)"]
   },
   "mysticmod:MagicWeapon": {

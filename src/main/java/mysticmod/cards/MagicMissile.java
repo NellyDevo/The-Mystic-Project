@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,10 +11,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
+import mysticmod.actions.LoadCardImageAction;
 import mysticmod.actions.MagicMissileAction;
 import mysticmod.actions.SetCardTargetCoordinatesAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
+import mysticmod.powers.ArtesPlayed;
 
 public class MagicMissile extends AbstractMysticCard {
     public static final String ID = "mysticmod:MagicMissile";
@@ -23,9 +26,11 @@ public class MagicMissile extends AbstractMysticCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTIONS = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/magicmissile.png";
+    public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/magicmissile.png";
     private static final int COST = 0;
     public static final int ATTACK_DMG = 3;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private boolean isArtAlternate = false;
+    private String currentDescription = DESCRIPTION;
 
     public MagicMissile() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -40,19 +45,36 @@ public class MagicMissile extends AbstractMysticCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SetCardTargetCoordinatesAction(this, -1.0f, Settings.HEIGHT / 2.0f + 300f * Settings.scale));
         float projectileDelay = Interpolation.linear.apply(1.0F/3.0F, 0.05F, Math.min(((float)magicNumber)/100.0F, 1.0F));
-        AbstractDungeon.actionManager.addToBottom(new MagicMissileAction(m, new DamageInfo(p, this.damage), this.magicNumber, projectileDelay));
-        this.rawDescription = DESCRIPTION;
+        AbstractDungeon.actionManager.addToBottom(new MagicMissileAction(m, new DamageInfo(p, this.damage), this.magicNumber, projectileDelay, isArtAlternate ? Color.RED.cpy() : Color.CYAN.cpy()));
+        this.rawDescription = currentDescription;
         this.initializeDescription();
+        if (this.isArtAlternate) {
+            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
+            this.isArtAlternate = false;
+        }
     }
 
     @Override
     public void applyPowers() {
-        this.magicNumber = this.baseMagicNumber = MysticMod.numberOfTimesDeckShuffledThisCombat + 1;
-        if (this.magicNumber > 1) {
-            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTIONS[0];
-            this.isMagicNumberModified = true;
+        this.magicNumber = this.baseMagicNumber;
+        this.magicNumber += MysticMod.numberOfTimesDeckShuffledThisCombat;
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID) && upgraded) {
+            this.magicNumber += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            if (!this.isArtAlternate) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
+                this.isArtAlternate = true;
+            }
         } else {
-            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTIONS[1];
+            if (this.isArtAlternate) {
+                this.loadCardImage(IMG_PATH);
+                this.isArtAlternate = false;
+            }
+        }
+        isMagicNumberModified = baseMagicNumber != magicNumber;
+        if (this.magicNumber > 1) {
+            this.rawDescription = currentDescription + EXTENDED_DESCRIPTIONS[0];
+        } else {
+            this.rawDescription = currentDescription + EXTENDED_DESCRIPTIONS[1];
         }
         this.initializeDescription();
         super.applyPowers();
@@ -60,8 +82,16 @@ public class MagicMissile extends AbstractMysticCard {
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
+        this.rawDescription = currentDescription;
         this.initializeDescription();
+    }
+
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (this.isArtAlternate) {
+            this.loadCardImage(IMG_PATH);
+            this.isArtAlternate = false;
+        }
     }
 
     @Override
@@ -73,7 +103,8 @@ public class MagicMissile extends AbstractMysticCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+            this.rawDescription = currentDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

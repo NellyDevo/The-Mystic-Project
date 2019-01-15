@@ -19,12 +19,14 @@ public class MagicMissileAction extends AbstractGameAction {
     private int projectilesFired;
     private float projectileTimer = 0.0f;
     private float projectileDelay;
+    private Color effectColor;
 
-    public MagicMissileAction(AbstractCreature target, DamageInfo info, int projectileCount, float projectileDelay) {
+    public MagicMissileAction(AbstractCreature target, DamageInfo info, int projectileCount, float projectileDelay, Color effectColor) {
         this.setValues(target, this.info = info);
         this.actionType = ActionType.DAMAGE;
         this.projectileCount = projectileCount;
         this.projectileDelay = projectileDelay;
+        this.effectColor = effectColor;
     }
 
     @Override
@@ -36,7 +38,7 @@ public class MagicMissileAction extends AbstractGameAction {
         }
         if (projectilesFired < projectileCount && projectileTimer <= 0.0f) {
             AbstractDungeon.effectList.add(
-                    new MagicMissileEffect(source.dialogX + 80.0f * Settings.scale, source.dialogY - 50.0f * Settings.scale, target.hb.cX, target.hb.cY, this)
+                    new MagicMissileEffect(source.dialogX + 80.0f * Settings.scale, source.dialogY - 50.0f * Settings.scale, target.hb.cX, target.hb.cY, this, effectColor.cpy())
             );
             projectilesFired++;
             projectileTimer = projectileDelay;
@@ -46,10 +48,10 @@ public class MagicMissileAction extends AbstractGameAction {
             doDamage = false;
             this.target.damageFlash = true;
             this.target.damageFlashFrames = 4;
-            FlashAtkImgEffect bluePoison = new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.POISON);
-            ReflectionHacks.setPrivateInherited(bluePoison, FlashAtkImgEffect.class, "color", Color.CYAN.cpy());
-            AbstractDungeon.effectList.add(bluePoison);
-            this.target.tint.color = Color.BLUE.cpy();
+            FlashAtkImgEffect coloredPoison = new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.POISON);
+            ReflectionHacks.setPrivateInherited(coloredPoison, FlashAtkImgEffect.class, "color", effectColor.cpy());
+            AbstractDungeon.effectList.add(coloredPoison);
+            this.target.tint.color = effectColor.cpy();
             this.target.tint.changeColor(Color.WHITE.cpy());
             this.target.damage(this.info);
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
@@ -58,7 +60,6 @@ public class MagicMissileAction extends AbstractGameAction {
         }
         if (damageCount == projectileCount || target.isDying) {
             this.isDone = true;
-            return;
         }
     }
 }
