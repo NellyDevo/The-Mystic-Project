@@ -21,13 +21,14 @@ public class DiviningBlow extends AbstractMysticCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/diviningblow.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/diviningblow.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 8;
     private static final int UPGRADE_PLUS_DMG = 3;
-    public static final int CARD_DRAW = 2;
     private boolean isArtAlternate = false;
+    private int cardDraw = 0;
 
     public DiviningBlow() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
@@ -35,26 +36,29 @@ public class DiviningBlow extends AbstractMysticCard {
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber = this.baseMagicNumber = CARD_DRAW;
         this.tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 1)) {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
+        if (cardDraw > 0) {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, cardDraw));
         }
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             this.isArtAlternate = false;
         }
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
+        cardDraw = 0;
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            cardDraw = AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
                 this.isArtAlternate = true;
@@ -65,6 +69,9 @@ public class DiviningBlow extends AbstractMysticCard {
                 this.isArtAlternate = false;
             }
         }
+        if (cardDraw > 0) {
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + cardDraw + (cardDraw == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
+        }
     }
 
     public void triggerOnEndOfPlayerTurn() {
@@ -73,6 +80,12 @@ public class DiviningBlow extends AbstractMysticCard {
             this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

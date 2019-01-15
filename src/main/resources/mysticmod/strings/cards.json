@@ -126,8 +126,13 @@
   },
   "mysticmod:DiviningBlow": {
     "NAME": "Divining Blow",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: Draw 1 card for each stack of [#5299DC]Power[].",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "( ",
+      " Card.)",
+      " Cards.)"
+    ]
   },
   "mysticmod:Doublecast": {
     "NAME": "Doublecast",
