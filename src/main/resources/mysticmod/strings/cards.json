@@ -216,8 +216,8 @@
   },
   "mysticmod:Haste": {
     "NAME": "Haste",
-    "DESCRIPTION": "Gain [E] and Draw 1 card each turn. NL Gain 1 Dexterity. NL Gain 1 Strength. NL Ethereal. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E] and Draw 1 card each turn. NL Gain 1 Dexterity. NL Gain 1 Strength. NL Exhaust."
+    "DESCRIPTION": "Gain Haste for X turns.",
+    "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
