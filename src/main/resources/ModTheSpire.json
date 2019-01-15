@@ -3,7 +3,7 @@
   "name": "The Mystic",
   "author_list": ["Johnny Devo"],
   "description": "Adds a new character: The Mystic.",
-  "dependencies": ["basemod"],
+  "dependencies": ["basemod", "stslib"],
   "credits": "Artists: RedDyeNo5 (https://twitter.com/RedDyeNo5/media) for 6 relics: Spellbook, Blessed Book, Crystal Ball, Training Manual, Rabbit's Foot, and Bent Spoon.",
   "version": "${project.version}",
   "sts_version": "${SlayTheSpire.version}",

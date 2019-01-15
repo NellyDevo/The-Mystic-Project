@@ -92,11 +92,19 @@
       <scope>system</scope>
       <systemPath>${basedir}/../../lib/FriendlyMinions.jar</systemPath>
     </dependency>
+    <dependency>
+      <groupId>com.evacipated.cardcrawl</groupId>
+      <artifactId>stslib</artifactId>
+      <version>${StSLib.version}</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/../../lib/STSLib.jar</systemPath>
+    </dependency>
   </dependencies>
   <properties>
     <FriendlyMinions.version>0.1.1</FriendlyMinions.version>
     <ModTheSpire.version>3.7.4</ModTheSpire.version>
     <BaseMod.version>5.7.1</BaseMod.version>
+    <StSLib.version>1.11.0</StSLib.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <SlayTheSpire.version>12-20-2018</SlayTheSpire.version>
