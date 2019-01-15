@@ -17,7 +17,7 @@
   },
   "mysticmod:ComponentsPouchPower": {
     "NAME": "Components Pouch",
-    "DESCRIPTIONS": ["For ", " turn, all Defends count as [#5299DC]Spells[].", "turns, all Defends count as [#5299DC]Spells[].", ""]
+    "DESCRIPTIONS": ["For ", " turn, all Defends count as [#5299DC]Spells[].", " turns, all Defends count as [#5299DC]Spells[].", ""]
   },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
@@ -84,7 +84,7 @@
   },
   "mysticmod:PureInstinctPower": {
     "NAME": "Pure Instinct",
-    "DESCRIPTIONS": ["For ", " turn, all Strikes count as [#FF5252]Artes[].", "turns, all Strikes count as [#FF5252]Artes[]."]
+    "DESCRIPTIONS": ["For ", " turn, all Strikes count as [#FF5252]Artes[].", " turns, all Strikes count as [#FF5252]Artes[]."]
   },
   "mysticmod:RapidCasterPower": {
     "NAME": "Rapid Caster",

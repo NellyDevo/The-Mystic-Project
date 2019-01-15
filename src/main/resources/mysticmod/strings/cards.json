@@ -24,7 +24,7 @@
   },
   "mysticmod:AllIn": {
     "NAME": "All In",
-    "DESCRIPTION": "Deal !D! damage. NL Become Weak for !M! turns. NL Weak amount is reduced for each stack of [#5299DC]Power[].",
+    "DESCRIPTION": "Deal !D! damage. NL Become Weak for !M! turns. Weak amount is reduced for each stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ArcaneAccuracy": {
@@ -75,7 +75,7 @@
   },
   "mysticmod:ComponentsPouch": {
     "NAME": "Components Pouch",
-    "DESCRIPTION": "Deal !D! damage, then deal !D! damage for each [#5299DC]Spell[] in your hand. NL for !M! turns, all Defends count as [#5299DC]Spells[].",
+    "DESCRIPTION": "Deal !D! damage, then deal !D! damage for each [#5299DC]Spell[] in your hand. NL For !M! turns, all Defends count as [#5299DC]Spells[].",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (You have ",
@@ -221,7 +221,7 @@
   },
   "mysticmod:IllusionOfCalm": {
     "NAME": "Illusion Of Calm",
-    "DESCRIPTION": "Gain !B! Block. NL Become Frail for !M! turns. NL Frail amount is reduced for each stack of [#FF5252]Poise[].",
+    "DESCRIPTION": "Gain !B! Block. NL Become Frail for !M! turns. Frail amount is reduced for each stack of [#FF5252]Poise[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Haste": {
@@ -343,7 +343,7 @@
   },
   "mysticmod:PureInstinct": {
     "NAME": "Pure Instinct",
-    "DESCRIPTION": "Gain !B! Block, then gain !B! Block for each [#FF5252]Arte[] in your hand. NL for !M! turns, all Strikes count as [#FF5252]Artes[].",
+    "DESCRIPTION": "Gain !B! Block, then gain !B! Block for each [#FF5252]Arte[] in your hand. NL For !M! turns, all Strikes count as [#FF5252]Artes[].",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (You have ",
