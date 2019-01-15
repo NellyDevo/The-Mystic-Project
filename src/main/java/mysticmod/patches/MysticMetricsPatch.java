@@ -22,7 +22,7 @@ public class MysticMetricsPatch {
 
         public static void Prefix(Metrics __instance, @ByRef String[] url, String fileName) {
             if (AbstractDungeon.player.chosenClass == MysticEnum.MYSTIC_CLASS) {
-                url[0] = "http://hwsrv-317610.hostwindsdns.com/firstpass/";
+                url[0] = "http://hwsrv-317610.hostwindsdns.com/secondpass/";
             }
         }
     }
