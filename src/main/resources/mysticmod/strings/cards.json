@@ -370,6 +370,11 @@
     "DESCRIPTION": "Deal !D! damage. NL Gain an additional stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": ""
   },
+  "mysticmod:Spark": {
+    "NAME": "Spark",
+    "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]."
+  },
   "mysticmod:SpellCombat": {
     "NAME": "Spell Combat",
     "DESCRIPTION": "Powerful: Deal !D! damage X times. NL Poised: Gain !B! Block X times.",
@@ -388,6 +393,11 @@
     "DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack [#5299DC]Spell[] and play it. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Search your draw pile for an Attack [#5299DC]Spell[] and play it."
   },
+  "mysticmod:SpontaneousCaster": {
+    "NAME": "Spontaneous Caster",
+    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL All [#5299DC]Spells'[] costs are reduced to [E] .",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL All [#5299DC]Spells'[] costs are reduced to [E] ."
+  },
   "mysticmod:Shield": {
     "NAME": "Shield",
     "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn.",
@@ -402,16 +412,6 @@
     "NAME": "Sideswipe",
     "DESCRIPTION": "Deal !D! damage. NL Powerful: Apply !M! weak.",
     "UPGRADE_DESCRIPTION": ""
-  },
-  "mysticmod:Spark": {
-    "NAME": "Spark",
-    "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]."
-  },
-  "mysticmod:SpontaneousCaster": {
-    "NAME": "Spontaneous Caster",
-    "DESCRIPTION": "Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL All [#5299DC]Spells'[] costs are reduced to [E] .",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a [#5299DC]Spell[], exhaust it and add a random [#5299DC]Spell[] to your discard pile. NL All [#5299DC]Spells'[] costs are reduced to [E] ."
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
