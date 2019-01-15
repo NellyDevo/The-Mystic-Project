@@ -367,7 +367,7 @@
   },
   "mysticmod:Snowball": {
     "NAME": "Snowball",
-    "DESCRIPTION": "Deal !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain an additional stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:SpellCombat": {
