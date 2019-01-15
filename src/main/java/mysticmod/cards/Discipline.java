@@ -18,17 +18,18 @@ public class Discipline extends AbstractMysticCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/discipline.png";
     private static final int COST = 2;
-    public static final int UPGRADE_COST = 1;
+    private static final int POWER_AMT = 1;
 
     public Discipline() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        this.magicNumber = this.baseMagicNumber = POWER_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DisciplinePower(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DisciplinePower(p, magicNumber), magicNumber));
     }
 
     @Override
@@ -40,7 +41,7 @@ public class Discipline extends AbstractMysticCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+            this.upgradeMagicNumber(POWER_AMT);
         }
     }
 }

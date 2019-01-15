@@ -111,7 +111,7 @@
   },
   "mysticmod:Discipline": {
     "NAME": "Discipline",
-    "DESCRIPTION": "Begin each turn with one [#5299DC]Power[] and [#FF5252]Poise[].",
+    "DESCRIPTION": "Begin each turn with !M! [#5299DC]Power[] and [#FF5252]Poise[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Disengage": {
