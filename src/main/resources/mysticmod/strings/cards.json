@@ -206,8 +206,8 @@
   },
   "mysticmod:Grapple": {
     "NAME": "Grapple",
-    "DESCRIPTION": "Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Ethereal. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Target loses 20 Strength this turn. Can't use the same turn as an Attack. NL Exhaust."
+    "DESCRIPTION": "Stun the target. Can't use the same turn as an Attack. NL Ethereal. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Stun the target. Can't use the same turn as an Attack. NL Exhaust."
   },
   "mysticmod:Grease": {
     "NAME": "Grease",
