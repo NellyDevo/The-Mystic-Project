@@ -24,9 +24,9 @@ public class VorpalThrust extends AbstractMysticCard {
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/vorpalthrust.png";
     private static final int COST = 2;
     private static final int BASE_DMG = 12;
-    public static final int ATTACK_DMG = 24;
-    private static final int UPGRADE_PLUS_DMG = 6;
-    private static final int UPGRADE_PLUS_BASE_DMG = 3;
+    private static final int EXTRA_ATTACK_DMG = 6;
+    private static final int UPGRADE_PLUS_EXTRA_DMG = 2;
+    private static final int UPGRADE_PLUS_BASE_DMG = 4;
     private boolean isArtAlternate = false;
 
     public VorpalThrust() {
@@ -34,15 +34,15 @@ public class VorpalThrust extends AbstractMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = BASE_DMG;
-        this.magicNumber = this.baseMagicNumber = ATTACK_DMG;
+        this.damage = this.baseDamage = BASE_DMG;
+        this.magicNumber = this.baseMagicNumber = EXTRA_ATTACK_DMG;
         this.tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if ((p.hasPower(SpellsPlayed.POWER_ID)) && (p.getPower(SpellsPlayed.POWER_ID).amount >= 2)) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         } else {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
@@ -54,18 +54,9 @@ public class VorpalThrust extends AbstractMysticCard {
 
     @Override
     public void applyPowers() {
-        int CURRENT_MAGIC_NUMBER = this.baseMagicNumber;
-        int CURRENT_DMG = this.baseDamage;
-        this.baseDamage = CURRENT_MAGIC_NUMBER;
-        super.applyPowers(); // takes this.baseDamage and applies things like Strength or Pen Nib to set this.damage
-
-        this.magicNumber = this.damage; // magic number holds the first condition's modified damage, so !M! will work
-        this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
-
-        // repeat so this.damage holds the second condition's damage
-        this.baseDamage = CURRENT_DMG;
-        super.applyPowers();
-        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount > 1) {
+        int baseDamagePlaceholder = this.baseDamage;
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            baseDamage += (AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount * magicNumber);
             if (!this.isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
                 this.isArtAlternate = true;
@@ -76,21 +67,20 @@ public class VorpalThrust extends AbstractMysticCard {
                 this.isArtAlternate = false;
             }
         }
+        super.applyPowers();
+        this.baseDamage = baseDamagePlaceholder;
+        this.isDamageModified = this.baseDamage != this.damage;
     }
 
     @Override
     public void calculateCardDamage(final AbstractMonster mo) {
-        int CURRENT_MAGIC_NUMBER = this.baseMagicNumber;
-        int CURRENT_DMG = this.baseDamage;
-        this.baseDamage = CURRENT_MAGIC_NUMBER;
-        super.calculateCardDamage(mo); // takes this.baseDamage and applies things like Strength or Pen Nib to set this.damage
-
-        this.magicNumber = this.damage; // magic number holds the first condition's modified damage, so !M! will work
-        this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
-
-        // repeat so this.damage holds the second condition's damage
-        this.baseDamage = CURRENT_DMG;
+        int baseDamagePlaceholder = this.baseDamage;
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            baseDamage += (AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount * magicNumber);
+        }
         super.calculateCardDamage(mo);
+        this.baseDamage = baseDamagePlaceholder;
+        this.isDamageModified = this.baseDamage != this.damage;
     }
 
     public void triggerOnEndOfPlayerTurn() {
@@ -110,7 +100,7 @@ public class VorpalThrust extends AbstractMysticCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_DMG);
+            this.upgradeMagicNumber(UPGRADE_PLUS_EXTRA_DMG);
             this.upgradeDamage(UPGRADE_PLUS_BASE_DMG);
         }
     }

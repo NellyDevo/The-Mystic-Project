@@ -448,7 +448,7 @@
   },
   "mysticmod:VorpalThrust": {
     "NAME": "Vorpal Thrust",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: If you have two stacks of [#5299DC]Power[], deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: Increase base damage by !M! for each stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": ""
   }
 }
