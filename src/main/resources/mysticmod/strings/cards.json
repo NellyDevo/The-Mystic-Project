@@ -101,7 +101,7 @@
   },
   "mysticmod:Dedication": {
     "NAME": "Dedication",
-    "DESCRIPTION": "Gain 1 Strength. NL Gain 1 Dexterity.",
+    "DESCRIPTION": "Gain !M! Strength and Dexterity. NL Can be upgraded any number of times.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Defend_Mystic": {

@@ -18,21 +18,20 @@ public class Dedication extends AbstractMysticCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/dedication.png";
-    private static final int COST = 2;
-    public static final int UPGRADE_COST = 1;
+    private static final int COST = 3;
+    private static final int POWER_AMT = 1;
 
     public Dedication() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+        this.baseMagicNumber = this.magicNumber = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
-
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
     }
 
     @Override
@@ -42,9 +41,15 @@ public class Dedication extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
-        }
+        this.upgradeMagicNumber(POWER_AMT);
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    @Override
+    public boolean canUpgrade() {
+        return true;
     }
 }
