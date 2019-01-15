@@ -261,9 +261,9 @@
     "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add a Blade Burst+ to your discard pile. NL Exhaust."
   },
   "mysticmod:MightyMagic": {
-    "NAME": "Mighty Magic",
-    "DESCRIPTION": "Whenever you play an [#FF5252]Arte[] during your turn, gain 1 Dexterity until end of turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play an [#FF5252]Arte[] during your turn, gain 1 Dexterity until end of turn."
+    "NAME": "Bladework",
+    "DESCRIPTION": "Gain !M! Technique.",
+    "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:MirrorEntity": {
     "NAME": "Mirror Entity",

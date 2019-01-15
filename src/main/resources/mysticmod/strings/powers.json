@@ -55,8 +55,8 @@
     "DESCRIPTIONS": ["For ", " turns, draw 1 card, gain [E], increase attack damage from cards by 1, and increase block gained from cards by 1."]
   },
   "mysticmod:MightyMagicPower": {
-    "NAME": "Mighty Magic",
-    "DESCRIPTIONS": ["Whenever you play an [#FF5252]Arte[], gain ", " Dexterity until end of turn"]
+    "NAME": "Technique",
+    "DESCRIPTIONS": ["Increase the block gained from and damage dealt by [#FF5252]Artes[] by ", "."]
   },
   "mysticmod:MirrorEntityPower": {
     "NAME": "Mirror Entity",

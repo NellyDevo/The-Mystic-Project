@@ -251,7 +251,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         BaseMod.addCard(new ComboCaster());
         BaseMod.addCard(new Dedication());
         BaseMod.addCard(new EbbAndFlow());
-        BaseMod.addCard(new MightyMagic());
+        BaseMod.addCard(new Bladework());
         BaseMod.addCard(new RapidCaster());
 
         //Rares.
