@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
+import mysticmod.powers.SpellsPlayed;
 
 public class AllIn extends AbstractMysticCard {
     public static final String ID = "mysticmod:AllIn";
@@ -22,10 +23,9 @@ public class AllIn extends AbstractMysticCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/allin.png";
     private static final int COST = 0;
-    private static final int DAMAGE_AMT = 13;
-    private static final int UPGRADE_DAMAGE_AMT = 2;
+    private static final int DAMAGE_AMT = 10;
+    private static final int UPGRADE_DAMAGE_AMT = 3;
     private static final int WEAK_AMT = 3;
-    private static final int UPGRADE_MINUS_WEAK = 1;
 
     public AllIn() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
@@ -39,7 +39,22 @@ public class AllIn extends AbstractMysticCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+        if (this.magicNumber > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        this.magicNumber = this.baseMagicNumber;
+        if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            this.magicNumber -= AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+        }
+        if (this.magicNumber < 0) {
+            this.magicNumber = 0;
+        }
+        this.isMagicNumberModified = this.baseMagicNumber != this.magicNumber;
     }
 
     @Override
@@ -51,7 +66,6 @@ public class AllIn extends AbstractMysticCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(-UPGRADE_MINUS_WEAK);
             this.upgradeDamage(UPGRADE_DAMAGE_AMT);
         }
     }

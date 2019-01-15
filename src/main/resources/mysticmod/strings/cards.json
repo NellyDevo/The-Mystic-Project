@@ -24,7 +24,7 @@
   },
   "mysticmod:AllIn": {
     "NAME": "All In",
-    "DESCRIPTION": "Deal !D! damage. NL Become Weak for !M! turns.",
+    "DESCRIPTION": "Deal !D! damage. NL Become Weak for !M! turns. NL Weak amount is reduced for each stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ArcaneAccuracy": {
