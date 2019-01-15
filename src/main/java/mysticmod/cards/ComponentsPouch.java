@@ -48,7 +48,7 @@ public class ComponentsPouch extends AbstractMysticCard {
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComponentsPouchPower(this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComponentsPouchPower(p, this.magicNumber), this.magicNumber));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
