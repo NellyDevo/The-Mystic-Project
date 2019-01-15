@@ -156,8 +156,13 @@
 },
   "mysticmod:EnergizedRift": {
     "NAME": "Energized Rift",
-    "DESCRIPTION": "Add a random Cantrip to your hand, then copy all held Cantrips into your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a random Upgraded Cantrip to your hand, then copy all held Cantrips into your draw pile. NL Exhaust."
+    "DESCRIPTION": "Poised: Add a random Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Poised: Add a random Upgraded Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "NL (",
+      " Cantrip.)",
+      " Cantrips.)"
+    ]
   },
   "mysticmod:Feint": {
     "NAME": "Feint",
