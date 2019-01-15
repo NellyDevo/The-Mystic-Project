@@ -227,7 +227,7 @@
   "mysticmod:Haste": {
     "NAME": "Haste",
     "DESCRIPTION": "Gain Haste for X turns.",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "Gain Haste for X+1 turns."
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
