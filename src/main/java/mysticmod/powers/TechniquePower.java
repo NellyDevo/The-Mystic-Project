@@ -18,8 +18,8 @@ public class TechniquePower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mighty magic power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mighty magic power 32.png"), 0, 0, 32, 32);
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/technique power 84.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/technique power 32.png"), 0, 0, 32, 32);
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
