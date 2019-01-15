@@ -75,7 +75,7 @@
   },
   "mysticmod:ComponentsPouch": {
     "NAME": "Components Pouch",
-    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage for each [#5299DC]Spell[] in your hand.",
+    "DESCRIPTION": "Deal !D! damage, then deal !D! damage for each [#5299DC]Spell[] in your hand. NL for !M! turns, all Defends count as [#5299DC]Spells[].",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (You have ",

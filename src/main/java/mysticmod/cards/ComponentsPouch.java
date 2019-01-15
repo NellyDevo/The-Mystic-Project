@@ -1,6 +1,7 @@
 package mysticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.powers.ComponentsPouchPower;
 
 public class ComponentsPouch extends AbstractMysticCard {
     public static final String ID = "mysticmod:ComponentsPouch";
@@ -23,12 +25,15 @@ public class ComponentsPouch extends AbstractMysticCard {
     private static final int COST = 1;
     public static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_DMG = 2;
+    private static final int POWER_AMT = 2;
+    private static final int UPGRADE_POWER_AMT = 1;
 
     public ComponentsPouch() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         this.damage=this.baseDamage = ATTACK_DMG;
+        this.magicNumber=this.baseMagicNumber = POWER_AMT;
     }
 
     @Override
@@ -43,6 +48,7 @@ public class ComponentsPouch extends AbstractMysticCard {
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
         }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComponentsPouchPower(this.magicNumber), this.magicNumber));
         this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
@@ -81,6 +87,7 @@ public class ComponentsPouch extends AbstractMysticCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(UPGRADE_PLUS_DMG);
+            this.upgradeMagicNumber(UPGRADE_POWER_AMT);
         }
     }
 }

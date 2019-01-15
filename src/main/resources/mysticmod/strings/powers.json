@@ -15,6 +15,10 @@
     "NAME": "Combo Caster",
     "DESCRIPTIONS": ["At the start of each turn add ", " random Cantrip to your hand", " random Cantrips to your hand", " and draw ", " less card.", " less cards."]
   },
+  "mysticmod:ComponentsPouchPower": {
+    "NAME": "Components Pouch",
+    "DESCRIPTIONS": ["For ", " turn, all Defends count as [#5299DC]Spells[].", "turns, all Defends count as [#5299DC]Spells[].", ""]
+  },
   "mysticmod:DisciplinePower": {
     "NAME": "Discipline",
     "DESCRIPTIONS": ["Begin each turn with ", " [#5299DC]Power[] and [#FF5252]Poise[]."]
