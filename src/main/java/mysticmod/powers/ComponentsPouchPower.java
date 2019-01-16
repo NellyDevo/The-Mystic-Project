@@ -54,6 +54,7 @@ public class ComponentsPouchPower extends AbstractPower implements SpellArteLogi
             if (amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
             }
+            updateDescription();
         }
     }
 }

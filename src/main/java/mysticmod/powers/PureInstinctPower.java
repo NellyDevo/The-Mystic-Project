@@ -54,6 +54,7 @@ public class PureInstinctPower extends AbstractPower implements SpellArteLogicAf
             if (amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
             }
+            updateDescription();
         }
     }
 }
