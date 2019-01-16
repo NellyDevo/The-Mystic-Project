@@ -226,8 +226,8 @@
   },
   "mysticmod:Haste": {
     "NAME": "Haste",
-    "DESCRIPTION": "Gain Haste for X turns.",
-    "UPGRADE_DESCRIPTION": "Gain Haste for X+1 turns."
+    "DESCRIPTION": "For X turns, draw 1 extra card, gain 1 extra [E] , deal 1 more damage with your attacks, and gain 1 more Block from your cards.",
+    "UPGRADE_DESCRIPTION": "For X+1 turns, draw 1 extra card, gain 1 extra [E] , deal 1 more damage with your attacks, and gain 1 more Block from your cards."
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",

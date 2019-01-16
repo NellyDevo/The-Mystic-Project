@@ -12,12 +12,6 @@
     ],
     "DESCRIPTION": "Can only be played as the first [#FF5252]Arte[] of the turn."
   },
-  "HASTE": {
-    "NAMES": [
-      "haste"
-    ],
-    "DESCRIPTION": "Each turn, draw 1 card and gain [E] . Increase attack damage from cards by 1, and increase block gained from cards by 1."
-  },
   "POISED": {
     "NAMES": [
       "poised"
