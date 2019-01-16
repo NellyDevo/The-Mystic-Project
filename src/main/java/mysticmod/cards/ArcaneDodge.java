@@ -23,7 +23,8 @@ public class ArcaneDodge extends AbstractMysticCard {
     private static final int COST = 1;
     public static final int BLOCK_AMT = 5;
     private static final int EXTRA_BLK = 4;
-    private static final int UPGRADE_EXTRA_BLOCK = 3;
+    private static final int UPGRADE_EXTRA_BLOCK = 1;
+    private static final int UPGRADE_BLOCK_AMT = 2;
     private boolean isArtAlternate = false;
 
     public ArcaneDodge() {
@@ -93,6 +94,7 @@ public class ArcaneDodge extends AbstractMysticCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_EXTRA_BLOCK);
+            this.upgradeBlock(UPGRADE_BLOCK_AMT);
         }
     }
 }
