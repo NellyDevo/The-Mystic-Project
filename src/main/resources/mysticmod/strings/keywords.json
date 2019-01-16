@@ -16,7 +16,7 @@
     "NAMES": [
       "haste"
     ],
-    "DESCRIPTION": "Each turn, draw 1 card, gain [E], increase attack damage from cards by 1, and increase block gained from cards by 1."
+    "DESCRIPTION": "Each turn, draw 1 card and gain [E] . Increase attack damage from cards by 1, and increase block gained from cards by 1."
   },
   "POISED": {
     "NAMES": [
