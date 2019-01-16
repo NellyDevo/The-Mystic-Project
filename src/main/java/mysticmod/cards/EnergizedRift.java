@@ -59,6 +59,7 @@ public class EnergizedRift extends AbstractMysticCard {
         }
         if (cardAmount > 0) {
             this.rawDescription = currentDescription + EXTENDED_DESCRIPTION[0] + cardAmount + (cardAmount == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
+            initializeDescription();
         }
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
             if (!this.isArtAlternate) {
@@ -82,6 +83,7 @@ public class EnergizedRift extends AbstractMysticCard {
     @Override
     public boolean hasEnoughEnergy() {
         if (!AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            this.cantUseMessage = EXTENDED_DESCRIPTION[3];
             return false;
         }
         return super.hasEnoughEnergy();

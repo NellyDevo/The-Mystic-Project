@@ -71,6 +71,7 @@ public class DiviningBlow extends AbstractMysticCard {
         }
         if (cardDraw > 0) {
             this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + cardDraw + (cardDraw == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
+            initializeDescription();
         }
     }
 
