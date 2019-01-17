@@ -32,7 +32,7 @@ public class HastePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-            description = DESCRIPTIONS[0];
+            description = DESCRIPTIONS[0] + this.amount + (amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) + DESCRIPTIONS[3];
     }
 
     @Override
@@ -64,6 +64,7 @@ public class HastePower extends AbstractPower {
         if (isPlayer) {
             if (!justApplied) {
                 --amount;
+                updateDescription();
             } else {
                 justApplied = false;
             }

@@ -56,7 +56,7 @@
   },
   "mysticmod:HastePower": {
     "NAME": "Haste",
-    "DESCRIPTIONS": ["For ", " turns, draw 1 card, gain [E], increase attack damage from cards by 1, and increase block gained from cards by 1."]
+    "DESCRIPTIONS": ["For ", " turn, ", " turns, ", "draw 1 card, gain [E] , increase attack damage from cards by 1, and increase block gained from cards by 1."]
   },
   "mysticmod:MightyMagicPower": {
     "NAME": "Technique",
