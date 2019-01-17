@@ -159,7 +159,7 @@
     "DESCRIPTION": "Poised: Add a random Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Poised: Add a random Upgraded Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "NL (",
+      " NL (",
       " Cantrip.)",
       " Cantrips.)",
       "I don't have any [#FF5252]Poise[]!"
