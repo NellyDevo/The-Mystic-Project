@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
+import sun.java2d.pipe.hw.ExtendedBufferCapabilities;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class MagicWeapon extends AbstractMysticCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/magicweapon.png";
     private static final int COST = 1;
     private static final int UPGRADED_STR_GAIN = 1;
@@ -55,7 +57,7 @@ public class MagicWeapon extends AbstractMysticCard {
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = super.getCustomTooltips();
-        retVal.add(new TooltipInfo("Blade Burst", "an Arte that exhausts and deals High damage for 1 energy, loses 1 Strength, and adds this card back to your discard pile."));
+        retVal.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
         return retVal;
     }
 

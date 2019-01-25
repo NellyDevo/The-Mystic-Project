@@ -272,7 +272,11 @@
   "mysticmod:MagicWeapon": {
     "NAME": "Magic Weapon",
     "DESCRIPTION": "Gain !M! Strength. Add a Blade Burst to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add a Blade Burst+ to your discard pile. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add a Blade Burst+ to your discard pile. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Blade Burst",
+      "an [#FF5252]Arte[] that exhausts and deals high damage for 1 energy, loses 1 Strength, and adds this card back to your discard pile."
+    ]
   },
   "mysticmod:MightyMagic": {
     "NAME": "Bladework",
