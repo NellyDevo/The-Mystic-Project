@@ -29,16 +29,10 @@ public class SpellArteCounterPatch {
     )
     public static void Insert(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
         if (MysticMod.isThisASpell(c)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(__instance, __instance, new SpellsPlayed(__instance, 1), 1));
-            if (!__instance.hasPower(SpellsPlayed.POWER_ID) && __instance instanceof MysticCharacter) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new PowerfulActivatedEffect(MysticAnimation.swordX, MysticAnimation.swordY, 2.0f)));
-            }
+            MysticMod.applyPowerStacks(__instance, 1);
         }
         if (MysticMod.isThisAnArte(c)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(__instance, __instance, new ArtesPlayed(__instance, 1), 1));
-            if (!__instance.hasPower(ArtesPlayed.POWER_ID) && __instance instanceof MysticCharacter) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new PoisedActivatedEffect(MysticAnimation.bookX, MysticAnimation.bookY, 2.0f)));
-            }
+            MysticMod.applyPoiseStacks(__instance, 1);
         }
     }
 

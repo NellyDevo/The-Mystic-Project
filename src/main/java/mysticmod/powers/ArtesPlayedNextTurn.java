@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import mysticmod.MysticMod;
 
 public class ArtesPlayedNextTurn extends AbstractPower {
     public static final String POWER_ID = "mysticmod:ArtesPlayedNextTurnPower";
@@ -35,7 +36,7 @@ public class ArtesPlayedNextTurn extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtesPlayed(AbstractDungeon.player, this.amount), this.amount));
+        MysticMod.applyPoiseStacks(AbstractDungeon.player, amount);
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, ArtesPlayedNextTurn.POWER_ID, AbstractDungeon.player.getPower(ArtesPlayedNextTurn.POWER_ID).amount)
         );
     }

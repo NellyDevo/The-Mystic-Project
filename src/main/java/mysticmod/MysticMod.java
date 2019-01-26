@@ -11,9 +11,12 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,6 +29,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
+import mysticmod.character.MysticAnimation;
 import mysticmod.character.MysticCharacter;
 import mysticmod.interfaces.SpellArteLogicAffector;
 import mysticmod.modifiers.CrystalClear;
@@ -33,9 +37,13 @@ import mysticmod.patches.MysticEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.patches.RefreshSpellArteLogicField;
 import mysticmod.potions.EssenceOfMagic;
+import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MysticalShieldPower;
 import mysticmod.powers.MysticalShieldUpgradedPower;
+import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.*;
+import mysticmod.vfx.PoisedActivatedEffect;
+import mysticmod.vfx.PowerfulActivatedEffect;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -566,6 +574,20 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public void receiveRelicGet(AbstractRelic r) {
         if (r instanceof SpellArteLogicAffector) {
             refreshSpellArteLogicChecks();
+        }
+    }
+
+    public static void applyPowerStacks(AbstractPlayer p, int amount) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, amount), amount));
+        if (!p.hasPower(SpellsPlayed.POWER_ID) && p instanceof MysticCharacter) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new PowerfulActivatedEffect(MysticAnimation.swordX, MysticAnimation.swordY, 2.0f)));
+        }
+    }
+
+    public static void applyPoiseStacks(AbstractPlayer p, int amount) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, amount), amount));
+        if (!p.hasPower(ArtesPlayed.POWER_ID) && p instanceof MysticCharacter) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new PoisedActivatedEffect(MysticAnimation.swordX, MysticAnimation.swordY, 2.0f)));
         }
     }
 
