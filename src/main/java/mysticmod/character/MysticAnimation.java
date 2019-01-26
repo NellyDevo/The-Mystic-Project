@@ -34,6 +34,11 @@ public class MysticAnimation extends AbstractAnimation
     private float bookRunesEndingTransparency = 0.0f;
     private float bookRunesTimer = 0.0f;
     private float transparencyTimeAmount = 2.0f;
+    public static float bookX = 0.0f;
+    public static float bookY = 0.0f;
+    public static float swordX = 0.0f;
+    public static float swordY = 0.0f;
+    public static float swordAngle = 0.0f;
 
 
     public MysticAnimation(String filepath)
@@ -132,6 +137,15 @@ public class MysticAnimation extends AbstractAnimation
         myPlayer.setObject("22 flame rune", bookRunesTransparency, 0, 22);
         myPlayer.setObject("23 lightning rune", bookRunesTransparency, 0, 23);
         myPlayer.setObject("24 frost rune", bookRunesTransparency, 0, 24);
+
+        // Publish element positions
+        Timeline.Key.Object swordObject = myPlayer.getObject("12 right hand");
+        Timeline.Key.Object bookObject = myPlayer.getObject("18 left hand");
+        swordX = swordObject.position.x + 18.0f * Settings.scale;
+        swordY = swordObject.position.y - 30.0f * Settings.scale;
+        swordAngle = swordObject.angle - 1074.7101f; //I don't want to talk about it
+        bookX = bookObject.position.x;
+        bookY = bookObject.position.y + 25.0f * Settings.scale;
 
         // Move to correct location on screen
         AbstractPlayer player = AbstractDungeon.player;
