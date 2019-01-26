@@ -421,12 +421,12 @@
   },
   "mysticmod:Sideswipe": {
     "NAME": "Sideswipe",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Apply !M! weak.",
+    "DESCRIPTION": "Deal !D! damage. NL Powerful: Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Stoneskin.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain Stoneskin for !M! turns.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Strike_Mystic": {
