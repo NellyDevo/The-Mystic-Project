@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,14 +14,13 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 
-public class SpellCombat extends AbstractMysticCard {
+public class SpellCombat extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:SpellCombat";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-    public static final String INERT_IMG_PATH = "mysticmod/images/cards/spellcombat.png";
     public static final String ATTACK_IMG_PATH = "mysticmod/images/cards/alternate/spellcombatoffensive.png";
     public static final String DEFEND_IMG_PATH = "mysticmod/images/cards/alternate/spellcombatdefensive.png";
     public static final String BOTH_IMG_PATH = "mysticmod/images/cards/alternate/spellcombatcombined.png";
@@ -37,7 +37,8 @@ public class SpellCombat extends AbstractMysticCard {
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         this.loadCardImage(ATTACK_IMG_PATH);
         this.loadCardImage(DEFEND_IMG_PATH);
-        this.loadCardImage(INERT_IMG_PATH);
+        IMG_PATH = "mysticmod/images/cards/spellcombat.png";
+        this.loadCardImage(IMG_PATH);
         this.currentStatus = EffectStatus.INERT;
         this.damage = this.baseDamage = DAMAGE_AMT;
         this.block = this.baseBlock = BLOCK_AMT;
@@ -50,7 +51,7 @@ public class SpellCombat extends AbstractMysticCard {
         }
         AbstractDungeon.actionManager.addToBottom(new SpellCombatAction(p, m, this.damage, this.block, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse));
         currentStatus = EffectStatus.INERT;
-        AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, INERT_IMG_PATH, false));
+        AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
     }
 
     @Override
@@ -79,7 +80,7 @@ public class SpellCombat extends AbstractMysticCard {
             if (currentStatus != EffectStatus.INERT) {
                 currentStatus = EffectStatus.INERT;
                 this.target = AbstractCard.CardTarget.ENEMY;
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, INERT_IMG_PATH, false));
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             }
         }
         super.applyPowers();
@@ -92,6 +93,36 @@ public class SpellCombat extends AbstractMysticCard {
             return false;
         }
         return super.hasEnoughEnergy();
+    }
+
+    @Override
+    protected void updateGlow() {
+        if (AbstractDungeon.player != null) {
+            switch (currentStatus) {
+                case COMBINED:
+                    updateGlowWithColor(Color.PURPLE.cpy());
+                    break;
+                case OFFENSIVE:
+                    updateGlowWithColor(Color.BLUE.cpy());
+                    break;
+                case DEFENSIVE:
+                    updateGlowWithColor(Color.RED.cpy());
+                    break;
+                default:
+                    super.updateGlow();
+                    break;
+            }
+        } else {
+            super.updateGlow();
+        }
+    }
+
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (currentStatus != EffectStatus.INERT) {
+            this.loadCardImage(IMG_PATH);
+            currentStatus = EffectStatus.INERT;
+        }
     }
 
     @Override

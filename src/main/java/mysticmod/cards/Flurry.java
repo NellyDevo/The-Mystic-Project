@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,30 +15,30 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class Flurry extends AbstractMysticCard {
+public class Flurry extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:Flurry";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/flurry.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/flurry.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 2;
     private static final int ATTACK_COUNT = 2;
     private static final int ALTERNATIVE_ATTACK_COUNT = 4;
     private static final int UPGRADE_ATTACK_COUNT = 1;
-    private boolean isArtAlternate = false;
 
     public Flurry() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        IMG_PATH = "mysticmod/images/cards/flurry.png";
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.secondMagicNumber = this.baseSecondMagicNumber = ALTERNATIVE_ATTACK_COUNT;
         this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
         this.tags.add(MysticTags.IS_ARTE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -70,14 +71,6 @@ public class Flurry extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 

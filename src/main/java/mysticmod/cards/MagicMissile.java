@@ -18,27 +18,27 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-public class MagicMissile extends AbstractMysticCard {
+public class MagicMissile extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:MagicMissile";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTIONS = cardStrings.EXTENDED_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/magicmissile.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/magicmissile.png";
     private static final int COST = 0;
     public static final int ATTACK_DMG = 3;
-    private boolean isArtAlternate = false;
     private String currentDescription = DESCRIPTION;
 
     public MagicMissile() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+        super(ID, NAME, "mysticmod/images/cards/magicmissile.png", COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        IMG_PATH = "mysticmod/images/cards/magicmissile.png";
         this.damage=this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = 1;
         this.tags.add(MysticTags.IS_SPELL);
+        this.altGlowColor = Color.RED;
     }
 
     @Override
@@ -84,14 +84,6 @@ public class MagicMissile extends AbstractMysticCard {
     public void onMoveToDiscard() {
         this.rawDescription = currentDescription;
         this.initializeDescription();
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
-        }
     }
 
     @Override

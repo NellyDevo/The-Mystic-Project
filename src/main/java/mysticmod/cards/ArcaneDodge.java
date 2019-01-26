@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,29 +13,29 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class ArcaneDodge extends AbstractMysticCard {
+public class ArcaneDodge extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:ArcaneDodge";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/arcanedodge.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/arcanedodge.png";
     private static final int COST = 1;
     public static final int BLOCK_AMT = 5;
     private static final int EXTRA_BLK = 4;
     private static final int UPGRADE_EXTRA_BLOCK = 1;
     private static final int UPGRADE_BLOCK_AMT = 2;
-    private boolean isArtAlternate = false;
 
     public ArcaneDodge() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
+        IMG_PATH = "mysticmod/images/cards/arcanedodge.png";
         this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = EXTRA_BLK;
         this.tags.add(MysticTags.IS_ARTE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -45,14 +46,6 @@ public class ArcaneDodge extends AbstractMysticCard {
         }
         if (this.isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
             this.isArtAlternate = false;
         }
     }

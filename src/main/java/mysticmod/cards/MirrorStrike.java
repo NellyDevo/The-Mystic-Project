@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,27 +15,27 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class MirrorStrike extends AbstractMysticCard {
+public class MirrorStrike extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:MirrorStrike";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/mirrorstrike.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/mirrorstrike.png";
     private static final int COST = 1;
     public static final int ATTACK_DMG = 7;
     private static final int UPGRADE_PLUS_ATK = 2;
-    private boolean isArtAlternate = false;
 
     public MirrorStrike() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        IMG_PATH = "mysticmod/images/cards/mirrorstrike.png";
         this.loadCardImage(IMG_PATH);
         this.damage=this.baseDamage = ATTACK_DMG;
         this.tags.add(MysticTags.IS_ARTE);
         this.tags.add(CardTags.STRIKE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -65,14 +66,6 @@ public class MirrorStrike extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 

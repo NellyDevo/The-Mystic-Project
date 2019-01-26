@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -16,29 +17,29 @@ import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.vfx.ObscuringMistEffect;
 
-public class ObscuringMist extends AbstractMysticCard {
+public class ObscuringMist extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:ObscuringMist";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/obscuringmist.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/obscuringmist.png";
     private static final int COST = 2;
     private static final int BLOCK_AMT = 15;
     private static final int UPGRADE_ARTIFACT_PLUS = 1;
     private static final int ARTIFACT_AMT = 1;
-    private boolean isArtAlternate = false;
 
     public ObscuringMist() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        IMG_PATH = "mysticmod/images/cards/obscuringmist.png";
         this.loadCardImage(IMG_PATH);
         this.exhaust = true;
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = ARTIFACT_AMT;
         this.tags.add(MysticTags.IS_SPELL);
+        this.altGlowColor = Color.RED;
     }
 
     @Override
@@ -69,14 +70,6 @@ public class ObscuringMist extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 

@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,18 +14,16 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-public class EnergizedRift extends AbstractMysticCard {
+public class EnergizedRift extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:EnergizedRift";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/energizedrift.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/energizedrift.png";
     private static final int COST = 1;
     private int cardAmount = 0;
-    private boolean isArtAlternate = false;
     private String currentDescription = DESCRIPTION;
 
     public EnergizedRift() {
@@ -33,7 +32,9 @@ public class EnergizedRift extends AbstractMysticCard {
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.exhaust = true;
         this.tags.add(MysticTags.IS_SPELL);
+        IMG_PATH = "mysticmod/images/cards/energizedrift.png";
         this.loadCardImage(IMG_PATH);
+        this.altGlowColor = Color.RED;
     }
 
     @Override
@@ -87,14 +88,6 @@ public class EnergizedRift extends AbstractMysticCard {
             return false;
         }
         return super.hasEnoughEnergy();
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
-        }
     }
 
     @Override

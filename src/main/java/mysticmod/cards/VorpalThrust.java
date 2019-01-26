@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,29 +15,29 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class VorpalThrust extends AbstractMysticCard {
+public class VorpalThrust extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:VorpalThrust";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/vorpalthrust.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/vorpalthrust.png";
     private static final int COST = 2;
     private static final int BASE_DMG = 12;
     private static final int EXTRA_ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_EXTRA_DMG = 2;
     private static final int UPGRADE_PLUS_BASE_DMG = 4;
-    private boolean isArtAlternate = false;
 
     public VorpalThrust() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        IMG_PATH = "mysticmod/images/cards/vorpalthrust.png";
         this.loadCardImage(IMG_PATH);
         this.damage = this.baseDamage = BASE_DMG;
         this.magicNumber = this.baseMagicNumber = EXTRA_ATTACK_DMG;
         this.tags.add(MysticTags.IS_ARTE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -81,14 +82,6 @@ public class VorpalThrust extends AbstractMysticCard {
         super.calculateCardDamage(mo);
         this.baseDamage = baseDamagePlaceholder;
         this.isDamageModified = this.baseDamage != this.damage;
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
-        }
     }
 
     @Override

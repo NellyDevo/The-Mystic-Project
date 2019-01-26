@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,28 +16,28 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class ChargedParry extends AbstractMysticCard {
+public class ChargedParry extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:ChargedParry";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/chargedparry.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/chargedparry.png";
     private static final int COST = 1;
     public static final int BLOCK_AMT = 6;
     public static final int STRENGTH_GAIN = 3;
     private static final int UPGRADE_STRENGTH_GAIN = 2;
-    private boolean isArtAlternate = false;
 
     public ChargedParry() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+        IMG_PATH = "mysticmod/images/cards/chargedparry.png";
         this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = STRENGTH_GAIN;
         this.tags.add(MysticTags.IS_ARTE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -65,14 +66,6 @@ public class ChargedParry extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 

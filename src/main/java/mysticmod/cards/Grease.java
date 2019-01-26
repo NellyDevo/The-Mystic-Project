@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,26 +17,26 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-public class Grease extends AbstractMysticCard {
+public class Grease extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:Grease";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/grease.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/grease.png";
     private static final int COST = 1;
     private static final int STRENGTH_REDUCTION = 4;
     private static final int UPGRADE_STRENGTH_REDUCTION = 2;
-    private boolean isArtAlternate = false;
 
     public Grease() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        IMG_PATH = "mysticmod/images/cards/grease.png";
         this.loadCardImage(IMG_PATH);
         this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
         this.tags.add(MysticTags.IS_SPELL);
+        this.altGlowColor = Color.RED;
     }
 
     @Override
@@ -75,14 +76,6 @@ public class Grease extends AbstractMysticCard {
             }
         }
         super.applyPowers();
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
-        }
     }
 
     @Override

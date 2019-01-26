@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,29 +15,29 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 
-public class FloatingDisk extends AbstractMysticCard {
+public class FloatingDisk extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:FloatingDisk";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/floatingdisk.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/floatingdisk.png";
     private static final int COST = 1;
     private static final int BLOCK_AMT = 6;
     private static final int DEXTERITY_GAIN = 1;
     private static final int DEXTERITY_PLUS_UPG = 1;
-    private boolean isArtAlternate = false;
 
     public FloatingDisk() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+        IMG_PATH = "mysticmod/images/cards/floatingdisk.png";
         this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.magicNumber = this.baseMagicNumber = DEXTERITY_GAIN;
         this.exhaust = true;
         this.tags.add(MysticTags.IS_SPELL);
+        this.altGlowColor = Color.RED;
     }
 
     @Override
@@ -64,14 +65,6 @@ public class FloatingDisk extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 

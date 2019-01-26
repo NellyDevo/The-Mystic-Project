@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ShuffleAction;
@@ -17,26 +18,26 @@ import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
-public class FiveFootStep extends AbstractMysticCard {
+public class FiveFootStep extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:FiveFootStep";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/fivefootstep.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/fivefootstep.png";
     private static final int COST = 0;
     private static final int DAMAGE_AMT = 4;
     private static final int UPGRADE_PLUS_DMG = 2;
-    private boolean isArtAlternate = false;
 
     public FiveFootStep() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        IMG_PATH = "mysticmod/images/cards/fivefootstep.png";
         this.loadCardImage(IMG_PATH);
         this.damage = this.baseDamage = DAMAGE_AMT;
         this.tags.add(MysticTags.IS_ARTE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -68,14 +69,6 @@ public class FiveFootStep extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 

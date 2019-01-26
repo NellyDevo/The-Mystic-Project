@@ -1,5 +1,6 @@
 package mysticmod.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,26 +15,26 @@ import mysticmod.patches.MysticTags;
 import mysticmod.powers.SpellsPlayed;
 
 
-public class BulkUp extends AbstractMysticCard {
+public class BulkUp extends AbstractAltArtMysticCard {
     public static final String ID = "mysticmod:BulkUp";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG_PATH = "mysticmod/images/cards/bulkup.png";
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/bulkup.png";
     private static final int COST = 1;
     private static final int BLOCK_AMT = 6;
     private static final int UPGRADE_EXTRA_BLK = 3;
-    private boolean isArtAlternate = false;
 
     public BulkUp() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 CardRarity.COMMON, CardTarget.SELF);
+        IMG_PATH = "mysticmod/images/cards/bulkup.png";
         this.loadCardImage(IMG_PATH);
         this.block = this.baseBlock = BLOCK_AMT;
         this.tags.add(MysticTags.IS_ARTE);
+        this.altGlowColor = Color.BLUE;
     }
 
     @Override
@@ -63,14 +64,6 @@ public class BulkUp extends AbstractMysticCard {
                 this.loadCardImage(IMG_PATH);
                 this.isArtAlternate = false;
             }
-        }
-    }
-
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
         }
     }
 
