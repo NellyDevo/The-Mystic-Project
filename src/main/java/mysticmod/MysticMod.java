@@ -1,9 +1,6 @@
 package mysticmod;
 
-import basemod.BaseMod;
-import basemod.ModLabel;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
+import basemod.*;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +11,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.megacrit.cardcrawl.audio.Sfx;
+import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -171,6 +170,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         cantripsGroup.add(new RayOfFrost());
         cantripsGroup.add(new ReadMagic());
         cantripsGroup.add(new Spark());
+
+        //add sounds
+        HashMap<String, Sfx> reflectedMap = (HashMap<String, Sfx>)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
+        reflectedMap.put("mysticmod:SPARKS", new Sfx("mysticmod/sounds/sparks.ogg"));
+        reflectedMap.put("mysticmod:BOOK_RUNE_ONE", new Sfx("mysticmod/sounds/bookruneone.ogg"));
+        reflectedMap.put("mysticmod:BOOK_RUNE_TWO", new Sfx("mysticmod/sounds/bookrunetwo.ogg"));
     }
 
     private void resetMysticConfigButtons() {
