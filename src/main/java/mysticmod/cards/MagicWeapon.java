@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import sun.java2d.pipe.hw.ExtendedBufferCapabilities;
 
 import java.util.List;
 
