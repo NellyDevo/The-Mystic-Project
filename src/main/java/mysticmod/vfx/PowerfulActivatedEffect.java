@@ -43,7 +43,7 @@ public class PowerfulActivatedEffect extends AbstractGameEffect {
     @Override
     public void update() {
         if (!soundPlayed) {
-            CardCrawlGame.sound.playV("mysticmod:SPARKS", 0.4f);
+            CardCrawlGame.sound.playV("mysticmod:SPARKS", 0.3f);
             soundPlayed = true;
         }
         if (animFrame == 4) {
