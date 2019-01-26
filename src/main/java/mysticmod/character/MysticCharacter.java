@@ -1,7 +1,6 @@
 package mysticmod.character;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -55,7 +54,7 @@ public class MysticCharacter extends CustomPlayer {
     };
 
     public MysticCharacter(String name) {
-        super(name, MysticEnum.MYSTIC_CLASS, orbTextures, "mysticmod/images/char/orb/vfx.png", null, new SpriterAnimation(MY_CHARACTER_ANIMATION));
+        super(name, MysticEnum.MYSTIC_CLASS, orbTextures, "mysticmod/images/char/orb/vfx.png", null, new MysticAnimation(MY_CHARACTER_ANIMATION));
 
         this.dialogX = this.drawX + DIALOG_X_ADJUSTMENT * Settings.scale;
         this.dialogY = this.drawY + DIALOG_Y_ADJUSTMENT * Settings.scale;
