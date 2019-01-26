@@ -292,6 +292,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         } else {
             BaseMod.addCard(new SummonFamiliarPlaceholder());
         }
+
+        //testing purposes only, comment out for releases
+        //BaseMod.addCard(new TestCard());
     }
 
     @Override
