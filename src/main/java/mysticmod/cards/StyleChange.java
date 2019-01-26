@@ -31,9 +31,6 @@ public class StyleChange extends AbstractMysticCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c = MysticMod.returnTrulyRandomArte();
-        while (c instanceof PowerAttack || c instanceof Lunge) { //blacklist feats
-            c = MysticMod.returnTrulyRandomArte();
-        }
         c.setCostForTurn(0);
         UnlockTracker.markCardAsSeen(c.cardID);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, true));
