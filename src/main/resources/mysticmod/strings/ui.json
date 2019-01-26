@@ -22,5 +22,17 @@
     "TEXT": [
       "Choose an Attack Spell to play."
     ]
+  },
+  "mysticmod:MysticMod": {
+    "TEXT": [
+      "Spells and Artes should be differentiated by...",
+      "Shapes.",
+      "Colors.",
+      "Both Shapes and Colors.",
+      "Restart required for changes to reflect in compendium.",
+      "Enable Fox Minion Card (requires FriendlyMinions)",
+      "The Mystic Mod",
+      "Adds a new character to the game: The Mystic."
+    ]
   }
 }

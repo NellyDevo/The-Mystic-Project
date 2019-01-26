@@ -74,6 +74,9 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     public static ArrayList<AbstractCard> cantripsGroup = new ArrayList<>();
     private static ArrayList<AbstractCard> spellsGroup;
     private static ArrayList<AbstractCard> artesGroup;
+    private static UIStrings uiStrings;
+    private static String ID = "mysticmod:MysticMod";
+    private static String[] TEXT;
 
 
     public MysticMod(){
@@ -119,10 +122,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receivePostInitialize() {
+        uiStrings = CardCrawlGame.languagePack.getUIString(ID);
+        TEXT = uiStrings.TEXT;
         Texture badgeImg = new Texture("mysticmod/images/badge.png");
         ModPanel settingsPanel = new ModPanel();
-        settingsPanel.addUIElement(new ModLabel("Spells and Artes should be differentiated by...", 350.0f, 750.0f, settingsPanel, me -> {}));
-        shapes = new ModLabeledToggleButton("Shapes.", 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.SHAPE, settingsPanel, label -> {}, button -> {
+        settingsPanel.addUIElement(new ModLabel(TEXT[0], 350.0f, 750.0f, settingsPanel, me -> {}));
+        shapes = new ModLabeledToggleButton(TEXT[1], 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.SHAPE, settingsPanel, label -> {}, button -> {
             MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
             resetMysticConfigButtons();
             button.enabled = true;
@@ -131,7 +136,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             AbstractMysticCard.resetImageStrings();
         });
         settingsPanel.addUIElement(shapes);
-        colors = new ModLabeledToggleButton("Colors.", 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.COLOR, settingsPanel, label -> {}, button -> {
+        colors = new ModLabeledToggleButton(TEXT[2], 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.COLOR, settingsPanel, label -> {}, button -> {
             MysticMod.cardBackgroundSetting = CardBackgroundConfig.COLOR;
             resetMysticConfigButtons();
             button.enabled = true;
@@ -140,7 +145,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             AbstractMysticCard.resetImageStrings();
         });
         settingsPanel.addUIElement(colors);
-        combined = new ModLabeledToggleButton("Both Shapes and Colors.", 350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.BOTH, settingsPanel, label -> {}, button -> {
+        combined = new ModLabeledToggleButton(TEXT[3], 350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, MysticMod.cardBackgroundSetting == CardBackgroundConfig.BOTH, settingsPanel, label -> {}, button -> {
             MysticMod.cardBackgroundSetting = CardBackgroundConfig.BOTH;
             resetMysticConfigButtons();
             button.enabled = true;
@@ -149,8 +154,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             AbstractMysticCard.resetImageStrings();
         });
         settingsPanel.addUIElement(combined);
-        settingsPanel.addUIElement(new ModLabel("Restart required for changes to reflect in compendium.", 350.0f, 450.0f, settingsPanel, me -> {}));
-        ModLabeledToggleButton foxToggle = new ModLabeledToggleButton("Enable Fox Minion Card (requires FriendlyMinions)", 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, mysticFriendlyMinionsToggle, settingsPanel, label -> {}, button -> {
+        settingsPanel.addUIElement(new ModLabel(TEXT[4], 350.0f, 450.0f, settingsPanel, me -> {}));
+        ModLabeledToggleButton foxToggle = new ModLabeledToggleButton(TEXT[5], 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, mysticFriendlyMinionsToggle, settingsPanel, label -> {}, button -> {
             mysticFriendlyMinionsToggle = button.enabled;
             if (mysticFriendlyMinionsToggle) {
                 MysticMod.mysticConfig.setString("Fox Minion Enabled", "TRUE");
@@ -160,7 +165,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
         });
         settingsPanel.addUIElement(foxToggle);
-        BaseMod.registerModBadge(badgeImg, "The Mystic Mod", "Johnny Devo", "Adds a new character to the game: The Mystic.", settingsPanel);
+        BaseMod.registerModBadge(badgeImg, TEXT[6], "Johnny Devo", TEXT[7], settingsPanel);
         cantripsGroup.add(new AcidSplash());
         cantripsGroup.add(new Prestidigitation());
         cantripsGroup.add(new RayOfFrost());
