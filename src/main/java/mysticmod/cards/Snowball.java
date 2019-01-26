@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +11,6 @@ import mysticmod.MysticMod;
 import mysticmod.actions.SnowballDamageAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-import mysticmod.powers.SpellsPlayed;
 
 public class Snowball extends AbstractMysticCard {
     public static final String ID = "mysticmod:Snowball";
