@@ -577,20 +577,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         }
     }
 
-    public static void applyPowerStacks(AbstractPlayer p, int amount) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellsPlayed(p, amount), amount));
-        if (!p.hasPower(SpellsPlayed.POWER_ID) && p instanceof MysticCharacter) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new PowerfulActivatedEffect(MysticAnimation.swordX, MysticAnimation.swordY, 2.0f)));
-        }
-    }
-
-    public static void applyPoiseStacks(AbstractPlayer p, int amount) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayed(p, amount), amount));
-        if (!p.hasPower(ArtesPlayed.POWER_ID) && p instanceof MysticCharacter) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new PoisedActivatedEffect(MysticAnimation.swordX, MysticAnimation.swordY, 2.0f)));
-        }
-    }
-
     public enum CardBackgroundConfig {
         SHAPE,
         COLOR,

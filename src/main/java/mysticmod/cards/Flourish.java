@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
+import mysticmod.actions.ApplyPoisedAction;
+import mysticmod.actions.ApplyPowerfulAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
@@ -39,10 +41,10 @@ public class Flourish extends AbstractMysticCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         //double spell/Artes played
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
-            MysticMod.applyPowerStacks(p, p.getPower(SpellsPlayed.POWER_ID).amount);
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerfulAction(p, p.getPower(SpellsPlayed.POWER_ID).amount));
         }
         if (p.hasPower(ArtesPlayed.POWER_ID)) {
-            MysticMod.applyPoiseStacks(p, p.getPower(ArtesPlayed.POWER_ID).amount);
+            AbstractDungeon.actionManager.addToBottom(new ApplyPoisedAction(p, p.getPower(ArtesPlayed.POWER_ID).amount));
         }
     }
 

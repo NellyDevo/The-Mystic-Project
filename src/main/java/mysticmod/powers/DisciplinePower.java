@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.MysticMod;
+import mysticmod.actions.ApplyPoisedAction;
+import mysticmod.actions.ApplyPowerfulAction;
 
 public class DisciplinePower extends AbstractPower {
     public static final String POWER_ID = "mysticmod:DisciplinePower";
@@ -33,7 +35,7 @@ public class DisciplinePower extends AbstractPower {
 
     @Override
     public void atStartOfTurnPostDraw() {
-        MysticMod.applyPowerStacks(AbstractDungeon.player, amount);
-        MysticMod.applyPoiseStacks(AbstractDungeon.player, amount);
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerfulAction(AbstractDungeon.player, amount));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPoisedAction(AbstractDungeon.player, amount));
     }
 }

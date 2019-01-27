@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
+import mysticmod.actions.ApplyPoisedAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
 
@@ -35,7 +36,7 @@ public class PowerSlash extends AbstractMysticCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        MysticMod.applyPoiseStacks(p, 1);
+        AbstractDungeon.actionManager.addToBottom(new ApplyPoisedAction(p, 1));
     }
 
     @Override
