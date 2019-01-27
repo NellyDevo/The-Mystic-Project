@@ -25,5 +25,6 @@ public class ApplyPowerfulAction extends AbstractGameAction {
             AbstractDungeon.actionManager.addToTop(new VFXAction(new PowerfulActivatedEffect(MysticAnimation.swordX, MysticAnimation.swordY, 2.0f)));
         }
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SpellsPlayed(p, amount), amount));
+        isDone = true;
     }
 }

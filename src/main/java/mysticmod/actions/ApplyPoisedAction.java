@@ -25,5 +25,6 @@ public class ApplyPoisedAction extends AbstractGameAction {
             AbstractDungeon.actionManager.addToTop(new VFXAction(new PoisedActivatedEffect(MysticAnimation.bookX, MysticAnimation.bookY, 2.0f)));
         }
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ArtesPlayed(p, amount), amount));
+        isDone = true;
     }
 }
