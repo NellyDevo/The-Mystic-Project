@@ -129,7 +129,7 @@
     "DESCRIPTION": "Deal !D! damage. NL Powerful: Draw 1 card for each stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      "NL ( ",
+      " NL (",
       " Card.)",
       " Cards.)"
     ]
