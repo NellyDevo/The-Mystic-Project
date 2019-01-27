@@ -56,8 +56,8 @@ public class MysticCharacter extends CustomPlayer {
     public MysticCharacter(String name) {
         super(name, MysticEnum.MYSTIC_CLASS, orbTextures, "mysticmod/images/char/orb/vfx.png", null, new MysticAnimation(MY_CHARACTER_ANIMATION));
 
-        this.dialogX = this.drawX + DIALOG_X_ADJUSTMENT * Settings.scale;
-        this.dialogY = this.drawY + DIALOG_Y_ADJUSTMENT * Settings.scale;
+        dialogX = drawX + DIALOG_X_ADJUSTMENT * Settings.scale;
+        dialogY = drawY + DIALOG_Y_ADJUSTMENT * Settings.scale;
 
         initializeClass(null,
                 MY_CHARACTER_SHOULDER_2,
@@ -149,7 +149,7 @@ public class MysticCharacter extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new MysticCharacter(this.name);
+        return new MysticCharacter(name);
     }
 
     @Override

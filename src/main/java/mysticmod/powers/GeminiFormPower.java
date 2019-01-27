@@ -23,20 +23,20 @@ public class GeminiFormPower extends AbstractPower {
     public static boolean isActive = true;
 
     public GeminiFormPower(AbstractCreature owner, int amount) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/gemini form power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/gemini form power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/gemini form power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/gemini form power 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
         this.amount = amount;
-        this.updateDescription();
+        updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        if (this.amount > 1) {
-            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+        if (amount > 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
         } else {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[3];
         }
@@ -46,31 +46,31 @@ public class GeminiFormPower extends AbstractPower {
     public void onUseCard(AbstractCard c, UseCardAction action) {
         if (isActive) {
             if (MysticMod.isThisASpell(c)) {
-                if (spellsPlayedThisTurn < this.amount) {
+                if (spellsPlayedThisTurn < amount) {
                     AbstractDungeon.actionManager.addToBottom(new GeminiFormAction((AbstractMonster) action.target, true, c));
                 }
-                this.spellsPlayedThisTurn++;
+                spellsPlayedThisTurn++;
             }
             if (MysticMod.isThisAnArte(c)) {
-                if (artesPlayedThisTurn < this.amount) {
+                if (artesPlayedThisTurn < amount) {
                     AbstractDungeon.actionManager.addToBottom(new GeminiFormAction((AbstractMonster) action.target, false, c));
                 }
-                this.artesPlayedThisTurn++;
+                artesPlayedThisTurn++;
             }
         } else {
-            System.out.println("cardQueue.size() = " + AbstractDungeon.actionManager.cardQueue.size());
+            System.out.println("GEMINI FORM: cardQueue.size() = " + AbstractDungeon.actionManager.cardQueue.size());
             if (AbstractDungeon.actionManager.cardQueue.size() == 1) {
                 isActive = true;
             }
         }
-        System.out.println("isActive = " + isActive);
+        System.out.println("GEMINI FORM: isActive = " + isActive);
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            this.artesPlayedThisTurn = 0;
-            this.spellsPlayedThisTurn = 0;
+            artesPlayedThisTurn = 0;
+            spellsPlayedThisTurn = 0;
         }
     }
 
@@ -78,10 +78,10 @@ public class GeminiFormPower extends AbstractPower {
     public void onInitialApplication() {
         for (AbstractCard card : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             if (MysticMod.isThisASpell(card)) {
-                this.spellsPlayedThisTurn++;
+                spellsPlayedThisTurn++;
             }
             if (MysticMod.isThisAnArte(card)) {
-                this.artesPlayedThisTurn++;
+                artesPlayedThisTurn++;
             }
         }
     }

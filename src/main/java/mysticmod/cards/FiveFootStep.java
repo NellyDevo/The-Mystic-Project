@@ -34,15 +34,15 @@ public class FiveFootStep extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/fivefootstep.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage = this.baseDamage = DAMAGE_AMT;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.altGlowColor = Color.BLUE;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = DAMAGE_AMT;
+        tags.add(MysticTags.IS_ARTE);
+        altGlowColor = Color.BLUE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ReboundCardAction(this, true));
             if (p.drawPile.size() > 0) {
@@ -50,9 +50,9 @@ public class FiveFootStep extends AbstractAltArtMysticCard {
                 MysticMod.numberOfTimesDeckShuffledThisCombat++;
             }
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -60,14 +60,14 @@ public class FiveFootStep extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -79,9 +79,9 @@ public class FiveFootStep extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

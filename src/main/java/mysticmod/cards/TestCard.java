@@ -30,8 +30,8 @@ public class TestCard extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
+        if (!upgraded) {
+            upgradeName();
         }
     }
 }

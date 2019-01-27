@@ -28,15 +28,15 @@ public class CureLightWounds extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = REGEN_AMT;
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.tags.add(CardTags.HEALING);
+        magicNumber = baseMagicNumber = REGEN_AMT;
+        exhaust = true;
+        tags.add(MysticTags.IS_SPELL);
+        tags.add(CardTags.HEALING);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RegenPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RegenPower(p, magicNumber), magicNumber));
     }
 
     @Override
@@ -46,11 +46,11 @@ public class CureLightWounds extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.name = UPGRADED_NAME;
-            this.loadCardImage(ALTERNATE_IMG_PATH);
-            this.upgradeMagicNumber(REGEN_UPGRADE_PLUS);
+        if (!upgraded) {
+            upgradeName();
+            name = UPGRADED_NAME;
+            loadCardImage(ALTERNATE_IMG_PATH);
+            upgradeMagicNumber(REGEN_UPGRADE_PLUS);
         }
     }
 }

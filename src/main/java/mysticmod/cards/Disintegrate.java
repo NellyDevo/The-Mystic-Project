@@ -32,8 +32,8 @@ public class Disintegrate extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.tags.add(MysticTags.IS_SPELL);
+        damage = baseDamage = ATTACK_DMG;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Disintegrate extends AbstractMysticCard {
         float originX = p.dialogX + 80.0f * Settings.scale;
         float originY = p.dialogY - 50.0f * Settings.scale;
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new DisintegrateEffect(originX, originY)));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         // restore the block
         if (targetArmor > 0) {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(m, m, targetArmor));
@@ -60,9 +60,9 @@ public class Disintegrate extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

@@ -19,39 +19,39 @@ public class MagicMissileTrailEffect extends AbstractGameEffect {
         if (MagicMissileTrailEffect.img == null) {
             MagicMissileTrailEffect.img = ImageMaster.vfxAtlas.findRegion("combat/blurDot");
         }
-        this.renderBehind = false;
-        this.duration = EFFECT_DUR;
-        this.startingDuration = EFFECT_DUR;
+        renderBehind = false;
+        duration = EFFECT_DUR;
+        startingDuration = EFFECT_DUR;
         this.x = x - MagicMissileTrailEffect.img.packedWidth / 2.0f;
         this.y = y - MagicMissileTrailEffect.img.packedHeight / 2.0f;
-        this.rotation = 0.0f;
-        this.scale = 0.01f;
+        rotation = 0.0f;
+        scale = 0.01f;
         this.effectColor = effectColor;
     }
 
     @Override
     public void update() {
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration < 0.2f) {
-            this.scale = this.duration * Settings.scale * 11.0f;
+        duration -= Gdx.graphics.getDeltaTime();
+        if (duration < 0.2f) {
+            scale = duration * Settings.scale * 11.0f;
         }
         else {
-            this.scale = (this.duration - 0.2f) * Settings.scale * 11.0f;
+            scale = (duration - 0.2f) * Settings.scale * 11.0f;
         }
-        if (this.duration < 0.0f) {
-            this.isDone = true;
+        if (duration < 0.0f) {
+            isDone = true;
         }
     }
 
     @Override
-    public void render(final SpriteBatch sb) {
+    public void render(SpriteBatch sb) {
         Color tmp = effectColor.cpy();
-        tmp.set(tmp.r, tmp.g, tmp.b, 1.0F - (0.8f - (this.duration * 2)));
+        tmp.set(tmp.r, tmp.g, tmp.b, 1.0F - (0.8f - (duration * 2)));
         sb.setColor(tmp);
-        sb.draw(MagicMissileTrailEffect.img, this.x, this.y, MagicMissileTrailEffect.img.packedWidth / 2.0f, MagicMissileTrailEffect.img.packedHeight / 2.0f, MagicMissileTrailEffect.img.packedWidth, MagicMissileTrailEffect.img.packedHeight, this.scale, this.scale, this.rotation);
+        sb.draw(MagicMissileTrailEffect.img, x, y, MagicMissileTrailEffect.img.packedWidth / 2.0f, MagicMissileTrailEffect.img.packedHeight / 2.0f, MagicMissileTrailEffect.img.packedWidth, MagicMissileTrailEffect.img.packedHeight, scale, scale, rotation);
         sb.setBlendFunction(770, 1);
-        sb.setColor(new Color(0.0F, 0.0F, 1.0F, 1.0F - (0.8f - (this.duration * 2))));
-        sb.draw(MagicMissileTrailEffect.img, this.x, this.y, MagicMissileTrailEffect.img.packedWidth / 2.0f, MagicMissileTrailEffect.img.packedHeight / 2.0f, MagicMissileTrailEffect.img.packedWidth, MagicMissileTrailEffect.img.packedHeight, this.scale * 1.7f, this.scale * 1.7f, this.rotation);
+        sb.setColor(new Color(0.0F, 0.0F, 1.0F, 1.0F - (0.8f - (duration * 2))));
+        sb.draw(MagicMissileTrailEffect.img, x, y, MagicMissileTrailEffect.img.packedWidth / 2.0f, MagicMissileTrailEffect.img.packedHeight / 2.0f, MagicMissileTrailEffect.img.packedWidth, MagicMissileTrailEffect.img.packedHeight, scale * 1.7f, scale * 1.7f, rotation);
         sb.setBlendFunction(770, 771);
     }
 

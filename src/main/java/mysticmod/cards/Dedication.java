@@ -25,7 +25,7 @@ public class Dedication extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.baseMagicNumber = this.magicNumber = 1;
+        baseMagicNumber = magicNumber = 1;
     }
 
     @Override
@@ -41,11 +41,11 @@ public class Dedication extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        this.upgradeMagicNumber(POWER_AMT);
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        upgradeMagicNumber(POWER_AMT);
+        ++timesUpgraded;
+        upgraded = true;
+        name = NAME + "+" + timesUpgraded;
+        initializeTitle();
     }
 
     @Override

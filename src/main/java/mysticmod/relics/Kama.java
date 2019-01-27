@@ -19,7 +19,7 @@ public class Kama extends CustomRelic {
 
     public Kama() {
         super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.CLINK);
-        this.counter = 0;
+        counter = 0;
     }
 
     @Override
@@ -29,11 +29,11 @@ public class Kama extends CustomRelic {
 
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
-        ++this.counter;
-        if (this.counter == 5) {
-            this.counter = 0;
-            this.flash();
-            this.pulse = false;
+        ++counter;
+        if (counter == 5) {
+            counter = 0;
+            flash();
+            pulse = false;
             if (MysticMod.isThisASpell(c)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 1), 1));
             }
@@ -42,22 +42,22 @@ public class Kama extends CustomRelic {
             }
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
-        else if (this.counter == 4) {
-            this.beginPulse();
-            this.pulse = true;
+        else if (counter == 4) {
+            beginPulse();
+            pulse = true;
         }
     }
 
     @Override
     public void onVictory() {
-        this.pulse = false;
+        pulse = false;
     }
 
     @Override
     public void atBattleStart() {
-        if (this.counter == 4) {
-            this.beginPulse();
-            this.pulse = true;
+        if (counter == 4) {
+            beginPulse();
+            pulse = true;
         }
     }
 

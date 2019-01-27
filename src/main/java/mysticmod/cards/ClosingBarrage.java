@@ -27,23 +27,23 @@ public class ClosingBarrage extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
-            this.magicNumber = this.baseMagicNumber = MULTIPLIER;
-            this.damage = this.baseDamage = 0;
+            magicNumber = baseMagicNumber = MULTIPLIER;
+            damage = baseDamage = 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.energyOnUse < EnergyPanel.totalCount) {
-            this.energyOnUse = EnergyPanel.totalCount;
+        if (energyOnUse < EnergyPanel.totalCount) {
+            energyOnUse = EnergyPanel.totalCount;
         }
-        AbstractDungeon.actionManager.addToBottom(new ClosingBarrageAction(p, m, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse, this.upgraded));
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        AbstractDungeon.actionManager.addToBottom(new ClosingBarrageAction(p, m, damage, damageTypeForTurn, freeToPlayOnce, energyOnUse, upgraded));
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
     public void applyPowers() {
-        int baseDamagePlaceholder = this.baseDamage;
+        int baseDamagePlaceholder = baseDamage;
         int damageX = 0;
         int damageY = 0;
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
@@ -52,18 +52,18 @@ public class ClosingBarrage extends AbstractMysticCard {
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             damageY = AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        this.baseDamage = this.magicNumber * (damageX + damageY);
+        baseDamage = magicNumber * (damageX + damageY);
         super.applyPowers();
-        this.baseDamage = baseDamagePlaceholder;
-        if (this.damage != this.baseDamage) {
-            this.isDamageModified = true;
+        baseDamage = baseDamagePlaceholder;
+        if (damage != baseDamage) {
+            isDamageModified = true;
         }
-        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION;
+        initializeDescription();
     }
 
     public void calculateCardDamage(final AbstractMonster mo) {
-        int baseDamagePlaceholder = this.baseDamage;
+        int baseDamagePlaceholder = baseDamage;
         int damageX = 0;
         int damageY = 0;
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
@@ -72,20 +72,18 @@ public class ClosingBarrage extends AbstractMysticCard {
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             damageY = AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        this.baseDamage = this.magicNumber * (damageX + damageY);
+        baseDamage = magicNumber * (damageX + damageY);
         super.calculateCardDamage(mo);
-        this.baseDamage = baseDamagePlaceholder;
-        if (this.damage != this.baseDamage) {
-            this.isDamageModified = true;
-        }
-        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION;
-        this.initializeDescription();
+        baseDamage = baseDamagePlaceholder;
+        isDamageModified = damage != baseDamage;
+        rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
 
@@ -96,10 +94,10 @@ public class ClosingBarrage extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

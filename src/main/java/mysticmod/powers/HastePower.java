@@ -19,20 +19,20 @@ public class HastePower extends AbstractPower {
     private boolean justApplied;
 
     public HastePower(AbstractCreature owner, boolean dontDecayTurnOne, int amount) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/haste power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/haste power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/haste power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/haste power 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
         this.amount = amount;
-        this.updateDescription();
-        this.justApplied = dontDecayTurnOne;
+        updateDescription();
+        justApplied = dontDecayTurnOne;
     }
 
     @Override
     public void updateDescription() {
-            description = DESCRIPTIONS[0] + this.amount + (amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + amount + (amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) + DESCRIPTIONS[3];
     }
 
     @Override

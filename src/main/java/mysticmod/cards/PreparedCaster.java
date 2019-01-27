@@ -23,8 +23,8 @@ public class PreparedCaster extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.isInnate = true;
-        this.exhaust = true;
+        isInnate = true;
+        exhaust = true;
     }
 
     @Override
@@ -39,9 +39,9 @@ public class PreparedCaster extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBaseCost(UPGRADE_COST);
         }
     }
 }

@@ -9,11 +9,11 @@ import mysticmod.relics.BentSpoon;
 
 public abstract class AbstractCantrip extends AbstractMysticCard {
 
-    public AbstractCantrip(final String id, final String name, final String img, final int cost, final String rawDescription,
-                           final CardType type, final CardColor color,
-                           final CardRarity rarity, final CardTarget target) {
+    public AbstractCantrip(String id, String name, String img, int cost, String rawDescription,
+                           CardType type, CardColor color,
+                           CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
-        this.tags.add(MysticTags.IS_CANTRIP);
+        tags.add(MysticTags.IS_CANTRIP);
     }
 
     @Override
@@ -21,12 +21,12 @@ public abstract class AbstractCantrip extends AbstractMysticCard {
         boolean retVal = (AbstractDungeon.player == null || (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)
                 || AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount <= 1)); //controls how many much power you can have before cantrips no longer count as spells
         if (retVal) {
-            if (!this.hasTag(MysticTags.IS_SPELL)) {
-                this.tags.add(MysticTags.IS_SPELL);
+            if (!hasTag(MysticTags.IS_SPELL)) {
+                tags.add(MysticTags.IS_SPELL);
             }
         } else {
-            if (this.hasTag(MysticTags.IS_SPELL)) {
-                this.tags.remove(MysticTags.IS_SPELL);
+            if (hasTag(MysticTags.IS_SPELL)) {
+                tags.remove(MysticTags.IS_SPELL);
             }
         }
         return retVal;
@@ -35,40 +35,32 @@ public abstract class AbstractCantrip extends AbstractMysticCard {
     @Override
     public void applyPowers() {
         if (AbstractDungeon.player.hasRelic(BentSpoon.ID)) {
-            int baseDamagePlaceholder = this.baseDamage;
-            int baseBlockPlaceholder = this.baseBlock;
-            this.baseDamage += 1;
-            this.baseBlock += 1;
+            int baseDamagePlaceholder = baseDamage;
+            int baseBlockPlaceholder = baseBlock;
+            baseDamage += 1;
+            baseBlock += 1;
             super.applyPowers();
-            this.baseDamage = baseDamagePlaceholder;
-            this.baseBlock = baseBlockPlaceholder;
-            if (this.damage != this.baseDamage) {
-                this.isDamageModified = true;
-            }
-            if (this.block != this.baseBlock) {
-                this.isBlockModified = true;
-            }
+            baseDamage = baseDamagePlaceholder;
+            baseBlock = baseBlockPlaceholder;
+            isDamageModified = damage != baseDamage;
+            isBlockModified = block != baseBlock;
         } else {
             super.applyPowers();
         }
     }
 
     @Override
-    public void calculateCardDamage(final AbstractMonster mo) {
+    public void calculateCardDamage(AbstractMonster mo) {
         if (AbstractDungeon.player.hasRelic(BentSpoon.ID)) {
-            int baseDamagePlaceholder = this.baseDamage;
-            int baseBlockPlaceholder = this.baseBlock;
-            this.baseDamage += 1;
-            this.baseBlock += 1;
+            int baseDamagePlaceholder = baseDamage;
+            int baseBlockPlaceholder = baseBlock;
+            baseDamage += 1;
+            baseBlock += 1;
             super.calculateCardDamage(mo);
-            this.baseDamage = baseDamagePlaceholder;
-            this.baseBlock = baseBlockPlaceholder;
-            if (this.damage != this.baseDamage) {
-                this.isDamageModified = true;
-            }
-            if (this.block != this.baseBlock) {
-                this.isBlockModified = true;
-            }
+            baseDamage = baseDamagePlaceholder;
+            baseBlock = baseBlockPlaceholder;
+            isDamageModified = damage != baseDamage;
+            isBlockModified = block != baseBlock;
         } else {
             super.calculateCardDamage(mo);
         }

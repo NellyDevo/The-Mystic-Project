@@ -16,59 +16,59 @@ public class SpellRecallAction extends AbstractGameAction {
     private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
     private static final String[] TEXT = ui.TEXT;
 
-    public SpellRecallAction(final int amount) {
-        this.setValues(this.p = AbstractDungeon.player, AbstractDungeon.player, amount);
-        this.actionType = ActionType.CARD_MANIPULATION;
+    public SpellRecallAction(int amount) {
+        setValues(p = AbstractDungeon.player, AbstractDungeon.player, amount);
+        actionType = ActionType.CARD_MANIPULATION;
     }
 
     @Override
     public void update() {
-        if (this.p.hand.size() >= BaseMod.MAX_HAND_SIZE) {
-            this.isDone = true;
+        if (p.hand.size() >= BaseMod.MAX_HAND_SIZE) {
+            isDone = true;
             return;
         }
-        if (this.duration == 0.5f) {
+        if (duration == 0.5f) {
             //BEGIN make card group from discard pile
-            final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            for (final AbstractCard discardedCard : this.p.discardPile.group) {
+            CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            for (AbstractCard discardedCard : p.discardPile.group) {
                 if (MysticMod.isThisASpell(discardedCard)) {
                     tmp.addToRandomSpot(discardedCard);
                 }
             }
             //END make card group from discard pile
             if (tmp.group.size() == 0) {
-                this.isDone = true;
+                isDone = true;
                 return;
             }
             if (tmp.group.size() == 1) {
-                final AbstractCard card = tmp.group.get(0);
-                this.p.hand.addToHand(card);
+                AbstractCard card = tmp.group.get(0);
+                p.hand.addToHand(card);
                 card.lighten(false);
-                this.p.discardPile.removeCard(card);
-                this.p.hand.refreshHandLayout();
-                this.isDone = true;
+                p.discardPile.removeCard(card);
+                p.hand.refreshHandLayout();
+                isDone = true;
                 return;
             }
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
-            this.tickDuration();
+            AbstractDungeon.gridSelectScreen.open(tmp, amount, TEXT[0], false);
+            tickDuration();
             return;
         }
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
-            for (final AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                this.p.hand.addToHand(c);
-                this.p.discardPile.removeCard(c);
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+                p.hand.addToHand(c);
+                p.discardPile.removeCard(c);
                 c.lighten(false);
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.p.hand.refreshHandLayout();
-            for (final AbstractCard c : this.p.discardPile.group) {
+            p.hand.refreshHandLayout();
+            for (AbstractCard c : p.discardPile.group) {
                 c.unhover();
                 c.target_x = CardGroup.DISCARD_PILE_X;
                 c.target_y = 0.0f;
             }
-            this.isDone = true;
+            isDone = true;
         }
-        this.tickDuration();
+        tickDuration();
     }
 }

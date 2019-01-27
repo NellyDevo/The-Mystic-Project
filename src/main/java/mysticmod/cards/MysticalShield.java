@@ -30,7 +30,7 @@ public class MysticalShield extends AbstractMysticCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //to-do if card is not upgraded
-        if (!this.upgraded) {
+        if (!upgraded) {
             //check if MysticalShieldUpgradedPower is not applied, then apply MysticalShieldPower
             if (!p.hasPower(MysticalShieldUpgradedPower.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MysticalShieldPower(p)));
@@ -53,10 +53,10 @@ public class MysticalShield extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

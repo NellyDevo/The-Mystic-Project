@@ -25,7 +25,7 @@ public class Metamagic extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.baseMagicNumber = this.magicNumber = POWER_AMOUNT;
+        baseMagicNumber = magicNumber = POWER_AMOUNT;
     }
 
     @Override
@@ -40,8 +40,8 @@ public class Metamagic extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
+        if (!upgraded) {
+            upgradeName();
             upgradeMagicNumber(UPGRADE_POWER_AMOUNT);
         }
     }

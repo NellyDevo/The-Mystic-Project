@@ -27,14 +27,14 @@ public class Shield extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.tags.add(MysticTags.IS_SPELL);
+        block = baseBlock = BLOCK_AMT;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block), block));
     }
 
     @Override
@@ -44,9 +44,9 @@ public class Shield extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBlock(UPGRADE_EXTRA_BLK);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBlock(UPGRADE_EXTRA_BLK);
         }
     }
 }

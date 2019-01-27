@@ -34,26 +34,26 @@ public class PowerAttack extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = DEXTERITY_LOSS;
-        this.secondMagicNumber = this.baseSecondMagicNumber = STRENGTH_GAIN;
-        this.tags.add(MysticTags.IS_ARTE);
+        magicNumber = baseMagicNumber = DEXTERITY_LOSS;
+        secondMagicNumber = baseSecondMagicNumber = STRENGTH_GAIN;
+        tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         if (!p.hasPower("Artifact")) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.secondMagicNumber), this.secondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, secondMagicNumber), secondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, secondMagicNumber), secondMagicNumber));
     }
 
     @Override
     public boolean hasEnoughEnergy() { //feat keyword functionality
         for (AbstractCard potentialArte : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             if (MysticMod.isThisAnArte(potentialArte)) {
-                this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+                cantUseMessage = EXTENDED_DESCRIPTION[0];
                 return false;
             }
         }
@@ -67,10 +67,10 @@ public class PowerAttack extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(-UPGRADE_MINUS_DEX_LOSS);
-            this.upgradeSecondMagicNumber(UPGRADE_PLUS_STR_GAIN);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(-UPGRADE_MINUS_DEX_LOSS);
+            upgradeSecondMagicNumber(UPGRADE_PLUS_STR_GAIN);
         }
     }
 }

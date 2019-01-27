@@ -34,24 +34,24 @@ public class DiviningBlow extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/diviningblow.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.altGlowColor = Color.BLUE;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = ATTACK_DMG;
+        tags.add(MysticTags.IS_ARTE);
+        altGlowColor = Color.BLUE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         if (cardDraw > 0) {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, cardDraw));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -60,26 +60,26 @@ public class DiviningBlow extends AbstractAltArtMysticCard {
         cardDraw = 0;
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
             cardDraw = AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
         if (cardDraw > 0) {
-            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + cardDraw + (cardDraw == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
+            rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + cardDraw + (cardDraw == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
             initializeDescription();
         }
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -89,9 +89,9 @@ public class DiviningBlow extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

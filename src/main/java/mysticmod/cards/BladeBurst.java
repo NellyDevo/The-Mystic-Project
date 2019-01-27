@@ -31,18 +31,18 @@ public class BladeBurst extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCard.CardColor.COLORLESS,
                 AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber = this.baseMagicNumber = STRENGTH_LOSS;
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_ARTE);
+        damage = baseDamage = ATTACK_DMG;
+        magicNumber = baseMagicNumber = STRENGTH_LOSS;
+        exhaust = true;
+        tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -this.magicNumber), -this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -magicNumber), -magicNumber));
         AbstractCard newMagicWeapon = new MagicWeapon();
-        if (this.upgraded) {
+        if (upgraded) {
             newMagicWeapon.upgrade();
         }
         UnlockTracker.markCardAsSeen(newMagicWeapon.cardID);
@@ -56,11 +56,11 @@ public class BladeBurst extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

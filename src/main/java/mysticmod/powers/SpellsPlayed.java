@@ -16,15 +16,15 @@ public class SpellsPlayed extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public SpellsPlayed(AbstractCreature owner, int amount) {
-        this.priority = -200;
-        this.name = NAME;
-        this.ID = POWER_ID;
+        priority = -200;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/spells played 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/spells played 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/spells played 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/spells played 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
         this.amount = amount;
-        this.updateDescription();
+        updateDescription();
     }
 
     @Override

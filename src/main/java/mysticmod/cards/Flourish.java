@@ -29,14 +29,14 @@ public class Flourish extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
+        damage = baseDamage = ATTACK_DMG;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //deal !D! twice
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         //double spell/Artes played
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             MysticMod.applyPowerStacks(p, p.getPower(SpellsPlayed.POWER_ID).amount);
@@ -50,21 +50,21 @@ public class Flourish extends AbstractMysticCard {
     public void applyPowers() {
         super.applyPowers();
         int reductionAmount = 0;
-        if (this.costForTurn > 0) {
+        if (costForTurn > 0) {
             if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
                 reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
             }
             if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
                 reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
             }
-            this.setCostForTurn(this.cost - reductionAmount);
+            setCostForTurn(cost - reductionAmount);
         }
     }
 
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        if (this.costForTurn > 0) {
+        if (costForTurn > 0) {
             int reductionAmount = 0;
             if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
                 reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
@@ -72,14 +72,14 @@ public class Flourish extends AbstractMysticCard {
             if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
                 reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
             }
-            this.setCostForTurn(this.cost - reductionAmount);
+            setCostForTurn(cost - reductionAmount);
         }
     }
 
     @Override
     public void triggerWhenCopied() {
         super.triggerWhenDrawn();
-        if (this.costForTurn > 0) {
+        if (costForTurn > 0) {
             int reductionAmount = 0;
             if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
                 reductionAmount += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
@@ -87,7 +87,7 @@ public class Flourish extends AbstractMysticCard {
             if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
                 reductionAmount += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
             }
-            this.setCostForTurn(this.cost - reductionAmount);
+            setCostForTurn(cost - reductionAmount);
         }
     }
 
@@ -98,9 +98,9 @@ public class Flourish extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBaseCost(UPGRADE_COST);
         }
     }
 }

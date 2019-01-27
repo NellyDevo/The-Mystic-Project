@@ -30,16 +30,16 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
     }
 
     private void addMoves(){
-        this.moves.addMove(new MinionMove(DIALOG[0], this, new Texture("mysticmod/images/minions/attack move.png"), MOVES[0] + baseDamageAmount + MOVES[1], () -> {
+        moves.addMove(new MinionMove(DIALOG[0], this, new Texture("mysticmod/images/minions/attack move.png"), MOVES[0] + baseDamageAmount + MOVES[1], () -> {
             target = AbstractDungeon.getRandomMonster();
             DamageInfo info = new DamageInfo(this, baseDamageAmount, DamageInfo.DamageType.NORMAL);
             info.applyPowers(this, target); // <--- This lets powers effect minions attacks
             AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info));
         }));
-        this.moves.addMove(new MinionMove(DIALOG[1], this, new Texture("mysticmod/images/minions/arte move.png"),MOVES[2] + baseSpellArteAmount + MOVES[3], () -> {
+        moves.addMove(new MinionMove(DIALOG[1], this, new Texture("mysticmod/images/minions/arte move.png"),MOVES[2] + baseSpellArteAmount + MOVES[3], () -> {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new ArtesPlayedNextTurn(AbstractDungeon.player, baseSpellArteAmount), baseSpellArteAmount));
         }));
-        this.moves.addMove(new MinionMove(DIALOG[2], this, new Texture("mysticmod/images/minions/spell move.png"),MOVES[2] + baseSpellArteAmount + MOVES[4], () -> {
+        moves.addMove(new MinionMove(DIALOG[2], this, new Texture("mysticmod/images/minions/spell move.png"),MOVES[2] + baseSpellArteAmount + MOVES[4], () -> {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SpellsPlayedNextTurn(AbstractDungeon.player, baseSpellArteAmount), baseSpellArteAmount));
         }));
     }

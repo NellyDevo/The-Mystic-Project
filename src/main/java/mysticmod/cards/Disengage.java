@@ -27,13 +27,13 @@ public class Disengage extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.tags.add(MysticTags.IS_ARTE);
+        block = baseBlock = BLOCK_AMT;
+        tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtesPlayedNextTurn(p, 1), 1));
     }
 
@@ -44,9 +44,9 @@ public class Disengage extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBlock(UPGRADE_EXTRA_BLK);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBlock(UPGRADE_EXTRA_BLK);
         }
     }
 }

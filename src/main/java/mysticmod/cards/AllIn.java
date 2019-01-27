@@ -31,30 +31,30 @@ public class AllIn extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        this.damage = this.baseDamage = DAMAGE_AMT;
-        this.magicNumber = this.baseMagicNumber = WEAK_AMT;
-        this.tags.add(MysticTags.IS_ARTE);
+        damage = baseDamage = DAMAGE_AMT;
+        magicNumber = baseMagicNumber = WEAK_AMT;
+        tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        if (this.magicNumber > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        if (magicNumber > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, magicNumber, false), magicNumber));
         }
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        this.magicNumber = this.baseMagicNumber;
+        magicNumber = baseMagicNumber;
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            this.magicNumber -= AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            magicNumber -= AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
         }
-        if (this.magicNumber < 0) {
-            this.magicNumber = 0;
+        if (magicNumber < 0) {
+            magicNumber = 0;
         }
-        this.isMagicNumberModified = this.baseMagicNumber != this.magicNumber;
+        isMagicNumberModified = baseMagicNumber != magicNumber;
     }
 
     @Override
@@ -64,9 +64,9 @@ public class AllIn extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_DAMAGE_AMT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_DAMAGE_AMT);
         }
     }
 }

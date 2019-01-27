@@ -34,26 +34,26 @@ public class ObscuringMist extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         IMG_PATH = "mysticmod/images/cards/obscuringmist.png";
-        this.loadCardImage(IMG_PATH);
-        this.exhaust = true;
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.magicNumber = this.baseMagicNumber = ARTIFACT_AMT;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        exhaust = true;
+        block = baseBlock = BLOCK_AMT;
+        magicNumber = baseMagicNumber = ARTIFACT_AMT;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new ObscuringMistEffect(p.hb.cX, p.hb.cY), 0.5f));
         //block
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         //Technical: artifact
         if ((p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= 1)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtifactPower(p, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtifactPower(p, magicNumber), magicNumber));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -61,14 +61,14 @@ public class ObscuringMist extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -80,9 +80,9 @@ public class ObscuringMist extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_ARTIFACT_PLUS);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_ARTIFACT_PLUS);
         }
     }
 }

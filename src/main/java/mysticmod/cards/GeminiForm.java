@@ -24,8 +24,8 @@ public class GeminiForm extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
-        this.isEthereal = true;
-        this.tags.add(BaseModCardTags.FORM);
+        isEthereal = true;
+        tags.add(BaseModCardTags.FORM);
     }
 
     @Override
@@ -40,11 +40,11 @@ public class GeminiForm extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-            this.isEthereal = false;
+        if (!upgraded) {
+            upgradeName();
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
+            isEthereal = false;
         }
     }
 }

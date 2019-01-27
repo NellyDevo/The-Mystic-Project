@@ -29,30 +29,30 @@ public class IllusionOfCalm extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.magicNumber = this.baseMagicNumber = FRAIL_AMT;
-        this.tags.add(MysticTags.IS_SPELL);
+        block = baseBlock = BLOCK_AMT;
+        magicNumber = baseMagicNumber = FRAIL_AMT;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        if (this.magicNumber > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, false), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        if (magicNumber > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, magicNumber, false), magicNumber));
         }
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        this.magicNumber = this.baseMagicNumber;
+        magicNumber = baseMagicNumber;
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            this.magicNumber -= AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            magicNumber -= AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
-        if (this.magicNumber < 0) {
-            this.magicNumber = 0;
+        if (magicNumber < 0) {
+            magicNumber = 0;
         }
-        this.isMagicNumberModified = this.baseMagicNumber != this.magicNumber;
+        isMagicNumberModified = baseMagicNumber != magicNumber;
     }
 
     @Override
@@ -62,9 +62,9 @@ public class IllusionOfCalm extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBlock(UPGRADE_BLOCK_AMT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBlock(UPGRADE_BLOCK_AMT);
         }
     }
 }

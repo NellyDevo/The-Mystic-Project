@@ -14,14 +14,14 @@ public class FoxEvolutionPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public FoxEvolutionPower(AbstractCreature owner, int amount) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(new Texture("mysticmod/images/powers/fox evolution power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(new Texture("mysticmod/images/powers/fox evolution power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
+        region128 = new TextureAtlas.AtlasRegion(new Texture("mysticmod/images/powers/fox evolution power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(new Texture("mysticmod/images/powers/fox evolution power 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
         this.amount = amount;
-        this.updateDescription();
+        updateDescription();
         if (this.amount > 3) {
             this.amount = 3;
         }
@@ -29,22 +29,22 @@ public class FoxEvolutionPower extends AbstractPower {
 
     @Override
     public void stackPower(final int stackAmount) {
-        this.amount+=stackAmount;
-        if (this.amount > 3) {
-            this.amount = 3;
+        amount+=stackAmount;
+        if (amount > 3) {
+            amount = 3;
         }
     }
 
     @Override
     public void updateDescription() {
-        switch (this.amount) {
+        switch (amount) {
             case 1 : description = DESCRIPTIONS[0] + DESCRIPTIONS[4];
             break;
             case 2 : description = DESCRIPTIONS[0] + DESCRIPTIONS[3] + DESCRIPTIONS[1] + DESCRIPTIONS[4];
             break;
             case 3 : description = DESCRIPTIONS[0] + DESCRIPTIONS[5] + DESCRIPTIONS[1] + DESCRIPTIONS[3] + DESCRIPTIONS[2] + DESCRIPTIONS[4];
             break;
-            default : description = "WARNING: amount out of bounds.";
+            default : description = "WARNING: FoxEvolutionPower amount out of bounds. How?";
             break;
         }
     }

@@ -15,35 +15,31 @@ public class LightningBoltAction/*Rifle*/ extends AbstractGameAction {
     private int[] multiDamage;
     private DamageInfo.DamageType damageTypeForTurn;
     private AbstractPlayer p;
-    private Float X_OFFSET = 1000f;
-    private Float Y_OFFSET = 187f;
-    private Float ROTATION = 90f;
-    private Float DURATION = 0.5f;
     private AbstractCard parentCard;
 
-    public LightningBoltAction(final int[] multiDamage, final DamageInfo.DamageType damageTypeForTurn, AbstractPlayer player, AbstractCard parentCard) {
-        this.actionType = ActionType.SPECIAL;
-        this.duration = Settings.ACTION_DUR_MED;
+    public LightningBoltAction(int[] multiDamage, DamageInfo.DamageType damageTypeForTurn, AbstractPlayer player, AbstractCard parentCard) {
+        actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_MED;
+        p = player;
         this.multiDamage = multiDamage;
         this.damageTypeForTurn = damageTypeForTurn;
-        this.p = player;
         this.parentCard = parentCard;
     }
 
     @Override
     public void update() {
         parentCard.target_y = Settings.HEIGHT / 2.0f + 300.0f * Settings.scale;
-        Float xOffset = X_OFFSET * Settings.scale;
-        Float yOffset = Y_OFFSET * Settings.scale;
-        Float rotation = ROTATION;
-        Float duration = DURATION;
+        float xOffset = 1000f * Settings.scale;
+        float yOffset = 187f * Settings.scale;
+        float rotation = 90f;
+        float duration = 0.5f;
         LightningEffect sidewaysLightning = new LightningEffect(p.drawX + xOffset, p.drawY + yOffset);
         ReflectionHacks.setPrivateInherited(sidewaysLightning, LightningEffect.class , "rotation", rotation);
         AbstractDungeon.actionManager.addToTop(
                 new com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction(
-                        p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+                        p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToTop(new VFXAction(sidewaysLightning, duration));
         AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
-        this.isDone = true;
+        isDone = true;
     }
 }

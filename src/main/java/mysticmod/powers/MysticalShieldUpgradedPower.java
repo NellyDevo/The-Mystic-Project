@@ -17,15 +17,15 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
     private boolean hasFlashed;
 
     public MysticalShieldUpgradedPower(AbstractCreature owner) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mystical shield power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mystical shield power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
-        this.amount = -1;
-        this.updateDescription();
-        this.hasFlashed = false;
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mystical shield power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mystical shield power 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
+        amount = -1;
+        updateDescription();
+        hasFlashed = false;
     }
 
     @Override

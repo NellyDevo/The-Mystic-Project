@@ -17,72 +17,72 @@ import mysticmod.MysticMod;
 public class SparkAction extends AbstractGameAction {
     private boolean shuffleCheck;
 
-    public SparkAction(final AbstractCreature source, final int amount, final boolean endTurnDraw) {
-        this.shuffleCheck = false;
+    public SparkAction(AbstractCreature source, int amount, boolean endTurnDraw) {
+        shuffleCheck = false;
         if (endTurnDraw) {
             AbstractDungeon.topLevelEffects.add(new PlayerTurnEffect());
         } else if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
             AbstractDungeon.player.getPower(NoDrawPower.POWER_ID).flash();
-            this.setValues(AbstractDungeon.player, source, amount);
-            this.isDone = true;
-            this.duration = 0.0f;
-            this.actionType = ActionType.WAIT;
+            setValues(AbstractDungeon.player, source, amount);
+            isDone = true;
+            duration = 0.0f;
+            actionType = ActionType.WAIT;
             return;
         }
-        this.setValues(AbstractDungeon.player, source, amount);
-        this.actionType = ActionType.DRAW;
+        setValues(AbstractDungeon.player, source, amount);
+        actionType = ActionType.DRAW;
         if (Settings.FAST_MODE) {
-            this.duration = Settings.ACTION_DUR_XFAST;
+            duration = Settings.ACTION_DUR_XFAST;
         } else {
-            this.duration = Settings.ACTION_DUR_FASTER;
+            duration = Settings.ACTION_DUR_FASTER;
         }
     }
 
-    public SparkAction(final AbstractCreature source, final int amount) {
+    public SparkAction(AbstractCreature source, int amount) {
         this(source, amount, false);
     }
     
     @Override
     public void update() {
-        if (this.amount <= 0) {
-            this.isDone = true;
+        if (amount <= 0) {
+            isDone = true;
             return;
         }
-        final int deckSize = AbstractDungeon.player.drawPile.size();
-        final int discardSize = AbstractDungeon.player.discardPile.size();
+        int deckSize = AbstractDungeon.player.drawPile.size();
+        int discardSize = AbstractDungeon.player.discardPile.size();
         if (SoulGroup.isActive()) {
             return;
         }
         if (deckSize + discardSize == 0) {
-            this.isDone = true;
+            isDone = true;
             return;
         }
         if (AbstractDungeon.player.hand.size() >= BaseMod.MAX_HAND_SIZE) {
             AbstractDungeon.player.createHandIsFullDialog();
-            this.isDone = true;
+            isDone = true;
             return;
         }
-        if (!this.shuffleCheck) {
-            if (this.amount > deckSize) {
-                final int tmp = this.amount - deckSize;
+        if (!shuffleCheck) {
+            if (amount > deckSize) {
+                int tmp = amount - deckSize;
                 AbstractDungeon.actionManager.addToTop(new SparkAction(AbstractDungeon.player, tmp));
                 AbstractDungeon.actionManager.addToTop(new EmptyDeckShuffleAction());
                 if (deckSize != 0) {
                     AbstractDungeon.actionManager.addToTop(new SparkAction(AbstractDungeon.player, deckSize));
                 }
-                this.amount = 0;
-                this.isDone = true;
+                amount = 0;
+                isDone = true;
             }
-            this.shuffleCheck = true;
+            shuffleCheck = true;
         }
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.amount != 0 && this.duration < 0.0f) {
+        duration -= Gdx.graphics.getDeltaTime();
+        if (amount != 0 && duration < 0.0f) {
             if (Settings.FAST_MODE) {
-                this.duration = Settings.ACTION_DUR_XFAST;
+                duration = Settings.ACTION_DUR_XFAST;
             } else {
-                this.duration = Settings.ACTION_DUR_FASTER;
+                duration = Settings.ACTION_DUR_FASTER;
             }
-            --this.amount;
+            --amount;
             if (!AbstractDungeon.player.drawPile.isEmpty()) {
                 AbstractCard sparkedCard = AbstractDungeon.player.drawPile.getTopCard();
                 AbstractDungeon.player.draw();
@@ -91,8 +91,8 @@ public class SparkAction extends AbstractGameAction {
                     AbstractDungeon.actionManager.addToTop(new GainEnergyAction(1));
                 }
             }
-            if (this.amount == 0) {
-                this.isDone = true;
+            if (amount == 0) {
+                isDone = true;
             }
         }
     }

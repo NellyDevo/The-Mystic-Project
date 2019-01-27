@@ -34,7 +34,7 @@ public class PowerfulActivatedEffect extends AbstractGameEffect {
         this.y = y;
         startColor = Color.CYAN.cpy();
         endColor = Color.PURPLE.cpy();
-        this.color = startColor.cpy();
+        color = startColor.cpy();
         this.duration = 0.0f;
         endDuration = duration;
         rotation = MysticAnimation.swordAngle;

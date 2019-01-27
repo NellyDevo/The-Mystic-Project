@@ -12,9 +12,9 @@ public class ReboundCardAction extends AbstractGameAction {
     private AbstractCard card;
     private boolean shuffle;
 
-    public ReboundCardAction(final AbstractCard card, boolean shuffle) {
-        this.actionType = ActionType.SPECIAL;
-        this.duration = Settings.ACTION_DUR_MED;
+    public ReboundCardAction(AbstractCard card, boolean shuffle) {
+        actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_MED;
         this.card = card;
         this.shuffle = shuffle;
     }

@@ -25,7 +25,7 @@ public class BentSpoon extends CustomRelic {
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) { //damage effects hardcoded into cantrips' ApplyPowers overrides
         if (c.hasTag(MysticTags.IS_CANTRIP)) {
             if (c.baseBlock > -1 || c.baseDamage > -1) {
-                this.flash();
+                flash();
             }
         }
     }

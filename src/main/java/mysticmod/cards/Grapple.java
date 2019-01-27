@@ -20,16 +20,14 @@ public class Grapple extends AbstractMysticCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG_PATH = "mysticmod/images/cards/grapple.png";
     private static final int COST = 1;
-    private static final int STRENGTH_REDUCTION = 20;
 
     public Grapple() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        this.exhaust = true;
-        this.isEthereal = true;
-        this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
-        this.tags.add(MysticTags.IS_ARTE);
+        exhaust = true;
+        isEthereal = true;
+        tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
@@ -56,11 +54,11 @@ public class Grapple extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.isEthereal = false;
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            isEthereal = false;
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

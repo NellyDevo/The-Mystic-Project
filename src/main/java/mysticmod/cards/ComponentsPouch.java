@@ -32,8 +32,8 @@ public class ComponentsPouch extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber=this.baseMagicNumber = POWER_AMT;
+        damage = baseDamage = ATTACK_DMG;
+        magicNumber = baseMagicNumber = POWER_AMT;
     }
 
     @Override
@@ -46,11 +46,11 @@ public class ComponentsPouch extends AbstractMysticCard {
         }
         for (int i = 0; i <= spellsCount; i++){
             AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComponentsPouchPower(p, this.magicNumber), this.magicNumber));
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComponentsPouchPower(p, magicNumber), magicNumber));
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -61,20 +61,20 @@ public class ComponentsPouch extends AbstractMysticCard {
                 spellsCount++;
             }
         }
-        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + spellsCount;
+        rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + spellsCount;
         if (spellsCount == 1) {
-            this.rawDescription += EXTENDED_DESCRIPTION[1];
+            rawDescription += EXTENDED_DESCRIPTION[1];
         } else {
-            this.rawDescription += EXTENDED_DESCRIPTION[2];
+            rawDescription += EXTENDED_DESCRIPTION[2];
         }
-        this.initializeDescription();
+        initializeDescription();
         super.applyPowers();
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -84,10 +84,10 @@ public class ComponentsPouch extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(UPGRADE_POWER_AMT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_POWER_AMT);
         }
     }
 }

@@ -14,28 +14,28 @@ public class SpellDiscoveryAction extends AbstractGameAction {
     private AbstractCard.CardType cardType;
 
     public SpellDiscoveryAction() {
-        this.retrieveCard = false;
-        this.cardType = null;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        retrieveCard = false;
+        cardType = null;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     @Override
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {
+        if (duration == Settings.ACTION_DUR_FAST) {
             MysticMod.isDiscoveryLookingForSpells = true;
-            if (this.cardType == null) {
+            if (cardType == null) {
                 AbstractDungeon.cardRewardScreen.discoveryOpen();
             } else {
-                AbstractDungeon.cardRewardScreen.discoveryOpen(this.cardType);
+                AbstractDungeon.cardRewardScreen.discoveryOpen(cardType);
             }
             MysticMod.isDiscoveryLookingForSpells = false;
-            this.tickDuration();
+            tickDuration();
             return;
         }
-        if (!this.retrieveCard) {
+        if (!retrieveCard) {
             if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
-                final AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
+                AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
                 disCard.current_x = -1000.0f * Settings.scale;
                 if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                     AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(disCard, 1));
@@ -45,8 +45,8 @@ public class SpellDiscoveryAction extends AbstractGameAction {
                 disCard.setCostForTurn(0);
                 AbstractDungeon.cardRewardScreen.discoveryCard = null;
             }
-            this.retrieveCard = true;
+            retrieveCard = true;
         }
-        this.tickDuration();
+        tickDuration();
     }
 }

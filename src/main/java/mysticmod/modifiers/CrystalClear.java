@@ -13,6 +13,6 @@ public class CrystalClear extends AbstractDailyMod {
 
     public CrystalClear() {
         super(ID, NAME, DESC, null, true);
-        this.img = ImageMaster.loadImage("mysticmod/images/modifiers/crystalclear.png");
+        img = ImageMaster.loadImage("mysticmod/images/modifiers/crystalclear.png");
     }
 }

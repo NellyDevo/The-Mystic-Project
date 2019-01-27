@@ -32,23 +32,23 @@ public class FloatingDisk extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         IMG_PATH = "mysticmod/images/cards/floatingdisk.png";
-        this.loadCardImage(IMG_PATH);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.magicNumber = this.baseMagicNumber = DEXTERITY_GAIN;
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        block = baseBlock = BLOCK_AMT;
+        magicNumber = baseMagicNumber = DEXTERITY_GAIN;
+        exhaust = true;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         if ((p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= 1)) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -56,14 +56,14 @@ public class FloatingDisk extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -75,9 +75,9 @@ public class FloatingDisk extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(DEXTERITY_PLUS_UPG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(DEXTERITY_PLUS_UPG);
         }
     }
 }

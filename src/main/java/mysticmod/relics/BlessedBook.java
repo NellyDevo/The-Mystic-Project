@@ -17,7 +17,7 @@ public class BlessedBook extends CustomRelic {
 
     public BlessedBook() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.MAGICAL);
-        this.counter = 0;
+        counter = 0;
     }
 
     @Override
@@ -27,10 +27,10 @@ public class BlessedBook extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        ++this.counter;
-        if (this.counter == TURN_COUNT) {
-            this.counter = 0;
-            this.flash();
+        ++counter;
+        if (counter == TURN_COUNT) {
+            counter = 0;
+            flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(randomCantrip, 1, false));

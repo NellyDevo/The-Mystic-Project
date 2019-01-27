@@ -22,8 +22,8 @@ public class SummonFamiliarPlaceholder extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 CardType.SKILL, CardColor.COLORLESS,
                 CardRarity.SPECIAL, CardTarget.SELF);
-        this.purgeOnUse = true;
-        this.dontTriggerOnUseCard = true;
+        purgeOnUse = true;
+        dontTriggerOnUseCard = true;
     }
 
     @Override
@@ -39,8 +39,8 @@ public class SummonFamiliarPlaceholder extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
+        if (!upgraded) {
+            upgradeName();
         }
     }
 }

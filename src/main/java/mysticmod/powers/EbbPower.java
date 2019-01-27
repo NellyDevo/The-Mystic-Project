@@ -16,14 +16,14 @@ public class EbbPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public EbbPower(AbstractCreature owner) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/ebb power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/ebb power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.DEBUFF;
-        this.amount = -1;
-        this.updateDescription();
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/ebb power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/ebb power 32.png"), 0, 0, 32, 32);
+        type = PowerType.DEBUFF;
+        amount = -1;
+        updateDescription();
     }
 
     @Override

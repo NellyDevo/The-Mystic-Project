@@ -31,25 +31,25 @@ public class MirrorStrike extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/mirrorstrike.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.tags.add(CardTags.STRIKE);
-        this.altGlowColor = Color.BLUE;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = ATTACK_DMG;
+        tags.add(MysticTags.IS_ARTE);
+        tags.add(CardTags.STRIKE);
+        altGlowColor = Color.BLUE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         if (p.hasPower(SpellsPlayed.POWER_ID) && p.getPower(SpellsPlayed.POWER_ID).amount >= 2) {
             int extraAttackCount = p.getPower(SpellsPlayed.POWER_ID).amount / 2;
             for (int i = 0; i < extraAttackCount; i++) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -57,14 +57,14 @@ public class MirrorStrike extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount >= 2) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -76,9 +76,9 @@ public class MirrorStrike extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_ATK);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_ATK);
         }
     }
 }

@@ -37,24 +37,24 @@ public class BladedDash extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/bladeddash.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.altGlowColor = Color.BLUE;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = ATTACK_DMG;
+        block = baseBlock = BLOCK_AMT;
+        tags.add(MysticTags.IS_ARTE);
+        altGlowColor = Color.BLUE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.25f));
         if (p.hasPower(SpellsPlayed.POWER_ID) && p.getPower(SpellsPlayed.POWER_ID).amount >= 1) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -62,14 +62,14 @@ public class BladedDash extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -81,10 +81,10 @@ public class BladedDash extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeBlock(UPGRADE_PLUS_BLK);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeBlock(UPGRADE_PLUS_BLK);
         }
     }
 }

@@ -15,11 +15,9 @@ public class HasteAction extends AbstractGameAction {
     private boolean upgraded;
 
     public HasteAction(boolean isThisFreeToPlayOnce, int energyOnUse, boolean upgraded) {
-        this.freeToPlayOnce = false;
-        this.energyOnUse = -1;
-        this.freeToPlayOnce = isThisFreeToPlayOnce;
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
+        freeToPlayOnce = isThisFreeToPlayOnce;
+        duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
         this.upgraded = upgraded;
     }
@@ -28,23 +26,23 @@ public class HasteAction extends AbstractGameAction {
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
         int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
+        if (energyOnUse != -1) {
+            effect = energyOnUse;
         }
         if (p.hasRelic(ChemicalX.ID)) {
             effect += 2;
             p.getRelic(ChemicalX.ID).flash();
         }
-        if (this.upgraded) {
+        if (upgraded) {
             effect += 1;
         }
         if (effect > 0) {
             boolean dontDecay = !AbstractDungeon.player.hasPower(HastePower.POWER_ID);
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new HastePower(p, dontDecay, effect), effect));
         }
-        if (!this.freeToPlayOnce) {
+        if (!freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
         }
-        this.isDone = true;
+        isDone = true;
     }
 }

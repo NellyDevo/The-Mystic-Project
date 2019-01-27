@@ -29,15 +29,15 @@ public class EnchantedMoulinet extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.isMultiDamage = true;
-        this.tags.add(MysticTags.IS_ARTE);
+        damage = baseDamage = ATTACK_DMG;
+        isMultiDamage = true;
+        tags.add(MysticTags.IS_ARTE);
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.25f));
-        AbstractDungeon.actionManager.addToBottom(new EnchantedMoulinetAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToBottom(new EnchantedMoulinetAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
@@ -47,9 +47,9 @@ public class EnchantedMoulinet extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

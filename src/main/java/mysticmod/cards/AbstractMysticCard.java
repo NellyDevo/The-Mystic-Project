@@ -32,18 +32,18 @@ public abstract class AbstractMysticCard extends CustomCard {
     public static CardStrings tooltip = CardCrawlGame.languagePack.getCardStrings("mysticmod:AbstractMysticCard");
     public static String[] tooltips = tooltip.EXTENDED_DESCRIPTION;
 
-    public AbstractMysticCard(final String id, final String name, final String img, final int cost, final String rawDescription,
-                              final AbstractCard.CardType type, final AbstractCard.CardColor color,
-                              final AbstractCard.CardRarity rarity, final AbstractCard.CardTarget target) {
+    public AbstractMysticCard(String id, String name, String img, int cost, String rawDescription,
+                              AbstractCard.CardType type, AbstractCard.CardColor color,
+                              AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
     }
 
     public boolean isSpell() {
-        return this.hasTag(MysticTags.IS_SPELL);
+        return hasTag(MysticTags.IS_SPELL);
     }
 
     public boolean isArte() {
-        return this.hasTag(MysticTags.IS_ARTE);
+        return hasTag(MysticTags.IS_ARTE);
     }
 
     private static String arteSpellSettings() {
@@ -70,14 +70,14 @@ public abstract class AbstractMysticCard extends CustomCard {
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> retVal = new ArrayList<>();
-        if (this.type == AbstractCard.CardType.SKILL) {
+        if (type == AbstractCard.CardType.SKILL) {
             if (MysticMod.isThisASpell(this)) {
                 retVal.add(new TooltipInfo(tooltips[0], tooltips[2]));
             }
             if (MysticMod.isThisAnArte(this)) {
                 retVal.add(new TooltipInfo(tooltips[1], tooltips[3]));
             }
-        } else if (this.type == AbstractCard.CardType.ATTACK) {
+        } else if (type == AbstractCard.CardType.ATTACK) {
             if (MysticMod.isThisASpell(this)) {
                 retVal.add(new TooltipInfo(tooltips[0], tooltips[4]));
             }
@@ -89,17 +89,17 @@ public abstract class AbstractMysticCard extends CustomCard {
     }
 
     public void upgradeToSpell() {
-        this.tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_SPELL);
     }
 
     public void upgradeToArte() {
-        this.tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_ARTE);
     }
 
     public void upgradeSecondMagicNumber(int amount) {
-        this.baseSecondMagicNumber += amount;
-        this.secondMagicNumber = this.baseSecondMagicNumber;
-        this.upgradedSecondMagicNumber = true;
+        baseSecondMagicNumber += amount;
+        secondMagicNumber = baseSecondMagicNumber;
+        upgradedSecondMagicNumber = true;
     }
 
     public static class SecondMagicNumber extends DynamicVariable {

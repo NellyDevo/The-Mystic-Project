@@ -19,19 +19,19 @@ public class EssenceOfMagic extends AbstractPotion {
 
     public EssenceOfMagic() {
         super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.CARD, PotionColor.WHITE);
-        this.potency = this.getPotency();
-        if (this.potency == 1) {
-            this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[2];
+        potency = getPotency();
+        if (potency == 1) {
+            description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[2];
         } else {
-            this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
         }
-        this.isThrown = false;
-        this.tips.add(new PowerTip(this.name, this.description));
+        isThrown = false;
+        tips.add(new PowerTip(name, description));
     }
 
     @Override
     public void use(final AbstractCreature target) {
-        for (int i = 0; i < this.potency; i++) {
+        for (int i = 0; i < potency; i++) {
             AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(randomCantrip, 1));
         }

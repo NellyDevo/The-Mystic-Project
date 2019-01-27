@@ -35,55 +35,55 @@ public class MagicMissile extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/magicmissile.png";
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber = this.baseMagicNumber = 1;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        damage = baseDamage = ATTACK_DMG;
+        magicNumber = baseMagicNumber = 1;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SetCardTargetCoordinatesAction(this, -1.0f, Settings.HEIGHT / 2.0f + 300f * Settings.scale));
         float projectileDelay = Interpolation.linear.apply(1.0F/3.0F, 0.05F, Math.min(((float)magicNumber)/100.0F, 1.0F));
-        AbstractDungeon.actionManager.addToBottom(new MagicMissileAction(m, new DamageInfo(p, this.damage), this.magicNumber, projectileDelay, isArtAlternate ? Color.RED.cpy() : Color.CYAN.cpy()));
-        this.rawDescription = currentDescription;
-        this.initializeDescription();
-        if (this.isArtAlternate) {
+        AbstractDungeon.actionManager.addToBottom(new MagicMissileAction(m, new DamageInfo(p, damage), magicNumber, projectileDelay, isArtAlternate ? Color.RED.cpy() : Color.CYAN.cpy()));
+        rawDescription = currentDescription;
+        initializeDescription();
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
     @Override
     public void applyPowers() {
-        this.magicNumber = this.baseMagicNumber;
-        this.magicNumber += MysticMod.numberOfTimesDeckShuffledThisCombat;
+        magicNumber = baseMagicNumber;
+        magicNumber += MysticMod.numberOfTimesDeckShuffledThisCombat;
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID) && upgraded) {
-            this.magicNumber += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
-            if (!this.isArtAlternate) {
+            magicNumber += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
         isMagicNumberModified = baseMagicNumber != magicNumber;
-        if (this.magicNumber > 1) {
-            this.rawDescription = currentDescription + EXTENDED_DESCRIPTIONS[0];
+        if (magicNumber > 1) {
+            rawDescription = currentDescription + EXTENDED_DESCRIPTIONS[0];
         } else {
-            this.rawDescription = currentDescription + EXTENDED_DESCRIPTIONS[1];
+            rawDescription = currentDescription + EXTENDED_DESCRIPTIONS[1];
         }
-        this.initializeDescription();
+        initializeDescription();
         super.applyPowers();
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = currentDescription;
-        this.initializeDescription();
+        rawDescription = currentDescription;
+        initializeDescription();
     }
 
     @Override
@@ -93,9 +93,9 @@ public class MagicMissile extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = currentDescription = UPGRADE_DESCRIPTION;
+        if (!upgraded) {
+            upgradeName();
+            rawDescription = currentDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

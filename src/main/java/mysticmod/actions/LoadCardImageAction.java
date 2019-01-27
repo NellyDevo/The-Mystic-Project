@@ -10,8 +10,8 @@ public class LoadCardImageAction extends AbstractGameAction {
     private boolean withFlash;
 
     public LoadCardImageAction(CustomCard card, String imgPath, boolean withFlash) {
-        this.actionType = ActionType.SPECIAL;
-        this.duration = Settings.ACTION_DUR_MED;
+        actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_MED;
         this.card = card;
         this.imgPath = imgPath;
         this.withFlash = withFlash;
@@ -19,10 +19,10 @@ public class LoadCardImageAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        this.card.loadCardImage(imgPath);
+        card.loadCardImage(imgPath);
         if (withFlash) {
-            this.card.flash();
+            card.flash();
         }
-        this.isDone = true;
+        isDone = true;
     }
 }

@@ -31,23 +31,23 @@ public class BulkUp extends AbstractAltArtMysticCard {
                 CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 CardRarity.COMMON, CardTarget.SELF);
         IMG_PATH = "mysticmod/images/cards/bulkup.png";
-        this.loadCardImage(IMG_PATH);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.altGlowColor = Color.BLUE;
+        loadCardImage(IMG_PATH);
+        block = baseBlock = BLOCK_AMT;
+        tags.add(MysticTags.IS_ARTE);
+        altGlowColor = Color.BLUE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false, true, true));
         } else {
             AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, true));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -55,14 +55,14 @@ public class BulkUp extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -74,9 +74,9 @@ public class BulkUp extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBlock(UPGRADE_EXTRA_BLK);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBlock(UPGRADE_EXTRA_BLK);
         }
     }
 }

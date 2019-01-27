@@ -33,8 +33,8 @@ public class PureInstinct extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.magicNumber=this.baseMagicNumber = POWER_AMT;
+        block = baseBlock = BLOCK_AMT;
+        magicNumber = baseMagicNumber = POWER_AMT;
     }
 
     @Override
@@ -47,11 +47,11 @@ public class PureInstinct extends AbstractMysticCard {
             }
         }
         for (int i = 0; i <= ArtesCount; i++){
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PureInstinctPower(p, this.magicNumber), this.magicNumber));
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PureInstinctPower(p, magicNumber), magicNumber));
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -62,20 +62,20 @@ public class PureInstinct extends AbstractMysticCard {
                 ArtesCount++;
             }
         }
-        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + ArtesCount;
+        rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + ArtesCount;
         if (ArtesCount == 1) {
-            this.rawDescription += EXTENDED_DESCRIPTION[1];
+            rawDescription += EXTENDED_DESCRIPTION[1];
         } else {
-            this.rawDescription += EXTENDED_DESCRIPTION[2];
+            rawDescription += EXTENDED_DESCRIPTION[2];
         }
-        this.initializeDescription();
+        initializeDescription();
         super.applyPowers();
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -85,10 +85,10 @@ public class PureInstinct extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBlock(UPGRADE_PLUS_BLK);
-            this.upgradeMagicNumber(UPGRADE_POWER_AMT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBlock(UPGRADE_PLUS_BLK);
+            upgradeMagicNumber(UPGRADE_POWER_AMT);
         }
     }
 }

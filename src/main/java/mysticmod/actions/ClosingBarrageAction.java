@@ -23,30 +23,28 @@ public class ClosingBarrageAction extends AbstractGameAction {
     private boolean upgraded;
 
     public ClosingBarrageAction(AbstractPlayer p, AbstractMonster m, int damage, DamageInfo.DamageType damageType, boolean isThisFreeToPlayOnce, int energyOnUse, boolean upgraded) {
-        this.freeToPlayOnce = false;
-        this.energyOnUse = -1;
         this.damageType = damageType;
         this.p = p;
         this.m = m;
-        this.freeToPlayOnce = isThisFreeToPlayOnce;
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.inheritedDamage = damage;
         this.upgraded = upgraded;
+        freeToPlayOnce = isThisFreeToPlayOnce;
+        duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
+        inheritedDamage = damage;
     }
 
     @Override
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
+        if (energyOnUse != -1) {
+            effect = energyOnUse;
         }
-        if (this.p.hasRelic(ChemicalX.ID)) {
+        if (p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            this.p.getRelic(ChemicalX.ID).flash();
+            p.getRelic(ChemicalX.ID).flash();
         }
-        if (this.upgraded) {
+        if (upgraded) {
             effect += 1;
         }
         Random generator = new Random();
@@ -58,13 +56,13 @@ public class ClosingBarrageAction extends AbstractGameAction {
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
                 AbstractDungeon.actionManager.addToBottom(
-                        new DamageAction(this.m, new DamageInfo(this.p, this.inheritedDamage, this.damageType),
+                        new DamageAction(m, new DamageInfo(p, inheritedDamage, damageType),
                                 randomEffect.get(generator.nextInt(randomEffect.size()))));
             }
-            if (!this.freeToPlayOnce) {
-                this.p.energy.use(EnergyPanel.totalCount);
+            if (!freeToPlayOnce) {
+                p.energy.use(EnergyPanel.totalCount);
             }
         }
-        this.isDone = true;
+        isDone = true;
     }
 }

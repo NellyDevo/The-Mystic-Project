@@ -27,15 +27,15 @@ public class Spellstrike extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.tags.add(CardTags.STRIKE);
+        damage = baseDamage = ATTACK_DMG;
+        exhaust = true;
+        tags.add(MysticTags.IS_ARTE);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         AbstractDungeon.actionManager.addToBottom(new SpellstrikeAction(1, m, false));
     }
 
@@ -46,10 +46,10 @@ public class Spellstrike extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.exhaust = false;
-            this.rawDescription = UPGRADE_DESCRIPTION;
+        if (!upgraded) {
+            upgradeName();
+            exhaust = false;
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

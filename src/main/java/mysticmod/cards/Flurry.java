@@ -33,28 +33,28 @@ public class Flurry extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/flurry.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.secondMagicNumber = this.baseSecondMagicNumber = ALTERNATIVE_ATTACK_COUNT;
-        this.magicNumber = this.baseMagicNumber = ATTACK_COUNT;
-        this.tags.add(MysticTags.IS_ARTE);
-        this.altGlowColor = Color.BLUE;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = ATTACK_DMG;
+        secondMagicNumber = baseSecondMagicNumber = ALTERNATIVE_ATTACK_COUNT;
+        magicNumber = baseMagicNumber = ATTACK_COUNT;
+        tags.add(MysticTags.IS_ARTE);
+        altGlowColor = Color.BLUE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(SpellsPlayed.POWER_ID) && p.getPower(SpellsPlayed.POWER_ID).amount >= 1) {
-            for (int i = 0; i < this.secondMagicNumber; i++) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            for (int i = 0; i < secondMagicNumber; i++) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         } else {
-            for (int i = 0; i < this.magicNumber; i++) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            for (int i = 0; i < magicNumber; i++) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -62,14 +62,14 @@ public class Flurry extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -81,10 +81,10 @@ public class Flurry extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeSecondMagicNumber(UPGRADE_ATTACK_COUNT);
-            this.upgradeMagicNumber(UPGRADE_ATTACK_COUNT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeSecondMagicNumber(UPGRADE_ATTACK_COUNT);
+            upgradeMagicNumber(UPGRADE_ATTACK_COUNT);
         }
     }
 }

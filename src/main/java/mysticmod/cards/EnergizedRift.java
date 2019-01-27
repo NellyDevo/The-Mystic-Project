@@ -30,11 +30,11 @@ public class EnergizedRift extends AbstractAltArtMysticCard {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_SPELL);
+        exhaust = true;
+        tags.add(MysticTags.IS_SPELL);
         IMG_PATH = "mysticmod/images/cards/energizedrift.png";
-        this.loadCardImage(IMG_PATH);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        altGlowColor = Color.RED;
     }
 
     @Override
@@ -47,9 +47,9 @@ public class EnergizedRift extends AbstractAltArtMysticCard {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip, 1, true, true));
         }
         AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-        this.isArtAlternate = false;
-        this.rawDescription = currentDescription;
-        this.initializeDescription();
+        isArtAlternate = false;
+        rawDescription = currentDescription;
+        initializeDescription();
     }
 
     @Override
@@ -59,32 +59,32 @@ public class EnergizedRift extends AbstractAltArtMysticCard {
             cardAmount = AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
         }
         if (cardAmount > 0) {
-            this.rawDescription = currentDescription + EXTENDED_DESCRIPTION[0] + cardAmount + (cardAmount == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
+            rawDescription = currentDescription + EXTENDED_DESCRIPTION[0] + cardAmount + (cardAmount == 1 ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[2]);
             initializeDescription();
         }
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = currentDescription;
-        this.initializeDescription();
+        rawDescription = currentDescription;
+        initializeDescription();
     }
 
     @Override
     public boolean hasEnoughEnergy() {
         if (!AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            this.cantUseMessage = EXTENDED_DESCRIPTION[3];
+            cantUseMessage = EXTENDED_DESCRIPTION[3];
             return false;
         }
         return super.hasEnoughEnergy();
@@ -97,10 +97,10 @@ public class EnergizedRift extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = currentDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            rawDescription = currentDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

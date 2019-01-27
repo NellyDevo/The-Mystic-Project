@@ -18,9 +18,9 @@ public abstract class AbstractAltArtMysticCard extends AbstractMysticCard {
     public boolean isArtAlternate;
     public String IMG_PATH;
 
-    public AbstractAltArtMysticCard(final String id, final String name, final String img, final int cost, final String rawDescription,
-                                    final CardType type, final CardColor color,
-                                    final CardRarity rarity, final CardTarget target) {
+    public AbstractAltArtMysticCard(String id, String name, String img, int cost, String rawDescription,
+                                    CardType type, CardColor color,
+                                    CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
     }
 
@@ -39,14 +39,14 @@ public abstract class AbstractAltArtMysticCard extends AbstractMysticCard {
             Field reflectedGlowList = AbstractCard.class.getDeclaredField("glowList");
             reflectedGlowTimer.setAccessible(true);
             reflectedGlowList.setAccessible(true);
-            if (this.isGlowing) {
+            if (isGlowing) {
                 reflectedGlowTimer.set(this, (float)reflectedGlowTimer.get(this) - Gdx.graphics.getDeltaTime());
                 if ((float)reflectedGlowTimer.get(this) < 0.0f) {
                     ((ArrayList<CardGlowBorder>)reflectedGlowList.get(this)).add(new MysticCardGlowBorder(color,this));
                     reflectedGlowTimer.set(this, 0.15f);
                 }
             }
-            final Iterator<CardGlowBorder> i = ((ArrayList<CardGlowBorder>)reflectedGlowList.get(this)).iterator();
+            Iterator<CardGlowBorder> i = ((ArrayList<CardGlowBorder>)reflectedGlowList.get(this)).iterator();
             while (i.hasNext()) {
                 CardGlowBorder e = i.next();
                 e.update();
@@ -63,9 +63,9 @@ public abstract class AbstractAltArtMysticCard extends AbstractMysticCard {
     @Override
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
-        if (this.isArtAlternate) {
-            this.loadCardImage(IMG_PATH);
-            this.isArtAlternate = false;
+        if (isArtAlternate) {
+            loadCardImage(IMG_PATH);
+            isArtAlternate = false;
         }
     }
 }

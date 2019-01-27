@@ -10,17 +10,16 @@ public class ReplaceCardAction extends AbstractGameAction {
     private AbstractCard originalCard;
     private AbstractCard newCard;
 
-    public ReplaceCardAction(final AbstractCard originalCard, final AbstractCard newCard) {
-        this.actionType = ActionType.SPECIAL;
-        this.duration = Settings.ACTION_DUR_MED;
+    public ReplaceCardAction(AbstractCard originalCard, AbstractCard newCard) {
+        actionType = ActionType.SPECIAL;
         this.originalCard = originalCard;
         this.newCard = newCard;
     }
 
     @Override
     public void update() {
-        this.originalCard.target_x = Settings.WIDTH / 2.0f - 150.0f * Settings.scale;
-        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(this.newCard, Settings.WIDTH / 2.0f + 150.0f * Settings.scale, Settings.HEIGHT / 2.0f));
-        this.isDone = true;
+        originalCard.target_x = Settings.WIDTH / 2.0f - 150.0f * Settings.scale;
+        AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(newCard, Settings.WIDTH / 2.0f + 150.0f * Settings.scale, Settings.HEIGHT / 2.0f));
+        isDone = true;
     }
 }

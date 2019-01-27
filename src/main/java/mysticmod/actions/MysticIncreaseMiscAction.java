@@ -13,9 +13,9 @@ public class MysticIncreaseMiscAction extends AbstractGameAction {
     private int miscIncrease;
     private UUID uuid;
 
-    public MysticIncreaseMiscAction(UUID targetUUID, int miscValue, int miscIncrease) {
+    public MysticIncreaseMiscAction(UUID targetUUID, int miscIncrease) {
         this.miscIncrease = miscIncrease;
-        this.uuid = targetUUID;
+        uuid = targetUUID;
     }
 
     public void update() {
@@ -24,8 +24,8 @@ public class MysticIncreaseMiscAction extends AbstractGameAction {
         AbstractCard c;
         while(var1.hasNext()) {
             c = (AbstractCard)var1.next();
-            if (c.uuid.equals(this.uuid)) {
-                c.misc += this.miscIncrease;
+            if (c.uuid.equals(uuid)) {
+                c.misc += miscIncrease;
                 if (c instanceof HeavyStrike) {
                     ((HeavyStrike)c).updateBaseDamage();
                 } else {
@@ -36,9 +36,9 @@ public class MysticIncreaseMiscAction extends AbstractGameAction {
             }
         }
 
-        for(var1 = GetAllInBattleInstances.get(this.uuid).iterator(); var1.hasNext(); c.baseBlock = c.misc) {// 31 34
+        for(var1 = GetAllInBattleInstances.get(uuid).iterator(); var1.hasNext(); c.baseBlock = c.misc) {// 31 34
             c = (AbstractCard)var1.next();
-            c.misc += this.miscIncrease;
+            c.misc += miscIncrease;
             if (c instanceof HeavyStrike) {
                 ((HeavyStrike)c).updateBaseDamage();
             } else {
@@ -46,6 +46,6 @@ public class MysticIncreaseMiscAction extends AbstractGameAction {
             }
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

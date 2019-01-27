@@ -29,13 +29,13 @@ public class DeckOfManyThings extends CustomRelic {
     @Override
     public void onPlayCard(final AbstractCard c, final AbstractMonster m) {
         if (MysticMod.isThisASpell(c)) {
-            this.spellPlayed += 1;
+            spellPlayed += 1;
         }
         if (MysticMod.isThisAnArte(c)) {
-            this.ArtePlayed += 1;
+            ArtePlayed += 1;
         }
-        if (this.spellPlayed > 1 && this.ArtePlayed > 1) {
-            this.pulse = false;
+        if (spellPlayed > 1 && ArtePlayed > 1) {
+            pulse = false;
         }
     }
 
@@ -53,23 +53,23 @@ public class DeckOfManyThings extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        this.beginPulse();
-        this.pulse = true;
-        this.spellPlayed = 0;
-        this.ArtePlayed = 0;
+        beginPulse();
+        pulse = true;
+        spellPlayed = 0;
+        ArtePlayed = 0;
     }
 
     @Override
     public void onVictory() {
-        this.pulse = false;
+        pulse = false;
     }
 
     @Override
     public void onPlayerEndTurn() {
-        if (!(this.spellPlayed > 1) || !(this.ArtePlayed > 1)) {
+        if (!(spellPlayed > 1) || !(ArtePlayed > 1)) {
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 2));
-            this.flash();
-            this.pulse = false;
+            flash();
+            pulse = false;
         }
     }
 

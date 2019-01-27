@@ -22,46 +22,46 @@ public class GreaterInvisibility extends AbstractAltArtMysticCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String ALTERNATE_IMG_PATH = "mysticmod/images/cards/alternate/greaterinvisibility.png";
     private static final int COST = 2;
-    private static final int REQUIRED_ArteS = 2;
-    private static final int UPGRADE_Arte_REDUCE = -1;
+    private static final int REQUIRED_ARTES = 2;
+    private static final int UPGRADE_ARTE_REDUCE = -1;
 
     public GreaterInvisibility() {
         super(ID, NAME, ALTERNATE_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
         IMG_PATH = "mysticmod/images/cards/greaterinvisibility.png";
-        this.loadCardImage(IMG_PATH);
-        this.exhaust = true;
-        this.isEthereal = true;
-        this.magicNumber = this.baseMagicNumber = REQUIRED_ArteS;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        exhaust = true;
+        isEthereal = true;
+        magicNumber = baseMagicNumber = REQUIRED_ARTES;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID) && AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount >= this.magicNumber) {
-            if (!this.isArtAlternate) {
+        if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID) && AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount >= magicNumber) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
-            this.exhaust = false;
+            exhaust = false;
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
-            this.exhaust = true;
+            exhaust = true;
         }
     }
 
@@ -72,11 +72,11 @@ public class GreaterInvisibility extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_Arte_REDUCE);
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_ARTE_REDUCE);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

@@ -33,46 +33,46 @@ public class Grease extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/grease.png";
-        this.loadCardImage(IMG_PATH);
-        this.magicNumber = this.baseMagicNumber = STRENGTH_REDUCTION;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        magicNumber = baseMagicNumber = STRENGTH_REDUCTION;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(ArtesPlayed.POWER_ID)) {
             if (!m.hasPower(ArtifactPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         } else {
             for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!mo.hasPower(ArtifactPower.POWER_ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber), this.magicNumber));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, magicNumber), magicNumber));
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber), -this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new StrengthPower(mo, -magicNumber), -magicNumber));
             }
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
     @Override
     public void applyPowers() {
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            this.target = AbstractCard.CardTarget.ALL_ENEMY;
-            if (!this.isArtAlternate) {
+            target = AbstractCard.CardTarget.ALL_ENEMY;
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            this.target = AbstractCard.CardTarget.ENEMY;
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            target = AbstractCard.CardTarget.ENEMY;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
         super.applyPowers();
@@ -85,9 +85,9 @@ public class Grease extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_STRENGTH_REDUCTION);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_STRENGTH_REDUCTION);
         }
     }
 }

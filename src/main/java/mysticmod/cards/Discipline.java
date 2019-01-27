@@ -24,7 +24,7 @@ public class Discipline extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.POWER, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = POWER_AMT;
+        magicNumber = baseMagicNumber = POWER_AMT;
     }
 
     @Override
@@ -39,9 +39,9 @@ public class Discipline extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(POWER_AMT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(POWER_AMT);
         }
     }
 }

@@ -30,7 +30,7 @@ public class PoisedActivatedEffect extends AbstractGameEffect {
         this.y = y;
         startColor = Color.RED.cpy();
         endColor = Color.PURPLE.cpy();
-        this.color = startColor.cpy();
+        color = startColor.cpy();
         this.duration = 0.0f;
         endDuration = duration;
     }

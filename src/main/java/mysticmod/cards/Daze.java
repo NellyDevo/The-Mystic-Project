@@ -34,10 +34,10 @@ public class Daze extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/daze.png";
-        this.loadCardImage(IMG_PATH);
-        this.magicNumber=this.baseMagicNumber = POWER_AMT;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        magicNumber = baseMagicNumber = POWER_AMT;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
@@ -50,13 +50,13 @@ public class Daze extends AbstractAltArtMysticCard {
         float destinationY = ((midY - originY) / (midX - originX)) * (destinationX - originX) + originY;
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(originX, originY, destinationX, destinationY)));
         CardCrawlGame.sound.playV("POWER_ENTANGLED", 1.5f);
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
         if (p.hasPower(ArtesPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
@@ -64,14 +64,14 @@ public class Daze extends AbstractAltArtMysticCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
@@ -83,9 +83,9 @@ public class Daze extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_PWR);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_PWR);
         }
     }
 }

@@ -18,10 +18,10 @@ public class ArteHologram extends AbstractGameAction {
     private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
     private static final String[] TEXT = ui.TEXT;
 
-    public ArteHologram(final int amount) {
-        this.setValues(this.p = AbstractDungeon.player, AbstractDungeon.player, amount);
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_MED;
+    public ArteHologram(int amount) {
+        setValues(p = AbstractDungeon.player, AbstractDungeon.player, amount);
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_MED;
         this.amount = amount;
     }
 
@@ -29,53 +29,53 @@ public class ArteHologram extends AbstractGameAction {
     public void update() {
         int handSize = this.p.hand.size();
         if (handSize >= BaseMod.MAX_HAND_SIZE) {
-            this.isDone = true;
+            isDone = true;
             return;
         }
         int minAmount = BaseMod.MAX_HAND_SIZE - handSize;
-        if (minAmount < this.amount) {
-            this.amount = minAmount;
+        if (minAmount < amount) {
+            amount = minAmount;
         }
         final CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (final AbstractCard c2 : this.p.discardPile.group) {
+        for (AbstractCard c2 : p.discardPile.group) {
             if (MysticMod.isThisAnArte(c2)) {
                 tmp.addToRandomSpot(c2);
             }
         }
         if (tmp.size() == 0) {
-            this.isDone = true;
+            isDone = true;
             return;
-        } else if (tmp.size() <= this.amount) {
-            for (final AbstractCard tmpCard : tmp.group) {
-                this.p.hand.addToHand(tmpCard);
+        } else if (tmp.size() <= amount) {
+            for (AbstractCard tmpCard : tmp.group) {
+                p.hand.addToHand(tmpCard);
                 tmpCard.lighten(false);
-                this.p.discardPile.removeCard(tmpCard);
-                this.p.hand.refreshHandLayout();
+                p.discardPile.removeCard(tmpCard);
+                p.hand.refreshHandLayout();
             }
-            this.isDone = true;
+            isDone = true;
             return;
         }
-        if (this.duration == 0.5f) {
-            AbstractDungeon.gridSelectScreen.open(tmp, this.amount, true, TEXT[0] + this.amount + TEXT[1]);
-            this.tickDuration();
+        if (duration == 0.5f) {
+            AbstractDungeon.gridSelectScreen.open(tmp, amount, true, TEXT[0] + amount + TEXT[1]);
+            tickDuration();
             return;
         }
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
-            for (final AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                this.p.hand.addToHand(c);
-                this.p.discardPile.removeCard(c);
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+                p.hand.addToHand(c);
+                p.discardPile.removeCard(c);
                 c.lighten(false);
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.p.hand.refreshHandLayout();
-            for (final AbstractCard c : this.p.discardPile.group) {
+            p.hand.refreshHandLayout();
+            for (AbstractCard c : p.discardPile.group) {
                 c.unhover();
                 c.target_x = CardGroup.DISCARD_PILE_X;
                 c.target_y = 0.0f;
             }
-            this.isDone = true;
+            isDone = true;
         }
-        this.tickDuration();
+        tickDuration();
     }
 }

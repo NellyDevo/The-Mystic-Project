@@ -10,8 +10,8 @@ import mysticmod.MysticMod;
 public class EbbPowerAction extends AbstractGameAction {
 
     public EbbPowerAction() {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_MED;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_MED;
     }
 
     @Override
@@ -19,7 +19,7 @@ public class EbbPowerAction extends AbstractGameAction {
         boolean hasSpell = false;
         boolean hasArte = false;
         int discardAmount = 2;
-        for (final AbstractCard card : AbstractDungeon.player.hand.group) {
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (MysticMod.isThisASpell(card)) {
                 hasSpell = true;
             }
@@ -27,7 +27,7 @@ public class EbbPowerAction extends AbstractGameAction {
                 hasArte = true;
             }
             if (hasSpell && hasArte) {
-                this.isDone = true;
+                isDone = true;
                 return;
             }
         }
@@ -35,6 +35,6 @@ public class EbbPowerAction extends AbstractGameAction {
             discardAmount = 1;
         }
         AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, discardAmount, false));
-        this.isDone = true;
+        isDone = true;
     }
 }

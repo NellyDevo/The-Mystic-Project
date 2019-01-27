@@ -26,18 +26,18 @@ public class SpellstrikeAction extends AbstractGameAction {
     private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
     private static final String[] TEXT = ui.TEXT;
 
-    public SpellstrikeAction(final int amount, final AbstractMonster target, final boolean exhausts) {
-        this.setValues(this.t = target, this.p = AbstractDungeon.player, amount);
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_MED;
-        this.exhaustCards = exhausts;
+    public SpellstrikeAction(int amount, AbstractMonster target, boolean exhausts) {
+        setValues(t = target, p = AbstractDungeon.player, amount);
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_MED;
+        exhaustCards = exhausts;
     }
 
     @Override
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_MED) { //what do to open screen
+        if (duration == Settings.ACTION_DUR_MED) { //what do to open screen
             CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            Iterator var5 = this.p.drawPile.group.iterator();
+            Iterator var5 = p.drawPile.group.iterator();
             AbstractCard card;
             while(var5.hasNext()) {
                 card = (AbstractCard)var5.next();
@@ -46,14 +46,14 @@ public class SpellstrikeAction extends AbstractGameAction {
                 }
             }
             if (tmp.size() == 0) {
-                this.isDone = true;
+                isDone = true;
             } else if (tmp.size() == 1) { //what do if only one available target
                 card = tmp.getTopCard();
                 playCard(card);
-                this.isDone = true;
+                isDone = true;
             } else {
-                AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
-                this.tickDuration();
+                AbstractDungeon.gridSelectScreen.open(tmp, amount, TEXT[0], false);
+                tickDuration();
             }
         } else { //what do when player chooses a card
             if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
@@ -70,7 +70,7 @@ public class SpellstrikeAction extends AbstractGameAction {
         AbstractDungeon.player.drawPile.group.remove(card);
         AbstractDungeon.getCurrRoom().souls.remove(card);
         card.freeToPlayOnce = true;
-        card.exhaustOnUseOnce = this.exhaustCards;
+        card.exhaustOnUseOnce = exhaustCards;
         AbstractDungeon.player.limbo.group.add(card);
         card.current_y = -200.0f * Settings.scale;
         card.target_x = Settings.WIDTH / 2.0f + 200.0f * Settings.scale;
@@ -79,8 +79,8 @@ public class SpellstrikeAction extends AbstractGameAction {
         card.lighten(false);
         card.drawScale = 0.12f;
         card.targetDrawScale = 0.75f;
-        if (!card.canUse(AbstractDungeon.player, this.t)) {
-            if (this.exhaustCards) {
+        if (!card.canUse(AbstractDungeon.player, t)) {
+            if (exhaustCards) {
                 AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
             } else {
                 AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
@@ -89,7 +89,7 @@ public class SpellstrikeAction extends AbstractGameAction {
             }
         } else {
             card.applyPowers();
-            AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.t));
+            AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, t));
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
             if (!Settings.FAST_MODE) {
                 AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));

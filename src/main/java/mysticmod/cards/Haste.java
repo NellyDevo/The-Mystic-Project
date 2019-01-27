@@ -24,15 +24,15 @@ public class Haste extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
-        this.tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.energyOnUse < EnergyPanel.totalCount) {
-            this.energyOnUse = EnergyPanel.totalCount;
+        if (energyOnUse < EnergyPanel.totalCount) {
+            energyOnUse = EnergyPanel.totalCount;
         }
-        AbstractDungeon.actionManager.addToBottom(new HasteAction(this.freeToPlayOnce, this.energyOnUse, this.upgraded));
+        AbstractDungeon.actionManager.addToBottom(new HasteAction(freeToPlayOnce, energyOnUse, upgraded));
     }
 
     @Override
@@ -42,9 +42,9 @@ public class Haste extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
+        if (!upgraded) {
+            upgradeName();
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

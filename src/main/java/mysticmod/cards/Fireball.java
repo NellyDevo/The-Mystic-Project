@@ -32,40 +32,40 @@ public class Fireball extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/fireball.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.isMultiDamage = true;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = ATTACK_DMG;
+        isMultiDamage = true;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if ((p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= 1)) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         } else {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
     @Override
     public void applyPowers() {
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            this.target = AbstractCard.CardTarget.ALL_ENEMY;
-            this.isMultiDamage = true;
-            if (!this.isArtAlternate) {
+            target = AbstractCard.CardTarget.ALL_ENEMY;
+            isMultiDamage = true;
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            this.target = AbstractCard.CardTarget.ENEMY;
-            this.isMultiDamage = false;
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            target = AbstractCard.CardTarget.ENEMY;
+            isMultiDamage = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
         super.applyPowers();
@@ -74,18 +74,18 @@ public class Fireball extends AbstractAltArtMysticCard {
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            this.target = AbstractCard.CardTarget.ALL_ENEMY;
-            this.isMultiDamage = true;
-            if (!this.isArtAlternate) {
+            target = AbstractCard.CardTarget.ALL_ENEMY;
+            isMultiDamage = true;
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            this.target = AbstractCard.CardTarget.ENEMY;
-            this.isMultiDamage = false;
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            target = AbstractCard.CardTarget.ENEMY;
+            isMultiDamage = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
         super.calculateCardDamage(mo);
@@ -98,9 +98,9 @@ public class Fireball extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

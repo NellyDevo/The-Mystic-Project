@@ -24,13 +24,13 @@ public class KeenEdge extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL_ENEMY);
-        this.magicNumber = this.baseMagicNumber = VULNERABLE_AMT;
+        magicNumber = baseMagicNumber = VULNERABLE_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber));
         }
     }
 
@@ -41,9 +41,9 @@ public class KeenEdge extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeToArte();
+        if (!upgraded) {
+            upgradeName();
+            upgradeToArte();
         }
     }
 }

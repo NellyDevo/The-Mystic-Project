@@ -24,12 +24,12 @@ public class BladeMaster extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = ARTES_TO_RETURN;
+        magicNumber = baseMagicNumber = ARTES_TO_RETURN;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ArteHologram(this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ArteHologram(magicNumber));
     }
 
     @Override
@@ -39,9 +39,9 @@ public class BladeMaster extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(UPGRADED_COST);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBaseCost(UPGRADED_COST);
         }
     }
 }

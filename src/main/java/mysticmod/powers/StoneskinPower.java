@@ -22,54 +22,54 @@ public class StoneskinPower extends AbstractPower {
     private int block;
 
     public StoneskinPower(AbstractCreature owner, int amount) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/stoneskin power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/stoneskin power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/stoneskin power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/stoneskin power 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
         this.amount = amount;
-        this.baseBlock = this.block = 2;
+        baseBlock = block = 2;
         applyPowersToBlock();
-        this.updateDescription();
-        this.priority = -199;
+        updateDescription();
+        priority = -199;
     }
 
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + this.block + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + block + DESCRIPTIONS[3];
         } else {
-            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2] + this.block + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + block + DESCRIPTIONS[3];
         }
     }
 
     @Override
     public void atStartOfTurn() {
         applyPowersToBlock();
-        if (this.amount == 1) {
+        if (amount == 1) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, POWER_ID));
         } else {
-            this.amount--;
-            this.updateDescription();
+            amount--;
+            updateDescription();
         }
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         applyPowersToBlock();
-        this.updateDescription();
+        updateDescription();
     }
 
     private void applyPowersToBlock() {
-        float tmp = this.baseBlock;
+        float tmp = baseBlock;
         for (final AbstractPower p : AbstractDungeon.player.powers) {
             tmp = p.modifyBlock(tmp);
         }
         if (tmp < 0.0f) {
             tmp = 0.0f;
         }
-        this.block = MathUtils.floor(tmp);
+        block = MathUtils.floor(tmp);
     }
 }

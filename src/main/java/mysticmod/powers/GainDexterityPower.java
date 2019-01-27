@@ -16,54 +16,54 @@ public class GainDexterityPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public GainDexterityPower(AbstractCreature owner, int amount) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.loadRegion("shackle");
-        this.type = PowerType.BUFF;
+        loadRegion("shackle");
+        type = PowerType.BUFF;
         this.amount = amount;
-        this.updateDescription();
+        updateDescription();
     }
 
     @Override
     public void updateDescription() {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override
     public void stackPower(final int stackAmount) {
-        this.fontScale = 8.0f;
-        this.amount += stackAmount;
-        if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        fontScale = 8.0f;
+        amount += stackAmount;
+        if (amount == 0) {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
         }
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
-        if (this.amount <= -999) {
-            this.amount = -999;
+        if (amount <= -999) {
+            amount = -999;
         }
     }
 
     @Override
     public void reducePower(final int reduceAmount) {
-        this.fontScale = 8.0f;
-        this.amount -= reduceAmount;
-        if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        fontScale = 8.0f;
+        amount -= reduceAmount;
+        if (amount == 0) {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
         }
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
-        if (this.amount <= -999) {
-            this.amount = -999;
+        if (amount <= -999) {
+            amount = -999;
         }
     }
 
     @Override
     public void atEndOfTurn(final boolean isPlayer) {
-        this.flash();
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, this.amount), this.amount));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        flash();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new DexterityPower(owner, amount), amount));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
     }
 }

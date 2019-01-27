@@ -35,21 +35,21 @@ public class SpellCombat extends AbstractAltArtMysticCard {
         super(ID, NAME, BOTH_IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
-        this.loadCardImage(ATTACK_IMG_PATH);
-        this.loadCardImage(DEFEND_IMG_PATH);
+        loadCardImage(ATTACK_IMG_PATH);
+        loadCardImage(DEFEND_IMG_PATH);
         IMG_PATH = "mysticmod/images/cards/spellcombat.png";
-        this.loadCardImage(IMG_PATH);
-        this.currentStatus = EffectStatus.INERT;
-        this.damage = this.baseDamage = DAMAGE_AMT;
-        this.block = this.baseBlock = BLOCK_AMT;
+        loadCardImage(IMG_PATH);
+        currentStatus = EffectStatus.INERT;
+        damage = baseDamage = DAMAGE_AMT;
+        block = baseBlock = BLOCK_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.energyOnUse < EnergyPanel.totalCount) {
-            this.energyOnUse = EnergyPanel.totalCount;
+        if (energyOnUse < EnergyPanel.totalCount) {
+            energyOnUse = EnergyPanel.totalCount;
         }
-        AbstractDungeon.actionManager.addToBottom(new SpellCombatAction(p, m, this.damage, this.block, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse));
+        AbstractDungeon.actionManager.addToBottom(new SpellCombatAction(p, m, damage, block, damageTypeForTurn, freeToPlayOnce, energyOnUse));
         currentStatus = EffectStatus.INERT;
         AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
     }
@@ -61,25 +61,25 @@ public class SpellCombat extends AbstractAltArtMysticCard {
         if (artePlayed && spellPlayed) {
             if (currentStatus != EffectStatus.COMBINED) {
                 currentStatus = EffectStatus.COMBINED;
-                this.target = AbstractCard.CardTarget.ENEMY;
+                target = AbstractCard.CardTarget.ENEMY;
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, BOTH_IMG_PATH, true));
             }
         } else if (artePlayed) {
             if (currentStatus != EffectStatus.DEFENSIVE) {
                 currentStatus = EffectStatus.DEFENSIVE;
-                this.target = AbstractCard.CardTarget.SELF;
+                target = AbstractCard.CardTarget.SELF;
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, DEFEND_IMG_PATH, true));
             }
         } else if (spellPlayed) {
             if (currentStatus != EffectStatus.OFFENSIVE) {
                 currentStatus = EffectStatus.OFFENSIVE;
-                this.target = AbstractCard.CardTarget.ENEMY;
+                target = AbstractCard.CardTarget.ENEMY;
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ATTACK_IMG_PATH, true));
             }
         } else {
             if (currentStatus != EffectStatus.INERT) {
                 currentStatus = EffectStatus.INERT;
-                this.target = AbstractCard.CardTarget.ENEMY;
+                target = AbstractCard.CardTarget.ENEMY;
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
             }
         }
@@ -89,7 +89,7 @@ public class SpellCombat extends AbstractAltArtMysticCard {
     @Override
     public boolean hasEnoughEnergy() {
         if (!AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID) && !AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+            cantUseMessage = EXTENDED_DESCRIPTION[0];
             return false;
         }
         return super.hasEnoughEnergy();
@@ -120,7 +120,7 @@ public class SpellCombat extends AbstractAltArtMysticCard {
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (currentStatus != EffectStatus.INERT) {
-            this.loadCardImage(IMG_PATH);
+            loadCardImage(IMG_PATH);
             currentStatus = EffectStatus.INERT;
         }
     }
@@ -132,10 +132,10 @@ public class SpellCombat extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_DAMAGE_AMT);
-            this.upgradeBlock(UPGRADE_BLOCK_AMT);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_DAMAGE_AMT);
+            upgradeBlock(UPGRADE_BLOCK_AMT);
         }
     }
 

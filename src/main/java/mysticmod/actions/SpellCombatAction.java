@@ -2,6 +2,7 @@ package mysticmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -21,18 +22,16 @@ public class SpellCombatAction extends AbstractGameAction {
     private int damage;
     private int block;
 
-    public SpellCombatAction(final AbstractPlayer p, final AbstractMonster m, final int damage, final int block, final DamageInfo.DamageType damageType, final boolean isThisFreeToPlayOnce, final int energyOnUse) {
-        this.freeToPlayOnce = false;
-        this.energyOnUse = -1;
-        this.damageType = damageType;
-        this.p = p;
-        this.m = m;
-        this.freeToPlayOnce = isThisFreeToPlayOnce;
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
+    public SpellCombatAction(AbstractPlayer p, AbstractMonster m, int damage, int block, DamageInfo.DamageType damageType, boolean isThisFreeToPlayOnce, int energyOnUse) {
+        freeToPlayOnce = isThisFreeToPlayOnce;
+        duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
         this.damage = damage;
         this.block = block;
+        this.damageType = damageType;
+        this.p = p;
+        this.m = m;
     }
 
     @Override
@@ -46,12 +45,12 @@ public class SpellCombatAction extends AbstractGameAction {
             powerful = true;
         }
         int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
+        if (energyOnUse != -1) {
+            effect = energyOnUse;
         }
-        if (this.p.hasRelic(ChemicalX.ID)) {
+        if (p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            this.p.getRelic(ChemicalX.ID).flash();
+            p.getRelic(ChemicalX.ID).flash();
         }
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
@@ -62,16 +61,16 @@ public class SpellCombatAction extends AbstractGameAction {
                     } else {
                         alternatingEffect = AttackEffect.SLASH_VERTICAL;
                     }
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.damage, damageType), alternatingEffect));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageType), alternatingEffect));
                 }
                 if (poised) {
-                    AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
                 }
             }
-            if (!this.freeToPlayOnce) {
-                this.p.energy.use(EnergyPanel.totalCount);
+            if (!freeToPlayOnce) {
+                p.energy.use(EnergyPanel.totalCount);
             }
         }
-        this.isDone = true;
+        isDone = true;
     }
 }

@@ -34,52 +34,52 @@ public class MagicMissileEffect extends AbstractGameEffect {
     }
 
     public MagicMissileEffect(float originX, float originY, float targetX, float targetY, MagicMissileAction parentAction, Color effectColor) {
-        this.img = ImageMaster.WOBBLY_LINE;
-        this.rotation = MathUtils.random(180.0f) - 90.0f;
-        this.initialRotation = this.rotation;
-        this.x = originX - this.img.packedWidth / 2.0f;
-        this.y = originY - this.img.packedHeight / 2.0f;
-        this.targetX = targetX - this.img.packedWidth / 2.0f;
-        this.targetY = targetY - this.img.packedHeight / 2.0f;
-        this.duration = EFFECT_DUR;
-        this.speed = 900.0f * Settings.scale;
+        img = ImageMaster.WOBBLY_LINE;
+        rotation = MathUtils.random(180.0f) - 90.0f;
+        initialRotation = rotation;
+        x = originX - img.packedWidth / 2.0f;
+        y = originY - img.packedHeight / 2.0f;
+        this.targetX = targetX - img.packedWidth / 2.0f;
+        this.targetY = targetY - img.packedHeight / 2.0f;
+        duration = EFFECT_DUR;
+        speed = 900.0f * Settings.scale;
         this.parentAction = parentAction;
         this.effectColor = effectColor;
     }
 
     @Override
     public void update() {
-        if (!this.soundPlayed) {
+        if (!soundPlayed) {
             CardCrawlGame.sound.playV("ATTACK_WHIFF_1", 2.0f);
-            this.soundPlayed = true;
+            soundPlayed = true;
         }
-        this.duration -= Gdx.graphics.getDeltaTime();
-        Vector2 currentPosition = new Vector2(this.x, this.y);
+        duration -= Gdx.graphics.getDeltaTime();
+        Vector2 currentPosition = new Vector2(x, y);
         Vector2 targetPosition = new Vector2(targetX, targetY);
         float targetDirection = targetPosition.sub(currentPosition).angle();
-        if (this.duration > 0.5f) {
+        if (duration > 0.5f) {
             if (targetDirection - initialRotation > 180f) {
-                this.rotation = Interpolation.circle.apply(this.initialRotation + 360f, targetDirection, 1.0f - ((this.duration - 0.5f) * 2.0f));
+                rotation = Interpolation.circle.apply(initialRotation + 360f, targetDirection, 1.0f - ((duration - 0.5f) * 2.0f));
             } else {
-                this.rotation = Interpolation.circle.apply(this.initialRotation, targetDirection, 1.0f - ((this.duration - 0.5f) * 2.0f));
+                rotation = Interpolation.circle.apply(initialRotation, targetDirection, 1.0f - ((duration - 0.5f) * 2.0f));
             }
-            Vector2 tmp = new Vector2(MathUtils.cosDeg(this.rotation), MathUtils.sinDeg(this.rotation));
-            tmp.x *= this.speed * Gdx.graphics.getDeltaTime();
-            tmp.y *= this.speed * Gdx.graphics.getDeltaTime();
-            this.x += tmp.x;
-            this.y += tmp.y;
-            this.straightStartX = this.x;
-            this.straightStartY = this.y;
-            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f, effectColor.cpy()));
-        } else if (this.duration < 0.0f) {
-            this.isDone = true;
+            Vector2 tmp = new Vector2(MathUtils.cosDeg(rotation), MathUtils.sinDeg(rotation));
+            tmp.x *= speed * Gdx.graphics.getDeltaTime();
+            tmp.y *= speed * Gdx.graphics.getDeltaTime();
+            x += tmp.x;
+            y += tmp.y;
+            straightStartX = x;
+            straightStartY = y;
+            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(x + img.packedWidth / 2.0f, y + img.packedHeight / 2.0f, effectColor.cpy()));
+        } else if (duration < 0.0f) {
+            isDone = true;
         } else {
-            if (this.rotation != targetDirection) {
-                this.rotation = targetDirection;
+            if (rotation != targetDirection) {
+                rotation = targetDirection;
             }
-            this.x = Interpolation.linear.apply(this.straightStartX, targetX, 1.0f - (this.duration) * 2);
-            this.y = Interpolation.linear.apply(this.straightStartY, targetY, 1.0f - (this.duration) * 2);
-            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(this.x + this.img.packedWidth / 2.0f, this.y + this.img.packedHeight / 2.0f, effectColor.cpy()));
+            x = Interpolation.linear.apply(straightStartX, targetX, 1.0f - (duration) * 2);
+            y = Interpolation.linear.apply(straightStartY, targetY, 1.0f - (duration) * 2);
+            AbstractDungeon.effectsQueue.add(new MagicMissileTrailEffect(x + img.packedWidth / 2.0f, y + img.packedHeight / 2.0f, effectColor.cpy()));
         }
         if (isDone && parentAction != null) {
             parentAction.doDamage = true;
@@ -89,7 +89,7 @@ public class MagicMissileEffect extends AbstractGameEffect {
     @Override
     public void render(SpriteBatch sb) {
         sb.setColor(effectColor);
-        sb.draw(this.img, this.x, this.y, this.img.packedWidth / 2.0f, this.img.packedHeight / 2.0f, this.img.packedWidth, this.img.packedHeight, 0.5f, 0.5f, this.rotation + 90f);
+        sb.draw(img, x, y, img.packedWidth / 2.0f, img.packedHeight / 2.0f, img.packedWidth, img.packedHeight, 0.5f, 0.5f, rotation + 90f);
     }
 
     @Override

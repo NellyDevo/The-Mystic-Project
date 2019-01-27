@@ -36,11 +36,11 @@ public class ShockingGrasp extends AbstractAltArtMysticCard {
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
         IMG_PATH = "mysticmod/images/cards/shockinggrasp.png";
-        this.loadCardImage(IMG_PATH);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.magicNumber=this.baseMagicNumber = BOOSTED_DMG;
-        this.tags.add(MysticTags.IS_SPELL);
-        this.altGlowColor = Color.RED;
+        loadCardImage(IMG_PATH);
+        damage = baseDamage = ATTACK_DMG;
+        magicNumber = baseMagicNumber = BOOSTED_DMG;
+        tags.add(MysticTags.IS_SPELL);
+        altGlowColor = Color.RED;
     }
 
     @Override
@@ -48,54 +48,54 @@ public class ShockingGrasp extends AbstractAltArtMysticCard {
         if ((p.hasPower(ArtesPlayed.POWER_ID)) && (p.getPower(ArtesPlayed.POWER_ID).amount >= 1)) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.hb.cX, m.hb.cY)));
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE"));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, magicNumber, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     } else {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
     }
-        if (this.isArtAlternate) {
+        if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
-            this.isArtAlternate = false;
+            isArtAlternate = false;
         }
     }
 
     @Override
     public void applyPowers() {
-        int CURRENT_MAGIC_NUMBER = this.baseMagicNumber;
-        int CURRENT_DMG = this.baseDamage;
-        this.baseDamage = CURRENT_MAGIC_NUMBER;
-        super.applyPowers(); // takes this.baseDamage and applies things like Strength or Pen Nib to set this.damage
+        int CURRENT_MAGIC_NUMBER = baseMagicNumber;
+        int CURRENT_DMG = baseDamage;
+        baseDamage = CURRENT_MAGIC_NUMBER;
+        super.applyPowers(); // takes baseDamage and applies things like Strength or Pen Nib to set damage
 
-        this.magicNumber = this.damage; // magic number holds the first condition's modified damage, so !M! will work
-        this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
+        magicNumber = damage; // magic number holds the first condition's modified damage, so !M! will work
+        isMagicNumberModified = magicNumber != baseMagicNumber;
 
-        // repeat so this.damage holds the second condition's damage
-        this.baseDamage = CURRENT_DMG;
+        // repeat so damage holds the second condition's damage
+        baseDamage = CURRENT_DMG;
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            if (!this.isArtAlternate) {
+            if (!isArtAlternate) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, ALTERNATE_IMG_PATH, true));
-                this.isArtAlternate = true;
+                isArtAlternate = true;
             }
         } else {
-            if (this.isArtAlternate) {
-                this.loadCardImage(IMG_PATH);
-                this.isArtAlternate = false;
+            if (isArtAlternate) {
+                loadCardImage(IMG_PATH);
+                isArtAlternate = false;
             }
         }
     }
 
     @Override
     public void calculateCardDamage(final AbstractMonster mo) {
-        int CURRENT_MAGIC_NUMBER = this.baseMagicNumber;
-        int CURRENT_DMG = this.baseDamage;
-        this.baseDamage = CURRENT_MAGIC_NUMBER;
-        super.calculateCardDamage(mo); // takes this.baseDamage and applies things like Strength or Pen Nib to set this.damage
+        int CURRENT_MAGIC_NUMBER = baseMagicNumber;
+        int CURRENT_DMG = baseDamage;
+        baseDamage = CURRENT_MAGIC_NUMBER;
+        super.calculateCardDamage(mo); // takes baseDamage and applies things like Strength or Pen Nib to set damage
 
-        this.magicNumber = this.damage; // magic number holds the first condition's modified damage, so !M! will work
-        this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
+        magicNumber = damage; // magic number holds the first condition's modified damage, so !M! will work
+        isMagicNumberModified = magicNumber != baseMagicNumber;
 
-        // repeat so this.damage holds the second condition's damage
-        this.baseDamage = CURRENT_DMG;
+        // repeat so damage holds the second condition's damage
+        baseDamage = CURRENT_DMG;
         super.calculateCardDamage(mo);
     }
 
@@ -106,10 +106,10 @@ public class ShockingGrasp extends AbstractAltArtMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(UPGRADE_PLUS_BOOST_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_BOOST_DMG);
         }
     }
 }

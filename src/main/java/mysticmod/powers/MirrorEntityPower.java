@@ -19,14 +19,14 @@ public class MirrorEntityPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
     public MirrorEntityPower(AbstractCreature owner) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        name = NAME;
+        ID = POWER_ID;
         this.owner = owner;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mirror entity power 84.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mirror entity power 32.png"), 0, 0, 32, 32);
-        this.type = PowerType.BUFF;
-        this.amount = -1;
-        this.updateDescription();
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mirror entity power 84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/mirror entity power 32.png"), 0, 0, 32, 32);
+        type = PowerType.BUFF;
+        amount = -1;
+        updateDescription();
     }
 
     @Override

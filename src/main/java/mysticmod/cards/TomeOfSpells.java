@@ -25,12 +25,12 @@ public class TomeOfSpells extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = CANTRIP_AMT;
-        this.exhaust = true;
+        magicNumber = baseMagicNumber = CANTRIP_AMT;
+        exhaust = true;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < this.magicNumber; i++) {
+        for (int i = 0; i < magicNumber; i++) {
             AbstractCard randomCantrip = MysticMod.cantripsGroup.get(AbstractDungeon.cardRandomRng.random(MysticMod.cantripsGroup.size()-1)).makeCopy();
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(randomCantrip, 1, true, true));
         }
@@ -43,9 +43,9 @@ public class TomeOfSpells extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_CANTRIP);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_CANTRIP);
         }
     }
 }

@@ -30,18 +30,18 @@ public class EarthenWall extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = DEXTERITY_GAIN;
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.tags.add(MysticTags.IS_SPELL);
+        magicNumber = baseMagicNumber = DEXTERITY_GAIN;
+        block = baseBlock = BLOCK_AMT;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //block
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         //temporary dexterity
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, this.magicNumber), this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
     }
 
     @Override
@@ -51,10 +51,10 @@ public class EarthenWall extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBlock(BLOCK_UPGRADE_AMT);
-            this.upgradeMagicNumber(UPGRADE_DEXTERITY_GAIN);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBlock(BLOCK_UPGRADE_AMT);
+            upgradeMagicNumber(UPGRADE_DEXTERITY_GAIN);
         }
     }
 }

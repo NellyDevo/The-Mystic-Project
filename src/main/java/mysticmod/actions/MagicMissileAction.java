@@ -22,8 +22,8 @@ public class MagicMissileAction extends AbstractGameAction {
     private Color effectColor;
 
     public MagicMissileAction(AbstractCreature target, DamageInfo info, int projectileCount, float projectileDelay, Color effectColor) {
-        this.setValues(target, this.info = info);
-        this.actionType = ActionType.DAMAGE;
+        setValues(target, this.info = info);
+        actionType = ActionType.DAMAGE;
         this.projectileCount = projectileCount;
         this.projectileDelay = projectileDelay;
         this.effectColor = effectColor;
@@ -32,8 +32,8 @@ public class MagicMissileAction extends AbstractGameAction {
     @Override
     public void update() {
         projectileTimer -= Gdx.graphics.getDeltaTime();
-        if (this.shouldCancelAction() && this.info.type != DamageInfo.DamageType.THORNS) {
-            this.isDone = true;
+        if (shouldCancelAction() && info.type != DamageInfo.DamageType.THORNS) {
+            isDone = true;
             return;
         }
         if (projectilesFired < projectileCount && projectileTimer <= 0.0f) {
@@ -46,20 +46,20 @@ public class MagicMissileAction extends AbstractGameAction {
         if (doDamage && damageCount < projectileCount) {
             damageCount++;
             doDamage = false;
-            this.target.damageFlash = true;
-            this.target.damageFlashFrames = 4;
-            FlashAtkImgEffect coloredPoison = new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.POISON);
+            target.damageFlash = true;
+            target.damageFlashFrames = 4;
+            FlashAtkImgEffect coloredPoison = new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.POISON);
             ReflectionHacks.setPrivateInherited(coloredPoison, FlashAtkImgEffect.class, "color", effectColor.cpy());
             AbstractDungeon.effectList.add(coloredPoison);
-            this.target.tint.color = effectColor.cpy();
-            this.target.tint.changeColor(Color.WHITE.cpy());
-            this.target.damage(this.info);
+            target.tint.color = effectColor.cpy();
+            target.tint.changeColor(Color.WHITE.cpy());
+            target.damage(info);
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
         if (damageCount == projectileCount || target.isDying) {
-            this.isDone = true;
+            isDone = true;
         }
     }
 }

@@ -45,8 +45,8 @@ public class SummonFamiliar extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 CardRarity.COMMON, CardTarget.SELF);
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_SPELL);
+        exhaust = true;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
@@ -160,9 +160,9 @@ public class SummonFamiliar extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+        if (!upgraded) {
+            upgradeName();
+            upgradeBaseCost(UPGRADE_COST);
         }
     }
 }

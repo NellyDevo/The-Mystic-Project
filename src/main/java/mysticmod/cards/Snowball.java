@@ -27,13 +27,13 @@ public class Snowball extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.ATTACK, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
-        this.damage=this.baseDamage = ATTACK_DMG;
-        this.tags.add(MysticTags.IS_SPELL);
+        damage = baseDamage = ATTACK_DMG;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new SnowballDamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
+        AbstractDungeon.actionManager.addToBottom(new SnowballDamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         MysticMod.applyPowerStacks(p, 1);
     }
 
@@ -44,9 +44,9 @@ public class Snowball extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
         }
     }
 }

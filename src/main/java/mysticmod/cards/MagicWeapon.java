@@ -32,16 +32,16 @@ public class MagicWeapon extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = STRENGTH_GAIN;
-        this.exhaust = true;
-        this.tags.add(MysticTags.IS_SPELL);
+        magicNumber = baseMagicNumber = STRENGTH_GAIN;
+        exhaust = true;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
         AbstractCard newBladeBurst = new BladeBurst();
-        if (this.upgraded) {
+        if (upgraded) {
             newBladeBurst.upgrade();
         }
         UnlockTracker.markCardAsSeen(newBladeBurst.cardID);
@@ -62,11 +62,11 @@ public class MagicWeapon extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADED_STR_GAIN);
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADED_STR_GAIN);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

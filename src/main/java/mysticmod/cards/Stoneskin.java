@@ -28,15 +28,15 @@ public class Stoneskin extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        this.block = this.baseBlock = BLOCK_AMT;
-        this.magicNumber = this.baseMagicNumber = BUFF_DURATION;
-        this.tags.add(MysticTags.IS_SPELL);
+        block = baseBlock = BLOCK_AMT;
+        magicNumber = baseMagicNumber = BUFF_DURATION;
+        tags.add(MysticTags.IS_SPELL);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneskinPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneskinPower(p, magicNumber), magicNumber));
     }
 
     @Override
@@ -46,9 +46,9 @@ public class Stoneskin extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_BUFF_DURATION);
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_BUFF_DURATION);
         }
     }
 }

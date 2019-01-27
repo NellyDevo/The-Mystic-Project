@@ -19,10 +19,10 @@ public class GeminiFormAction extends AbstractGameAction {
     private boolean lookingForArte;
     private AbstractMonster t;
 
-    public GeminiFormAction(final AbstractMonster target, final boolean lookingForArte, final AbstractCard triggerCard) {
-        this.setValues(this.t = target, this.p = AbstractDungeon.player, amount);
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_MED;
+    public GeminiFormAction(AbstractMonster target, boolean lookingForArte, AbstractCard triggerCard) {
+        setValues(t = target, p = AbstractDungeon.player, amount);
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_MED;
         this.lookingForArte = lookingForArte;
     }
 
@@ -43,11 +43,11 @@ public class GeminiFormAction extends AbstractGameAction {
         if (tmp.size() > 0) {
             AbstractCard randomlyChosenCard = tmp.getRandomCard(AbstractDungeon.cardRandomRng);
             if (randomlyChosenCard.target == AbstractCard.CardTarget.ENEMY || randomlyChosenCard.target == AbstractCard.CardTarget.SELF_AND_ENEMY) {
-                if (this.t == null) {
-                    this.t = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
+                if (t == null) {
+                    t = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
                 }
             } else {
-                this.t = null;
+                t = null;
             }
             GeminiFormPower.isActive = false;
             AbstractDungeon.player.drawPile.group.remove(randomlyChosenCard);
@@ -61,21 +61,21 @@ public class GeminiFormAction extends AbstractGameAction {
             randomlyChosenCard.lighten(false);
             randomlyChosenCard.drawScale = 0.12f;
             randomlyChosenCard.targetDrawScale = 0.75f;
-            if (!randomlyChosenCard.canUse(AbstractDungeon.player, this.t)) {
+            if (!randomlyChosenCard.canUse(AbstractDungeon.player, t)) {
                 AbstractDungeon.actionManager.addToTop(new UnlimboAction(randomlyChosenCard));
                 AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(randomlyChosenCard, AbstractDungeon.player.limbo));
                 AbstractDungeon.actionManager.addToTop(new WaitAction(0.4f));
             } else {
                 randomlyChosenCard.applyPowers();
-                AbstractDungeon.actionManager.addToTop(new QueueCardAction(randomlyChosenCard, this.t));
+                AbstractDungeon.actionManager.addToTop(new QueueCardAction(randomlyChosenCard, t));
                 AbstractDungeon.actionManager.addToTop(new UnlimboAction(randomlyChosenCard));
                 if (!Settings.FAST_MODE) {
                     AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
                 } else {
-                    AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+                    AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FAST));
                 }
             }
         }
-        this.isDone = true;
+        isDone = true;
     }
 }

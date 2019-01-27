@@ -31,15 +31,15 @@ public class Lunge extends AbstractMysticCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
-        this.exhaust = true;
-        this.magicNumber = this.baseMagicNumber = ENERGY_GAIN;
-        this.tags.add(MysticTags.IS_ARTE);
+        exhaust = true;
+        magicNumber = baseMagicNumber = ENERGY_GAIN;
+        tags.add(MysticTags.IS_ARTE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //cards and energy
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 2));
         //lose dexterity for turn
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -4), -4));
@@ -52,7 +52,7 @@ public class Lunge extends AbstractMysticCard {
     public boolean hasEnoughEnergy() { //feat keyword functionality
         for (AbstractCard potentialArte : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             if (MysticMod.isThisAnArte(potentialArte)) {
-                this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+                cantUseMessage = EXTENDED_DESCRIPTION[0];
                 return false;
             }
         }
@@ -66,11 +66,11 @@ public class Lunge extends AbstractMysticCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(PLUS_UPGRADE_ENERGY_GAIN);
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(PLUS_UPGRADE_ENERGY_GAIN);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }
