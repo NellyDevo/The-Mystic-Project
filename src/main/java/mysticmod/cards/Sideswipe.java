@@ -39,7 +39,7 @@ public class Sideswipe extends AbstractAltArtMysticCard {
         damage = baseDamage = ATTACK_DMG;
         magicNumber = baseMagicNumber = WEAK_AMT;
         tags.add(MysticTags.IS_ARTE);
-        altGlowColor = Color.BLUE;
+        altGlowColor = ALT_GLOW_BLUE;
     }
 
     @Override

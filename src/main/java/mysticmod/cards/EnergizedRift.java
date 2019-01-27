@@ -34,7 +34,7 @@ public class EnergizedRift extends AbstractAltArtMysticCard {
         tags.add(MysticTags.IS_SPELL);
         IMG_PATH = "mysticmod/images/cards/energizedrift.png";
         loadCardImage(IMG_PATH);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

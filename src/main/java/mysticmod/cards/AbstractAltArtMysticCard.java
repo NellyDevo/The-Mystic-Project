@@ -17,6 +17,8 @@ public abstract class AbstractAltArtMysticCard extends AbstractMysticCard {
     public Color altGlowColor;
     public boolean isArtAlternate;
     public String IMG_PATH;
+    public static final Color ALT_GLOW_BLUE = Color.valueOf("005599");
+    public static final Color ALT_GLOW_RED = Color.valueOf("FF5252");
 
     public AbstractAltArtMysticCard(String id, String name, String img, int cost, String rawDescription,
                                     CardType type, CardColor color,

@@ -38,7 +38,7 @@ public class MagicMissile extends AbstractAltArtMysticCard {
         damage = baseDamage = ATTACK_DMG;
         magicNumber = baseMagicNumber = 1;
         tags.add(MysticTags.IS_SPELL);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

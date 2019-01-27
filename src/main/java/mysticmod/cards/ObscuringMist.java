@@ -39,7 +39,7 @@ public class ObscuringMist extends AbstractAltArtMysticCard {
         block = baseBlock = BLOCK_AMT;
         magicNumber = baseMagicNumber = ARTIFACT_AMT;
         tags.add(MysticTags.IS_SPELL);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

@@ -37,7 +37,7 @@ public class FloatingDisk extends AbstractAltArtMysticCard {
         magicNumber = baseMagicNumber = DEXTERITY_GAIN;
         exhaust = true;
         tags.add(MysticTags.IS_SPELL);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

@@ -40,7 +40,7 @@ public class HeavyStrike extends AbstractAltArtMysticCard {
         tags.add(MysticTags.IS_ARTE);
         exhaust = true;
         tags.add(CardTags.STRIKE);
-        altGlowColor = Color.BLUE;
+        altGlowColor = ALT_GLOW_BLUE;
     }
 
     @Override

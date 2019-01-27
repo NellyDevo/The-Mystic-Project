@@ -34,7 +34,7 @@ public class Fly extends AbstractAltArtMysticCard {
         loadCardImage(IMG_PATH);
         block = baseBlock = BLOCK_AMT;
         tags.add(MysticTags.IS_SPELL);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

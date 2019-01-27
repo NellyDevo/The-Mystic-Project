@@ -100,13 +100,13 @@ public class SpellCombat extends AbstractAltArtMysticCard {
         if (AbstractDungeon.player != null) {
             switch (currentStatus) {
                 case COMBINED:
-                    updateGlowWithColor(Color.PURPLE.cpy());
+                    updateGlowWithColor(Color.valueOf("5233FF").cpy());
                     break;
                 case OFFENSIVE:
-                    updateGlowWithColor(Color.BLUE.cpy());
+                    updateGlowWithColor(ALT_GLOW_BLUE.cpy());
                     break;
                 case DEFENSIVE:
-                    updateGlowWithColor(Color.RED.cpy());
+                    updateGlowWithColor(ALT_GLOW_RED.cpy());
                     break;
                 default:
                     super.updateGlow();

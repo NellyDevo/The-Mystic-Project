@@ -38,7 +38,7 @@ public class Flurry extends AbstractAltArtMysticCard {
         secondMagicNumber = baseSecondMagicNumber = ALTERNATIVE_ATTACK_COUNT;
         magicNumber = baseMagicNumber = ATTACK_COUNT;
         tags.add(MysticTags.IS_ARTE);
-        altGlowColor = Color.BLUE;
+        altGlowColor = ALT_GLOW_BLUE;
     }
 
     @Override

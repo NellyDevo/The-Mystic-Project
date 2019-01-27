@@ -36,7 +36,7 @@ public class Grease extends AbstractAltArtMysticCard {
         loadCardImage(IMG_PATH);
         magicNumber = baseMagicNumber = STRENGTH_REDUCTION;
         tags.add(MysticTags.IS_SPELL);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

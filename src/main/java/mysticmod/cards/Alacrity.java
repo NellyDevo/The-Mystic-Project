@@ -36,7 +36,7 @@ public class Alacrity extends AbstractAltArtMysticCard {
         block = baseBlock = BLOCK_AMT;
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         tags.add(MysticTags.IS_SPELL);
-        altGlowColor = Color.RED;
+        altGlowColor = ALT_GLOW_RED;
     }
 
     @Override

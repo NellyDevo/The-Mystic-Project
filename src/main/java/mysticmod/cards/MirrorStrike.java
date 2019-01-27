@@ -35,7 +35,7 @@ public class MirrorStrike extends AbstractAltArtMysticCard {
         damage = baseDamage = ATTACK_DMG;
         tags.add(MysticTags.IS_ARTE);
         tags.add(CardTags.STRIKE);
-        altGlowColor = Color.BLUE;
+        altGlowColor = ALT_GLOW_BLUE;
     }
 
     @Override
