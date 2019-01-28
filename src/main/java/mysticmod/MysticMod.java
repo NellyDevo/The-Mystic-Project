@@ -80,6 +80,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     private static ModLabeledToggleButton combined;
     private static SpireConfig mysticConfig;
     private static boolean mysticFriendlyMinionsToggle;
+    public static boolean powerPoiseSfxToggle;
     public static ArrayList<AbstractCard> cantripsGroup = new ArrayList<>();
     private static ArrayList<AbstractCard> spellsGroup;
     private static ArrayList<AbstractCard> artesGroup;
@@ -103,6 +104,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         Properties mysticDefaults = new Properties();
         mysticDefaults.setProperty("spellArteDisplay", "BOTH");
         mysticDefaults.setProperty("Fox Minion Enabled", "TRUE");
+        mysticDefaults.setProperty("Power/Poise SFX Enabled", "TRUE");
         try {
             mysticConfig = new SpireConfig("The Mystic Mod", "MysticConfig", mysticDefaults);
         } catch (IOException e) {
@@ -112,6 +114,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         logger.info("MYSTIC CONFIG OPTIONS LOADED:");
         logger.info("spellArteDisplay set to " + mysticConfig.getString("spellArteDisplay") + ".");
         logger.info("Fox Minion Enabled = " + mysticConfig.getString("Fox Minion Enabled") + ".");
+        logger.info("Power/Poise SFX Enabled = " + mysticConfig.getString("Power/Poise SFX Enabled") + ".");
         switch (mysticConfig.getString("spellArteDisplay")) {
             case "SHAPE": MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
             break;
@@ -178,6 +181,16 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
         });
         settingsPanel.addUIElement(foxToggle);
+        ModLabeledToggleButton sfxToggle = new ModLabeledToggleButton(TEXT[8], 350.0f, 400.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, powerPoiseSfxToggle, settingsPanel, label -> {}, button -> {
+            powerPoiseSfxToggle = button.enabled;
+            if (powerPoiseSfxToggle) {
+                MysticMod.mysticConfig.setString("Power/Poise SFX Enabled", "TRUE");
+            } else {
+                MysticMod.mysticConfig.setString("Power/Poise SFX Enabled", "FALSE");
+            }
+            try {MysticMod.mysticConfig.save();} catch (IOException e) {e.printStackTrace();}
+        });
+        settingsPanel.addUIElement(sfxToggle);
         BaseMod.registerModBadge(badgeImg, TEXT[6], "Johnny Devo", TEXT[7], settingsPanel);
         cantripsGroup.add(new AcidSplash());
         cantripsGroup.add(new Prestidigitation());

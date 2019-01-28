@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import mysticmod.MysticMod;
 import mysticmod.character.MysticAnimation;
 
 public class PowerfulActivatedEffect extends AbstractGameEffect {
@@ -43,7 +44,9 @@ public class PowerfulActivatedEffect extends AbstractGameEffect {
     @Override
     public void update() {
         if (!soundPlayed) {
-            CardCrawlGame.sound.playV("mysticmod:SPARKS", 0.3f);
+            if (MysticMod.powerPoiseSfxToggle) {
+                CardCrawlGame.sound.playV("mysticmod:SPARKS", 0.25f);
+            }
             soundPlayed = true;
         }
         if (animFrame == 4) {

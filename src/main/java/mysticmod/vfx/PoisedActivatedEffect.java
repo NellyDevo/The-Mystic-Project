@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import mysticmod.MysticMod;
 import mysticmod.character.MysticAnimation;
 
 public class PoisedActivatedEffect extends AbstractGameEffect {
@@ -38,7 +39,9 @@ public class PoisedActivatedEffect extends AbstractGameEffect {
     @Override
     public void update() {
         if (!firstSoundPlayed) {
-            CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_ONE", 1.0f);
+            if (MysticMod.powerPoiseSfxToggle) {
+                CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_ONE", 0.8f);
+            }
             firstSoundPlayed = true;
         }
         float startingScale = 0.0f;
@@ -55,7 +58,9 @@ public class PoisedActivatedEffect extends AbstractGameEffect {
         } else if (duration < endDuration * 2 / 3) {
             //second third of animation
             if (!secondSoundPlayed) {
-                CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_TWO", 0.125f);
+                if (MysticMod.powerPoiseSfxToggle) {
+                    CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_TWO", 0.1f);
+                }
                 secondSoundPlayed = true;
                 scale = targetScale;
             }
