@@ -373,7 +373,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
         keywords.forEach((k,v)->{
             // Keyword word = (Keyword)v;
-            logger.info("MysticMod: adding Keyword - " + v.NAMES[0]);
+            logger.info("Adding Keyword - " + v.NAMES[0]);
             BaseMod.addKeyword(v.NAMES, v.DESCRIPTION);
         });
     }
