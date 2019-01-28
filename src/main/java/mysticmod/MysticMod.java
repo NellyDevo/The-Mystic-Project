@@ -44,6 +44,8 @@ import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.*;
 import mysticmod.vfx.PoisedActivatedEffect;
 import mysticmod.vfx.PowerfulActivatedEffect;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -84,6 +86,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     private static UIStrings uiStrings;
     private static String ID = "mysticmod:MysticMod";
     private static String[] TEXT;
+    private static Logger logger = LogManager.getLogger(MysticMod.class.getName());
 
 
     public MysticMod(){
@@ -103,10 +106,12 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         try {
             mysticConfig = new SpireConfig("The Mystic Mod", "MysticConfig", mysticDefaults);
         } catch (IOException e) {
-            System.out.println("MysticMod SpireConfig initialization failed:");
+            logger.error("MysticMod SpireConfig initialization failed:");
             e.printStackTrace();
         }
-        System.out.println("mysticConfig loaded. spellArteDisplay set to " + mysticConfig.getString("spellArteDisplay") + ". Fox Minion Enabled = " + mysticConfig.getString("Fox Minion Enabled"));
+        logger.info("MYSTIC CONFIG OPTIONS LOADED:");
+        logger.info("spellArteDisplay set to " + mysticConfig.getString("spellArteDisplay") + ".");
+        logger.info("Fox Minion Enabled = " + mysticConfig.getString("Fox Minion Enabled") + ".");
         switch (mysticConfig.getString("spellArteDisplay")) {
             case "SHAPE": MysticMod.cardBackgroundSetting = CardBackgroundConfig.SHAPE;
             break;
@@ -115,10 +120,11 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
             case "BOTH": MysticMod.cardBackgroundSetting = CardBackgroundConfig.BOTH;
             break;
             default: MysticMod.cardBackgroundSetting = CardBackgroundConfig.BOTH;
-            System.out.println("spellArteDisplay incorrectly set; defaulting to BOTH");
+            logger.warn("spellArteDisplay incorrectly set; defaulting to BOTH");
             break;
         }
         mysticFriendlyMinionsToggle = (mysticConfig.getString("Fox Minion Enabled").equals("TRUE"));
+        powerPoiseSfxToggle = (mysticConfig.getString("Power/Poise SFX Enabled").equals("TRUE"));
     }
 
     //Used by @SpireInitializer
@@ -301,7 +307,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         //friendly minions only
         if (Loader.isModLoaded("Friendly_Minions_0987678") && mysticFriendlyMinionsToggle) {
             BaseMod.addCard(new SummonFamiliar());
-            System.out.println("Friendly_Minions_0987678 detected, Summon Familiar added");
+            logger.info("Friendly_Minions_0987678 detected, Summon Familiar added");
         } else {
             BaseMod.addCard(new SummonFamiliarPlaceholder());
         }
@@ -354,7 +360,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
         keywords.forEach((k,v)->{
             // Keyword word = (Keyword)v;
-            System.out.println("MysticMod: adding Keyword - " + v.NAMES[0]);
+            logger.info("MysticMod: adding Keyword - " + v.NAMES[0]);
             BaseMod.addKeyword(v.NAMES, v.DESCRIPTION);
         });
     }
