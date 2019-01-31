@@ -54,6 +54,9 @@ public class SpellCombatAction extends AbstractGameAction {
         }
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
+                if (poised) {
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+                }
                 if (powerful) {
                     AttackEffect alternatingEffect;
                     if (i % 2 == 0) {
@@ -62,9 +65,6 @@ public class SpellCombatAction extends AbstractGameAction {
                         alternatingEffect = AttackEffect.SLASH_VERTICAL;
                     }
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageType), alternatingEffect));
-                }
-                if (poised) {
-                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
                 }
             }
             if (!freeToPlayOnce) {
