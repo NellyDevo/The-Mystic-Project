@@ -1,0 +1,46 @@
+{
+  "mysticmod:ArteHologram": {
+    "TEXT": [
+      "选择最多 ",
+      " 张战技牌加入手牌。"
+    ]
+  },
+  "mysticmod:SpellRecallAction": {
+    "TEXT": [
+      "选择一张法术加入手牌。"
+    ]
+  },
+  "mysticmod:SpellSeekAction": {
+    "TEXT": [
+      "选择 ",
+      "张法术牌 ",
+      "张法术牌 ",
+      "加入手牌。"
+    ]
+  },
+  "mysticmod:SpellstrikeAction": {
+    "TEXT": [
+      "选择并打出一张攻击法术牌。"
+    ]
+  },
+  "mysticmod:MysticMod": {
+    "TEXT": [
+      "法术牌和战技牌以哪种方式区分？",
+      "形状。",
+      "颜色。",
+      "都做出区分。",
+      "重启游戏来使新的设置生效。",
+      "启用 Fox Minion Card （需要 模组FriendlyMinions）",
+      "秘术师MOD",
+      "增加了一个新的职业：秘术师。",
+      "启用法力/招式的激活音效。"
+    ]
+  },
+  "mysticmod:RenderType": {
+    "TEXT": [
+      "法术",
+      "战技",
+      "威能"
+    ]
+  }
+}

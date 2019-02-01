@@ -1,0 +1,109 @@
+{
+  "mysticmod:ArcaneAccuracyPower": {
+    "NAME": "法术强度",
+    "DESCRIPTIONS": ["使用[#5299E0]法术[]获得的格挡和造成的伤害增加", "点。"]
+  },
+  "mysticmod:ArtesPlayedPower": {
+    "NAME": "[#FF5252]招式[]",
+    "DESCRIPTIONS": ["本回合你已经打出了 ", "张 [#FF5252]战技[] 。", " [#FF5252]战技[] 。"]
+  },
+  "mysticmod:ArtesPlayedNextTurnPower": {
+    "NAME": "[#FF5252]蓄势待发[]",
+    "DESCRIPTIONS": ["在下个回合开始时获得 ", "层 [#FF5252]招式[]."]
+  },
+  "mysticmod:ComboCasterPower": {
+    "NAME": "连招施法器",
+    "DESCRIPTIONS": ["At the start of each turn add ", " random Cantrip to your hand", " random Cantrips to your hand", " and draw ", " less card.", " less cards."]
+  },
+  "mysticmod:ComponentsPouchPower": {
+    "NAME": "施法材料包",
+    "DESCRIPTIONS": ["For ", " turn, all Defends count as [#5299E0]Spells[].", " turns, all Defends count as [#5299E0]Spells[].", ""]
+  },
+  "mysticmod:DisciplinePower": {
+    "NAME": "戒律",
+    "DESCRIPTIONS": ["Begin each turn with ", " [#5299E0]Power[] and [#FF5252]招式[]."]
+  },
+  "mysticmod:DoublecastPower": {
+    "NAME": "双重施法",
+    "DESCRIPTIONS": ["Your next [#5299E0]Spell[] card is played twice.", "Your next ", " [#5299E0]Spell[] cards are played twice."]
+  },
+  "mysticmod:EbbPower": {
+    "NAME": "汐之力",
+    "DESCRIPTIONS": ["每个回合开始时，如果你没有[#5299E0]秘法牌[]或[#FF5252]战技牌[]，每缺少其中一种便弃置一张牌。"]
+  },
+  "mysticmod:EnergizedPurplePower": {
+    "NAME": "蓄能",
+    "DESCRIPTIONS": [
+      "在下个回合额外获得 #b",
+      " [E] 。"
+    ]
+  },
+  "mysticmod:FlowPower": {
+    "NAME": "潮之力",
+    "DESCRIPTIONS": ["每个回合开始时，额外抽 ", "张牌。", " 张牌。"]
+  },
+  "mysticmod:FoxEvolutionPower": {
+    "NAME": "进化",
+    "DESCRIPTIONS": ["你的同伴获得一个额外的行动", " 对所有敌人造成伤害", " 效果显著", "，和", "。", "，"]
+  },
+  "mysticmod:GainDexterityPower": {
+    "NAME": "力竭",
+    "DESCRIPTIONS": ["在回合结束时获得 ", " 点敏捷。"]
+  },
+  "mysticmod:GeminiFormPower": {
+    "NAME": "双子形态",
+    "DESCRIPTIONS": ["The first ", "[#5299E0]Spell[] and [#FF5252]战技[]", "[#5299E0]Spells[] and [#FF5252]战技s[]", " you play each turn, also play a random card of the other type from your draw pile."]
+  },
+  "mysticmod:HastePower": {
+    "NAME": "加速术",
+    "DESCRIPTIONS": ["在接下来的 ", " 个回合，额外", " 个回合，额外", "抽一张牌，额外获得 [E] ，攻击牌造成的伤害+1，从卡牌获得的格挡+1。"]
+  },
+  "mysticmod:MightyMagicPower": {
+    "NAME": "技巧",
+    "DESCRIPTIONS": ["使用[#FF5252]战技[]获得的格挡和造成的伤害增加 ", "点。"]
+  },
+  "mysticmod:MirrorEntityPower": {
+    "NAME": "镜像实体",
+    "DESCRIPTIONS": ["[#5299E0]秘法牌[] 和 [#FF5252]战技牌[] 同时增加下个回合的[#5299E0]法力[] 和 [#FF5252]招式[] 层数。"]
+  },
+  "mysticmod:MomentumPower": {
+    "NAME": "声势",
+    "DESCRIPTIONS": ["[#5299E0]秘法牌[] and [#FF5252]战技牌[] 造成的伤害或获得的格挡分别增加[#FF5252]招式[] 或 [#5299E0]法力[] 层数的数值。"]
+  },
+  "mysticmod:MysticalShieldPower": {
+    "NAME": "秘法护盾",
+    "DESCRIPTIONS": ["格挡 在每个回合开始时减少到8而不是0。"]
+  },
+  "mysticmod:MysticalShieldUpgradedPower": {
+    "NAME": "秘法护盾+",
+    "DESCRIPTIONS": ["格挡 在每个回合开始时变为8而不是0。"]
+  },
+  "mysticmod:Natural20Power": {
+    "NAME": "天然 20",
+    "DESCRIPTIONS": ["会心一击！"]
+  },
+  "mysticmod:PureInstinctPower": {
+    "NAME": "纯粹本能",
+    "DESCRIPTIONS": ["在接下来的 ", " 个回合，所有 打击牌 都视作 [#FF5252]战技[]。", " 个回合，所有 打击牌 都视作 [#FF5252]战技[]。"]
+  },
+  "mysticmod:RapidCasterPower": {
+    "NAME": "迅疾施法器",
+    "DESCRIPTIONS": ["The first Cantrip you play each turn is played twice.", "The first ", " Cantrips you play each turn are played twice."]
+  },
+  "mysticmod:SpellsPlayedPower": {
+    "NAME": "[#5299E0]法力[]",
+    "DESCRIPTIONS": ["You have played ", " [#5299E0]Spell[] this turn.", " [#5299E0]Spells[] this turn."]
+  },
+  "mysticmod:SpellsPlayedNextTurnPower": {
+    "NAME": "[#5299E0]准备法术[]",
+    "DESCRIPTIONS": ["下个回合开始时获得 ", " 层[#5299E0]法力[]."]
+  },
+  "mysticmod:SpontaneousCasterPower": {
+    "NAME": "自发施法器",
+    "DESCRIPTIONS": ["[#5299E0]Spells[] Exhaust when played, and then generate a random [#5299E0]Spell[] in your discard pile. The cost of all Spells are reduced to [E] ."]
+  },
+  "mysticmod:StoneskinPower": {
+    "NAME": "石化肌肤",
+    "DESCRIPTIONS": ["下 ", "个你的回合开始时获得 2(", " 个你的回合开始时获得 2(", ") 点格挡。受到影响格挡的效果影响。"]
+  }
+}

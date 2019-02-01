@@ -5,6 +5,7 @@ import basemod.abstracts.DynamicVariable;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import mysticmod.MysticMod;
 import mysticmod.patches.MysticTags;
@@ -131,6 +132,9 @@ public abstract class AbstractMysticCard extends CustomCard {
 
         @Override
         public String key() {
+            if (Settings.language == Settings.GameLanguage.ZHS) {
+                return "ystico:2";
+            }
             return "mysticmod:M2";
         }
 

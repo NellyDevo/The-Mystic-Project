@@ -1,0 +1,465 @@
+﻿{
+  "mysticmod:AbstractMysticCard": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "秘法",
+      "战技",
+      "该技能牌同时视作[#5299E0]秘法牌[]并使你获得1层[#5299E0]法力[]。",
+      "该技能牌同时视作[#FF5252]战技牌[]并使你获得1层[#FF5252]招式[]。",
+      "该攻击牌同时视作[#5299E0]秘法牌[]并使你获得1层[#5299E0]法力[]。",
+      "该攻击牌同时视作[#FF5252]战技牌[]并使你获得1层[#FF5252]招式[]。"
+    ]
+  },
+  "mysticmod:AcidSplash": {
+    "NAME": "酸液飞溅",
+    "DESCRIPTION": "戏法。 NL 造成 !D! 点伤害。抽一张牌",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Alacrity": {
+    "NAME": "迅捷",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 就绪：在下个回合获得 [E] 。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:AllIn": {
+    "NAME": "奋力一搏",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层虚弱。你每具有一层 [#5299E0]法力[] ，虚弱的层数减少1。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ArcaneAccuracy": {
+    "NAME": "超魔",
+    "DESCRIPTION": "获得 !M! 点法术强度。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ArcaneDodge": {
+    "NAME": "奥术闪避",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 充能: 额外获得 !M! 点格挡。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:BladeBurst": {
+    "NAME": "剑刃爆发",
+    "DESCRIPTION": "失去 !M! 点力量。造成 !D! 点伤害。 将一张 魔化武器 加入弃牌堆. NL 消耗。",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点力量。 造成 !D! 点伤害。将一张 魔化武器+ 加入弃牌堆. NL 消耗。"
+  },
+  "mysticmod:BladeMaster": {
+    "NAME": "剑术大师",
+    "DESCRIPTION": "将至多 !M! 张 [#FF5252]战技牌[]  从弃牌堆放回手牌。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:BladedDash": {
+    "NAME": "剑刃冲刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 获得 !B! 点格挡.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:BulkUp": {
+    "NAME": "强健体魄",
+    "DESCRIPTION": "获得 !B! 点格挡，然后消耗一张随机手牌。 NL 充能: 可以选择要消耗的牌。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ChargedParry": {
+    "NAME": "蓄力闪避",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 充能: 在本回合内获得 !M! 点力量。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ClosingBarrage": {
+    "NAME": "终幕齐射",
+    "DESCRIPTION": "造成 Y 点伤害 X 次，Y等同于你总的 [#5299E0]法力[] 和 [#FF5252]招式[] 层数乘以!M!。",
+    "UPGRADE_DESCRIPTION": "造成 Y 点伤害 X+1 次，Y等同于你总的 [#5299E0]法力[] 和 [#FF5252]招式[] 层数乘以!M!。",
+    "EXTENDED_DESCRIPTION": [" NL （ !D! 点伤害）"]
+  },
+  "mysticmod:ComboCaster": {
+    "NAME": "连招施法器",
+    "DESCRIPTION": "在每个回合开始时，少抽一张牌并将一张 戏法牌 加入手牌。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ComponentsPouch": {
+    "NAME": "施法材料包",
+    "DESCRIPTION": "造成 !D! 点伤害，你的手牌中每有一张 [#5299E0]秘法牌[] ，就再造成 !D! 点伤害。 NL 接下来的 !M! 个回合，所有防御牌都视作 [#5299E0]秘法牌[] .",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL （你有 ",
+      "  [#5299E0]张秘法牌[] ）。",
+      "  [#5299E0]张秘法牌[] ）。"
+    ]
+  },
+  "mysticmod:CorrosiveTouch": {
+    "NAME": "腐蚀之触",
+    "DESCRIPTION": "造成 !D! 点伤害.",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 在下个回合获得一层  [#5299E0]法力[] ."
+  },
+  "mysticmod:CureLightWounds": {
+    "NAME": "治疗轻伤",
+    "DESCRIPTION": "获得 !M! 层再生。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": ["治疗中度伤"]
+  },
+  "mysticmod:Daze": {
+    "NAME": "附魔晕眩术",
+    "DESCRIPTION": "给予 !M! 层易伤。 NL 就绪：给予 !M! 层虚弱。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Dedication": {
+    "NAME": "奉献",
+    "DESCRIPTION": "获得 !M! 点力量和敏捷。 NL 能被多次升级。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Defend_Mystic": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点格挡.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Discipline": {
+    "NAME": "戒律",
+    "DESCRIPTION": "每个回合开始时获得一层 !M!  [#5299E0]法力[]  和  [#FF5252]招式[] .",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Disengage": {
+    "NAME": "挣脱",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 在下个回合获得一层  [#FF5252]招式[] .",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Disintegrate": {
+    "NAME": "解离术",
+    "DESCRIPTION": "造成无视格挡的 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:DiviningBlow": {
+    "NAME": "神圣之箭",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 每有一层 [#5299E0]法力[] 便抽一张牌.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "（ ",
+      " 牌）",
+      " 牌）"
+    ]
+  },
+  "mysticmod:Doublecast": {
+    "NAME": "双重施法",
+    "DESCRIPTION": "在本回合内，你的下一张 [#5299E0]秘法牌[] 打出两次。",
+    "UPGRADE_DESCRIPTION": "在本回合内，你的下两张 [#5299E0]秘法牌[] 打出两次。"
+  },
+  "mysticmod:EarthenWall": {
+    "NAME": "石墙术",
+    "DESCRIPTION": "获得 !B! 点格挡。在本回合内获得 !M! 点敏捷。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:EbbAndFlow": {
+    "NAME": "潮汐之力",
+    "DESCRIPTION": "每个回合额外抽1张牌，如果你没有 [#5299E0]秘法牌[] 或 [#FF5252]战技牌[] ，每缺少其中一种便弃置一张牌。",
+    "UPGRADE_DESCRIPTION": "固有。 NL 每个回合额外抽1张牌，如果你没有 [#5299E0]秘法牌[] 或 [#FF5252]战技牌[] ，每缺少其中一种便弃置一张牌。"
+  },
+  "mysticmod:EnchantedMoulinet": {
+    "NAME": "魔划圆斩",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。每杀死一个敌人，获得 [E] .",
+    "UPGRADE_DESCRIPTION": ""
+},
+  "mysticmod:EnergizedRift": {
+    "NAME": "能量裂隙",
+    "DESCRIPTION": "就绪：在你的抽牌堆中加入等同于 [#FF5252]招式[] 层数张的随机 戏法牌 。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "就绪：在你的抽牌堆中加入等同于 [#FF5252]招式[] 层数张的随机 戏法牌 。 NL 消耗。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （",
+      " 张戏法牌。）",
+      " 张戏法牌。）",
+      "我没有  [#FF5252]招式[] !"
+    ]
+  },
+  "mysticmod:Feint": {
+    "NAME": "佯攻",
+    "DESCRIPTION": "造成 !D! 点伤害。在你的抽牌堆中加入一张随机 戏法牌 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。在你的抽牌堆中加入一张升级后的随机 戏法牌 。"
+  },
+  "mysticmod:Fireball": {
+    "NAME": "火球术",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 就绪：对所有敌人造成伤害。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:FiveFootStep": {
+    "NAME": "五尺快步",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 将这张牌洗回抽牌堆。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:FloatingDisk": {
+    "NAME": "谭森漂浮碟",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 就绪：获得 !M! 点敏捷。 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Flourish": {
+    "NAME": "繁荣",
+    "DESCRIPTION": "你每具有一层 [#5299E0]法力[]  或  [#FF5252]招式[] ，耗能就减少 [E] 。 造成 !D! 点伤害两次，翻倍你的  [#5299E0]法力[]  和  [#FF5252]招式[]  层数。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Flurry": {
+    "NAME": "疾风",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 充能: 改为!ystico:2! 次。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Fly": {
+    "NAME": "飞行术",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 就绪：你的下一回合开始时，格挡不会消失。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:GeminiForm": {
+    "NAME": "双子形态",
+    "DESCRIPTION": "每回合你第一次打出  [#5299E0]秘法牌[]  和  [#FF5252]战技牌[]  时，从你的抽牌堆打出一张另一种类的随机牌。 NL 虚无。",
+    "UPGRADE_DESCRIPTION": "每回合你第一次打出  [#5299E0]秘法牌[]  和  [#FF5252]战技牌[]  时，从你的抽牌堆打出一张另一种类的随机牌。"
+  },
+  "mysticmod:Grapple": {
+    "NAME": "擒抱",
+    "DESCRIPTION": "击晕一个敌人。 在本回合中不能使用任何其他攻击牌。 NL 虚无，消耗。",
+    "UPGRADE_DESCRIPTION": "击晕一个敌人。 在本回合中不能使用任何其他攻击牌。 NL 消耗。"
+  },
+  "mysticmod:Grease": {
+    "NAME": "油腻术",
+    "DESCRIPTION": "使一个敌人在本回合失去 !M! 点力量。 NL 就绪：改为所有敌人。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:GreaterInvisibility": {
+    "NAME": "高等隐形术",
+    "DESCRIPTION": "获得 1 层无实体。 NL 消耗，虚无。 NL 就绪：如果你在本回合打出过 !M! 张  [#FF5252]战技牌[]  ，则不消耗。",
+    "UPGRADE_DESCRIPTION": "获得 1 层无实体。 NL 消耗，虚无。 NL 就绪：如果你在本回合打出  [#FF5252]战技牌[]  ，则不消耗。"
+  },
+  "mysticmod:IllusionOfCalm": {
+    "NAME": "平静幻象",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 获得 !M! 层脆弱。你每具有一层  [#FF5252]招式[] ，脆弱的层数减少1.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Haste": {
+    "NAME": "加速术",
+    "DESCRIPTION": "接下来的 X 个回合，额外抽一张牌，获得 [E] ，攻击牌造成的伤害+1，从卡牌获得的格挡+1。",
+    "UPGRADE_DESCRIPTION": "接下来的 X+1 个回合，额外抽一张牌，获得 [E] ，攻击牌造成的伤害+1，从卡牌获得的格挡+1。"
+  },
+  "mysticmod:HeavyStrike": {
+    "NAME": "沉重打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 它在本局游戏中的伤害永久性地增加 !M! 。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:HunkerDown": {
+    "NAME": "蹲踞",
+    "DESCRIPTION": " 直到回合结束前获得 !M! 点敏捷。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:KeenEdge": {
+    "NAME": "利刃术",
+    "DESCRIPTION": "给予所有敌人 !M! 层易伤。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:KnowledgePool": {
+    "NAME": "知识领域",
+    "DESCRIPTION": "从三张  [#5299E0]秘法牌[]  中选择一张加入手牌。这张牌在本回合中耗能变为 0 。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:LightningBolt": {
+    "NAME": "闪电箭",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 就绪：改为 !M! 点伤害",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Lunge": {
+    "NAME": "突刺",
+    "DESCRIPTION": "获得 [E] [E]. NL 抽两张牌。 NL 在本回合失去4点敏捷。 NL 消耗。 亮相。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E]. NL 抽两张牌。 NL 在本回合失去4点敏捷。 NL 消耗。 亮相。",
+    "EXTENDED_DESCRIPTION": [
+      "我这回合已经使用过  [#FF5252]战技牌[]  了！"
+    ]
+  },
+  "mysticmod:MagicMissile": {
+    "NAME": "魔法飞弹",
+    "DESCRIPTION": "造成 !D! 点伤害若干次，次数等同于本场战斗中牌堆洗牌的次数。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害若干次，次数等同于本场战斗中牌堆洗牌的次数与你 [#FF5252]招式[] 层数之和。",
+    "EXTENDED_DESCRIPTION": [" NL ( !M! 次。)", " NL ( !M! 次。)"]
+  },
+  "mysticmod:MagicWeapon": {
+    "NAME": "魔化武器",
+    "DESCRIPTION": "获得 !M! 点力量。将一张 剑刃爆发 加入弃牌堆。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点力量。将一张 剑刃爆发+ 加入弃牌堆。 NL 消耗。",
+    "EXTENDED_DESCRIPTION": [
+      "剑刃爆发",
+      "造成大量伤害并使你失去 1 点力量并取回这张牌的 1 耗能  [#FF5252]战技牌[] 。"
+    ]
+  },
+  "mysticmod:MightyMagic": {
+    "NAME": "剑艺精湛",
+    "DESCRIPTION": "获得 !M! 点技巧。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:MirrorEntity": {
+    "NAME": "镜像实体",
+    "DESCRIPTION": " [#5299E0]秘法牌[]  和  [#FF5252]战技牌[]  同时增加下个回合的 [#5299E0]法力[]  和  [#FF5252]招式[]  层数。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:MirrorStrike": {
+    "NAME": "镜像打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 你每具有两层  [#5299E0]法力[] , 再造成 !D! 点伤害.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Momentum": {
+    "NAME": "声势",
+    "DESCRIPTION": " [#5299E0]秘法牌[]  and  [#FF5252]战技牌[]  造成的伤害或获得的格挡分别增加 [#FF5252]招式[]  或  [#5299E0]法力[]  层数的数值。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:MysticalShield": {
+    "NAME": "秘法护盾",
+    "DESCRIPTION": "格挡 在每个回合开始时减少到8而不是0。",
+    "UPGRADE_DESCRIPTION": "格挡 在每个回合开始时变为8而不是0。"
+  },
+  "mysticmod:Natural20": {
+    "NAME": "天然 20",
+    "DESCRIPTION": "本回合内，你的下一张攻击牌造成双倍伤害。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "本回合内，你的下一张攻击牌造成双倍伤害。"
+  },
+  "mysticmod:ObscuringMist": {
+    "NAME": "隐雾术",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 就绪：获得 !M! 层人工制品。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:PowerAttack": {
+    "NAME": "猛力攻击",
+    "DESCRIPTION": "在本回合获得 !ystico:2! 点力量，失去 !M! 点敏捷。 NL 亮相。",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "我这回合已经使用过  [#FF5252]战技牌[]  了！"
+    ]
+  },
+  "mysticmod:PowerSlash": {
+    "NAME": "猛力劈斩",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 额外获得一层  [#FF5252]招式[] .",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:PreparedCaster": {
+    "NAME": "预备施法器",
+    "DESCRIPTION": "固有。 NL 从你的抽牌堆选择一张  [#5299E0]秘法牌[]  加入手牌。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Prestidigitation": {
+    "NAME": "魔法伎俩",
+    "DESCRIPTION": "戏法。 NL 获得 !B! 点格挡。抽一张牌。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Probe": {
+    "NAME": "探查",
+    "DESCRIPTION": "造成 !D! 点伤害.",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 在下个回合获得一层  [#FF5252]招式[] ."
+  },
+  "mysticmod:PunishingArmor": {
+    "NAME": "惩击护甲",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 就绪：获得 !M! 层荆棘。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:PureInstinct": {
+    "NAME": "纯粹本能",
+    "DESCRIPTION": "获得 !B! 点格挡，你的手牌中每有一张  [#FF5252]战技牌[]  ，就再获得 !B! 点格挡。 NL 接下来的 !M! 个回合，所有打击牌都视作  [#FF5252]战技牌[] 。",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL （你有 ",
+      "  [#FF5252]战技牌[] ）。",
+      "  [#FF5252]战技牌[] ）。"
+    ]
+  },
+  "mysticmod:RapidCaster": {
+    "NAME": "迅疾施法器",
+    "DESCRIPTION": "你每回合打出的第一张 戏法牌 打出两次。",
+    "UPGRADE_DESCRIPTION": "固有。 NL 你每回合打出的第一张 戏法牌 打出两次。"
+  },
+  "mysticmod:RayOfFrost": {
+    "NAME": "冷冻射线",
+    "DESCRIPTION": "戏法。 NL 造成 !D! 点伤害。获得 !B! 点格挡。抽一张牌。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ReadMagic": {
+    "NAME": "阅读魔法",
+    "DESCRIPTION": "戏法。 NL 抽 !M! 张牌，然后弃1张牌。 消耗。",
+    "UPGRADE_DESCRIPTION": "戏法。 NL 抽 !M! 张牌，然后弃2张牌。 消耗。"
+  },
+  "mysticmod:Riposte": {
+    "NAME": "敏捷回刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人的意图是攻击，给予 !M! 层虚弱和 !M! 层易伤。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Snowball": {
+    "NAME": "雪球术",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 额外获得一层  [#5299E0]法力[] .",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Spark": {
+    "NAME": "火花术",
+    "DESCRIPTION": "戏法。 NL 抽一张牌，如果抽到的牌是  [#5299E0]秘法牌[]  或  [#FF5252]战技牌[] ，获得 [E]。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "戏法。 NL 抽一张牌，如果抽到的牌是  [#5299E0]秘法牌[]  或  [#FF5252]战技牌[] ，获得 [E]。"
+  },
+  "mysticmod:SpellCombat": {
+    "NAME": "作战法术",
+    "DESCRIPTION": "充能: 造成 !D! 点伤害 X 次。 NL 就绪：获得 !B! 点格挡 X 次。",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "我没有  [#5299E0]法力[]  或  [#FF5252]招式[] !"
+    ]
+  },
+  "mysticmod:SpellRecall": {
+    "NAME": "法术召回",
+    "DESCRIPTION": "将弃牌堆中的一张  [#5299E0]秘法牌[]  放入你的手牌。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "将弃牌堆中的一张  [#5299E0]秘法牌[]  放入你的手牌。"
+  },
+  "mysticmod:Spellstrike": {
+    "NAME": "法术打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 从你的抽牌堆中选择并打出一张攻击  [#5299E0]秘法牌[] 。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 从你的抽牌堆中选择并打出一张攻击  [#5299E0]秘法牌[] 。"
+  },
+  "mysticmod:SpontaneousCaster": {
+    "NAME": "自发施法器",
+    "DESCRIPTION": "每当你使用一张  [#5299E0]秘法牌[] ，消耗它并将一张随机 [#5299E0]秘法牌[] 放入弃牌堆。 NL 所有  [#5299E0]秘法牌[]  的耗能减少到 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有。 NL 每当你使用一张  [#5299E0]秘法牌[] ，消耗它并将一张随机 [#5299E0]秘法牌[] 放入弃牌堆。 NL 所有  [#5299E0]秘法牌[]  的耗能减少到 [E] 。"
+  },
+  "mysticmod:Shield": {
+    "NAME": "护盾术",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 在下个回合获得 !B! 点格挡。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ShockingGrasp": {
+    "NAME": "电爪",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 就绪：改为造成 !M! 点伤害",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Sideswipe": {
+    "NAME": "擦撞",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 给予 !M! 层虚弱。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Stoneskin": {
+    "NAME": "石肤术",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 获得 !M! 石化肌肤。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Strike_Mystic": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:StyleChange": {
+    "NAME": "流派转换",
+    "DESCRIPTION": "将一张随机  [#FF5252]战技牌[]  加入你的手牌。它在本回合的耗能变为0。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:SuddenClarity": {
+    "NAME": "灵光乍现",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 抽一张牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL 抽 !M! 张牌。"
+  },
+  "mysticmod:SummonFamiliar": {
+    "NAME": "来我身边",
+    "DESCRIPTION": "召唤可靠的 狐狸伙伴。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "你可以选择攻击或者设置组合。 重复打出这张牌可以升级你的动物伙伴 ，最多升级 3 次。"
+    ]
+  },
+  "mysticmod:TomeOfSpells": {
+    "NAME": "法术巨著",
+    "DESCRIPTION": "将 !M! 张随机 戏法牌放入你的抽牌堆。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:VorpalThrust": {
+    "NAME": "斩杀",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能: 你每具有一层 [#5299E0]法力[] ，基础伤害增加 !M! 。",
+    "UPGRADE_DESCRIPTION": ""
+  }
+}
