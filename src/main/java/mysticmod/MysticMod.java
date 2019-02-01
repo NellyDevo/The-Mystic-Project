@@ -11,12 +11,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,7 +26,6 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import mysticmod.cards.*;
 import mysticmod.cards.cantrips.*;
-import mysticmod.character.MysticAnimation;
 import mysticmod.character.MysticCharacter;
 import mysticmod.interfaces.SpellArteLogicAffector;
 import mysticmod.modifiers.CrystalClear;
@@ -37,13 +33,9 @@ import mysticmod.patches.MysticEnum;
 import mysticmod.patches.MysticTags;
 import mysticmod.patches.RefreshSpellArteLogicField;
 import mysticmod.potions.EssenceOfMagic;
-import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.MysticalShieldPower;
 import mysticmod.powers.MysticalShieldUpgradedPower;
-import mysticmod.powers.SpellsPlayed;
 import mysticmod.relics.*;
-import mysticmod.vfx.PoisedActivatedEffect;
-import mysticmod.vfx.PowerfulActivatedEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -362,11 +354,21 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         return amount;
     }
 
+    private String getLanguageString(Settings.GameLanguage language) {
+        switch (language) {
+            case ZHS:
+                return "zhs";
+            default:
+                return "eng";
+        }
+    }
+
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
 
-        String keywordStrings = Gdx.files.internal("mysticmod/strings/keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String languageString = "mysticmod/strings/" + getLanguageString(Settings.language);
+        String keywordStrings = Gdx.files.internal(languageString + "/keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Type typeToken = new TypeToken<Map<String, Keyword>>() {}.getType();
 
         Map<String, Keyword> keywords = (Map)gson.fromJson(keywordStrings, typeToken);
@@ -380,23 +382,24 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
 
     @Override
     public void receiveEditStrings() {
-        String cardStrings = Gdx.files.internal("mysticmod/strings/cards.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String languageString = "mysticmod/strings/" + getLanguageString(Settings.language);
+        String cardStrings = Gdx.files.internal(languageString + "/cards.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-        String characterStrings = Gdx.files.internal("mysticmod/strings/character.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String characterStrings = Gdx.files.internal(languageString + "/character.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
-        String potionStrings = Gdx.files.internal("mysticmod/strings/potions.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String potionStrings = Gdx.files.internal(languageString + "/potions.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
-        String powerStrings = Gdx.files.internal("mysticmod/strings/powers.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String powerStrings = Gdx.files.internal(languageString + "/powers.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
-        String relicStrings = Gdx.files.internal("mysticmod/strings/relics.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String relicStrings = Gdx.files.internal(languageString + "/relics.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-        String runModStrings = Gdx.files.internal("mysticmod/strings/run_mods.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String runModStrings = Gdx.files.internal(languageString + "/run_mods.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RunModStrings.class, runModStrings);
-        String uiStrings = Gdx.files.internal("mysticmod/strings/ui.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String uiStrings = Gdx.files.internal(languageString + "/ui.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
-        String monsterStrings = Gdx.files.internal("mysticmod/strings/monsters.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String monsterStrings = Gdx.files.internal(languageString + "/monsters.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
-        String eventStrings = Gdx.files.internal("mysticmod/strings/events.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String eventStrings = Gdx.files.internal(languageString + "/events.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
     }
 
