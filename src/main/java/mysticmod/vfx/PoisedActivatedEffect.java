@@ -40,7 +40,7 @@ public class PoisedActivatedEffect extends AbstractGameEffect {
     public void update() {
         if (!firstSoundPlayed) {
             if (MysticMod.powerPoiseSfxToggle) {
-                CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_ONE", 0.8f);
+                CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_ONE", 1.0f);
             }
             firstSoundPlayed = true;
         }
@@ -59,7 +59,7 @@ public class PoisedActivatedEffect extends AbstractGameEffect {
             //second third of animation
             if (!secondSoundPlayed) {
                 if (MysticMod.powerPoiseSfxToggle) {
-                    CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_TWO", 0.1f);
+                    CardCrawlGame.sound.playV("mysticmod:BOOK_RUNE_TWO", 0.75f);
                 }
                 secondSoundPlayed = true;
                 scale = targetScale;
