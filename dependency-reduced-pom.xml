@@ -4,7 +4,7 @@
   <groupId>mysticmod</groupId>
   <artifactId>MysticMod</artifactId>
   <name>TheMystic</name>
-  <version>0.16.4</version>
+  <version>0.16.5</version>
   <description>Slay the Spire mod introducing custom character: The Mystic.</description>
   <build>
     <resources>
