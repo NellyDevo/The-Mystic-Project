@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mysticmod.MysticMod;
 import mysticmod.actions.ApplyPoisedAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
