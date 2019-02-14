@@ -18,7 +18,7 @@
   },
   "mysticmod:AcidSplash": {
     "NAME": "酸液飞溅",
-    "DESCRIPTION": " 戏法 。 NL 造成 !D! 点伤害。抽一张牌",
+    "DESCRIPTION": " mysticmod:戏法 。 NL 造成 !D! 点伤害。抽一张牌",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Alacrity": {
@@ -33,7 +33,7 @@
   },
   "mysticmod:ArcaneAccuracy": {
     "NAME": "超魔",
-    "DESCRIPTION": "获得 !M! 点 法术强度 。",
+    "DESCRIPTION": "获得 !M! 点 mysticmod:法术强度 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ArcaneDodge": {
@@ -74,7 +74,7 @@
   },
   "mysticmod:ComboCaster": {
     "NAME": "连招施法器",
-    "DESCRIPTION": "在每个回合开始时，少抽一张牌并将一张  戏法 牌 加入手牌。",
+    "DESCRIPTION": "在每个回合开始时，少抽一张牌并将一张  mysticmod:戏法 牌 加入手牌。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ComponentsPouch": {
@@ -160,19 +160,19 @@
 },
   "mysticmod:EnergizedRift": {
     "NAME": "能量裂隙",
-    "DESCRIPTION": "[#FF5252]就[] [#FF5252]绪[] ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  戏法 牌 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "[#FF5252]就[] [#FF5252]绪[] ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  戏法 牌 。 NL 消耗 。",
+    "DESCRIPTION": "[#FF5252]就[] [#FF5252]绪[] ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  mysticmod:戏法 牌 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "[#FF5252]就[] [#FF5252]绪[] ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  mysticmod:戏法 牌 。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （",
-      " 张 戏法 牌。）",
-      " 张 戏法 牌。）",
+      " 张 mysticmod:戏法 牌。）",
+      " 张 mysticmod:戏法 牌。）",
       "我没有  [#FF5252]招[] [#FF5252]式[] !"
     ]
   },
   "mysticmod:Feint": {
     "NAME": "佯攻",
-    "DESCRIPTION": "造成 !D! 点伤害。在你的抽牌堆中加入一张随机  戏法 牌 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。在你的抽牌堆中加入一张 升级 后的随机  戏法 牌 。"
+    "DESCRIPTION": "造成 !D! 点伤害。在你的抽牌堆中加入一张随机  mysticmod:戏法 牌 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。在你的抽牌堆中加入一张 升级 后的随机  mysticmod:戏法 牌 。"
   },
   "mysticmod:Fireball": {
     "NAME": "火球术",
@@ -261,8 +261,8 @@
   },
   "mysticmod:Lunge": {
     "NAME": "突刺",
-    "DESCRIPTION": "获得 [E] [E]. NL 抽两张牌。 NL 在本回合失去4点 敏捷 。 NL 消耗 。  亮相 。",
-    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E]. NL 抽两张牌。 NL 在本回合失去4点 敏捷 。 NL 消耗 。  亮相 。",
+    "DESCRIPTION": "获得 [E] [E]. NL 抽两张牌。 NL 在本回合失去4点 敏捷 。 NL 消耗 。  mysticmod:亮相 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E]. NL 抽两张牌。 NL 在本回合失去4点 敏捷 。 NL 消耗 。  mysticmod:亮相 。",
     "EXTENDED_DESCRIPTION": [
       "我这回合已经使用过  [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[]  了！"
     ]
@@ -284,7 +284,7 @@
   },
   "mysticmod:MightyMagic": {
     "NAME": "剑艺精湛",
-    "DESCRIPTION": "获得 !M! 点 技巧 。",
+    "DESCRIPTION": "获得 !M! 点 mysticmod:技巧 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:MirrorEntity": {
@@ -319,7 +319,7 @@
   },
   "mysticmod:PowerAttack": {
     "NAME": "猛力攻击",
-    "DESCRIPTION": "在本回合获得 !ystico:2! 点 力量 ，失去 !M! 点 敏捷 。 NL  亮相 。",
+    "DESCRIPTION": "在本回合获得 !ystico:2! 点 力量 ，失去 !M! 点 敏捷 。 NL  mysticmod:亮相 。",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "我这回合已经使用过 [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[] 了！"
@@ -337,7 +337,7 @@
   },
   "mysticmod:Prestidigitation": {
     "NAME": "魔法伎俩",
-    "DESCRIPTION": " 戏法 。 NL 获得 !B! 点 格挡 。抽一张牌。",
+    "DESCRIPTION": " mysticmod:戏法 。 NL 获得 !B! 点 格挡 。抽一张牌。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Probe": {
@@ -362,18 +362,18 @@
   },
   "mysticmod:RapidCaster": {
     "NAME": "迅疾施法器",
-    "DESCRIPTION": "你每回合打出的第一张  戏法 牌 打出两次。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 你每回合打出的第一张  戏法 牌 打出两次。"
+    "DESCRIPTION": "你每回合打出的第一张  mysticmod:戏法 牌 打出两次。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 你每回合打出的第一张  mysticmod:戏法 牌 打出两次。"
   },
   "mysticmod:RayOfFrost": {
     "NAME": "冷冻射线",
-    "DESCRIPTION": " 戏法 。 NL 造成 !D! 点伤害。获得 !B! 点 格挡 。抽一张牌。",
+    "DESCRIPTION": " mysticmod:戏法 。 NL 造成 !D! 点伤害。获得 !B! 点 格挡 。抽一张牌。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ReadMagic": {
     "NAME": "阅读魔法",
-    "DESCRIPTION": " 戏法 。 NL 抽 !M! 张牌，然后弃1张牌。 消耗 。",
-    "UPGRADE_DESCRIPTION": " 戏法 。 NL 抽 !M! 张牌，然后弃2张牌。 消耗 。"
+    "DESCRIPTION": " mysticmod:戏法 。 NL 抽 !M! 张牌，然后弃1张牌。 消耗 。",
+    "UPGRADE_DESCRIPTION": " mysticmod:戏法 。 NL 抽 !M! 张牌，然后弃2张牌。 消耗 。"
   },
   "mysticmod:Riposte": {
     "NAME": "敏捷回刺",
@@ -387,8 +387,8 @@
   },
   "mysticmod:Spark": {
     "NAME": "火花术",
-    "DESCRIPTION": " 戏法 。 NL 抽一张牌，如果抽到的牌是 [#5299E0]秘[] [#5299E0]法[] [#5299E0]牌[] 或 [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[] ，获得 [E]。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 戏法 。 NL 抽一张牌，如果抽到的牌是 [#5299E0]秘[] [#5299E0]法[] [#5299E0]牌[] 或 [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[] ，获得 [E]。"
+    "DESCRIPTION": " mysticmod:戏法 。 NL 抽一张牌，如果抽到的牌是 [#5299E0]秘[] [#5299E0]法[] [#5299E0]牌[] 或 [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[] ，获得 [E]。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " mysticmod:戏法 。 NL 抽一张牌，如果抽到的牌是 [#5299E0]秘[] [#5299E0]法[] [#5299E0]牌[] 或 [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[] ，获得 [E]。"
   },
   "mysticmod:SpellCombat": {
     "NAME": "作战法术",
@@ -430,7 +430,7 @@
   },
   "mysticmod:Stoneskin": {
     "NAME": "石肤术",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 石化肌肤 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! mysticmod:石化肌肤 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Strike_Mystic": {
@@ -458,7 +458,7 @@
   },
   "mysticmod:TomeOfSpells": {
     "NAME": "法术巨著",
-    "DESCRIPTION": "将 !M! 张随机  戏法 牌放入你的抽牌堆。 NL 消耗 。",
+    "DESCRIPTION": "将 !M! 张随机  mysticmod:戏法 牌放入你的抽牌堆。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:VorpalThrust": {
