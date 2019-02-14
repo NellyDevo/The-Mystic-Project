@@ -101,13 +101,13 @@
     </dependency>
   </dependencies>
   <properties>
-    <FriendlyMinions.version>0.1.1</FriendlyMinions.version>
-    <ModTheSpire.version>3.7.4</ModTheSpire.version>
-    <BaseMod.version>5.7.1</BaseMod.version>
-    <StSLib.version>1.11.0</StSLib.version>
+    <FriendlyMinions.version>0.1.2</FriendlyMinions.version>
+    <ModTheSpire.version>3.8.3</ModTheSpire.version>
+    <BaseMod.version>5.10.0</BaseMod.version>
+    <StSLib.version>1.13.2</StSLib.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <SlayTheSpire.version>12-20-2018</SlayTheSpire.version>
+    <SlayTheSpire.version>01-23-2019</SlayTheSpire.version>
   </properties>
 </project>
 
