@@ -79,7 +79,7 @@ public class PowerfulActivatedEffect extends AbstractGameEffect {
     public void render(final SpriteBatch sb) {
         sb.setBlendFunction(770, 1);
         sb.setColor(color);
-        sb.draw(img[animFrame], x, y, img[animFrame].packedWidth / 2.0f, img[animFrame].packedHeight/2.0f, img[animFrame].packedWidth, img[animFrame].packedHeight, MathUtils.random(0.8f, 1.2f), MathUtils.random(0.8f, 1.2f), MathUtils.random(360.0f));
+        sb.draw(img[animFrame], x, y, img[animFrame].packedWidth / 2.0f, img[animFrame].packedHeight/2.0f, img[animFrame].packedWidth, img[animFrame].packedHeight, MathUtils.random(0.8f, 1.2f) * Settings.scale, MathUtils.random(0.8f, 1.2f) * Settings.scale, MathUtils.random(360.0f));
         sb.setBlendFunction(770, 771);
     }
 
