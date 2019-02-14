@@ -2,12 +2,12 @@
   "mysticmod:BentSpoon": {
     "NAME": "Bent Spoon",
     "FLAVOR": "What Lee doesn't want you to know is that there is no spoon.",
-    "DESCRIPTIONS": ["#yCantrips deal 1 additional damage and Gain 1 additional #yBlock."]
+    "DESCRIPTIONS": ["#ymysticmod:Cantrips deal 1 additional damage and Gain 1 additional #yBlock."]
   },
   "mysticmod:BlessedBook": {
     "NAME": "Blessed Book",
     "FLAVOR": "A powerful Spell Book enchanted with mysterious magics.",
-    "DESCRIPTIONS": ["Replaces #ySpellBook. Every ", " turns, add a random #yCantrip to your hand."]
+    "DESCRIPTIONS": ["Replaces #ySpellBook. Every ", " turns, add a random #ymysticmod:Cantrip to your hand."]
   },
   "mysticmod:CrystalBall": {
     "NAME": "Crystal Ball",
@@ -37,7 +37,7 @@
   "mysticmod:SpellBook": {
     "NAME": "Spell Book",
     "FLAVOR": "A special tome unique to every caster. Contains records of spells that only the writer understands.",
-    "DESCRIPTIONS": ["At the start of each combat, add a random #yCantrip to your hand"]
+    "DESCRIPTIONS": ["At the start of each combat, add a random #ymysticmod:Cantrip to your hand."]
   },
   "mysticmod:TrainingManual": {
     "NAME": "Training Manual",

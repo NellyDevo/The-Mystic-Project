@@ -14,7 +14,7 @@
   },
   "mysticmod:AcidSplash": {
     "NAME": "Acid Splash",
-    "DESCRIPTION": "Cantrip. NL Deal !D! damage. Draw a card.",
+    "DESCRIPTION": "mysticmod:Cantrip. NL Deal !D! damage. Draw a card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Alacrity": {
@@ -29,7 +29,7 @@
   },
   "mysticmod:ArcaneAccuracy": {
     "NAME": "Metamagic",
-    "DESCRIPTION": "Gain !M! Spellpower.",
+    "DESCRIPTION": "Gain !M! mysticmod:Spellpower.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ArcaneDodge": {
@@ -70,7 +70,7 @@
   },
   "mysticmod:ComboCaster": {
     "NAME": "Combo Caster",
-    "DESCRIPTION": "At the start of each turn, add a random Cantrip to your hand and draw 1 less card.",
+    "DESCRIPTION": "At the start of each turn, add a random mysticmod:Cantrip to your hand and draw 1 less card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ComponentsPouch": {
@@ -156,19 +156,19 @@
 },
   "mysticmod:EnergizedRift": {
     "NAME": "Energized Rift",
-    "DESCRIPTION": "Poised: Add a random Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Poised: Add a random Upgraded Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
+    "DESCRIPTION": "[#FF5252]Poised[]: Add a random mysticmod:Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "[#FF5252]Poised[]: Add a random Upgraded mysticmod:Cantrip to your draw pile for each stack of [#FF5252]Poise[]. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " Cantrip.)",
-      " Cantrips.)",
+      " mysticmod:Cantrip. )",
+      " mysticmod:Cantrips. )",
       "I don't have any [#FF5252]Poise[]!"
     ]
   },
   "mysticmod:Feint": {
     "NAME": "Feint",
-    "DESCRIPTION": "Deal !D! damage. Add a random Cantrip to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded Cantrip to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. Add a random mysticmod:Cantrip to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add a random Upgraded mysticmod:Cantrip to your draw pile."
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
@@ -257,8 +257,8 @@
   },
   "mysticmod:Lunge": {
     "NAME": "Lunge",
-    "DESCRIPTION": "Gain [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. Feat.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. Feat.",
+    "DESCRIPTION": "Gain [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. mysticmod:Feat.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Draw 2 cards. NL Lose 4 Dexterity this turn. NL Exhaust. mysticmod:Feat.",
     "EXTENDED_DESCRIPTION": [
       "I have already played an [#FF5252]Arte[] this turn!"
     ]
@@ -280,7 +280,7 @@
   },
   "mysticmod:MightyMagic": {
     "NAME": "Bladework",
-    "DESCRIPTION": "Gain !M! Technique.",
+    "DESCRIPTION": "Gain !M! mysticmod:Technique.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:MirrorEntity": {
@@ -315,7 +315,7 @@
   },
   "mysticmod:PowerAttack": {
     "NAME": "Power Attack",
-    "DESCRIPTION": "Gain !mysticmod:M2! Strength and lose !M! Dexterity this turn. NL Feat.",
+    "DESCRIPTION": "Gain !mysticmod:M2! Strength and lose !M! Dexterity this turn. NL mysticmod:Feat.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "I have already played an [#FF5252]Arte[] this turn!"
@@ -333,7 +333,7 @@
   },
   "mysticmod:Prestidigitation": {
     "NAME": "Prestidigitation",
-    "DESCRIPTION": "Cantrip. NL Gain !B! Block. Draw a card.",
+    "DESCRIPTION": "mysticmod:Cantrip. NL Gain !B! Block. Draw a card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Probe": {
@@ -358,18 +358,18 @@
   },
   "mysticmod:RapidCaster": {
     "NAME": "Rapid Caster",
-    "DESCRIPTION": "The first Cantrip you play each turn is played twice.",
-    "UPGRADE_DESCRIPTION": "Innate. NL The first Cantrip you play each turn is played twice."
+    "DESCRIPTION": "The first mysticmod:Cantrip you play each turn is played twice.",
+    "UPGRADE_DESCRIPTION": "Innate. NL The first mysticmod:Cantrip you play each turn is played twice."
   },
   "mysticmod:RayOfFrost": {
     "NAME": "Ray Of Frost",
-    "DESCRIPTION": "Cantrip. NL Deal !D! damage. Gain !B! Block. Draw a card.",
+    "DESCRIPTION": "mysticmod:Cantrip. NL Deal !D! damage. Gain !B! Block. Draw a card.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ReadMagic": {
     "NAME": "Read Magic",
-    "DESCRIPTION": "Cantrip. NL Draw !M! cards, then discard 1 card. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw !M! cards, then discard 2 cards. Exhaust."
+    "DESCRIPTION": "mysticmod:Cantrip. NL Draw !M! cards, then discard 1 card. Exhaust.",
+    "UPGRADE_DESCRIPTION": "mysticmod:Cantrip. NL Draw !M! cards, then discard 2 cards. Exhaust."
   },
   "mysticmod:Riposte": {
     "NAME": "Riposte",
@@ -383,8 +383,8 @@
   },
   "mysticmod:Spark": {
     "NAME": "Spark",
-    "DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]."
+    "DESCRIPTION": "mysticmod:Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "mysticmod:Cantrip. NL Draw a card, then gain [E] if the card is a [#5299DC]Spell[] or an [#FF5252]Arte[]."
   },
   "mysticmod:SpellCombat": {
     "NAME": "Spell Combat",
@@ -426,7 +426,7 @@
   },
   "mysticmod:Stoneskin": {
     "NAME": "Stoneskin",
-    "DESCRIPTION": "Gain !B! Block. NL Gain Stoneskin for !M! turns.",
+    "DESCRIPTION": "Gain !B! Block. NL Gain mysticmod:Stoneskin for !M! turns.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Strike_Mystic": {
@@ -454,7 +454,7 @@
   },
   "mysticmod:TomeOfSpells": {
     "NAME": "Tome Of Spells",
-    "DESCRIPTION": "Add !M! random Cantrips to your draw pile. NL Exhaust.",
+    "DESCRIPTION": "Add !M! random mysticmod:Cantrips to your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:VorpalThrust": {
