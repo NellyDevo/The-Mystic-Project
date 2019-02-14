@@ -36,6 +36,7 @@ public class ChargedParry extends AbstractAltArtMysticCard {
         block = baseBlock = BLOCK_AMT;
         magicNumber = baseMagicNumber = STRENGTH_GAIN;
         tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_POWERFUL);
         altGlowColor = ALT_GLOW_BLUE;
     }
 

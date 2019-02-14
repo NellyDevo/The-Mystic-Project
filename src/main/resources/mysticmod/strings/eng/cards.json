@@ -9,7 +9,11 @@
       "This Skill is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[].",
       "This Skill is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[].",
       "This Attack is also considered a [#5299DC]Spell[], and will grant one stack of [#5299DC]Power[].",
-      "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[]."
+      "This Attack is also considered an [#FF5252]Arte[], and will grant one stack of [#FF5252]Poise[].",
+      "Powerful",
+      "Poised",
+      "Has an additional effect if you have a stack of [#5299DC]Power[].",
+      "Has an additional effect if you have a stack of [#FF5252]Poise[]."
     ]
   },
   "mysticmod:AcidSplash": {
@@ -19,7 +23,7 @@
   },
   "mysticmod:Alacrity": {
     "NAME": "Alacrity",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: Gain [E] next turn.",
+    "DESCRIPTION": "Gain !B! Block. NL [#FF5252]Poised[]: Gain [E] next turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:AllIn": {
@@ -34,7 +38,7 @@
   },
   "mysticmod:ArcaneDodge": {
     "NAME": "Arcane Dodge",
-    "DESCRIPTION": "Gain !B! Block. NL Powerful: Gain an additional !M! Block.",
+    "DESCRIPTION": "Gain !B! Block. NL [#5299DC]Powerful[]: Gain an additional !M! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BladeBurst": {
@@ -49,17 +53,17 @@
   },
   "mysticmod:BladedDash": {
     "NAME": "Bladed Dash",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Gain !B! Block.",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: Gain !B! Block.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BulkUp": {
     "NAME": "Bulk Up",
-    "DESCRIPTION": "Gain !B! Block, then Exhaust a random card in your hand. NL Powerful: Choose if and what to Exhaust.",
+    "DESCRIPTION": "Gain !B! Block, then Exhaust a random card in your hand. NL [#5299DC]Powerful[]: Choose if and what to Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ChargedParry": {
     "NAME": "Charged Parry",
-    "DESCRIPTION": "Gain !B! Block. NL Powerful: Gain !M! Strength this turn.",
+    "DESCRIPTION": "Gain !B! Block. NL [#5299DC]Powerful[]: Gain !M! Strength this turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ClosingBarrage": {
@@ -96,7 +100,7 @@
   },
   "mysticmod:Daze": {
     "NAME": "Diversion",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Poised: Apply !M! Weak.",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL [#FF5252]Poised[]: Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Dedication": {
@@ -126,7 +130,7 @@
   },
   "mysticmod:DiviningBlow": {
     "NAME": "Divining Blow",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Draw 1 card for each stack of [#5299DC]Power[].",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: Draw 1 card for each stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (",
@@ -172,17 +176,17 @@
   },
   "mysticmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage. NL Poised: Deal it to ALL enemies.",
+    "DESCRIPTION": "Deal !D! damage. NL [#FF5252]Poised[]: Deal it to ALL enemies.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FiveFootStep": {
     "NAME": "5 Foot Step",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Shuffle this card into your draw pile.",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: Shuffle this card into your draw pile.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FloatingDisk": {
     "NAME": "Floating Disk",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: Gain !M! Dexterity. Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. NL [#FF5252]Poised[]: Gain !M! Dexterity. Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Flourish": {
@@ -192,12 +196,12 @@
   },
   "mysticmod:Flurry": {
     "NAME": "Flurry",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Powerful: !mysticmod:M2! times instead",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL [#5299DC]Powerful[]: !mysticmod:M2! times instead",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Fly": {
     "NAME": "Fly",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: Block is not removed at the start of your next turn.",
+    "DESCRIPTION": "Gain !B! Block. NL [#FF5252]Poised[]: Block is not removed at the start of your next turn.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:GeminiForm": {
@@ -212,13 +216,13 @@
   },
   "mysticmod:Grease": {
     "NAME": "Grease",
-    "DESCRIPTION": "Target enemy loses !M! Strength this turn. NL Poised: ALL enemies instead.",
+    "DESCRIPTION": "Target enemy loses !M! Strength this turn. NL [#FF5252]Poised[]: ALL enemies instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:GreaterInvisibility": {
     "NAME": "Greater Invisibility",
-    "DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL Poised: Does not Exhaust if you played !M! [#FF5252]Artes[] this turn.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL Poised: Does not Exhaust if you played !M! [#FF5252]Arte[] this turn."
+    "DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL [#FF5252]Poised[]: Does not Exhaust if you played !M! [#FF5252]Artes[] this turn.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL [#FF5252]Poised[]: Does not Exhaust if you played !M! [#FF5252]Arte[] this turn."
   },
   "mysticmod:IllusionOfCalm": {
     "NAME": "Illusion Of Calm",
@@ -232,7 +236,7 @@
   },
   "mysticmod:HeavyStrike": {
     "NAME": "Heavy Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Increase this card's damage by !M! permanently. NL Exhaust.",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: Increase this card's damage by !M! permanently. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HunkerDown": {
@@ -252,7 +256,7 @@
   },
   "mysticmod:LightningBolt": {
     "NAME": "Lightning Bolt",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Poised: Deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL [#FF5252]Poised[]: Deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Lunge": {
@@ -290,7 +294,7 @@
   },
   "mysticmod:MirrorStrike": {
     "NAME": "Mirror Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: For every two stacks of [#5299DC]Power[], deal another !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: For every two stacks of [#5299DC]Power[], deal another !D! damage.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Momentum": {
@@ -310,7 +314,7 @@
   },
   "mysticmod:ObscuringMist": {
     "NAME": "Obscuring Mist",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: Gain !M! Artifact. NL Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. NL [#FF5252]Poised[]: Gain !M! Artifact. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PowerAttack": {
@@ -343,7 +347,7 @@
   },
   "mysticmod:PunishingArmor": {
     "NAME": "Punishing Armor",
-    "DESCRIPTION": "Gain !B! Block. NL Poised: Gain !M! Thorns. NL Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. NL [#FF5252]Poised[]: Gain !M! Thorns. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PureInstinct": {
@@ -388,7 +392,7 @@
   },
   "mysticmod:SpellCombat": {
     "NAME": "Spell Combat",
-    "DESCRIPTION": "Powerful: Deal !D! damage X times. NL Poised: Gain !B! Block X times.",
+    "DESCRIPTION": "[#5299DC]Powerful[]: Deal !D! damage X times. NL [#FF5252]Poised[]: Gain !B! Block X times.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "I don't have any [#5299DC]Power[] or [#FF5252]Poise[]!"
@@ -416,12 +420,12 @@
   },
   "mysticmod:ShockingGrasp": {
     "NAME": "Shocking Grasp",
-    "DESCRIPTION": "Deal !D! damage. NL Poised: Deal !M! damage instead.",
+    "DESCRIPTION": "Deal !D! damage. NL [#FF5252]Poised[]: Deal !M! damage instead.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Sideswipe": {
     "NAME": "Sideswipe",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Apply !M! Weak.",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Stoneskin": {
@@ -459,7 +463,7 @@
   },
   "mysticmod:VorpalThrust": {
     "NAME": "Vorpal Thrust",
-    "DESCRIPTION": "Deal !D! damage. NL Powerful: Increase base damage by !M! for each stack of [#5299DC]Power[].",
+    "DESCRIPTION": "Deal !D! damage. NL [#5299DC]Powerful[]: Increase base damage by !M! for each stack of [#5299DC]Power[].",
     "UPGRADE_DESCRIPTION": ""
   }
 }

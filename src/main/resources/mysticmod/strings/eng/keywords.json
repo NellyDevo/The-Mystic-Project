@@ -12,18 +12,6 @@
     ],
     "DESCRIPTION": "Can only be played as the first [#FF5252]Arte[] of the turn."
   },
-  "POISED": {
-    "NAMES": [
-      "poised"
-    ],
-    "DESCRIPTION": "Has an additional effect if you have a stack of [#FF5252]Poise[]."
-  },
-  "POWERFUL": {
-    "NAMES": [
-      "powerful"
-    ],
-    "DESCRIPTION": "Has an additional effect if you have a stack of [#5299DC]Power[]."
-  },
   "SPELLPOWER": {
     "NAMES": [
       "spellpower"

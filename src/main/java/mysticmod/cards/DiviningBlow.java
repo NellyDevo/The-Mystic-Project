@@ -36,6 +36,7 @@ public class DiviningBlow extends AbstractAltArtMysticCard {
         loadCardImage(IMG_PATH);
         damage = baseDamage = ATTACK_DMG;
         tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_POWERFUL);
         altGlowColor = ALT_GLOW_BLUE;
     }
 

@@ -35,6 +35,7 @@ public class Fireball extends AbstractAltArtMysticCard {
         damage = baseDamage = ATTACK_DMG;
         isMultiDamage = true;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
     @Override

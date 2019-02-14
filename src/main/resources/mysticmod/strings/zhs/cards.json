@@ -9,7 +9,11 @@
       "该技能牌同时视作[#5299E0]秘法牌[]并使你获得1层[#5299E0]法力[]。",
       "该技能牌同时视作[#FF5252]战技牌[]并使你获得1层[#FF5252]招式[]。",
       "该攻击牌同时视作[#5299E0]秘法牌[]并使你获得1层[#5299E0]法力[]。",
-      "该攻击牌同时视作[#FF5252]战技牌[]并使你获得1层[#FF5252]招式[]。"
+      "该攻击牌同时视作[#FF5252]战技牌[]并使你获得1层[#FF5252]招式[]。",
+      "充能",
+      "就绪",
+      "如果你具有至少1层[#5299E0]法力[]，产生一些额外效果。",
+      "如果你具有至少1层[#FF5252]架势[]，产生一些额外效果。"
     ]
   },
   "mysticmod:AcidSplash": {
@@ -19,7 +23,7 @@
   },
   "mysticmod:Alacrity": {
     "NAME": "迅捷",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 ：在下个回合获得 [E] 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#FF5252]就[] [#FF5252]绪[] ：在下个回合获得 [E] 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:AllIn": {
@@ -34,7 +38,7 @@
   },
   "mysticmod:ArcaneDodge": {
     "NAME": "奥术闪避",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 : 额外获得 !M! 点 格挡 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#5299E0]充[] [#5299E0]能[] : 额外获得 !M! 点 格挡 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BladeBurst": {
@@ -49,17 +53,17 @@
   },
   "mysticmod:BladedDash": {
     "NAME": "剑刃冲刺",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 获得 !B! 点 格挡 .",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 获得 !B! 点 格挡 .",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:BulkUp": {
     "NAME": "强健体魄",
-    "DESCRIPTION": "获得 !B! 点 格挡 ，然后 消耗 一张随机手牌。 NL 充能 : 可以选择要 消耗 的牌。",
+    "DESCRIPTION": "获得 !B! 点 格挡 ，然后 消耗 一张随机手牌。 NL [#5299E0]充[] [#5299E0]能[] : 可以选择要 消耗 的牌。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ChargedParry": {
     "NAME": "蓄力闪避",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 : 在本回合内获得 !M! 点力量。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#5299E0]充[] [#5299E0]能[] : 在本回合内获得 !M! 点力量。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:ClosingBarrage": {
@@ -96,7 +100,7 @@
   },
   "mysticmod:Daze": {
     "NAME": "附魔晕眩术",
-    "DESCRIPTION": "给予 !M! 层易伤。 NL 充能 ：给予 !M! 层 虚弱 。",
+    "DESCRIPTION": "给予 !M! 层易伤。 NL [#FF5252]就[] [#FF5252]绪[] ：给予 !M! 层 虚弱 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Dedication": {
@@ -126,7 +130,7 @@
   },
   "mysticmod:DiviningBlow": {
     "NAME": "神圣之箭",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 每有一层 [#5299E0]法[] [#5299E0]力[] 便抽一张牌.",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 每有一层 [#5299E0]法[] [#5299E0]力[] 便抽一张牌.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "（ ",
@@ -156,8 +160,8 @@
 },
   "mysticmod:EnergizedRift": {
     "NAME": "能量裂隙",
-    "DESCRIPTION": "充能 ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  戏法 牌 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "充能 ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  戏法 牌 。 NL 消耗 。",
+    "DESCRIPTION": "[#FF5252]就[] [#FF5252]绪[] ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  戏法 牌 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "[#FF5252]就[] [#FF5252]绪[] ：在你的抽牌堆中加入等同于 [#FF5252]招[] [#FF5252]式[] 层数张的随机  戏法 牌 。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （",
       " 张 戏法 牌。）",
@@ -172,17 +176,17 @@
   },
   "mysticmod:Fireball": {
     "NAME": "火球术",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 ：对所有敌人造成伤害。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#FF5252]就[] [#FF5252]绪[] ：对所有敌人造成伤害。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FiveFootStep": {
     "NAME": "五尺快步",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 将这张牌洗回抽牌堆。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 将这张牌洗回抽牌堆。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:FloatingDisk": {
     "NAME": "谭森漂浮碟",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 ：获得 !M! 点 敏捷 。 消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#FF5252]就[] [#FF5252]绪[] ：获得 !M! 点 敏捷 。 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Flourish": {
@@ -192,12 +196,12 @@
   },
   "mysticmod:Flurry": {
     "NAME": "疾风",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 充能 : 改为 !ystico:2! 次。",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL [#5299E0]充[] [#5299E0]能[] : 改为 !ystico:2! 次。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Fly": {
     "NAME": "飞行术",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 ：你的下一回合开始时， 格挡 不会消失。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#FF5252]就[] [#FF5252]绪[] ：你的下一回合开始时， 格挡 不会消失。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:GeminiForm": {
@@ -212,13 +216,13 @@
   },
   "mysticmod:Grease": {
     "NAME": "油腻术",
-    "DESCRIPTION": "使一个敌人在本回合失去 !M! 点力量。 NL 充能 ：改为所有敌人。",
+    "DESCRIPTION": "使一个敌人在本回合失去 !M! 点力量。 NL [#FF5252]就[] [#FF5252]绪[] ：改为所有敌人。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:GreaterInvisibility": {
     "NAME": "高等隐形术",
-    "DESCRIPTION": "获得 1 层 无实体 。 NL 消耗 ，虚无 。 NL 充能 ：如果你在本回合打出过 !M! 张  [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[]  ，则不 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 1 层 无实体 。 NL 消耗 ，虚无 。 NL 充能 ：如果你在本回合打出  [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[]  ，则不 消耗 。"
+    "DESCRIPTION": "获得 1 层 无实体 。 NL 消耗 ，虚无 。 NL [#FF5252]就[] [#FF5252]绪[] ：如果你在本回合打出过 !M! 张  [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[]  ，则不 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 1 层 无实体 。 NL 消耗 ，虚无 。 NL [#FF5252]就[] [#FF5252]绪[] ：如果你在本回合打出  [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[]  ，则不 消耗 。"
   },
   "mysticmod:IllusionOfCalm": {
     "NAME": "平静幻象",
@@ -232,7 +236,7 @@
   },
   "mysticmod:HeavyStrike": {
     "NAME": "沉重打击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 它在本局游戏中的伤害永久性地增加 !M! 。 NL 消耗 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 它在本局游戏中的伤害永久性地增加 !M! 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:HunkerDown": {
@@ -252,7 +256,7 @@
   },
   "mysticmod:LightningBolt": {
     "NAME": "闪电箭",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 充能 ：改为 !M! 点伤害",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL [#FF5252]就[] [#FF5252]绪[] ：改为 !M! 点伤害",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Lunge": {
@@ -290,7 +294,7 @@
   },
   "mysticmod:MirrorStrike": {
     "NAME": "镜像打击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 你每具有两层  [#5299E0]法[] [#5299E0]力[] , 再造成 !D! 点伤害.",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 你每具有两层  [#5299E0]法[] [#5299E0]力[] , 再造成 !D! 点伤害.",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Momentum": {
@@ -310,7 +314,7 @@
   },
   "mysticmod:ObscuringMist": {
     "NAME": "隐雾术",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 ：获得 !M! 层人工制品。 NL 消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#FF5252]就[] [#FF5252]绪[] ：获得 !M! 层人工制品。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PowerAttack": {
@@ -343,7 +347,7 @@
   },
   "mysticmod:PunishingArmor": {
     "NAME": "惩击护甲",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 充能 ：获得 !M! 层 荆棘 。 NL 消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL [#FF5252]就[] [#FF5252]绪[] ：获得 !M! 层 荆棘 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:PureInstinct": {
@@ -388,7 +392,7 @@
   },
   "mysticmod:SpellCombat": {
     "NAME": "作战法术",
-    "DESCRIPTION": "充能 : 造成 !D! 点伤害 X 次。 NL 充能 ：获得 !B! 点 格挡 X 次。",
+    "DESCRIPTION": "[#5299E0]充[] [#5299E0]能[] : 造成 !D! 点伤害 X 次。 NL [#FF5252]就[] [#FF5252]绪[] ：获得 !B! 点 格挡 X 次。",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "我没有 [#5299E0]法[] [#5299E0]力[] 或 [#FF5252]招[] [#FF5252]式[] !"
@@ -416,12 +420,12 @@
   },
   "mysticmod:ShockingGrasp": {
     "NAME": "电爪",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 ：改为造成 !M! 点伤害",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#FF5252]就[] [#FF5252]绪[] ：改为造成 !M! 点伤害",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Sideswipe": {
     "NAME": "擦撞",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 给予 !M! 层 虚弱 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 给予 !M! 层 虚弱 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "mysticmod:Stoneskin": {
@@ -459,7 +463,7 @@
   },
   "mysticmod:VorpalThrust": {
     "NAME": "斩杀",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 充能 : 你每具有一层 [#5299E0]法[] [#5299E0]力[] ，基础伤害增加 !M! 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#5299E0]充[] [#5299E0]能[] : 你每具有一层 [#5299E0]法[] [#5299E0]力[] ，基础伤害增加 !M! 。",
     "UPGRADE_DESCRIPTION": ""
   }
 }

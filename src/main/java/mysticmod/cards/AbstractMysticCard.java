@@ -86,6 +86,12 @@ public abstract class AbstractMysticCard extends CustomCard {
                 retVal.add(new TooltipInfo(tooltips[1], tooltips[5]));
             }
         }
+        if (hasTag(MysticTags.IS_POWERFUL)) {
+            retVal.add(new TooltipInfo(tooltips[6], tooltips[8]));
+        }
+        if (hasTag(MysticTags.IS_POISED)) {
+            retVal.add(new TooltipInfo(tooltips[7], tooltips[9]));
+        }
         return retVal;
     }
 

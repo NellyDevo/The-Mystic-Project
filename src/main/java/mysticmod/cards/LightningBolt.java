@@ -36,6 +36,7 @@ public class LightningBolt extends AbstractAltArtMysticCard {
         magicNumber = baseMagicNumber = ALTERNATE_DMG;
         isMultiDamage = true;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
     @Override

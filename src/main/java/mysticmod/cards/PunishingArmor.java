@@ -36,6 +36,7 @@ public class PunishingArmor extends AbstractAltArtMysticCard {
         magicNumber = baseMagicNumber = THORNS_AMT;
         exhaust = true;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
 

@@ -34,6 +34,7 @@ public class GreaterInvisibility extends AbstractAltArtMysticCard {
         isEthereal = true;
         magicNumber = baseMagicNumber = REQUIRED_ARTES;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
 

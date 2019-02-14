@@ -38,6 +38,7 @@ public class ObscuringMist extends AbstractAltArtMysticCard {
         block = baseBlock = BLOCK_AMT;
         magicNumber = baseMagicNumber = ARTIFACT_AMT;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
 

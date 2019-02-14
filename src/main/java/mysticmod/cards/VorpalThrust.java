@@ -36,6 +36,7 @@ public class VorpalThrust extends AbstractAltArtMysticCard {
         damage = baseDamage = BASE_DMG;
         magicNumber = baseMagicNumber = EXTRA_ATTACK_DMG;
         tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_POWERFUL);
         altGlowColor = ALT_GLOW_BLUE;
     }
 

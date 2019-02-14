@@ -40,6 +40,7 @@ public class BladedDash extends AbstractAltArtMysticCard {
         damage = baseDamage = ATTACK_DMG;
         block = baseBlock = BLOCK_AMT;
         tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_POWERFUL);
         altGlowColor = ALT_GLOW_BLUE;
     }
 

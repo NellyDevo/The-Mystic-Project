@@ -36,6 +36,7 @@ public class FiveFootStep extends AbstractAltArtMysticCard {
         loadCardImage(IMG_PATH);
         damage = baseDamage = DAMAGE_AMT;
         tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_POWERFUL);
         altGlowColor = ALT_GLOW_BLUE;
     }
 

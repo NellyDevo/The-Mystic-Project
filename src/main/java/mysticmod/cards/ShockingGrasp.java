@@ -39,6 +39,7 @@ public class ShockingGrasp extends AbstractAltArtMysticCard {
         damage = baseDamage = ATTACK_DMG;
         magicNumber = baseMagicNumber = BOOSTED_DMG;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
 

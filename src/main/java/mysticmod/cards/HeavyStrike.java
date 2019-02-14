@@ -37,6 +37,7 @@ public class HeavyStrike extends AbstractAltArtMysticCard {
         damage = baseDamage = misc;
         magicNumber = baseMagicNumber = DAMAGE_INCREMENT;
         tags.add(MysticTags.IS_ARTE);
+        tags.add(MysticTags.IS_POWERFUL);
         exhaust = true;
         tags.add(CardTags.STRIKE);
         altGlowColor = ALT_GLOW_BLUE;

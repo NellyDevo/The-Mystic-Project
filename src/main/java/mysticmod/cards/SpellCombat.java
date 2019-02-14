@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import mysticmod.actions.LoadCardImageAction;
 import mysticmod.actions.SpellCombatAction;
 import mysticmod.patches.AbstractCardEnum;
+import mysticmod.patches.MysticTags;
 import mysticmod.powers.ArtesPlayed;
 import mysticmod.powers.SpellsPlayed;
 
@@ -42,6 +43,8 @@ public class SpellCombat extends AbstractAltArtMysticCard {
         currentStatus = EffectStatus.INERT;
         damage = baseDamage = DAMAGE_AMT;
         block = baseBlock = BLOCK_AMT;
+        tags.add(MysticTags.IS_POWERFUL);
+        tags.add(MysticTags.IS_POISED);
     }
 
     @Override

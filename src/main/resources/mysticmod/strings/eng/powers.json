@@ -1,7 +1,7 @@
 {
   "mysticmod:ArcaneAccuracyPower": {
     "NAME": "Spellpower",
-    "DESCRIPTIONS": ["Increase the block gained from and damage dealt by [#5299DC]Spells[] by ", "."]
+    "DESCRIPTIONS": ["Increase the #yBlock gained from and damage dealt by [#5299DC]Spells[] by ", "."]
   },
   "mysticmod:ArtesPlayedPower": {
     "NAME": "[#FF5252]Poise[]",

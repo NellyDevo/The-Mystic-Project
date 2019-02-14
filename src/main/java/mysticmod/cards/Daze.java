@@ -36,6 +36,7 @@ public class Daze extends AbstractAltArtMysticCard {
         loadCardImage(IMG_PATH);
         magicNumber = baseMagicNumber = POWER_AMT;
         tags.add(MysticTags.IS_SPELL);
+        tags.add(MysticTags.IS_POISED);
         altGlowColor = ALT_GLOW_RED;
     }
 
