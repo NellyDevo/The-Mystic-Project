@@ -1,6 +1,7 @@
 package mysticmod.minions.foxfamiliar;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -23,10 +24,12 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
     public int baseDamageAmount = 5;
     public int baseBlockAmount = 4;
     public int baseSpellArteAmount = 1;
+    private boolean renderCheckpoint = false;
 
     public FoxFamiliar(float x, float y) {
         super(NAME, ID, 20, -8.0F, 10.0F, 230.0F, 240.0F, "mysticmod/images/minions/foxfamiliar.png", x, y);
         addMoves();
+        System.out.println("FOX FAMILIAR: initialized at (" + x + "," + y + ").");
     }
 
     private void addMoves(){
@@ -42,5 +45,14 @@ public class FoxFamiliar extends AbstractFriendlyMonster {
         moves.addMove(new MinionMove(DIALOG[2], this, new Texture("mysticmod/images/minions/spell move.png"),MOVES[2] + baseSpellArteAmount + MOVES[4], () -> {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SpellsPlayedNextTurn(AbstractDungeon.player, baseSpellArteAmount), baseSpellArteAmount));
         }));
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        if (!renderCheckpoint) {
+            System.out.println("FOX FAMILIAR: render method reached for the first time");
+            renderCheckpoint = true;
+        }
+        super.render(sb);
     }
 }

@@ -82,7 +82,9 @@ public class SummonFamiliar extends AbstractMysticCard {
                     System.out.println("Tell @JohnnyDevo that you somehow got more than 3 minions before the fox and to make more positions");
                     break;
             }
-            BasePlayerMinionHelper.addMinion(p, new FoxFamiliar(x, y));
+            boolean print = BasePlayerMinionHelper.addMinion(p, new FoxFamiliar(x, y));
+            System.out.println("FOX FAMILIAR: addMinion returned " + print + ".");
+
         } else {
             FoxFamiliar fox = (FoxFamiliar)BasePlayerMinionHelper.getMinions(p).getMonster(FoxFamiliar.ID);
             if (!fox.hasPower(FoxEvolutionPower.POWER_ID)){
