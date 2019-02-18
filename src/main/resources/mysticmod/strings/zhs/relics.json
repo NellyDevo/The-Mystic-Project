@@ -12,22 +12,22 @@
   "mysticmod:CrystalBall": {
     "NAME": "水晶球",
     "FLAVOR": "看来并不能和 PalantĂ­r, Pensieves, Scryballs, Gramerhain, Shiral crystals, 还有 Urim and Thummim 联通。",
-    "DESCRIPTIONS": ["所有非 [#FF5252]战技牌[] 的技能牌视作 [#5299DC]法术牌[] ，所有非 [#5299DC]法术牌[] 的攻击牌视作 [#FF5252]战技牌[] 。"]
+    "DESCRIPTIONS": ["所有非 [#FF5252]战技牌[] 的技能牌视作 [#5299E0]法术牌[] ，所有非 [#5299E0]法术牌[] 的攻击牌视作 [#FF5252]战技牌[] 。"]
   },
   "mysticmod:DeckOfManyThings": {
     "NAME": "万象无常牌",
     "FLAVOR": "真奇怪，为什么人们总是用一副牌来展示魔法呢？",
-    "DESCRIPTIONS": ["在每个回合开始时，获得 [E] 。在每个回合结束时，如果本回合你没有打出至少两张 [#5299DC]法术牌[] 和两张 [#FF5252]战技牌[] ，失去2点生命。"]
+    "DESCRIPTIONS": ["在每个回合开始时，获得 [E] 。在每个回合结束时，如果本回合你没有打出至少两张 [#5299E0]法术牌[] 和两张 [#FF5252]战技牌[] ，失去2点生命。"]
   },
   "mysticmod:Kama": {
     "NAME": "镰刀",
     "FLAVOR": "通常用来收割小麦……还有灵魂。",
-    "DESCRIPTIONS": ["每打出 5 张牌，其中最后一张如果是 [#FF5252]战技牌[] ，获得1点 #y力量 ；如果是 [#5299DC]法术牌[] ，获得1点 #y敏捷 。"]
+    "DESCRIPTIONS": ["每打出 5 张牌，其中最后一张如果是 [#FF5252]战技牌[] ，获得1点 #y力量 ；如果是 [#5299E0]法术牌[] ，获得1点 #y敏捷 。"]
   },
   "mysticmod:RunicPrism": {
     "NAME": "符文棱镜",
     "FLAVOR": "你窥见了月神的暗面。",
-    "DESCRIPTIONS": ["每当你打出一张 [#5299DC]法术牌[] ，对一个随机敌人造成3点伤害。"]
+    "DESCRIPTIONS": ["每当你打出一张 [#5299E0]法术牌[] ，对一个随机敌人造成3点伤害。"]
   },
   "mysticmod:RabbitsFoot": {
     "NAME": "幸运兔脚",

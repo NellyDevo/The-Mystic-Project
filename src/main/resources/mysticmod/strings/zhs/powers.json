@@ -13,23 +13,23 @@
   },
   "mysticmod:ComboCasterPower": {
     "NAME": "连招施法器",
-    "DESCRIPTIONS": ["At the start of each turn add ", " random Cantrip to your hand", " random Cantrips to your hand", " and draw ", " less card.", " less cards."]
+    "DESCRIPTIONS": ["在每个回合开始时将", "张随机戏法牌加入你的手牌", "张随机戏法牌加入你的手牌", "并少抽", "张牌。", "张牌。"]
   },
   "mysticmod:ComponentsPouchPower": {
     "NAME": "施法材料包",
-    "DESCRIPTIONS": ["For ", " turn, all Defends count as [#5299E0]Spells[].", " turns, all Defends count as [#5299E0]Spells[].", ""]
+    "DESCRIPTIONS": ["在接下来的", "个回合中，所有防御牌都视作 [#5299E0]法术牌[]。", "个回合中，所有防御牌都视作 [#5299E0]法术牌[]。", ""]
   },
   "mysticmod:DisciplinePower": {
     "NAME": "戒律",
-    "DESCRIPTIONS": ["Begin each turn with ", " [#5299E0]Power[] and [#FF5252]招式[]."]
+    "DESCRIPTIONS": ["在每个回合开始时获得", "层 [#5299E0]法力[] 和 [#FF5252]招式[]."]
   },
   "mysticmod:DoublecastPower": {
     "NAME": "双重施法",
-    "DESCRIPTIONS": ["Your next [#5299E0]Spell[] card is played twice.", "Your next ", " [#5299E0]Spell[] cards are played twice."]
+    "DESCRIPTIONS": ["你的下一张 [#5299E0]法术牌[] 将被打出两次。", "你的下 ", "张 [#5299E0]法术牌[] 将被打出两次。"]
   },
   "mysticmod:EbbPower": {
     "NAME": "汐之力",
-    "DESCRIPTIONS": ["每个回合开始时，如果你没有[#5299E0]秘法牌[]或[#FF5252]战技牌[]，每缺少其中一种便弃置一张牌。"]
+    "DESCRIPTIONS": ["每个回合开始时，如果你没有打出过至少两张 [#5299E0]秘法牌[] 或至少两张 [#FF5252]战技牌[]，每缺少其中一种便弃置一张牌。"]
   },
   "mysticmod:EnergizedPurplePower": {
     "NAME": "蓄能",
@@ -52,7 +52,7 @@
   },
   "mysticmod:GeminiFormPower": {
     "NAME": "双子形态",
-    "DESCRIPTIONS": ["The first ", "[#5299E0]Spell[] and [#FF5252]战技[]", "[#5299E0]Spells[] and [#FF5252]战技s[]", " you play each turn, also play a random card of the other type from your draw pile."]
+    "DESCRIPTIONS": ["每当你打出每回合第 ", "张 [#5299E0]法术牌[] 和 [#FF5252]战技牌[]", "张 [#5299E0]法术牌[] 和 [#FF5252]战技牌[]", "，也从抽牌堆中随机打出另外一种类型的牌。"]
   },
   "mysticmod:HastePower": {
     "NAME": "加速术",
@@ -88,11 +88,11 @@
   },
   "mysticmod:RapidCasterPower": {
     "NAME": "迅疾施法器",
-    "DESCRIPTIONS": ["The first Cantrip you play each turn is played twice.", "The first ", " Cantrips you play each turn are played twice."]
+    "DESCRIPTIONS": ["每个回合你打出的第一张 戏法牌 将被打出两次。", "每个回合你打出的前", "张 戏法牌 将被打出两次。"]
   },
   "mysticmod:SpellsPlayedPower": {
     "NAME": "[#5299E0]法力[]",
-    "DESCRIPTIONS": ["You have played ", " [#5299E0]Spell[] this turn.", " [#5299E0]Spells[] this turn."]
+    "DESCRIPTIONS": ["本回合你已经打出了 ", "张 [#5299E0]法术牌[] 。", "张 [#5299E0]法术牌[] 。"]
   },
   "mysticmod:SpellsPlayedNextTurnPower": {
     "NAME": "[#5299E0]准备法术[]",
@@ -100,7 +100,7 @@
   },
   "mysticmod:SpontaneousCasterPower": {
     "NAME": "自发施法器",
-    "DESCRIPTIONS": ["[#5299E0]Spells[] Exhaust when played, and then generate a random [#5299E0]Spell[] in your discard pile. The cost of all Spells are reduced to [E] ."]
+    "DESCRIPTIONS": ["消耗 被打出的 [#5299E0]法术牌[] ，然后将一张随机 [#5299E0]法术牌[] 放入弃牌堆。所有 [#5299E0]法术牌[] 的消耗变为 [E] 。"]
   },
   "mysticmod:StoneskinPower": {
     "NAME": "石化肌肤",
