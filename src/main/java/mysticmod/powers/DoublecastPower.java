@@ -57,6 +57,7 @@ public class DoublecastPower extends AbstractPower {
             tmp.target_x = Settings.WIDTH / 2.0f - 300.0f * Settings.scale;
             tmp.target_y = Settings.HEIGHT / 2.0f;
             tmp.freeToPlayOnce = true;
+            tmp.applyPowers();
             if (m != null) {
                 tmp.calculateCardDamage(m);
             }
