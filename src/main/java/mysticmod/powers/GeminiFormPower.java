@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.MysticMod;
 import mysticmod.actions.GeminiFormAction;
 
-public class GeminiFormPower extends AbstractPower {
+public class GeminiFormPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:GeminiFormPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -84,5 +85,10 @@ public class GeminiFormPower extends AbstractPower {
                 artesPlayedThisTurn++;
             }
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new GeminiFormPower(owner, amount);
     }
 }

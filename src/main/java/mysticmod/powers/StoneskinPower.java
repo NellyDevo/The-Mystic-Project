@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class StoneskinPower extends AbstractPower {
+public class StoneskinPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:StoneskinPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -71,5 +72,10 @@ public class StoneskinPower extends AbstractPower {
             tmp = 0.0f;
         }
         block = MathUtils.floor(tmp);
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new StoneskinPower(owner, amount);
     }
 }

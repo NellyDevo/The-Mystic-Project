@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class HastePower extends AbstractPower {
+public class HastePower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:HastePower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -72,5 +73,10 @@ public class HastePower extends AbstractPower {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
             }
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new HastePower(owner, false, amount);
     }
 }

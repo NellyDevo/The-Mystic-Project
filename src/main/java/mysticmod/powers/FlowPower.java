@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -8,7 +9,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class FlowPower extends AbstractPower {
+public class FlowPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:FlowPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -46,5 +47,10 @@ public class FlowPower extends AbstractPower {
         for (int i = 0; i < amount; i++) {
             AbstractDungeon.player.gameHandSize--;
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new FlowPower(owner, amount);
     }
 }

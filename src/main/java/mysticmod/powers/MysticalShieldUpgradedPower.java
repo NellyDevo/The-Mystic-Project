@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class MysticalShieldUpgradedPower extends AbstractPower {
+public class MysticalShieldUpgradedPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:MysticalShieldUpgradedPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -54,5 +55,10 @@ public class MysticalShieldUpgradedPower extends AbstractPower {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8 - AbstractDungeon.player.currentBlock));
         }
         hasFlashed = false;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new MysticalShieldUpgradedPower(owner);
     }
 }

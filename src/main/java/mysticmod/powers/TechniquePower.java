@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,7 +9,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class TechniquePower extends AbstractPower {
+public class TechniquePower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:MightyMagicPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -34,5 +35,10 @@ public class TechniquePower extends AbstractPower {
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         //refer to ApplyPowers patch for full effects
         return damage;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new TechniquePower(owner, amount);
     }
 }

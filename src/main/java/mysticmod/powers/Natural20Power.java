@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class Natural20Power extends AbstractPower {
+public class Natural20Power extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:Natural20Power";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -54,5 +55,10 @@ public class Natural20Power extends AbstractPower {
             return damage * 2.0f;
         }
         return damage;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new Natural20Power(owner, amount);
     }
 }

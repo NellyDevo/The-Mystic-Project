@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ArtesPlayed extends AbstractPower {
+public class ArtesPlayed extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:ArtesPlayedPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -42,5 +43,10 @@ public class ArtesPlayed extends AbstractPower {
         if (isPlayer) {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, ArtesPlayed.POWER_ID, AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount));
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new ArtesPlayed(owner, amount);
     }
 }

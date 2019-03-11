@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.MysticMod;
 
-public class MirrorEntityPower extends AbstractPower {
+public class MirrorEntityPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:MirrorEntityPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -42,5 +43,10 @@ public class MirrorEntityPower extends AbstractPower {
         if (MysticMod.isThisAnArte(card)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtesPlayedNextTurn(AbstractDungeon.player, 1), 1));
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new MirrorEntityPower(owner);
     }
 }

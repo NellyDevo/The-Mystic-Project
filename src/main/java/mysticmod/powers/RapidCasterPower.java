@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.patches.MysticTags;
 
-public class RapidCasterPower extends AbstractPower {
+public class RapidCasterPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:RapidCasterPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -82,5 +83,10 @@ public class RapidCasterPower extends AbstractPower {
         if (isPlayer) {
             cantripsPlayedThisTurn = 0;
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new RapidCasterPower(owner, amount);
     }
 }

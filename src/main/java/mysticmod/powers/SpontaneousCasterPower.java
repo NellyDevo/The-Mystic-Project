@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.MysticMod;
 import mysticmod.actions.ReplaceCardAction;
 
-public class SpontaneousCasterPower extends AbstractPower {
+public class SpontaneousCasterPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:SpontaneousCasterPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -89,5 +90,10 @@ public class SpontaneousCasterPower extends AbstractPower {
                 card.isCostModified = true;
             }
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new SpontaneousCasterPower(owner);
     }
 }

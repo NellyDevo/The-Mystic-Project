@@ -1,6 +1,7 @@
 package mysticmod.powers;
 
 import basemod.helpers.BaseModCardTags;
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.interfaces.SpellArteLogicAffector;
 
-public class PureInstinctPower extends AbstractPower implements SpellArteLogicAffector {
+public class PureInstinctPower extends AbstractPower implements SpellArteLogicAffector, CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:PureInstinctPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -56,5 +57,10 @@ public class PureInstinctPower extends AbstractPower implements SpellArteLogicAf
             }
             updateDescription();
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new PureInstinctPower(owner, amount);
     }
 }

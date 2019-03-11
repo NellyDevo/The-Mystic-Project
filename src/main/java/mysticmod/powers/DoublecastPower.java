@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.MysticMod;
 
-public class DoublecastPower extends AbstractPower {
+public class DoublecastPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:DoublecastPower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -75,5 +76,10 @@ public class DoublecastPower extends AbstractPower {
         if (isPlayer) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new DoublecastPower(owner, amount);
     }
 }

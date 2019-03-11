@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import mysticmod.actions.ApplyPoisedAction;
 import mysticmod.actions.ApplyPowerfulAction;
 
-public class DisciplinePower extends AbstractPower {
+public class DisciplinePower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:DisciplinePower";
     public static final PowerStrings cardStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = cardStrings.NAME;
@@ -36,5 +37,10 @@ public class DisciplinePower extends AbstractPower {
     public void atStartOfTurnPostDraw() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerfulAction(AbstractDungeon.player, amount));
         AbstractDungeon.actionManager.addToBottom(new ApplyPoisedAction(AbstractDungeon.player, amount));
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new DisciplinePower(owner, amount);
     }
 }

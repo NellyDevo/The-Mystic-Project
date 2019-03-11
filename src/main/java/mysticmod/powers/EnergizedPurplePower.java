@@ -1,5 +1,6 @@
 package mysticmod.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EnergizedPurplePower extends AbstractPower {
+public class EnergizedPurplePower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:EnergizedPurplePower";
     public static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -47,5 +48,10 @@ public class EnergizedPurplePower extends AbstractPower {
         flash();
         AbstractDungeon.player.gainEnergy(amount);
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new EnergizedPurplePower(owner, amount);
     }
 }
