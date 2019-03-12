@@ -1,5 +1,6 @@
 {
   "CANTRIP": {
+    "PROPER_NAME": "Cantrip",
     "NAMES": [
       "cantrip",
       "cantrips"
@@ -7,24 +8,28 @@
     "DESCRIPTION": "Considered a [#5299DC]Spell[] so long as you have fewer than 2 stacks of [#5299DC]Power[]."
   },
   "FEAT": {
+    "PROPER_NAME": "Feat",
     "NAMES": [
       "feat"
     ],
     "DESCRIPTION": "Can only be played as the first [#FF5252]Arte[] of the turn."
   },
   "SPELLPOWER": {
+    "PROPER_NAME": "Spellpower",
     "NAMES": [
       "spellpower"
     ],
     "DESCRIPTION": "Increases the Block gained from and damage dealt by [#5299DC]Spells[]."
   },
   "STONESKIN": {
+    "PROPER_NAME": "Stoneskin",
     "NAMES": [
       "stoneskin"
     ],
     "DESCRIPTION": "Gives 2 block at the start of each turn. This block is affected by any block-affecting powers."
   },
   "TECHNIQUE": {
+    "PROPER_NAME": "Technique",
     "NAMES": [
       "technique"
     ],

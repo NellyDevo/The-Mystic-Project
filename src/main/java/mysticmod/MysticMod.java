@@ -6,6 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -376,8 +377,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
         keywords.forEach((k,v)->{
             // Keyword word = (Keyword)v;
             logger.info("Adding Keyword - " + v.NAMES[0]);
-            String proper = v.NAMES[0].substring(0,1).toUpperCase() + v.NAMES[0].substring(1);
-            BaseMod.addKeyword("mysticmod:", proper, v.NAMES, v.DESCRIPTION);
+            BaseMod.addKeyword("mysticmod:", v.PROPER_NAME, v.NAMES, v.DESCRIPTION);
         });
     }
 
