@@ -1,19 +1,19 @@
 {
   "mysticmod:ArcaneAccuracyPower": {
-    "NAME": "法术强度",
+    "NAME": "法力",
     "DESCRIPTIONS": ["使用[#5299E0]法术[]获得的格挡和造成的伤害增加", "点。"]
   },
   "mysticmod:ArtesPlayedPower": {
-    "NAME": "[#FF5252]招式[]",
+    "NAME": " [#FF5252]姿态[] ",
     "DESCRIPTIONS": ["本回合你已经打出了 ", "张 [#FF5252]战技[] 。", " [#FF5252]战技[] 。"]
   },
   "mysticmod:ArtesPlayedNextTurnPower": {
-    "NAME": "[#FF5252]蓄势待发[]",
-    "DESCRIPTIONS": ["在下个回合开始时获得 ", "层 [#FF5252]招式[]."]
+    "NAME": " [#FF5252]蓄势待发[] ",
+    "DESCRIPTIONS": ["在下个回合开始时获得 ", "层 [#FF5252]姿态[]."]
   },
   "mysticmod:ComboCasterPower": {
-    "NAME": "连招施法器",
-    "DESCRIPTIONS": ["在每个回合开始时将", "张随机戏法牌加入你的手牌", "张随机戏法牌加入你的手牌", "并少抽", "张牌。", "张牌。"]
+    "NAME": "连招施法",
+    "DESCRIPTIONS": ["在每个回合开始时将", "张随机 戏法 牌加入你的手牌", "张随机 戏法 牌加入你的手牌", "并少抽", "张牌。", "张牌。"]
   },
   "mysticmod:ComponentsPouchPower": {
     "NAME": "施法材料包",
@@ -21,7 +21,7 @@
   },
   "mysticmod:DisciplinePower": {
     "NAME": "戒律",
-    "DESCRIPTIONS": ["在每个回合开始时获得", "层 [#5299E0]法力[] 和 [#FF5252]招式[]."]
+    "DESCRIPTIONS": ["在每个回合开始时获得", "层 [#5299E0]威能[] 和 [#FF5252]姿态[]."]
   },
   "mysticmod:DoublecastPower": {
     "NAME": "双重施法",
@@ -29,7 +29,7 @@
   },
   "mysticmod:EbbPower": {
     "NAME": "汐之力",
-    "DESCRIPTIONS": ["每个回合开始时，如果你没有打出过至少两张 [#5299E0]秘法牌[] 或至少两张 [#FF5252]战技牌[]，每缺少其中一种便弃置一张牌。"]
+    "DESCRIPTIONS": ["每个回合开始时，如果你抽到的牌中不同时包含 [#5299E0]秘法牌[] 与 [#FF5252]战技牌[]，每缺少其中一种便弃置一张牌。"]
   },
   "mysticmod:EnergizedPurplePower": {
     "NAME": "蓄能",
@@ -44,11 +44,11 @@
   },
   "mysticmod:FoxEvolutionPower": {
     "NAME": "进化",
-    "DESCRIPTIONS": ["你的同伴获得一个额外的行动", " 对所有敌人造成伤害", " 效果显著", "，和", "。", "，"]
+    "DESCRIPTIONS": ["你的魔宠获得一个额外的行动", " 对所有敌人造成伤害", " 效果显著", "，和", "。", "，"]
   },
   "mysticmod:GainDexterityPower": {
     "NAME": "力竭",
-    "DESCRIPTIONS": ["在回合结束时获得 ", " 点敏捷。"]
+    "DESCRIPTIONS": ["在回合结束时失去 ", " 点敏捷。"]
   },
   "mysticmod:GeminiFormPower": {
     "NAME": "双子形态",
@@ -59,7 +59,7 @@
     "DESCRIPTIONS": ["在接下来的 ", " 个回合，额外", " 个回合，额外", "抽一张牌，额外获得 [E] ，攻击牌造成的伤害+1，从卡牌获得的格挡+1。"]
   },
   "mysticmod:MightyMagicPower": {
-    "NAME": "技巧",
+    "NAME": "技艺",
     "DESCRIPTIONS": ["使用[#FF5252]战技[]获得的格挡和造成的伤害增加 ", "点。"]
   },
   "mysticmod:MirrorEntityPower": {
@@ -71,7 +71,7 @@
     "DESCRIPTIONS": ["[#5299E0]秘法牌[] and [#FF5252]战技牌[] 造成的伤害或获得的格挡分别增加[#FF5252]招式[] 或 [#5299E0]法力[] 层数的数值。"]
   },
   "mysticmod:MysticalShieldPower": {
-    "NAME": "秘法护盾",
+    "NAME": "神秘护盾",
     "DESCRIPTIONS": ["格挡 在每个回合开始时减少到8而不是0。"]
   },
   "mysticmod:MysticalShieldUpgradedPower": {
@@ -79,8 +79,8 @@
     "DESCRIPTIONS": ["格挡 在每个回合开始时变为8而不是0。"]
   },
   "mysticmod:Natural20Power": {
-    "NAME": "天然 20",
-    "DESCRIPTIONS": ["会心一击！"]
+    "NAME": "天然20",
+    "DESCRIPTIONS": ["重击确认！"]
   },
   "mysticmod:PureInstinctPower": {
     "NAME": "纯粹本能",
@@ -88,22 +88,22 @@
   },
   "mysticmod:RapidCasterPower": {
     "NAME": "迅疾施法器",
-    "DESCRIPTIONS": ["每个回合你打出的第一张 戏法牌 将被打出两次。", "每个回合你打出的前", "张 戏法牌 将被打出两次。"]
+    "DESCRIPTIONS": ["每个回合你打出的第一张 戏法牌 将被打出两次。", "每个回合你打出的前", "张 戏法 牌将被打出两次。"]
   },
   "mysticmod:SpellsPlayedPower": {
-    "NAME": "[#5299E0]法力[]",
+    "NAME": " [#5299E0]威能[] ",
     "DESCRIPTIONS": ["本回合你已经打出了 ", "张 [#5299E0]法术牌[] 。", "张 [#5299E0]法术牌[] 。"]
   },
   "mysticmod:SpellsPlayedNextTurnPower": {
-    "NAME": "[#5299E0]准备法术[]",
-    "DESCRIPTIONS": ["下个回合开始时获得 ", " 层[#5299E0]法力[]."]
+    "NAME": " [#5299E0]准备法术[] ",
+    "DESCRIPTIONS": ["下个回合开始时获得 ", " 层 [#5299E0]威能[] 。"]
   },
   "mysticmod:SpontaneousCasterPower": {
-    "NAME": "自发施法器",
-    "DESCRIPTIONS": ["消耗 被打出的 [#5299E0]法术牌[] ，然后将一张随机 [#5299E0]法术牌[] 放入弃牌堆。所有 [#5299E0]法术牌[] 的消耗变为 [E] 。"]
+    "NAME": "自发施法",
+    "DESCRIPTIONS": ["消耗 被打出的 [#5299E0]法术牌[] ，然后将一张随机 [#5299E0]法术牌[] 放入弃牌堆。所有 [#5299E0]法术牌[] 的消耗减少到 [E] 。"]
   },
   "mysticmod:StoneskinPower": {
-    "NAME": "石化肌肤",
+    "NAME": "石肤",
     "DESCRIPTIONS": ["下 ", "个你的回合开始时获得 2(", " 个你的回合开始时获得 2(", ") 点格挡。受到影响格挡的效果影响。"]
   }
 }
