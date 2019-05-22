@@ -1,5 +1,6 @@
 ﻿{
   "CANTRIP": {
+    "PROPER_NAME": "戏法",
     "NAMES": [
       "戏法",
       "戏法"
@@ -7,24 +8,28 @@
     "DESCRIPTION": " [#5299E0]法力[] 层数少于2时视为 [#5299E0]法术[] 。"
   },
   "FEAT": {
+    "PROPER_NAME": "专长",
     "NAMES": [
       "专长"
     ],
     "DESCRIPTION": "只能作为每回合打出的的第一张 [#FF5252]战技牌[] 。"
   },
   "SPELLPOWER": {
+    "PROPER_NAME": "法力",
     "NAMES": [
       "法力"
     ],
     "DESCRIPTION": "增加使用 [#5299E0]法术[] 获得的格挡和造成的伤害。"
   },
   "STONESKIN": {
+    "PROPER_NAME": "石肤",
     "NAMES": [
       "石肤"
     ],
     "DESCRIPTION": "在每个回合开始时，获得2点格挡。受到影响格挡数的效果影响。"
   },
   "TECHNIQUE": {
+    "PROPER_NAME": "技艺",
     "NAMES": [
       "技艺"
     ],
