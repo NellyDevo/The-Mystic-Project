@@ -41,9 +41,9 @@ public class BulkUp extends AbstractAltArtMysticCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         if (p.hasPower(SpellsPlayed.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false, true, true));
+            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(1, false, true, true));
         } else {
-            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, true));
+            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(1, true,false));
         }
         if (isArtAlternate) {
             AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG_PATH, false));
