@@ -32,8 +32,6 @@ public class SnowballDamageAction extends AbstractGameAction {
                 isDone = true;
                 return;
             }
-            target.damageFlash = true;
-            target.damageFlashFrames = 4;
             FlashAtkImgEffect blueFire = new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AbstractGameAction.AttackEffect.FIRE);
             ReflectionHacks.setPrivateInherited(blueFire, FlashAtkImgEffect.class, "color", Color.CYAN.cpy());
             AbstractDungeon.effectList.add(blueFire);

@@ -46,8 +46,6 @@ public class MagicMissileAction extends AbstractGameAction {
         if (doDamage && damageCount < projectileCount) {
             damageCount++;
             doDamage = false;
-            target.damageFlash = true;
-            target.damageFlashFrames = 4;
             FlashAtkImgEffect coloredPoison = new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.POISON);
             ReflectionHacks.setPrivateInherited(coloredPoison, FlashAtkImgEffect.class, "color", effectColor.cpy());
             AbstractDungeon.effectList.add(coloredPoison);

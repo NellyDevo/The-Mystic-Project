@@ -50,7 +50,7 @@ import static mysticmod.patches.AbstractCardEnum.MYSTIC_PURPLE;
 @SpireInitializer
 public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber, RelicGetSubscriber {
 
-    private static final Color mysticPurple = CardHelper.getColor(152.0f, 34.0f, 171.0f); //152, 34, 171
+    private static final Color mysticPurple = CardHelper.getColor(152, 34, 171); //152, 34, 171
     private static final String attackCard = "mysticmod/images/512/bg_attack_mystic.png";
     private static final String skillCard = "mysticmod/images/512/bg_skill_mystic.png";
     private static final String powerCard = "mysticmod/images/512/bg_power_mystic.png";
@@ -92,7 +92,7 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait,                        //as above, but for card inspect view
                 miniManaSymbol);                                                                                    //appears in Mystic Purple cards where you type [E]
 
-        Color essenceOfMagicColor = CardHelper.getColor(255.0f, 255.0f, 255.0f);
+        Color essenceOfMagicColor = CardHelper.getColor(255, 255, 255);
         BaseMod.addPotion(EssenceOfMagic.class, essenceOfMagicColor, essenceOfMagicColor, essenceOfMagicColor, EssenceOfMagic.POTION_ID, MysticEnum.MYSTIC_CLASS);
         Properties mysticDefaults = new Properties();
         mysticDefaults.setProperty("spellArteDisplay", "BOTH");
