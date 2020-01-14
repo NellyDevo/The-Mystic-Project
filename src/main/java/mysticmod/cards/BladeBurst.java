@@ -35,6 +35,20 @@ public class BladeBurst extends AbstractMysticCard {
         magicNumber = baseMagicNumber = STRENGTH_LOSS;
         exhaust = true;
         tags.add(MysticTags.IS_ARTE);
+        cardsToPreview = new MagicWeapon(true);
+    }
+
+    public BladeBurst(boolean preventRecursion) {
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+                AbstractCard.CardType.ATTACK, AbstractCard.CardColor.COLORLESS,
+                AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+        damage = baseDamage = ATTACK_DMG;
+        magicNumber = baseMagicNumber = STRENGTH_LOSS;
+        exhaust = true;
+        tags.add(MysticTags.IS_ARTE);
+        if (!preventRecursion) {
+            cardsToPreview = new MagicWeapon(true);
+        }
     }
 
     @Override

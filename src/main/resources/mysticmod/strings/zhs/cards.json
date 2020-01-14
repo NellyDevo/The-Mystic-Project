@@ -43,8 +43,8 @@
   },
   "mysticmod:BladeBurst": {
     "NAME": "剑刃爆发",
-    "DESCRIPTION": "失去 !M! 点力量。造成 !D! 点伤害。 将一张 魔化武器 加入弃牌堆. NL 消耗。",
-    "UPGRADE_DESCRIPTION": "失去 !M! 点力量。 造成 !D! 点伤害。将一张已 升级 的 魔化武器 加入弃牌堆. NL 消耗 。"
+    "DESCRIPTION": "失去 !M! 点力量。造成 !D! 点伤害。 将一张 *魔化武器 加入弃牌堆. NL 消耗。",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点力量。 造成 !D! 点伤害。将一张已 升级 的 *魔化武器 加入弃牌堆. NL 消耗 。"
   },
   "mysticmod:BladeMaster": {
     "NAME": "剑术大师",
@@ -275,12 +275,8 @@
   },
   "mysticmod:MagicWeapon": {
     "NAME": "魔化武器",
-    "DESCRIPTION": "获得 !M! 点 力量 。将一张 剑刃爆发 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 。将一张已 升级 的 剑刃爆发 加入弃牌堆。 NL 消耗 。",
-    "EXTENDED_DESCRIPTION": [
-      "剑刃爆发",
-      "造成大量伤害并使你失去 1 点 力量 并取回这张牌的 1 耗能  [#FF5252]战[] [#FF5252]技[] [#FF5252]牌[] 。"
-    ]
+    "DESCRIPTION": "获得 !M! 点 力量 。将一张 *剑刃爆发 加入弃牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 。将一张已 升级 的 *剑刃爆发 加入弃牌堆。 NL 消耗 。"
   },
   "mysticmod:MightyMagic": {
     "NAME": "剑艺精湛",

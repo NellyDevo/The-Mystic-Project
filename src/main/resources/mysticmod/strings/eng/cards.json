@@ -43,8 +43,8 @@
   },
   "mysticmod:BladeBurst": {
     "NAME": "Blade Burst",
-    "DESCRIPTION": "Lose !M! Strength. Deal !D! damage. Add a Magic Weapon to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Strength. Deal !D! damage. Add a Magic Weapon+ to your discard pile. NL Exhaust."
+    "DESCRIPTION": "Lose !M! Strength. Deal !D! damage. Add a *Magic *Weapon to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Strength. Deal !D! damage. Add a *Magic *Weapon+ to your discard pile. NL Exhaust."
   },
   "mysticmod:BladeMaster": {
     "NAME": "Blade Master",
@@ -275,12 +275,8 @@
   },
   "mysticmod:MagicWeapon": {
     "NAME": "Magic Weapon",
-    "DESCRIPTION": "Gain !M! Strength. Add a Blade Burst to your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add a Blade Burst+ to your discard pile. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "Blade Burst",
-      "an [#FF5252]Arte[] that exhausts and deals high damage for 1 energy, loses 1 Strength, and adds this card back to your discard pile."
-    ]
+    "DESCRIPTION": "Gain !M! Strength. Add a *Blade *Burst to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add a *Blade *Burst+ to your discard pile. NL Exhaust."
   },
   "mysticmod:MightyMagic": {
     "NAME": "Bladework",

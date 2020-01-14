@@ -1,6 +1,5 @@
 package mysticmod.cards;
 
-import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,8 +12,6 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mysticmod.actions.ReplaceCardAction;
 import mysticmod.patches.AbstractCardEnum;
 import mysticmod.patches.MysticTags;
-
-import java.util.List;
 
 public class MagicWeapon extends AbstractMysticCard {
     public static final String ID = "mysticmod:MagicWeapon";
@@ -35,6 +32,19 @@ public class MagicWeapon extends AbstractMysticCard {
         magicNumber = baseMagicNumber = STRENGTH_GAIN;
         exhaust = true;
         tags.add(MysticTags.IS_SPELL);
+        cardsToPreview = new BladeBurst(true);
+    }
+
+    public MagicWeapon(boolean preventRecursion) {
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
+                AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+        magicNumber = baseMagicNumber = STRENGTH_GAIN;
+        exhaust = true;
+        tags.add(MysticTags.IS_SPELL);
+        if (!preventRecursion) {
+            cardsToPreview = new BladeBurst(true);
+        }
     }
 
     @Override
@@ -51,13 +61,6 @@ public class MagicWeapon extends AbstractMysticCard {
     @Override
     public AbstractCard makeCopy() {
         return new MagicWeapon();
-    }
-
-    @Override
-    public List<TooltipInfo> getCustomTooltips() {
-        List<TooltipInfo> retVal = super.getCustomTooltips();
-        retVal.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
-        return retVal;
     }
 
     @Override
