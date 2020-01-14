@@ -4,11 +4,14 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import mysticmod.MysticMod;
 
 public class MomentumPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:MomentumPower";
@@ -33,8 +36,25 @@ public class MomentumPower extends AbstractPower implements CloneablePowerInterf
     }
 
     @Override
-    public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        //Refer to ApplyPowersToBlockPatch.java, CalculateCardDamagePatch.java, and ApplyPowersPatch.java for full effects
+    public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (MysticMod.isThisAnArte(card) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            damage += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+        }
+        if (MysticMod.isThisASpell(card) && AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            damage += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+        }
+        return damage;
+    }
+
+    @Override
+    public float modifyBlock(float block, AbstractCard card) {
+        if (MysticMod.isThisAnArte(card) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
+            block += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+        }
+        if (MysticMod.isThisASpell(card) && AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
+            block += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+        }
+        return block;
     }
 
     @Override

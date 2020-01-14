@@ -2,12 +2,14 @@ package mysticmod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import mysticmod.MysticMod;
 
 public class SpellpowerPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "mysticmod:ArcaneAccuracyPower";
@@ -32,9 +34,19 @@ public class SpellpowerPower extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        //refer to ApplyPowers patch for full effects
+    public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (MysticMod.isThisASpell(card)) {
+            damage += amount;
+        }
         return damage;
+    }
+
+    @Override
+    public float modifyBlock(float block, AbstractCard card) {
+        if (MysticMod.isThisASpell(card)) {
+            block += amount;
+        }
+        return block;
     }
 
     @Override
