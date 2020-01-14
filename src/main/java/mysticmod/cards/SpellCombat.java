@@ -99,24 +99,20 @@ public class SpellCombat extends AbstractAltArtMysticCard {
     }
 
     @Override
-    protected void updateGlow() {
-        if (AbstractDungeon.player != null) {
-            switch (currentStatus) {
-                case COMBINED:
-                    updateGlowWithColor(Color.valueOf("5233FF").cpy());
-                    break;
-                case OFFENSIVE:
-                    updateGlowWithColor(ALT_GLOW_BLUE.cpy());
-                    break;
-                case DEFENSIVE:
-                    updateGlowWithColor(ALT_GLOW_RED.cpy());
-                    break;
-                default:
-                    super.updateGlow();
-                    break;
-            }
-        } else {
-            super.updateGlow();
+    public void triggerOnGlowCheck() {
+        switch (currentStatus) {
+            case COMBINED:
+                glowColor = Color.valueOf("5233FF").cpy();
+                break;
+            case OFFENSIVE:
+                glowColor = ALT_GLOW_BLUE.cpy();
+                break;
+            case DEFENSIVE:
+                glowColor = ALT_GLOW_RED.cpy();
+                break;
+            default:
+                glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+                break;
         }
     }
 
