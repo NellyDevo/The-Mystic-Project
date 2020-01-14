@@ -62,7 +62,6 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
     private static final String charButton = "mysticmod/images/charSelect/button.png";
     private static final String charPortrait = "mysticmod/images/charSelect/portrait.png";
     private static final String miniManaSymbol = "mysticmod/images/manaSymbol.png";
-    public static boolean isDiscoveryLookingForSpells = false;
     public static int numberOfTimesDeckShuffledThisCombat = 0;
     public static boolean healerAccused = false;
     public static Healer storedHealer;

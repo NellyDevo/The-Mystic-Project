@@ -7,15 +7,16 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import mysticmod.MysticMod;
+
+import java.util.ArrayList;
 
 public class SpellDiscoveryAction extends AbstractGameAction {
     private boolean retrieveCard;
-    private AbstractCard.CardType cardType;
 
     public SpellDiscoveryAction() {
         retrieveCard = false;
-        cardType = null;
         actionType = ActionType.CARD_MANIPULATION;
         duration = Settings.ACTION_DUR_FAST;
     }
@@ -23,13 +24,8 @@ public class SpellDiscoveryAction extends AbstractGameAction {
     @Override
     public void update() {
         if (duration == Settings.ACTION_DUR_FAST) {
-            MysticMod.isDiscoveryLookingForSpells = true;
-            if (cardType == null) {
-                AbstractDungeon.cardRewardScreen.discoveryOpen();
-            } else {
-                AbstractDungeon.cardRewardScreen.discoveryOpen(cardType);
-            }
-            MysticMod.isDiscoveryLookingForSpells = false;
+            ArrayList<AbstractCard> choices = generateCardList();
+            AbstractDungeon.cardRewardScreen.customCombatOpen(choices, CardRewardScreen.TEXT[1], true);
             tickDuration();
             return;
         }
@@ -48,5 +44,23 @@ public class SpellDiscoveryAction extends AbstractGameAction {
             retrieveCard = true;
         }
         tickDuration();
+    }
+
+    private ArrayList<AbstractCard> generateCardList() {
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        while (list.size() != 3) {
+            boolean dupe = false;
+            AbstractCard c = MysticMod.returnTrulyRandomSpell();
+            for (AbstractCard card : list) {
+                if (card.cardID.equals(c.cardID)) {
+                    dupe = true;
+                    break;
+                }
+            }
+            if (!dupe) {
+                list.add(c);
+            }
+        }
+        return list;
     }
 }
