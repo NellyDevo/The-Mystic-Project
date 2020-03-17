@@ -26,24 +26,18 @@ public class MagicWeapon extends AbstractMysticCard {
     private static final int STRENGTH_GAIN = 2;
 
     public MagicWeapon() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
-                AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
-                AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-        magicNumber = baseMagicNumber = STRENGTH_GAIN;
-        exhaust = true;
-        tags.add(MysticTags.IS_SPELL);
-        cardsToPreview = new BladeBurst(true);
+        this(true);
     }
 
-    public MagicWeapon(boolean preventRecursion) {
+    public MagicWeapon(boolean makePreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         magicNumber = baseMagicNumber = STRENGTH_GAIN;
         exhaust = true;
         tags.add(MysticTags.IS_SPELL);
-        if (!preventRecursion) {
-            cardsToPreview = new BladeBurst(true);
+        if (makePreview) {
+            cardsToPreview = new BladeBurst(false);
         }
     }
 
