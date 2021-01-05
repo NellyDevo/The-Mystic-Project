@@ -26,7 +26,7 @@ public class DefendMystic extends AbstractMysticCard {
                 AbstractCard.CardType.SKILL, AbstractCardEnum.MYSTIC_PURPLE,
                 AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
         block = baseBlock = BLOCK_AMT;
-        tags.add(BaseModCardTags.BASIC_DEFEND);
+        tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override
