@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import mysticmod.MysticMod;
 import mysticmod.patches.AbstractCardEnum;
@@ -43,7 +44,7 @@ public class Lunge extends AbstractMysticCard {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 2));
         //lose dexterity for turn
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -4), -4));
-        if (!p.hasPower("Artifact")) {
+        if (!p.hasPower(ArtifactPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GainDexterityPower(p, 4), 4));
         }
     }
