@@ -449,7 +449,9 @@
     "DESCRIPTION": "召唤你忠实的 狐狸 魔宠 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      "你可以选择攻击或者设置组合。 重复打出这张牌可以 升级 你的魔宠 ，最多 升级  3 次。"
+      "你可以选择攻击或者设置组合。 重复打出这张牌可以 升级 你的魔宠 ，最多 升级  3 次。",
+      " NL Currently disabled!",
+      "My Fox companion is asleep right now. Please re-enable FriendlyMinions!"
     ]
   },
   "mysticmod:TomeOfSpells": {

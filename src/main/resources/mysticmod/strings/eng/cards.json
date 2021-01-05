@@ -449,7 +449,9 @@
     "DESCRIPTION": "Summon your faithful Fox Familiar. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      "Can attack or help set up your combos. Playing more copies of this card will upgrade your familiar, up to 3 times."
+      "Can attack or help set up your combos. Playing more copies of this card will upgrade your familiar, up to 3 times.",
+      " NL Currently disabled!",
+      "My Fox companion is asleep right now. Please re-enable FriendlyMinions!"
     ]
   },
   "mysticmod:TomeOfSpells": {
