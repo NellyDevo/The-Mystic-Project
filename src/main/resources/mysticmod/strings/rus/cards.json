@@ -1,0 +1,474 @@
+{
+    "mysticmod:AbstractMysticCard": {
+        "NAME": "",
+        "DESCRIPTION": "",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Чары",
+            "Умение",
+            "Этот Навык также является [#5299DC]Чарами[], и дает [#5299DC]Мощь[].",
+            "Этот Навык также является [#FF5252]Умением[], и дает [#FF5252]Баланс[].",
+            "Эта Атака также является [#5299DC]Чарами[], и дает [#5299DC]Мощь[].",
+            "Эта Атака также является [#FF5252]Умением[], и дает [#FF5252]Баланс[].",
+            "Мощный",
+            "Сбалансированный",
+            "Дает дополнительный эффект, если у вас есть [#5299DC]Мощь[].",
+            "Дает дополнительный эффект, если у вас есть [#FF5252]Баланс[]."
+        ]
+    },
+    "mysticmod:AcidSplash": {
+        "NAME": "Брызги кислоты",
+        "DESCRIPTION": "mysticmod:Трюк. NL Наносит !D! урона. Вы берёте карту.",
+        "UPGRADE_DESCRIPTION": "" 
+    }, 
+    "mysticmod:Alacrity": { 
+        "NAME": "Рвение", 
+        "DESCRIPTION": "Дает !B! Защиты. NL [#FF5252]Сбалансированный[]: Дает [E] в вашем след. ходу.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:AllIn": {
+        "NAME": "Ставлю на все",
+        "DESCRIPTION": "Наносит !D! урона. NL Вы получаете !M! Слабости. Количество Слабости снижается за каждую [#5299DC]Мощь[].",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ArcaneAccuracy": {
+        "NAME": "Метамагия",
+        "DESCRIPTION": "Дает !M! mysticmod:Интеллекта.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ArcaneDodge": {
+        "NAME": "Мистический уворот",
+        "DESCRIPTION": "Дает !B! Защиты. NL [#5299DC]Мощный[]: Дает доп. !M! Защиты.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:BladeBurst": {
+        "NAME": "Вспышка мечей",
+        "DESCRIPTION": "Отнимает !M! Силы. Наносит !D! урона. Добавляет *Магическое *оружие в стопку сброса. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Отнимает !M! Силы. Наносит !D! урона. Добавляет *Магическое *оружие в стопку сброса. NL Сжигается."
+    },
+    "mysticmod:BladeMaster": {
+        "NAME": "Мастер клинка",
+        "DESCRIPTION": "Вы кладёте до !M! [#FF5252]Умений[] из стопки сброса в руку.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:BladedDash": {
+        "NAME": "Лезвийный рывок",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: Дает !B! Защиты.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:BulkUp": {
+        "NAME": "Подкачаться",
+        "DESCRIPTION": "Дает !B! Защиты. NL Сжигает случ. карту в руке. NL [#5299DC]Мощный[]: Вместо случайной, Сжигает до 1 карты.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ChargedParry": {
+        "NAME": "Заряженное парирование",
+        "DESCRIPTION": "Дает !B! Защиты. NL [#5299DC]Мощный[]: Дает !M! Силы. NL Отнимает !M! Силы в конце вашего хода",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ClosingBarrage": {
+        "NAME": "Финальный обстрел",
+        "DESCRIPTION": "Наносит Y урона X раз. Y равняется сумме [#5299DC]Мощи[] и [#FF5252]Баланса[], умноженной на !M!.",
+        "UPGRADE_DESCRIPTION": "Наносит Y урона X+1 раз. Y равняется сумме [#5299DC]Мощи[] и [#FF5252]Баланса[], умноженной на !M!.",
+        "EXTENDED_DESCRIPTION": [
+            " NL ( !D! урона)"
+        ]
+    },
+    "mysticmod:ComboCaster": {
+        "NAME": "Маг-комбинатор",
+        "DESCRIPTION": "Вы добавляете в руку случ. mysticmod:Трюк и берёте на 1 карту меньше в начале каждого вашего хода.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ComponentsPouch": {
+        "NAME": "Мешочек с компонентами",
+        "DESCRIPTION": "Наносит !D! урона NL Наносит !D! урона за каждые [#5299DC]Чары[] в руке. NL Все Защиты считаются за [#5299DC]Чары[] следующие !M! ходов.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            " NL (В руке ",
+            " [#5299DC]Чары[]).",
+            " [#5299DC]Чар[])."
+        ]
+    },
+    "mysticmod:CorrosiveTouch": {
+        "NAME": "Едкое прикосновение",
+        "DESCRIPTION": "Наносит !D! урона.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Даёт 1 [#5299DC]Мощи[] в начале след. хода."
+    },
+    "mysticmod:CureLightWounds": {
+        "NAME": "Лечение легких ранений",
+        "DESCRIPTION": "Дает !M! Регенерации. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Лечение средних ранений"
+        ]
+    },
+    "mysticmod:Daze": {
+        "NAME": "Отвлечь",
+        "DESCRIPTION": "Накладывает !M! Уязвимости. NL [#FF5252]Сбалансированный[]: Накладывает !M! Слабости.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Dedication": {
+        "NAME": "Преданность",
+        "DESCRIPTION": "Дает !M! Силы и Ловкости. NL  Можно Улучшать неограниченное количество раз.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Defend_Mystic": {
+        "NAME": "Оборона",
+        "DESCRIPTION": "Дает !B! Защиты.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Discipline": {
+        "NAME": "Дисциплина",
+        "DESCRIPTION": "Дает !M! [#5299DC]Мощи[] и [#FF5252]Баланса[] в начале каждого вашего хода.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Disengage": {
+        "NAME": "Отход",
+        "DESCRIPTION": "Дает !B! Защиты. NL Даёт 1 [#FF5252]Баланса[] в начале след. хода.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Disintegrate": {
+        "NAME": "Дезинтеграция",
+        "DESCRIPTION": "Наносит !D! урона. NL Игнорирует Защиту.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:DiviningBlow": {
+        "NAME": "Пророческий порыв",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Сбалансированный[]: Вы берёте 1 карту за каждую [#5299DC]Мощь[].",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            " NL (",
+            " Карты.)",
+            " Карты.)"
+        ]
+    },
+    "mysticmod:Doublecast": {
+        "NAME": "Двойное заклинание",
+        "DESCRIPTION": "В этом ходу след. [#5299DC]Чары[] разыгрываются дважды.",
+        "UPGRADE_DESCRIPTION": "В этом ходу 2 след. [#5299DC]Чары[] разыгрываются дважды."
+    },
+    "mysticmod:EarthenWall": {
+        "NAME": "Земляная стена",
+        "DESCRIPTION": "Дает !B! Защиты. NL  Дает !M! Ловкости. NL Отнимает !M! Ловкости в конце вашего хода",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:EbbAndFlow": {
+        "NAME": "Прилив и отлив",
+        "DESCRIPTION": "В начале вашего хода вы берёте 1 карту, затем сбрасываете 1 карту, если в руке нет [#5299DC]Чар[] и 1 карту, если в руке нет [#FF5252]Умения[].",
+        "UPGRADE_DESCRIPTION": "Начальная. В начале вашего хода вы берёте 1 карту, затем сбрасываете 1 карту, если в руке нет [#5299DC]Чар[] и 1 карту, если в руке нет [#FF5252]Умения[]."
+    },
+    "mysticmod:EnchantedMoulinet": {
+        "NAME": "Зачарованная перчатка",
+        "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. Дает [E] за каждого убитого врага.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:EnergizedRift": {
+        "NAME": "Заряженный разрыв",
+        "DESCRIPTION": "[#FF5252]Сбалансированный[]: Добавляет случ. mysticmod:Трюк в стопку сброса за каждый [#FF5252]Баланс[]. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "[#FF5252]Сбалансированный[]: Добавляет случ. Улучшенный  mysticmod:Трюк в стопку сброса за каждый [#FF5252]Баланс[]. NL Сжигается.",
+        "EXTENDED_DESCRIPTION": [
+            " NL (",
+            " mysticmod:Трюк. )",
+            " mysticmod:Трюков. )",
+            "У меня нет [#FF5252]Баланса[]!"
+        ]
+    },
+    "mysticmod:Feint": {
+        "NAME": "Финт",
+        "DESCRIPTION": "Наносит !D! урона. Добавляет случайный mysticmod:Трюк в стопку добора.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона. Добавляет случайный Улучшенный mysticmod:Трюк в стопку добора."
+    },
+    "mysticmod:Fireball": {
+        "NAME": "Огненный шар",
+        "DESCRIPTION": "Наносит !D! урона. NL [#FF5252]Сбалансированный[]: Наносит урон ВСЕМ врагам.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:FiveFootStep": {
+        "NAME": "5 футовый шаг",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: в Сбрасывается стопку добора.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:FloatingDisk": {
+        "NAME": "Парящий диск",
+        "DESCRIPTION": "Дает !B! Защиты. NL [#FF5252]Сбалансированный[]: Дает !M! Ловкости. Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Flourish": {
+        "NAME": "Процветание",
+        "DESCRIPTION": "Стоит на 1 [E] меньше за каждые [#5299DC]Мощь[] и [#FF5252]Баланс[]. Наносит !D! урона дважды. NL Удваивает количество [#5299DC]Баланса[] и [#FF5252]Мощи[].",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Flurry": {
+        "NAME": "Шквал",
+        "DESCRIPTION": "Наносит !D! урона !M! раза. NL [#5299DC]Мощный[]: Наносит урон !mysticmod:M2! раза вместо этого",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Fly": {
+        "NAME": "Полет",
+        "DESCRIPTION": "Дает !B! Защиты. NL [#FF5252]Сбалансированный[]: Защита не исчезнет в начале вашего след. хода.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:GeminiForm": {
+        "NAME": "Облик близнецов",
+        "DESCRIPTION": "Эфирная. NL Первые разыгранные в каждом ходу [#5299DC]Чары[] и [#FF5252]Умение[] разыгрывают случ. карту противоположного типа из стопки добора.",
+        "UPGRADE_DESCRIPTION": "Первые разыгранные в каждом ходу [#5299DC]Чары[] и [#FF5252]Умение[] разыгрывают случ. карту противоположного типа из стопки добора."
+    },
+    "mysticmod:Grapple": {
+        "NAME": "Захват",
+        "DESCRIPTION": "Эфирная. NL Оглушает врага. Можно разыграть, если в этот ход не разыгрывались атаки. NL Вы больше не сможете разыгрывать атаки в этом ходу NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Оглушает врага. Можно разыграть, если в этот ход не разыгрывались атаки. NL Вы больше не сможете разыгрывать атаки в этом ходу NL Сжигается."
+    },
+    "mysticmod:Grease": {
+        "NAME": "Жир",
+        "DESCRIPTION": "Враг теряет !M! Силы до конца своего хода. NL [#FF5252]Сбалансированный[]: ВСЕ враги теряют вместо этого.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:GreaterInvisibility": {
+        "NAME": "Высшая невидимость",
+        "DESCRIPTION": "Эфирная. NL Дает 1 Неосязаемости. NL Сжигается. NL [#FF5252]Сбалансированный[]: Не Сжигается, если было разыграно !M! [#FF5252]Умений[] в этом ходу.",
+        "UPGRADE_DESCRIPTION": "Эфирная. NL Дает 1 Неосязаемости. NL Сжигается. NL [#FF5252]Сбалансированный[]: Не Сжигается, если было разыграно !M! [#FF5252]Умений[] в этом ходу."
+    },
+    "mysticmod:IllusionOfCalm": {
+        "NAME": "Видимость покоя",
+        "DESCRIPTION": "Дает !B! Защиты. NL Вы получаете !M! Хрупкости. Количество Хрупкости уменьшается за каждый [#FF5252]Баланс[].",
+        "UPGRADE_DESCRIPTION": ""
+    }, 
+    "mysticmod:Haste": {
+        "NAME": "Ускорение",
+        "DESCRIPTION": "В течение след. Х ходов, вы берёте доп. карту и получаете [E] в начале хода, а ваши карты наносят на 1 больше урона и дают на 1 больше Защиты.",
+        "UPGRADE_DESCRIPTION": "В течение след. Х+1 ходов, вы берёте доп. карту и получаете [E] в начале хода, а ваши карты наносят на 1 больше урона и дают на 1 больше Защиты."
+    },
+    "mysticmod:HeavyStrike": {
+        "NAME": "Тяжелый удар",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Сбалансированный[]: Повышает свой урон на !M! навсегда. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:HunkerDown": {
+        "NAME": "Засесть",
+        "DESCRIPTION": "Дает !M! Ловкости. Отнимает !M! Ловкости в конце вашего хода.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:KeenEdge": {
+        "NAME": "Острый край",
+        "DESCRIPTION": "Накладывает !M! Уязвимости на ВСЕХ врагов.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:KnowledgePool": {
+        "NAME": "Озеро знаний",
+        "DESCRIPTION": "Выберите 1 из 3 случ. [#5299DC]Чар[] и добавьте их в руку. Она стоит 0 до конца вашего хода. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:LightningBolt": {
+        "NAME": "Молния",
+        "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. NL [#FF5252]Сбалансированный[]: Наносит !M! урона вместо этого.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Lunge": {
+        "NAME": "Выпад",
+        "DESCRIPTION": "mysticmod:Мастерство. NL Дает [E] [E]. NL Вы берёте 2 карты. NL Вы теряете 4 Ловкости до конца вашего хода. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "mysticmod:Мастерство. NL Дает [E] [E] [E]. NL Вы берёте 2 карты. NL Вы теряете 4 Ловкости до конца вашего хода. NL Сжигается.",
+        "EXTENDED_DESCRIPTION": [
+            "[#FF5252]Умение[] уже было разыграно в этом ходу!"
+        ]
+    },
+    "mysticmod:MagicMissile": {
+        "NAME": "Волшебная стрела",
+        "DESCRIPTION": "Наносит !D! урона за каждую перетасовку колоды в этом бою.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона за каждую перетасовку колоды в этом бою и за каждый [#FF5252]Баланс[].",
+        "EXTENDED_DESCRIPTION": [
+            " NL ( !M! раз.)",
+            " NL ( !M! раза.)"
+        ]
+    },
+    "mysticmod:MagicWeapon": {
+        "NAME": "Магическое оружие",
+        "DESCRIPTION": "Дает !M! Силы. Добавляет *Вспышку *мечей в стопку сброса. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Дает !M! Силы. Добавляет *Вспышку *мечей+ в стопку сброса. NL Сжигается."
+    },
+    "mysticmod:MightyMagic": {
+        "NAME": "Клинок",
+        "DESCRIPTION": "Дает !M! mysticmod:Техники.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:MirrorEntity": {
+        "NAME": "Зеркальная сущность",
+        "DESCRIPTION": "[#5299DC]Чары[] и [#FF5252]Умения[] также дают [#5299DC]Мощь[] или [#FF5252]Баланс[] в след. ходу.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:MirrorStrike": {
+        "NAME": "Отраженный удар",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Сбалансированный[]: Наносит еще !D! урона за каждые 2 [#5299DC]Мощи[].",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Momentum": {
+        "NAME": "Инерция",
+        "DESCRIPTION": "[#5299DC]Чары[] и [#FF5252]Умения[] наносят больше урона и дают больше Защиты за каждый [#FF5252]Баланс[] или [#5299DC]Мощь[] соответственно.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:MysticalShield": {
+        "NAME": "Мистический щит",
+        "DESCRIPTION": "В начале вашего хода Защита уменьшается до 8 вместо 0.",
+        "UPGRADE_DESCRIPTION": "В начале вашего хода Защиты становится 8 вместо 0."
+    },
+    "mysticmod:Natural20": {
+        "NAME": "Критический успех",
+        "DESCRIPTION": "В этом ходу ваша следующая Атака наносит двойной урон. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "В этом ходу ваша следующая Атака наносит двойной урон."
+    },
+    "mysticmod:ObscuringMist": {
+        "NAME": "Скрывающий туман",
+        "DESCRIPTION": "Дает !B! Защиты. NL [#FF5252]Сбалансированный[]: Дает !M! Артефакта. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:PowerAttack": {
+        "NAME": "Могучая атака",
+        "DESCRIPTION": "mysticmod:Мастерство. NL Дает !mysticmod:M2! Силы и отнимает !M! Ловкости в этом ходу.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "[#FF5252]Умение[] уже было разыграно в этом ходу!"
+        ]
+    },
+    "mysticmod:PowerSlash": {
+        "NAME": "Могучее разрубание",
+        "DESCRIPTION": "Наносит !D! урона. NL Дает доп. [#FF5252]Баланс[].",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:PreparedCaster": {
+        "NAME": "Подготовленный маг",
+        "DESCRIPTION": "Начальная. NL Вы кладёте 1 выбранные [#5299DC]Чары[] из стопки добора в руку. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Prestidigitation": {
+        "NAME": "Фокус",
+        "DESCRIPTION": "mysticmod:Трюк. NL Дает !B! Защиты. Вы берёте 1 карту.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Probe": {
+        "NAME": "Прощупать",
+        "DESCRIPTION": "Наносит !D! урона.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Дает 1 [#FF5252]Баланса[] в NL вашем след. ходу."
+    },
+    "mysticmod:PunishingArmor": {
+        "NAME": "Карающая броня",
+        "DESCRIPTION": "Дает !B! Защиты. NL [#FF5252]Сбалансированный[]: Дает !M! Шипов. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:PureInstinct": {
+        "NAME": "Чистый инстинкт",
+        "DESCRIPTION": "Дает !B! Защиты NL Дает !B! Защиты за каждое [#FF5252]Умение[] в руке. NL Все Удары считаются за [#FF5252]Умения[] следующие !M! ходов.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            " NL (В руке ",
+            " [#FF5252]Умение[]).",
+            " [#FF5252]Умений[])."
+        ]
+    },
+    "mysticmod:RapidCaster": {
+        "NAME": "Скоростной маг",
+        "DESCRIPTION": "Первый разыгранный в каждом ходу mysticmod:Трюк разыгрывается дважды.",
+        "UPGRADE_DESCRIPTION": "Начальная. NL Первый разыгранный в каждом ходу mysticmod:Трюк разыгрывается дважды."
+    },
+    "mysticmod:RayOfFrost": {
+        "NAME": "Замораживающий луч",
+        "DESCRIPTION": "mysticmod:Трюк. NL Наносит !D! урона. Дает !B! Защиты. Вы берёте 1 карту.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ReadMagic": {
+        "NAME": "Чтение магии",
+        "DESCRIPTION": "mysticmod:Трюк. NL Вы берёте !M! карты, NL затем сбрасываете 1 карту. Сжигается.",
+        "UPGRADE_DESCRIPTION": "mysticmod:Трюк. NL Вы берёте !M! карты, NL затем сбрасываете 2 карты. Сжигается."
+    },
+    "mysticmod:Riposte": {
+        "NAME": "Контратака",
+        "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Слабости и !M! Уязвимости, если выбранный враг собирается атаковать.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Snowball": {
+        "NAME": "Снежок",
+        "DESCRIPTION": "Наносит !D! урона. NL Дает доп. [#5299DC]Мощь[].",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Spark": {
+        "NAME": "Искра",
+        "DESCRIPTION": "mysticmod:Трюк. NL Вы берёте карту NL Даёт [E], если вы берёте [#5299DC]Чары[] или [#FF5252]Умение[]. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "mysticmod:Трюк. NL Вы берёте карту NL Даёт [E], если вы берёте [#5299DC]Чары[] или [#FF5252]Умение[]."
+    },
+    "mysticmod:SpellCombat": {
+        "NAME": "Боевая магия",
+        "DESCRIPTION": "[#5299DC]Мощный[]: Наносит !D! урона X раз. NL [#FF5252]Сбалансированный[]: Дает !B! Защиты X раз.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "У меня нет [#5299DC]Мощи[] или [#FF5252]Баланса[]!"
+        ]
+    },
+    "mysticmod:SpellRecall": {
+        "NAME": "Чары возврата",
+        "DESCRIPTION": "Вы кладёте выбранные [#5299DC]Чары[] из стопки сброса в руку. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Вы кладёте выбранные [#5299DC]Чары[] из стопки сброса в руку."
+    },
+    "mysticmod:Spellstrike": {
+        "NAME": "Заклинательный удар",
+        "DESCRIPTION": "Наносит !D! урона. NL Разыграйте атакующие [#5299DC]Чары[] из стопки добора. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Разыграйте атакующие [#5299DC]Чары[] из стопки добора."
+    },
+    "mysticmod:SpontaneousCaster": {
+        "NAME": "Хаотический маг",
+        "DESCRIPTION": "Каждые разыгрываемые [#5299DC]Чары[] Сжигаются и добавляют случ. [#5299DC]Чары[] в стопку сброса. NL Цена ВСЕХ [#5299DC]Чар[] снижена до [E].",
+        "UPGRADE_DESCRIPTION": "Начальная. NL Каждые разыгрываемые [#5299DC]Чары[] Сжигаются и добавляют случ. [#5299DC]Чары[] в стопку сброса. NL Цена ВСЕХ [#5299DC]Чар[] снижена до [E]."
+    },
+    "mysticmod:Shield": {
+        "NAME": "Щит",
+        "DESCRIPTION": "Дает !B! Защиты. NL Дает ещё !B! Защиты в начале вашего след. хода.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:ShockingGrasp": {
+        "NAME": "Шокирующий захват",
+        "DESCRIPTION": "Наносит !D! урона. NL [#FF5252]Сбалансированный[]: Наносит !M! урона вместо этого.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Sideswipe": {
+        "NAME": "Задеть",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: Накладывает !M! Слабости.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Stoneskin": {
+        "NAME": "Камнекожа",
+        "DESCRIPTION": "Дает !B! Защиты. NL Дает mysticmod:Камнекожи на !M! ходов.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:Strike_Mystic": {
+        "NAME": "Удар",
+        "DESCRIPTION": "Наносит !D! урона.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:StyleChange": {
+        "NAME": "Сменить стиль",
+        "DESCRIPTION": "Добавляет в руку случ. [#FF5252]Умение[]. В этом ходу оно стоит 0. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:SuddenClarity": {
+        "NAME": "Неожиданная ясность",
+        "DESCRIPTION": "Дает !B! Защиты. NL Вы берёте 1 карту.",
+        "UPGRADE_DESCRIPTION": "Дает !B! Защиты. NL Вы берёте !M! карты."
+    },
+    "mysticmod:SummonFamiliar": {
+        "NAME": "Лис-фамильяр",
+        "DESCRIPTION": "Призывает вашего верного Лиса-фамильяра. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Может атаковать или помогать делать ваши комбинации. При розыгрыше последующих копий этой карты ваш фамильяр будет улучшаться до 3 раз.",
+	    " NL В данный момент отключен!",
+	    "Моя лисичка в данный момент спит. Пожайлуста, включите FriendlyMinions"
+        ]
+    },
+    "mysticmod:TomeOfSpells": {
+        "NAME": "Том с заклинаниями",
+        "DESCRIPTION": "Добавляет !M! случ. mysticmod:Трюка в стопку сброса. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "mysticmod:VorpalThrust": {
+        "NAME": "Вострый прокол",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: Базовый урон увеличивается на !M! за каждую [#5299DC]Мощь[].",
+        "UPGRADE_DESCRIPTION": ""
+    }
+}
