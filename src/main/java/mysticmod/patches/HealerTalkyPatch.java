@@ -18,7 +18,7 @@ public class HealerTalkyPatch {
         if (AbstractDungeon.player instanceof MysticCharacter && !MysticMod.healerAccused) {
             MysticMod.storedHealerDialogY = __healer_instance.dialogY;
             __healer_instance.dialogY += 70f * Settings.scale;
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(__healer_instance, MysticCharacter.TEXT[4]));
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(__healer_instance, MysticCharacter.TEXT[3]));
             MysticMod.healerAccused = true;
             MysticMod.storedHealer = __healer_instance;
         }
