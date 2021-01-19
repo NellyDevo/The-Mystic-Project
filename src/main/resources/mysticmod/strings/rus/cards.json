@@ -134,7 +134,7 @@
     },
     "mysticmod:DiviningBlow": {
         "NAME": "Пророческий порыв",
-        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Сбалансированный[]: Вы берёте 1 карту за каждую [#5299DC]Мощь[].",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: Вы берёте 1 карту за каждую [#5299DC]Мощь[].",
         "UPGRADE_DESCRIPTION": "",
         "EXTENDED_DESCRIPTION": [
             " NL (",
@@ -185,7 +185,7 @@
     },
     "mysticmod:FiveFootStep": {
         "NAME": "5 футовый шаг",
-        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: в Сбрасывается стопку добора.",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: Сбрасывается в стопку добора.",
         "UPGRADE_DESCRIPTION": ""
     },
     "mysticmod:FloatingDisk": {
@@ -240,7 +240,7 @@
     },
     "mysticmod:HeavyStrike": {
         "NAME": "Тяжелый удар",
-        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Сбалансированный[]: Повышает свой урон на !M! навсегда. NL Сжигается.",
+        "DESCRIPTION": "Наносит !D! урона. NL [#5299DC]Мощный[]: Повышает свой урон на !M! навсегда. NL Сжигается.",
         "UPGRADE_DESCRIPTION": ""
     },
     "mysticmod:HunkerDown": {
