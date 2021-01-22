@@ -52,6 +52,11 @@ public class BlessedBook extends CustomRelic {
     }
 
     @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SpellBook.ID);
+    }
+
+    @Override
     public AbstractRelic makeCopy() {
         return new BlessedBook();
     }

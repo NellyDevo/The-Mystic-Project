@@ -32,15 +32,15 @@ public class SpellBook extends CustomRelic {
         flash();
     }
 
-    @Override
-    public void onUnequip() {
-        for (AbstractRelic relicInBossPool : RelicLibrary.bossList) {
-            if (relicInBossPool instanceof BlessedBook) {
-                RelicLibrary.bossList.remove(relicInBossPool);
-                break;
-            }
-        }
-    }
+//    @Override
+//    public void onUnequip() {
+//        for (AbstractRelic relicInBossPool : RelicLibrary.bossList) {
+//            if (relicInBossPool instanceof BlessedBook) {
+//                RelicLibrary.bossList.remove(relicInBossPool);
+//                break;
+//            }
+//        }
+//    }
 
     @Override
     public AbstractRelic makeCopy() {
