@@ -68,7 +68,9 @@
   },
   "mysticmod:MomentumPower": {
     "NAME": "Momentum",
-    "DESCRIPTIONS": ["[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block equal to your [#FF5252]Poise[] and [#5299DC]Power[] respectively."]
+    "DESCRIPTIONS": ["[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block equal to your [#FF5252]Poise[] and [#5299DC]Power[] respectively.",
+      "[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block equal to #b",
+      " times your [#FF5252]Poise[] and [#5299DC]Power[] respectively."]
   },
   "mysticmod:MysticalShieldPower": {
     "NAME": "Mystical Shield",

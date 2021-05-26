@@ -129,7 +129,9 @@
     "mysticmod:MomentumPower": {
         "NAME": "Инерция",
         "DESCRIPTIONS": [
-            "[#5299DC]Чары[] и [#FF5252]Умения[] наносят больше урона и дают больше Защиты за каждый [#FF5252]Баланс[] или [#5299DC]Мощь[] соответственно."
+            "[#5299DC]Чары[] и [#FF5252]Умения[] наносят больше урона и дают больше Защиты за каждый [#FF5252]Баланс[] или [#5299DC]Мощь[] соответственно.",
+            "[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block equal to #b",
+            " times your [#FF5252]Poise[] and [#5299DC]Power[] respectively. (translation pending, sorry!)"
         ]
     },
     "mysticmod:MysticalShieldPower": {

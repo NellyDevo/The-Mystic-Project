@@ -68,7 +68,9 @@
   },
   "mysticmod:MomentumPower": {
     "NAME": "声势",
-    "DESCRIPTIONS": ["[#5299E0]秘法牌[] and [#FF5252]战技牌[] 造成的伤害或获得的格挡分别增加[#FF5252]招式[] 或 [#5299E0]法力[] 层数的数值。"]
+    "DESCRIPTIONS": ["[#5299E0]秘法牌[] and [#FF5252]战技牌[] 造成的伤害或获得的格挡分别增加[#FF5252]招式[] 或 [#5299E0]法力[] 层数的数值。",
+      "[#5299DC]Spells[] and [#FF5252]Artes[] deal extra damage and apply extra block equal to #b",
+      " times your [#FF5252]Poise[] and [#5299DC]Power[] respectively. (translation pending, sorry!)"]
   },
   "mysticmod:MysticalShieldPower": {
     "NAME": "神秘护盾",

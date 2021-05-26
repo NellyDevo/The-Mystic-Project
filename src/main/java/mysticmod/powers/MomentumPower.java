@@ -19,29 +19,33 @@ public class MomentumPower extends AbstractPower implements CloneablePowerInterf
     public static final String NAME = cardStrings.NAME;
     public static final String[] DESCRIPTIONS = cardStrings.DESCRIPTIONS;
 
-    public MomentumPower(AbstractCreature owner) {
+    public MomentumPower(AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
         region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/momentum power 84.png"), 0, 0, 84, 84);
         region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("mysticmod/images/powers/momentum power 32.png"), 0, 0, 32, 32);
         type = PowerType.BUFF;
-        amount = -1;
+        this.amount = amount;
         updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0];
+        } else {
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        }
     }
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         if (MysticMod.isThisAnArte(card) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            damage += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            damage += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount * amount;
         }
         if (MysticMod.isThisASpell(card) && AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            damage += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            damage += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount * amount;
         }
         return damage;
     }
@@ -49,16 +53,16 @@ public class MomentumPower extends AbstractPower implements CloneablePowerInterf
     @Override
     public float modifyBlock(float block, AbstractCard card) {
         if (MysticMod.isThisAnArte(card) && AbstractDungeon.player.hasPower(SpellsPlayed.POWER_ID)) {
-            block += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount;
+            block += AbstractDungeon.player.getPower(SpellsPlayed.POWER_ID).amount * amount;
         }
         if (MysticMod.isThisASpell(card) && AbstractDungeon.player.hasPower(ArtesPlayed.POWER_ID)) {
-            block += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount;
+            block += AbstractDungeon.player.getPower(ArtesPlayed.POWER_ID).amount * amount;
         }
         return block;
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new MomentumPower(owner);
+        return new MomentumPower(owner, amount);
     }
 }
