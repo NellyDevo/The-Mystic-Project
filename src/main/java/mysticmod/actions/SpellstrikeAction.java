@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,18 +15,17 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mysticmod.MysticMod;
 
-import java.util.Iterator;
-
 public class SpellstrikeAction extends AbstractGameAction {
-    private AbstractPlayer p;
     private boolean exhaustCards;
-    private AbstractMonster t;
     private static final String ID = "mysticmod:SpellstrikeAction";
     private static final UIStrings ui = CardCrawlGame.languagePack.getUIString(ID);
     private static final String[] TEXT = ui.TEXT;
+    private AbstractMonster target;
 
     public SpellstrikeAction(int amount, AbstractMonster target, boolean exhausts) {
-        setValues(t = target, p = AbstractDungeon.player, amount);
+        this.target = target;
+        this.source = AbstractDungeon.player;
+        this.amount = amount;
         actionType = ActionType.CARD_MANIPULATION;
         duration = Settings.ACTION_DUR_MED;
         exhaustCards = exhausts;
@@ -37,19 +35,18 @@ public class SpellstrikeAction extends AbstractGameAction {
     public void update() {
         if (duration == Settings.ACTION_DUR_MED) { //what do to open screen
             CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            Iterator var5 = p.drawPile.group.iterator();
-            AbstractCard card;
-            while(var5.hasNext()) {
-                card = (AbstractCard)var5.next();
+            for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
                 if (card.type == AbstractCard.CardType.ATTACK && MysticMod.isThisASpell(card)) {
                     tmp.addToRandomSpot(card);
+                    if (!target.isDeadOrEscaped()) {
+                        card.calculateCardDamage(target);
+                    }
                 }
             }
             if (tmp.size() == 0) {
                 isDone = true;
             } else if (tmp.size() == 1) { //what do if only one available target
-                card = tmp.getTopCard();
-                playCard(card);
+                playCard(tmp.getTopCard());
                 isDone = true;
             } else {
                 AbstractDungeon.gridSelectScreen.open(tmp, amount, TEXT[0], false);
@@ -79,7 +76,7 @@ public class SpellstrikeAction extends AbstractGameAction {
         card.lighten(false);
         card.drawScale = 0.12f;
         card.targetDrawScale = 0.75f;
-        if (!card.canUse(AbstractDungeon.player, t)) {
+        if (!card.canUse(AbstractDungeon.player, target)) {
             if (exhaustCards) {
                 AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
             } else {
@@ -88,8 +85,8 @@ public class SpellstrikeAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToTop(new WaitAction(0.4f));
             }
         } else {
-            card.applyPowers();
-            AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, t));
+            card.calculateCardDamage(target);
+            AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, target));
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
             if (!Settings.FAST_MODE) {
                 AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
