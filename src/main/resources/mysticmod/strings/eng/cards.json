@@ -221,8 +221,8 @@
   },
   "mysticmod:GreaterInvisibility": {
     "NAME": "Greater Invisibility",
-    "DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL [#FF5252]Poised[]: Does not Exhaust if you played !M! [#FF5252]Artes[] this turn.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL [#FF5252]Poised[]: Does not Exhaust if you played !M! [#FF5252]Arte[] this turn."
+    "DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL [#FF5252]Poised[]: Does not Exhaust if you have at least !M! [#FF5252]Poise[].",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust, Ethereal. NL [#FF5252]Poised[]: Does not Exhaust."
   },
   "mysticmod:IllusionOfCalm": {
     "NAME": "Illusion Of Calm",
