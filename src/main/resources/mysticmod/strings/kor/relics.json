@@ -1,0 +1,47 @@
+{
+  "mysticmod:BentSpoon": {
+    "NAME": "구부러진 숟가락",
+    "FLAVOR": "리는 당신이 숟가락이 없다는 것을 아는 것을 원치 않는다.",
+    "DESCRIPTIONS": ["#ymysticmod:장난 카드가 1 추가 피해를 입히고 #y방어도를 1 더 얻습니다."]
+  },
+  "mysticmod:BlessedBook": {
+    "NAME": "축복받은 책",
+    "FLAVOR": "신비로운 마법으로 강화된 강력한 주문 책입니다.",
+    "DESCRIPTIONS": ["#y주문 책을 대체합니다. 매 ", " 턴 마다, 무작위 #ymysticmod:장난 카드를 손에 추가합니다."]
+  },
+  "mysticmod:CrystalBall": {
+    "NAME": "수정구",
+    "FLAVOR": "Cannot interface with Palantír, Pensieves, Scryballs, Gramerhain, Shiral crystals, or Urim and Thummim",
+    "DESCRIPTIONS": ["[#FF5252]예술[] 스킬이 아닌 모든 것을 [#5299DC]주문[]으로 간주하고, 모든 [#5299DC]주문[] 공격이 아닌 모든 것을 [#FF5252]예술[]로 간주합니다."]
+  },
+  "mysticmod:DeckOfManyThings": {
+    "NAME": "많은 것의 덱",
+    "FLAVOR": "왜 누군가가 이만한 덱으로 저런 마법 효과를 나타내는지 의문이다.",
+    "DESCRIPTIONS": ["매 턴 시작시 [E] 을 얻습니다. 턴 종료시, 해당 턴에 두 장의 [#5299DC]주문[] 카드와 두 장의 [#FF5252]예술[] 카드를 사용하지 않았다면 체력을 2 잃습니다."]
+  },
+  "mysticmod:Kama": {
+    "NAME": "낫",
+    "FLAVOR": "밀과 영혼을 수확하는 데 일반적으로 사용됩니다.",
+    "DESCRIPTIONS": ["사용하는 5번째 카드마다, [#FF5252]예술[] 카드라면 #y힘을 1 얻고, [#5299DC]주문[] 카드라면 #y민첩을 1 얻습니다."]
+  },
+  "mysticmod:RunicPrism": {
+    "NAME": "룬 프리즘",
+    "FLAVOR": "달의 신의 어두운 면.",
+    "DESCRIPTIONS": ["[#5299DC]주문[] 카드를 사용할 때 마다, 무작위 적 하나에게 피해를 3 줍니다."]
+  },
+  "mysticmod:RabbitsFoot": {
+    "NAME": "토끼발",
+    "FLAVOR": "주인에게 행운을 가져다줄거야.",
+    "DESCRIPTIONS": ["[#FF5252]예술[] 카드를 사용할 때 마다, 방어도를 1 얻습니다."]
+  },
+  "mysticmod:SpellBook": {
+    "NAME": "주문 책",
+    "FLAVOR": "모든 주문 시전자에게 특별한 존재입니다. 작성자만 이해할 수 있는 주문 기록이 들어 있습니다.",
+    "DESCRIPTIONS": ["전투 시작시, 무작위 #ymysticmod:장난 카드 한 장을 손으로 가져옵니다."]
+  },
+  "mysticmod:TrainingManual": {
+    "NAME": "훈련 설명서",
+    "FLAVOR": "다양한 전투 방식에 대한 도표가 들어 있는 지침 책자. 글씨가 묘하게 낯이 익다.",
+    "DESCRIPTIONS": ["전투 시작시, 무작위 [#FF5252]예술[] 카드 한 장을 손으로 가져옵니다."]
+  }
+}

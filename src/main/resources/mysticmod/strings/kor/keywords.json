@@ -1,0 +1,38 @@
+{
+  "CANTRIP": {
+    "PROPER_NAME": "장난",
+    "NAMES": [
+      "장난",
+      "장난"
+    ],
+    "DESCRIPTION": "[#5299DC]위력[]이 2 이하라면 [#5299DC]주문[]으로 간주됩니다."
+  },
+  "FEAT": {
+    "PROPER_NAME": "위업",
+    "NAMES": [
+      "위업"
+    ],
+    "DESCRIPTION": "이 턴에 다른 [#FF5252]예술[] 카드를 사용했다면 사용할 수 없습니다."
+  },
+  "SPELLPOWER": {
+    "PROPER_NAME": "주문력",
+    "NAMES": [
+      "주문력"
+    ],
+    "DESCRIPTION": "[#5299DC]주문[] 카드에 의해 얻는 방어도와 피해가 증가합니다."
+  },
+  "STONESKIN": {
+    "PROPER_NAME": "바위피부",
+    "NAMES": [
+      "바위피부"
+    ],
+    "DESCRIPTION": "매턴 방어도를 2 얻습니다. 이 방어도는 방어도에 영향을 미치는 모든 위력 수치의 영향을 받습니다."
+  },
+  "TECHNIQUE": {
+    "PROPER_NAME": "기법",
+    "NAMES": [
+      "기법"
+    ],
+    "DESCRIPTION": "[#FF5252]예술[] 카드에 의해 얻는 방어도와 피해가 증가합니다."
+  }
+}

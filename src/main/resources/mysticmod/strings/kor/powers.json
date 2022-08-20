@@ -1,0 +1,111 @@
+{
+  "mysticmod:ArcaneAccuracyPower": {
+    "NAME": "주문력",
+    "DESCRIPTIONS": ["[#5299DC]주문[] 카드에 의해 얻는 #y방어도와 피해량을 증가시킵니다", "."]
+  },
+  "mysticmod:ArtesPlayedPower": {
+    "NAME": "[#FF5252]침착[]",
+    "DESCRIPTIONS": ["이번 턴에 ", "장의 [#FF5252]예술[] 카드를 사용함.", "장의 [#FF5252]예술[] 카드를 사용함."]
+  },
+  "mysticmod:ArtesPlayedNextTurnPower": {
+    "NAME": "다음턴에 [#FF5252]침착[] 얻음",
+    "DESCRIPTIONS": ["다음 턴 시작시", " 의 [#FF5252]침착[]을 얻습니다."]
+  },
+  "mysticmod:ComboCasterPower": {
+    "NAME": "서리 화살",
+    "DESCRIPTIONS": ["매턴마다 ", " 무작위 장난 카드를 손에 추가하고", " 무작위로 장난 카드를 손에 추가하고", " 카드를 ", "장 덜 뽑습니다.", "장 덜 뽑습니다."]
+  },
+  "mysticmod:ComponentsPouchPower": {
+    "NAME": "신비한 화살",
+    "DESCRIPTIONS": ["", "턴 동안, 든 수비를 [#5299DC]주문[]으로 간주합니다.", "턴 동안, 든 수비를 [#5299DC]주문[]으로 간주합니다.", ""]
+  },
+  "mysticmod:DisciplinePower": {
+    "NAME": "규율",
+    "DESCRIPTIONS": ["매 턴 시작시", " [#5299DC]위력[]과 [#FF5252]침착[]을 얻습니다."]
+  },
+  "mysticmod:DoublecastPower": {
+    "NAME": "이중 시전",
+    "DESCRIPTIONS": ["다음 [#5299DC]주문[] 카드가 두 번 사용됩니다.", "다음 [#5299DC]주문[] 카드 ", "장이 두 번 사용됩니다."]
+  },
+  "mysticmod:EbbPower": {
+    "NAME": "썰물",
+    "DESCRIPTIONS": ["매 턴 시작시, 손에 [#5299DC]주문[] 카드가 없으면 카드를 1장 버리고 [#FF5252]예술[] 카드가 없으면 카드를 1장 버립니다."]
+  },
+  "mysticmod:EnergizedPurplePower": {
+    "NAME": "활기참",
+    "DESCRIPTIONS": [
+      "#b 를 얻습니다",
+      " 다음 턴에 추가적인 [E] ."
+    ]
+  },
+  "mysticmod:FlowPower": {
+    "NAME": "밀물",
+    "DESCRIPTIONS": ["매 턴 시작시, 카드를 ", "1장 추가로 뽑습니다.", "1장 추가로 뽑습니다."]
+  },
+  "mysticmod:FoxEvolutionPower": {
+    "NAME": "진화",
+    "DESCRIPTIONS": ["Your familiar now has an additional move", " damages all enemies", " has increased effectiveness", ", and", ".", ","]
+  },
+  "mysticmod:GainDexterityPower": {
+    "NAME": "선넘은",
+    "DESCRIPTIONS": ["턴이 끝날 때 민첩을 ", " 얻습니다."]
+  },
+  "mysticmod:GeminiFormPower": {
+    "NAME": "쌍둥이자리",
+    "DESCRIPTIONS": ["", "", "", "매 턴, 처음으로 사용하는 [#5299DC]주문[] 카드와 [#FF5252]예술[] 카드는 뽑을 카드 더미에서 다른 유형의 무작위 카드 효과로 대신 발동합니다."]
+  },
+  "mysticmod:HastePower": {
+    "NAME": "급함",
+    "DESCRIPTIONS": ["", " 턴 동안, ", " 턴 동안, ", "카드를 한 장 더뽑고, [E] 을 얻고, 공격 피해량이 1 늘어나고, 카드로부터 방어도를 1 추가로 얻습니다."]
+  },
+  "mysticmod:MightyMagicPower": {
+    "NAME": "기법",
+    "DESCRIPTIONS": ["[#FF5252]예술[] 카드에 의해 얻는 방어도와 피해가 증가합니다.", "."]
+  },
+  "mysticmod:MirrorEntityPower": {
+    "NAME": "환영 복제",
+    "DESCRIPTIONS": ["[#5299DC]주문[] 카드와 [#FF5252]예술[] 카드로 이번 턴에 얻었던 [#5299DC]위력[]과 [#FF5252]침착[] 수치를 다음 턴에도 얻습니다."]
+  },
+  "mysticmod:MomentumPower": {
+    "NAME": "추진력",
+    "DESCRIPTIONS": ["[#5299DC]주문[] 카드와 [#FF5252]예술[] 카드가 각각의 [#FF5252]침착[]이나 [#5299DC]위력[] 스택에 따라 더 많은 피해를 입히고 더 많은 방어도를 얻습니다.",
+      "[#5299DC]주문[] 카드와 [#FF5252]예술[] 카드가 각각의 [#FF5252]침착[]이나 [#5299DC]위력[] 스택에 #b",
+      " 배에 따라 더 많은 피해를 입히고 더 많은 방어도를 얻습니다."]
+  },
+  "mysticmod:MysticalShieldPower": {
+    "NAME": "마법 보호막",
+    "DESCRIPTIONS": ["내 턴이 시작할때마다 방어도를 유지합니다(최대 8)."]
+  },
+  "mysticmod:MysticalShieldUpgradedPower": {
+    "NAME": "마법 보호막",
+    "DESCRIPTIONS": ["내 턴이 시작할때마다 방어도를 8 얻습니다."]
+  },
+  "mysticmod:Natural20Power": {
+    "NAME": "자연스럽게",
+    "DESCRIPTIONS": ["치명타!"]
+  },
+  "mysticmod:PureInstinctPower": {
+    "NAME": "타고난 재능",
+    "DESCRIPTIONS": ["", "턴 동안, 모든 타격이 [#FF5252]예술[]로 간주됩니다.", "턴 동안, 모든 타격이 [#FF5252]예술[]로 간주됩니다."]
+  },
+  "mysticmod:RapidCasterPower": {
+    "NAME": "유성우",
+    "DESCRIPTIONS": ["이번 턴에 처음으로 사용하는 장난 카드 효과가 두 번 발동됩니다.", "", "이번 턴에 처음으로 사용하는 장난 카드 효과가 두 번 발동됩니다."]
+  },
+  "mysticmod:SpellsPlayedPower": {
+    "NAME": "[#5299DC]위력[]",
+    "DESCRIPTIONS": ["이번 턴에 ", "장의 [#5299DC]주문[]을 사용함.", "장의 [#5299DC]주문[]을 사용함."]
+  },
+  "mysticmod:SpellsPlayedNextTurnPower": {
+    "NAME": "다음 턴에 [#5299DC]위력[] 얻음",
+    "DESCRIPTIONS": ["다음 턴 시작시 ", " 의 [#5299DC]위력[]을 얻습니다."]
+  },
+  "mysticmod:SpontaneousCasterPower": {
+    "NAME": "물방울",
+    "DESCRIPTIONS": ["[#5299DC]주문[] 카드를 하나 사용할때마다, 그 카드를 소멸시키고 무작위 [#5299DC]주문[] 카드를 버린 카드 더미에 넣습니다. NL 모든 [#5299DC]주문[] 카드의 비용이 [E] 감소합니다."]
+  },
+  "mysticmod:StoneskinPower": {
+    "NAME": "바위피부",
+    "DESCRIPTIONS": ["다음 턴에 방어도를 ", "2 추가로 (", " 2 추가로 (", ") 얻습니다. 이 방어도는 방어도에 영향을 미치는 모든 위력 수치의 영향을 받습니다."]
+  }
+}

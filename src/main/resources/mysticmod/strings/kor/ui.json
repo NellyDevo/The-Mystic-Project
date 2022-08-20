@@ -1,0 +1,46 @@
+{
+  "mysticmod:ArteHologram": {
+    "TEXT": [
+      "손으로 가져올 ",
+      " 예술 카드를 한 장 선택하십시오."
+    ]
+  },
+  "mysticmod:SpellRecallAction": {
+    "TEXT": [
+      "손으로 가져올 주문 카드를 한 장 선택하십시오."
+    ]
+  },
+  "mysticmod:SpellSeekAction": {
+    "TEXT": [
+      "손으로 가져올",
+      " 주문 카드를",
+      " 주문 카드들을",
+      "을 선택하십시오."
+    ]
+  },
+  "mysticmod:SpellstrikeAction": {
+    "TEXT": [
+      "사용할 공격 주문 카드를 선택하십시오."
+    ]
+  },
+  "mysticmod:MysticMod": {
+    "TEXT": [
+      "주문 카드와 예술 카드가 서로 다음과 같이 차별화됩니다.",
+      "모양.",
+      "색깔.",
+      "모양과 색깔 둘 다.",
+      "변경 사항을 반영하려면 다시 시작해야 합니다.",
+      "Fox Minion Card 카드 사용 (FriendlyMinions 필요)",
+      "신비주의자 모드",
+      "새로운 캐릭터: 신비주의자를 추가합니다.",
+      "위력/침착 소리 효과 켜기."
+    ]
+  },
+  "mysticmod:RenderType": {
+    "TEXT": [
+      "주문",
+      "예술",
+      "주문과 예술"
+    ]
+  }
+}

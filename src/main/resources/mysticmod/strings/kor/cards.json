@@ -1,0 +1,467 @@
+{
+  "mysticmod:AbstractMysticCard": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "주문",
+      "예술",
+      "이 스킬은 [#5299DC]주문[]으로 간주되며, 사용시 [#5299DC]위력[] 1 을 부여합니다.",
+      "이 스킬은 [#FF5252]예술[]로 간주되며, 사용시 [#FF5252]침착[] 1 을 부여합니다.",
+      "이 공격은 [#5299DC]주문[]으로 간주되며, 사용시 [#5299DC]위력[] 1 을 부여합니다.",
+      "이 공격은 [#FF5252]예술[]로 간주되며, 사용시 [#FF5252]침착[] 1 을 부여합니다.",
+      "위력 추가효과",
+      "침착 추가효과",
+      "[#5299DC]위력[]을 가지고 있다면 추가 효과를 가집니다.",
+      "[#FF5252]침착[]을 가지고 있다면 추가 효과를 가집니다."
+    ]
+  },
+  "mysticmod:AcidSplash": {
+    "NAME": "산성 분출",
+    "DESCRIPTION": "mysticmod:장난. NL 피해를 !D! 줍니다. 카드를 한 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Alacrity": {
+    "NAME": "민첩함",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#FF5252]침착 추가효과[]: 다음 턴에 [E] 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:AllIn": {
+    "NAME": "올인",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 약화를 !M! 얻습니다. [#5299DC]위력[] 스택만큼 약화가 감소합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ArcaneAccuracy": {
+    "NAME": "메타마법",
+    "DESCRIPTION": "mysticmod:주문력 을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ArcaneDodge": {
+    "NAME": "신비로운 회피",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#5299DC]위력 추가효과[]: 방어도를 !M! 추가로 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:BladeBurst": {
+    "NAME": "칼날 파열",
+    "DESCRIPTION": "힘을 !M! 잃습니다. 피해를 !D! 줍니다. 버린 카드 더미에 *마법 *무기 를 추가합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "힘을 !M! 잃습니다. 피해를 !D! 줍니다. 버린 카드 더미에 *마법 *무기+ 를 추가합니다. NL 소멸."
+  },
+  "mysticmod:BladeMaster": {
+    "NAME": "칼날 장인",
+    "DESCRIPTION": "버린 카드 더미에서 [#FF5252]예술[] 카드 !M! 장을 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:BladedDash": {
+    "NAME": "칼날 돌진",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: 방어도를 !B! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:BulkUp": {
+    "NAME": "벌크업",
+    "DESCRIPTION": "방어도를 !B! 얻습니다, 손에 있는 무작위 카드 한 장을 소멸시킵니다. NL [#5299DC]위력 추가효과[]: 소멸시킬 카드를 선택합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ChargedParry": {
+    "NAME": "주먹 준비 완료",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#5299DC]위력 추가효과[]: 이번 턴에만 힘을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ClosingBarrage": {
+    "NAME": "일제 사격",
+    "DESCRIPTION": "Y 만큼 X 번의 피해를 줍니다, 여기서 Y 는 총 [#5299DC]위력[]과 [#FF5252]침착[]에 !M! 을 곱한 값과 같습니다.",
+    "UPGRADE_DESCRIPTION": "Y 만큼 X+1 번의 피해를 줍니다, 여기서 Y 는 총 [#5299DC]위력[]과 [#FF5252]침착[]에 !M! 을 곱한 값과 같습니다.",
+    "EXTENDED_DESCRIPTION": [" NL ( !D! 피해)"]
+  },
+  "mysticmod:ComboCaster": {
+    "NAME": "서리 화살",
+    "DESCRIPTION": "턴이 시작할 때, 손에 무작위로 mysticmod:장난 카드 한 장을 추가합니다. 카드를 한 장 덜 뽑습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ComponentsPouch": {
+    "NAME": "신비한 화살",
+    "DESCRIPTION": "피해를 !D! 줍니다, 그리고 나서 손에 있는 [#5299DC]주문[] 카드마다 !D! 피해를 줍니다. NL !M! 턴 동안, 모든 수비를 [#5299DC]주문[]으로 간주합니다.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (가지고 있음 ",
+      " [#5299DC]주문[]).",
+      " [#5299DC]주문[])."
+    ]
+  },
+  "mysticmod:CorrosiveTouch": {
+    "NAME": "부식성 손길",
+    "DESCRIPTION": "피해를 !D! 줍니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 다음 턴 시작시 [#5299DC]위력[]을 1 얻습니다."
+  },
+  "mysticmod:CureLightWounds": {
+    "NAME": "가벼운 상처 치료",
+    "DESCRIPTION": "재생을 !M! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": ["적당한 상처 치료"]
+  },
+  "mysticmod:Daze": {
+    "NAME": "주의 전환",
+    "DESCRIPTION": "취약을 !M! 부여합니다. NL [#FF5252]침착 추가효과[]: 약화도 !M! 부여합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Dedication": {
+    "NAME": "헌신",
+    "DESCRIPTION": "힘 과 민첩을 !M! 얻습니다. NL 몇번이든지 강화 할 수 있습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Defend_Mystic": {
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Discipline": {
+    "NAME": "규율",
+    "DESCRIPTION": "매 턴 시작시 [#5299DC]위력[]과 [#FF5252]침착[]을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Disengage": {
+    "NAME": "해제",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 매 턴 시작시 [#FF5252]침착[]을 1 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Disintegrate": {
+    "NAME": "분해",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도를 무시합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:DiviningBlow": {
+    "NAME": "신의 강타",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: [#5299DC]위력[] 1당 카드를 1장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " 카드)",
+      " 카드)"
+    ]
+  },
+  "mysticmod:Doublecast": {
+    "NAME": "이중 시전",
+    "DESCRIPTION": "이번 턴에 사용하는 다음 [#5299DC]주문[] 카드가 두 번 사용됩니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 [#5299DC]주문[] 카드 2장이 두 번 사용됩니다."
+  },
+  "mysticmod:EarthenWall": {
+    "NAME": "흙 벽",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 이번 턴에만 민첩을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:EbbAndFlow": {
+    "NAME": "밀물과 썰물",
+    "DESCRIPTION": "매 턴, 카드를 1장 뽑고, 손에 [#5299DC]주문[] 카드가 없으면 카드를 1장 버리고 [#FF5252]예술[] 카드가 없으면 카드를 1장 버립니다. 둘 다 없으면 2장 버립니다.",
+    "UPGRADE_DESCRIPTION": "선천성. 매 턴, 카드를 1장 뽑고, 손에 [#5299DC]주문[] 카드가 없으면 카드를 1장 버리고 [#FF5252]예술[] 카드가 없으면 카드를 1장 버립니다. 둘 다 없으면 2장 버립니다."
+  },
+  "mysticmod:EnchantedMoulinet": {
+    "NAME": "강화된 물리넷",
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 적이 하나 죽을때 마다, [E] 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+},
+  "mysticmod:EnergizedRift": {
+    "NAME": "강력한 폭풍",
+    "DESCRIPTION": "[#FF5252]침착 추가효과[]: [#FF5252]침착[] 스택마다 무작위 mysticmod:장난 카드를 뽑을 카드 더미에 추가합니다 . NL 소멸.",
+    "UPGRADE_DESCRIPTION": "[#FF5252]침착 추가효과[]: [#FF5252]침착[] 스택마다 무작위 강화된 mysticmod:장난 카드를 뽑을 카드 더미에 추가합니다 . NL 소멸.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " mysticmod:장난. )",
+      " mysticmod:장난. )",
+      "[#FF5252]침착[]이 하나도 없어!"
+    ]
+  },
+  "mysticmod:Feint": {
+    "NAME": "속임수",
+    "DESCRIPTION": "피해를 !D! 줍니다. 무작위 mysticmod:장난 카드 1장을 뽑을 카드 더미에 추가합니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 무작위 강화된 mysticmod:장난 카드 1장을 뽑을 카드 더미에 추가합니다."
+  },
+  "mysticmod:Fireball": {
+    "NAME": "화염구",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#FF5252]침착 추가효과[]: 다른 적들에게도 같은 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:FiveFootStep": {
+    "NAME": "다섯 발자국 걷기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: 이 카드를 버리는 대신 뽑을 카드 더미에 섞어넣습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:FloatingDisk": {
+    "NAME": "부동 디스크",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#FF5252]침착 추가효과[]: 민첩도 !M! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Flourish": {
+    "NAME": "번창",
+    "DESCRIPTION": "[#5299DC][]과 [#FF5252]침착[] 1마다 비용이 [E] 감소합니다. 피해를 !D! 만큼 두 번 주고, [#5299DC]위력[]과 [#FF5252]침착[]을 두 배 증가시킵니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Flurry": {
+    "NAME": "흩날리는 구름",
+    "DESCRIPTION": "피해를 !D! 만큼 !M! 번 줍니다. NL [#5299DC]위력 추가효과[]: !M! 번 대신 !mysticmod:M2! 번 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Fly": {
+    "NAME": "비행",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#FF5252]침착 추가효과[]: 다음 턴에 방어도가 사라지지 않습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:GeminiForm": {
+    "NAME": "쌍둥이자리",
+    "DESCRIPTION": "매 턴, 처음으로 사용하는 [#5299DC]주문[] 카드와 [#FF5252]예술[] 카드는 뽑을 카드 더미에서 다른 유형의 무작위 카드 효과로 대신 발동합니다. NL 휘발성.",
+    "UPGRADE_DESCRIPTION": "매 턴, 처음으로 사용하는 [#5299DC]주문[] 카드와 [#FF5252]예술[] 카드는 뽑을 카드 더미에서 다른 유형의 무작위 카드 효과로 대신 발동합니다."
+  },
+  "mysticmod:Grapple": {
+    "NAME": "붙잡기",
+    "DESCRIPTION": "대상을 기절 시킵니다. 공격 카드와 같은 턴에 사용할 수 없습니다. NL 휘발성. 소멸.",
+    "UPGRADE_DESCRIPTION": "대상을 기절 시킵니다. 공격 카드와 같은 턴에 사용할 수 없습니다. NL 소멸."
+  },
+  "mysticmod:Grease": {
+    "NAME": "윤활유",
+    "DESCRIPTION": "이번 턴에만 힘을 !M! 감소 시킵니다. NL [#FF5252]침착 추가효과[]: 모든 적을 대상으로 합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:GreaterInvisibility": {
+    "NAME": "더 나은 투명화",
+    "DESCRIPTION": "불가침을 1 얻습니다. NL 휘발성, 소멸. NL [#FF5252]침착 추가효과[]: [#FF5252]침착[]이 !M! 이상이라면 소멸하지 않습니다.",
+    "UPGRADE_DESCRIPTION": "불가침을 1 얻습니다. NL 휘발성, 소멸. NL [#FF5252]침착 추가효과[]: [#FF5252]침착[]이 !M! 이상이라면 소멸하지 않습니다."
+  },
+  "mysticmod:IllusionOfCalm": {
+    "NAME": "침착이라는 환상",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 손상을 !M! 얻습니다. [#FF5252]침착[] 스택마다 손상이 감소합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Haste": {
+    "NAME": "급함",
+    "DESCRIPTION": "X 턴 동안, 카드를 한 장 더뽑고, [E] 을 얻고, 공격 피해량이 1 늘어나고, 카드로부터 방어도를 1 추가로 얻습니다.",
+    "UPGRADE_DESCRIPTION": "X+1 턴 동안, 카드를 한 장 더뽑고, [E] 을 얻고, 공격 피해량이 1 늘어나고, 카드로부터 방어도를 1 추가로 얻습니다."
+  },
+  "mysticmod:HeavyStrike": {
+    "NAME": "강력한 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: 이 카드의 피해량을 영구적으로 !M! 증가시킵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:HunkerDown": {
+    "NAME": "자세 갖추기",
+    "DESCRIPTION": "이번 턴이 끝날때까지 민첩을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:KeenEdge": {
+    "NAME": "예리한 날",
+    "DESCRIPTION": "모든 적에게 취약을 !M! 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:KnowledgePool": {
+    "NAME": "지식의 샘물",
+    "DESCRIPTION": "무작위 [#5299DC]주문[] 카드 세 장중 하나를 골라 손으로 가져옵니다. 이번 턴에만 그 카드의 비용이 0이 됩니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:LightningBolt": {
+    "NAME": "번개 화살",
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. NL [#FF5252]침착 추가효과[]: 대신 피해를 !M! 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Lunge": {
+    "NAME": "찌르기",
+    "DESCRIPTION": "[E] [E] 를 얻습니다. NL 카드를 2장 뽑습니다. NL 이번 턴에만 민첩을 4 잃습니다. NL 소멸. NL mysticmod:위업.",
+    "UPGRADE_DESCRIPTION": "[E] [E] [E] 를 얻습니다. NL 카드를 2장 뽑습니다. NL 이번 턴에만 민첩을 4 잃습니다. NL 소멸. NL mysticmod:위업.",
+    "EXTENDED_DESCRIPTION": [
+      "이번 턴에 [#FF5252]예술[] 카드를 이미 사용했어!"
+    ]
+  },
+  "mysticmod:MagicMissile": {
+    "NAME": "마법 미사일",
+    "DESCRIPTION": "이번 전투에서 덱을 섞은 횟수만큼 피해를 !D! 줍니다.",
+    "UPGRADE_DESCRIPTION": "이번 전투에서 덱을 섞은 횟수와 [#FF5252]침착[] 스택을 합한만큼 피해를 !D! 줍니다.",
+    "EXTENDED_DESCRIPTION": [" NL ( !M! 번.)", " NL ( !M! 번.)"]
+  },
+  "mysticmod:MagicWeapon": {
+    "NAME": "마법 무기",
+    "DESCRIPTION": "힘을 !M! 얻습니다. *칼날 *파열 을 버린 카드 더미에 추가합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "힘을 !M! 얻습니다. *칼날 *파열+ 를 버린 카드 더미에 추가합니다. NL 소멸."
+  },
+  "mysticmod:MightyMagic": {
+    "NAME": "칼날 세공",
+    "DESCRIPTION": "mysticmod:기법 을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:MirrorEntity": {
+    "NAME": "환영 복제",
+    "DESCRIPTION": "[#5299DC]주문[] 카드와 [#FF5252]예술[] 카드로 이번 턴에 얻었던 [#5299DC]위력[]과 [#FF5252]침착[] 수치를 다음 턴에도 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:MirrorStrike": {
+    "NAME": "환영 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: [#5299DC]위력[] 2당, 피해를 !D! 더 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Momentum": {
+    "NAME": "추진력",
+    "DESCRIPTION": "[#5299DC]주문[] 카드와 [#FF5252]예술[] 카드가 각각의 [#FF5252]침착[]이나 [#5299DC]위력[] 스택에 따라 더 많은 피해를 입히고 더 많은 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:MysticalShield": {
+    "NAME": "마법 보호막",
+    "DESCRIPTION": "내 턴이 시작할때마다 방어도를 유지합니다(최대 8). ",
+    "UPGRADE_DESCRIPTION": "내 턴이 시작할때마다 방어도를 8 얻습니다."
+  },
+  "mysticmod:Natural20": {
+    "NAME": "자연스럽게",
+    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드가 두 배의 피해를 입힙니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드가 두 배의 피해를 입힙니다."
+  },
+  "mysticmod:ObscuringMist": {
+    "NAME": "흐릿한 안개",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#FF5252]침착 추가효과[]: 인공물을 !M! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:PowerAttack": {
+    "NAME": "강한 공격",
+    "DESCRIPTION": "이번 턴에만 힘을 !mysticmod:M2! 얻고 민첩을 !M! 잃습니다. NL mysticmod:위업.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "이번 턴에 [#FF5252]예술[] 카드를 이미 사용했어!"
+    ]
+  },
+  "mysticmod:PowerSlash": {
+    "NAME": "강하게 베기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#FF5252]침착[]을 1 추가로 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:PreparedCaster": {
+    "NAME": "예언자",
+    "DESCRIPTION": "선천성. NL 뽑을 카드 더미에서 [#5299DC]주문[] 카드를 한 장 손으로 가져옵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Prestidigitation": {
+    "NAME": "요술",
+    "DESCRIPTION": "mysticmod:장난. NL 방어도를 !B! 얻습니다. 카드를 한 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Probe": {
+    "NAME": "조사",
+    "DESCRIPTION": "피해를 !D! 줍니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 다음 턴 시작시 [#FF5252]침착[]을 1 얻습니다."
+  },
+  "mysticmod:PunishingArmor": {
+    "NAME": "살인적인 갑옷",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL [#FF5252]침착 추가효과[]: 가시를 !M! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:PureInstinct": {
+    "NAME": "타고난 재능",
+    "DESCRIPTION": "방어도를 !B! 얻고, 손에 있는 [#FF5252]예술[] 스택마다 방어도를 !B! 추가로 얻습니다. NL !M! 턴 동안, 모든 타격이 [#FF5252]예술[]로 간주됩니다.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (가지고 있음: ",
+      " [#FF5252]예술[]).",
+      " [#FF5252]예술[])."
+    ]
+  },
+  "mysticmod:RapidCaster": {
+    "NAME": "유성우",
+    "DESCRIPTION": "이번 턴에 처음으로 사용하는 mysticmod:장난 카드 효과가 두 번 발동됩니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 이번 턴에 처음으로 사용하는 mysticmod:장난 카드 효과가 두 번 발동됩니다."
+  },
+  "mysticmod:RayOfFrost": {
+    "NAME": "서리 광선",
+    "DESCRIPTION": "mysticmod:장난. NL 피해를 !D! 줍니다. 방어도를 !B! 얻습니다. 카드를 한 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ReadMagic": {
+    "NAME": "마법 독서",
+    "DESCRIPTION": "mysticmod:장난. NL 카드를 !M! 장 뽑고 1장 버립니다. 소멸.",
+    "UPGRADE_DESCRIPTION": "mysticmod:장난. NL 카드를 !M! 장 뽑고 2장 버립니다. 소멸."
+  },
+  "mysticmod:Riposte": {
+    "NAME": "응수",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 공격할 의도가 있었다면, 취약을 !M! 약화를 !M! 부여합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Snowball": {
+    "NAME": "눈덩이",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력[]을 1 추가로 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Spark": {
+    "NAME": "불꽃",
+    "DESCRIPTION": "mysticmod:장난. NL 카드를 한 장 뽑습니다. 그 카드가 [#5299DC]주문[] 카드나 [#FF5252]예술[] 카드라면 [E] 를 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "mysticmod:장난. NL 카드를 한 장 뽑습니다. 그 카드가 [#5299DC]주문[] 카드나 [#FF5252]예술[] 카드라면 [E] 를 얻습니다."
+  },
+  "mysticmod:SpellCombat": {
+    "NAME": "전투 주문",
+    "DESCRIPTION": "[#5299DC]위력 추가효과[]: 피해를 !D! 만큼 X 번 줍니다. NL [#FF5252]침착 추가효과[]: 방어도를 !B! 만큼 X 번 얻습니다.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "[#5299DC]위력[]이나 [#FF5252]침착[]이 없어!"
+    ]
+  },
+  "mysticmod:SpellRecall": {
+    "NAME": "소환 주문",
+    "DESCRIPTION": "버린 카드 더미에서 [#5299DC]주문[] 카드를 한 장 손으로 가져옵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "버린 카드 더미에서 [#5299DC]주문[] 카드를 한 장 손으로 가져옵니다."
+  },
+  "mysticmod:Spellstrike": {
+    "NAME": "타격 주문",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 뽑을 카드 더미에서 공격 [#5299DC]주문[]을 하나 선택해 사용합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 뽑을 카드 더미에서 공격 [#5299DC]주문[]을 하나 선택해 사용합니다."
+  },
+  "mysticmod:SpontaneousCaster": {
+    "NAME": "물방울",
+    "DESCRIPTION": "[#5299DC]주문[] 카드를 하나 사용할때마다, 그 카드를 소멸시키고 무작위 [#5299DC]주문[] 카드를 버린 카드 더미에 넣습니다. NL 모든 [#5299DC]주문[] 카드의 비용이 [E] 감소합니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL [#5299DC]주문[] 카드를 하나 사용할때마다, 그 카드를 소멸시키고 무작위 [#5299DC]주문[] 카드를 버린 카드 더미에 넣습니다. NL 모든 [#5299DC]주문[] 카드의 비용이 [E] 감소합니다."
+  },
+  "mysticmod:Shield": {
+    "NAME": "보호막",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 방어도를 !B! 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:ShockingGrasp": {
+    "NAME": "움켜잡기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#FF5252]침착 추가효과[]: 대신 피해를 !M! 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Sideswipe": {
+    "NAME": "옆치기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: 약화도 !M! 부여합니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Stoneskin": {
+    "NAME": "바위 피부",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL !M! 턴 동안 mysticmod:바위피부 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:Strike_Mystic": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:StyleChange": {
+    "NAME": "스타일 변화",
+    "DESCRIPTION": "무작위 [#FF5252]예술[] 카드 한 장을 손으로 가져옵니다. 그 카드의 비용이 이번 턴에만 0이 됩니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:SuddenClarity": {
+    "NAME": "급속 성장",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 한 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다."
+  },
+  "mysticmod:SummonFamiliar": {
+    "NAME": "친구 소환",
+    "DESCRIPTION": "충성스러운 여우를 한 마리 소환합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "공격할 수 있고 당신의 콤보에 맞춰 도움을 줄 수도 있습니다. 이 카드와 이름이 같은 카드를 사용할 때 마다 여우가 강화됩니다.(최대 3번)",
+      " NL 현재 비활성화됨!",
+      "내 여우가 지금 잠들었어!. FriendlyMinions를 다시 켜야 돼!"
+    ]
+  },
+  "mysticmod:TomeOfSpells": {
+    "NAME": "주문 고서",
+    "DESCRIPTION": "뽑을 카드 더미에 무작위 mysticmod:장난 카드를 !M! 장 추가합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "mysticmod:VorpalThrust": {
+    "NAME": "날카로운 화살촉",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL [#5299DC]위력 추가효과[]: [#5299DC]위력[] 스택당 기본 피해량을 !M! 증가시킵니다.",
+    "UPGRADE_DESCRIPTION": ""
+  }
+}

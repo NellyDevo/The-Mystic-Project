@@ -6,17 +6,17 @@
     <!-- Change These to match your mod -->
     <groupId>mysticmod</groupId>
     <artifactId>MysticMod</artifactId>
-    <version>0.18.0</version>
+    <version>0.19.0</version>
     <packaging>jar</packaging>
     <name>TheMystic</name>
     <description>Slay the Spire mod introducing custom character: The Mystic.</description>
 
     <properties>
-        <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.19.0</ModTheSpire.version>
-        <BaseMod.version>5.29.0</BaseMod.version>
+        <SlayTheSpire.version>03-07-2022</SlayTheSpire.version>
+        <ModTheSpire.version>3.28.0</ModTheSpire.version>
+        <BaseMod.version>5.44.1</BaseMod.version>
         <FriendlyMinions.version>0.1.2</FriendlyMinions.version>
-        <StSLib.version>1.21.3</StSLib.version>
+        <StSLib.version>2.4.1</StSLib.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>

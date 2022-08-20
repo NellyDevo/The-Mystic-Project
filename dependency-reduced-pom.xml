@@ -4,7 +4,7 @@
   <groupId>mysticmod</groupId>
   <artifactId>MysticMod</artifactId>
   <name>TheMystic</name>
-  <version>0.18.0</version>
+  <version>0.19.0</version>
   <description>Slay the Spire mod introducing custom character: The Mystic.</description>
   <build>
     <resources>
@@ -102,12 +102,12 @@
   </dependencies>
   <properties>
     <FriendlyMinions.version>0.1.2</FriendlyMinions.version>
-    <ModTheSpire.version>3.19.0</ModTheSpire.version>
-    <BaseMod.version>5.29.0</BaseMod.version>
-    <StSLib.version>1.21.3</StSLib.version>
+    <ModTheSpire.version>3.28.0</ModTheSpire.version>
+    <BaseMod.version>5.44.1</BaseMod.version>
+    <StSLib.version>2.4.1</StSLib.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
+    <SlayTheSpire.version>03-07-2022</SlayTheSpire.version>
   </properties>
 </project>
 

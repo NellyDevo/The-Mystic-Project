@@ -360,6 +360,8 @@ public class MysticMod implements EditCardsSubscriber, EditCharactersSubscriber,
                 return "zhs";
             case RUS:
                 return "rus";
+            case KOR:
+                return "kor";
             default:
                 return "eng";
         }
